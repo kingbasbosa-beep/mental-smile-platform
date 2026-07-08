@@ -1,0 +1,27 @@
+﻿# Flutter / Dart generated
+.dart_tool/
+build/
+.flutter-plugins
+.flutter-plugins-dependencies
+.packages
+pubspec.lock
+
+# Firebase generated/local
+.firebase/
+firebase-debug.log
+firestore-debug.log
+ui-debug.log
+
+# OS / IDE
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Local archives/backups
+backups/
+*.tmp
+*.log
+
+# Never commit old generated deployment output
+public-landing/
