@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:mental_smile_os/app/locale_provider.dart';
 import 'package:mental_smile_os/app/router/routes.dart';
@@ -133,8 +133,8 @@ class _CommercialV2WebShowcasePageState
                       top: isMobile ? 10 : 16,
                     ),
                     child: _HeroFloatingActions(
-                      onOpenDesktop: () => _openRoute(Routes.legacySplash),
-                      onOpenApp: () => _openRoute(Routes.splash),
+                      onOpenDesktop: () => _openRoute(Routes.desktopEntry),
+                      onOpenApp: () => _openRoute(Routes.mobileEntry),
                     ),
                   ),
                 ),
@@ -163,14 +163,14 @@ class _HeroFloatingActions extends StatelessWidget {
       mainAxisSize: MainAxisSize.min,
       children: [
         _FloatingHeroAction(
-          label: 'ديسكتوب',
+          label: 'Ø¯ÙŠØ³ÙƒØªÙˆØ¨',
           icon: Icons.desktop_windows_rounded,
           onPressed: onOpenDesktop,
           compact: compact,
         ),
         SizedBox(width: compact ? 8 : 10),
         _FloatingHeroAction(
-          label: 'موبايل',
+          label: 'Ù…ÙˆØ¨Ø§ÙŠÙ„',
           icon: Icons.phone_iphone_rounded,
           onPressed: onOpenApp,
           compact: compact,
@@ -959,7 +959,7 @@ class _LanguageSwitch extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: [
           _LanguageSegment(
-            label: 'عربي',
+            label: 'Ø¹Ø±Ø¨ÙŠ',
             selected: isArabic,
             onPressed: onArabic,
           ),
@@ -1090,21 +1090,22 @@ class _WebsiteCopy {
 
     return const _WebsiteCopy(
       isArabic: true,
-      brandSubtitle: 'منصة منتال سمايل',
-      heroHeadline: 'أنت لا تمشي وحدك',
+      brandSubtitle: 'Ù…Ù†ØµØ© Ù…Ù†ØªØ§Ù„ Ø³Ù…Ø§ÙŠÙ„',
+      heroHeadline: 'Ø£Ù†Øª Ù„Ø§ ØªÙ…Ø´ÙŠ ÙˆØ­Ø¯Ùƒ',
       heroSubtitle:
-          'منصة عربية تساعد الأفراد والأسر على اكتشاف الدعم والمعرفة والأدوات والموارد ومقدمي الخدمات والمراكز بطريقة أوضح وأكثر إنسانية.',
-      openApp: 'فتح التطبيق',
-      explorePlatform: 'استكشاف المنصة',
-      support: 'الدعم',
-      knowledge: 'المعرفة',
-      recovery: 'التعافي',
-      accessibility: 'الوصول',
-      openForAll: 'متاح للجميع',
-      reliable: 'موارد موثوقة',
-      human: 'تصميم مخصص لك',
-      real: 'دعم إنساني حقيقي',
-      privacy: 'خصوصيتك آمنة',
+          'Ù…Ù†ØµØ© Ø¹Ø±Ø¨ÙŠØ© ØªØ³Ø§Ø¹Ø¯ Ø§Ù„Ø£ÙØ±Ø§Ø¯ ÙˆØ§Ù„Ø£Ø³Ø± Ø¹Ù„Ù‰ Ø§ÙƒØªØ´Ø§Ù Ø§Ù„Ø¯Ø¹Ù… ÙˆØ§Ù„Ù…Ø¹Ø±ÙØ© ÙˆØ§Ù„Ø£Ø¯ÙˆØ§Øª ÙˆØ§Ù„Ù…ÙˆØ§Ø±Ø¯ ÙˆÙ…Ù‚Ø¯Ù…ÙŠ Ø§Ù„Ø®Ø¯Ù…Ø§Øª ÙˆØ§Ù„Ù…Ø±Ø§ÙƒØ² Ø¨Ø·Ø±ÙŠÙ‚Ø© Ø£ÙˆØ¶Ø­ ÙˆØ£ÙƒØ«Ø± Ø¥Ù†Ø³Ø§Ù†ÙŠØ©.',
+      openApp: 'ÙØªØ­ Ø§Ù„ØªØ·Ø¨ÙŠÙ‚',
+      explorePlatform: 'Ø§Ø³ØªÙƒØ´Ø§Ù Ø§Ù„Ù…Ù†ØµØ©',
+      support: 'Ø§Ù„Ø¯Ø¹Ù…',
+      knowledge: 'Ø§Ù„Ù…Ø¹Ø±ÙØ©',
+      recovery: 'Ø§Ù„ØªØ¹Ø§ÙÙŠ',
+      accessibility: 'Ø§Ù„ÙˆØµÙˆÙ„',
+      openForAll: 'Ù…ØªØ§Ø­ Ù„Ù„Ø¬Ù…ÙŠØ¹',
+      reliable: 'Ù…ÙˆØ§Ø±Ø¯ Ù…ÙˆØ«ÙˆÙ‚Ø©',
+      human: 'ØªØµÙ…ÙŠÙ… Ù…Ø®ØµØµ Ù„Ùƒ',
+      real: 'Ø¯Ø¹Ù… Ø¥Ù†Ø³Ø§Ù†ÙŠ Ø­Ù‚ÙŠÙ‚ÙŠ',
+      privacy: 'Ø®ØµÙˆØµÙŠØªÙƒ Ø¢Ù…Ù†Ø©',
     );
   }
 }
+

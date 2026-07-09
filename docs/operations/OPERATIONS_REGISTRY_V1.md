@@ -274,3 +274,52 @@ Report:
 - `docs/deployment/LANDING_BUILD_VERIFY_AND_GITHUB_PAGES_DEPLOY_V1.md`
 
 Result: LANDING_BUILD_VERIFY_AND_GITHUB_PAGES_DEPLOY_V1_COMPLETED
+
+## OP-LANDING-ENTRY-BUTTONS-ROUTING-FIX-V1
+
+Date: 2026-07-09
+
+Operation Title: Landing Entry Buttons Routing Fix V1
+
+Scope: Fix the clean landing Mobile/Desktop entry buttons by routing them to internal placeholder pages without importing mobile or desktop runtime modules.
+
+Repository:
+
+- `C:\mental_smile_workspace\repositories\mental-smile-platform-clean`
+
+Routes Added:
+
+- `/desktop-entry`
+- `/mobile-entry`
+
+Files Modified:
+
+- `lib/features/commercial_v2_web/presentation/pages/commercial_v2_web_showcase_page.dart`
+- `lib/app/router/routes.dart`
+- `lib/app/app.dart`
+- `docs/deployment/LANDING_ENTRY_BUTTONS_ROUTING_FIX_V1.md`
+- `docs/operations/OPERATIONS_REGISTRY_V1.md`
+- `docs/operations/OPERATIONS_INDEX_V1.md`
+
+Verification:
+
+```powershell
+flutter pub get
+flutter build web --release --base-href /mental-smile-platform/
+```
+
+Build status: PASSED
+
+Mobile button fixed: YES
+
+Desktop button fixed: YES
+
+Mobile runtime imported: NO
+
+Desktop runtime imported: NO
+
+Firebase changed: NO
+
+Historical repository touched: NO
+
+Result: LANDING_ENTRY_BUTTONS_ROUTING_FIX_V1_COMPLETED
