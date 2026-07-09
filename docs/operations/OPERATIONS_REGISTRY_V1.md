@@ -172,3 +172,105 @@ Commit executed: NO
 
 Result: CLEAN_REPOSITORY_WORKTREE_BIRTH_V1_COMPLETED
 
+
+## OP-LANDING-CAPSULE-MATERIALIZATION-V1
+
+Date: 2026-07-09
+
+Operation Title: Landing Capsule Materialization V1
+
+Scope: Materialize only the existing Flutter landing runtime from the historical repository into the clean repository.
+
+Source:
+
+- `C:\mental_smile_workspace\app\mental-smile-platform`
+- `lib/features/commercial_v2_web/presentation/pages/commercial_v2_web_showcase_page.dart`
+
+Target:
+
+- `C:\mental_smile_workspace\repositories\mental-smile-platform-clean`
+
+Routes:
+
+- `/`
+- `/landing-preview`
+
+Runtime partially materialized: YES
+
+Landing imported: YES
+
+Other modules imported: NO
+
+Firebase imported: NO
+
+Workflow created: NO
+
+GitHub Pages published: NO
+
+Build ready: PENDING OWNER-RUN BUILD
+
+Report:
+
+- `docs/materialization/LANDING_CAPSULE_MATERIALIZATION_V1.md`
+
+Result: LANDING_CAPSULE_MATERIALIZATION_V1_COMPLETED
+
+## OP-LANDING-BUILD-VERIFY-AND-GITHUB-PAGES-DEPLOY-V1
+
+Date: 2026-07-09
+
+Operation Title: Landing Build Verify And GitHub Pages Deploy V1
+
+Scope: Verify the clean landing Flutter Web build and create the GitHub Pages workflow to publish `build/web` to `gh-pages`.
+
+Repository:
+
+- `C:\mental_smile_workspace\repositories\mental-smile-platform-clean`
+
+Branch:
+
+- `post-separation-pure-dna-v1`
+
+Remote:
+
+- `https://github.com/kingbasbosa-beep/mental-smile-platform.git`
+
+Build Command:
+
+```powershell
+flutter build web --release --base-href /mental-smile-platform/
+```
+
+Build status: PASSED
+
+Workflow:
+
+- `.github/workflows/github-pages.yml`
+
+Workflow created: YES
+
+Firebase changed: NO
+
+Firestore changed: NO
+
+Historical repository touched: NO
+
+Commit required: YES
+
+Push required: YES
+
+GitHub Pages Manual Settings:
+
+- Source: Deploy from a branch
+- Branch: `gh-pages`
+- Folder: `/root`
+
+Final URL:
+
+- `https://kingbasbosa-beep.github.io/mental-smile-platform/`
+
+Report:
+
+- `docs/deployment/LANDING_BUILD_VERIFY_AND_GITHUB_PAGES_DEPLOY_V1.md`
+
+Result: LANDING_BUILD_VERIFY_AND_GITHUB_PAGES_DEPLOY_V1_COMPLETED

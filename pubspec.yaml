@@ -1,0 +1,36 @@
+﻿name: mental_smile_os
+description: Clean Mental Smile Platform landing materialization.
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=3.3.0 <4.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+  cupertino_icons: ^1.0.8
+  flutter_riverpod: ^2.6.1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^4.0.0
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/branding/web/website_hero_top_v2.png
+    - assets/library/platform_guides/platform_guide_desktop.webp.png
+    - assets/library/platform_guides/platform_guide_mobile.webp.png
+    - assets/library/platform_guides/platform_guide_content_access.webp.png
+    - assets/library/backgrounds/official_links_background.webp.png
+    - assets/presentations/presentation_about_mental_smile.webp.png
+    - assets/presentations/presentation_accessibility_services.webp.png
+    - assets/presentations/presentation_client_services.webp.png
+    - assets/presentations/presentation_specialist_services.webp.png
+    - assets/presentations/presentation_center_services.webp.png
