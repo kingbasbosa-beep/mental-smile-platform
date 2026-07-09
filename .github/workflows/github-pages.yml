@@ -1,4 +1,4 @@
-﻿name: Deploy Flutter Landing to GitHub Pages
+﻿name: Deploy Flutter Web to GitHub Pages
 
 on:
   workflow_dispatch:
@@ -48,4 +48,5 @@ jobs:
           force_orphan: true
           keep_files: false
           enable_jekyll: false
-          commit_message: Deploy Flutter landing to GitHub Pages from ${{ github.sha }}
+          commit_message: Deploy Flutter Web to GitHub Pages from ${{ github.sha }}
+

@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "420957221495",
+    "project_id": "mental-smile-platform",
+    "storage_bucket": "mental-smile-platform.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:420957221495:android:356d24a12835b9723a0c72",
+        "android_client_info": {
+          "package_name": "com.mentalsmile.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCBRNmoAVqHTctD-eMuznSrxojwt3ewiMg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

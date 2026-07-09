@@ -1,0 +1,11 @@
+{
+  "id": "coming_soon_01",
+  "title": "Coming Soon",
+  "image": "",
+  "folderName": "coming_soon_01",
+  "enabled": false,
+  "future": true,
+  "tags": [],
+  "readingMinutes": 0,
+  "difficulty": "Future"
+}

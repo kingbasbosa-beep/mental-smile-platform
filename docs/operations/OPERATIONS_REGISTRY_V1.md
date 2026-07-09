@@ -323,3 +323,76 @@ Firebase changed: NO
 Historical repository touched: NO
 
 Result: LANDING_ENTRY_BUTTONS_ROUTING_FIX_V1_COMPLETED
+
+## OP-CURRENT-OPERATIONAL-BUILD-MATERIALIZATION-V1
+
+Date: 2026-07-09
+
+Operation Title: Current Operational Build Materialization V1
+
+Scope: Materialize the current operational Flutter runtime from the historical working repository into the clean repository while excluding history, archives, backups, generated build outputs, and emergency recovery material.
+
+Source:
+
+- `C:\mental_smile_workspace\app\mental-smile-platform`
+
+Target:
+
+- `C:\mental_smile_workspace\repositories\mental-smile-platform-clean`
+
+Copied:
+
+- `lib/`
+- `assets/`
+- `web/`
+- `android/`
+- `test/`
+- `pubspec.yaml`
+- `pubspec.lock`
+- `analysis_options.yaml`
+- `firebase.json`
+- `firestore.rules`
+- `storage.rules`
+- `firestore.indexes.json`
+- `l10n.yaml`
+
+Excluded:
+
+- `.git/`
+- `build/`
+- `.dart_tool/`
+- `.firebase/`
+- `backups/`
+- `public-landing/`
+- analyzer text outputs
+- `docs/archive/`
+- `docs/capsules/builds/`
+- `docs/emergency-recovery-vault/`
+- `mental-smile-os-workspace/`
+- `functions/`
+
+Verification:
+
+```powershell
+flutter pub get
+flutter analyze
+flutter build web --release --base-href /mental-smile-platform/
+```
+
+Analyze status: PASSED
+
+Web build status: PASSED
+
+Arabic encoding fixed: YES
+
+Android project ready: YES
+
+Firebase config imported: YES
+
+GitHub Pages workflow ready: YES
+
+Report:
+
+- `docs/materialization/CURRENT_OPERATIONAL_BUILD_MATERIALIZATION_V1.md`
+
+Result: CURRENT_OPERATIONAL_BUILD_MATERIALIZATION_V1_COMPLETED

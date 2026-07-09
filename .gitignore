@@ -4,7 +4,6 @@ build/
 .flutter-plugins
 .flutter-plugins-dependencies
 .packages
-pubspec.lock
 
 # Firebase generated/local
 .firebase/
@@ -25,3 +24,12 @@ backups/
 
 # Never commit old generated deployment output
 public-landing/
+
+
+# Dependency folders / generated local installs
+node_modules/
+test/node_modules/
+
+# Local Android backup files
+android/app/*.backup*
+android/app/google-services.json.backup*
