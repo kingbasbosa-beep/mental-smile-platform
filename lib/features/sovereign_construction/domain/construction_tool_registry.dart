@@ -167,7 +167,8 @@ class ConstructionToolRegistry {
       nameEn: 'Current Prompt Memory Registry',
       type: ConstructionToolType.memoryReference,
       descriptionAr: 'مرجع نسب البرومبتات داخل الذاكرة الدستورية.',
-      descriptionEn: 'Prompt lineage reference inside Constitutional Memory.',
+      descriptionEn:
+          'Prompt lineage reference inside certified Archive records.',
       launchType: ConstructionLaunchType.localPath,
       localPath:
           r'docs\mental-smile-os\constitutional-memory-domain\PROMPT_MEMORY_REGISTRY_V1.md',

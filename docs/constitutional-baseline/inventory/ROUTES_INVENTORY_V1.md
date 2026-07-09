@@ -91,10 +91,28 @@ Runtime effect: none
 | `/module/centers/details` | Center Details | Commercial | System | ACTIVE |
 | `/module/library` | App Library | Library | Client/System | ACTIVE |
 
+## Generation 2 & Platform Evolution Routes
+
+| Route | Surface | Domain | Owner | Status |
+| --- | --- | --- | --- | --- |
+| `/legacy/splash` | Legacy Splash | Residential | System | ACTIVE |
+| `/g2/mobile/client` | G2 Mobile Lite | Residential | Client | ACTIVE |
+| `/g2/mobile/login-selection` | G2 Login Selection | Residential | System | ACTIVE |
+| `/g2/mobile/client-room` | G2 Client Friend Room | Residential | Client | ACTIVE |
+| `/g2/mobile/specialist-room` | G2 Specialist Friend Room | Commercial | Specialist | ACTIVE |
+| `/g2/mobile/center-room` | G2 Center Friend Room | Commercial | Center | ACTIVE |
+| `/commercial/specialist/register` | Specialist Register | Administrative | Specialist | ACTIVE |
+| `/commercial/center/register` | Center Register | Administrative | Center | ACTIVE |
+| `/web/library/official-links` | Official Links Page | Library | System | ACTIVE |
+| `/web/library/know-your-right/cards` | Knowledge Cards | Library | System | ACTIVE |
+| `/web/library/know-your-right/article` | Knowledge Viewer | Library | System | ACTIVE |
+| `/landing-preview` | Landing Preview | Commercial | Owner | ACTIVE |
+| `/presentation-gallery` | Presentation Gallery | Commercial | Owner | ACTIVE |
+
 ## Counts
 
-- Total routes inventoried: 82
-- ACTIVE: 76
+- Total routes inventoried: 95
+- ACTIVE: 89
 - ALIAS: 3
 - LEGACY: 1
 - UNKNOWN: 2

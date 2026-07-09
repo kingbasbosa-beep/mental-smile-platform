@@ -21,6 +21,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
         with:
+          ref: post-separation-pure-dna-v1
           fetch-depth: 1
 
       - name: Setup Flutter
@@ -33,7 +34,10 @@ jobs:
         run: flutter pub get
 
       - name: Build Flutter Web
-        run: flutter build web --release --base-href /mental-smile-os/
+        run: flutter build web --release --base-href /mental-smile-platform/
+
+      - name: Add GitHub Pages nojekyll marker
+        run: touch build/web/.nojekyll
 
       - name: Verify clean publish source
         run: test -f build/web/index.html

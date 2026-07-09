@@ -188,7 +188,7 @@ class AppExitSocialLinksPage extends StatelessWidget {
                               FilledButton.icon(
                                 onPressed: () {
                                   Navigator.of(context).pushNamedAndRemoveUntil(
-                                    Routes.login,
+                                    Routes.commercialAccess,
                                     (route) => false,
                                   );
                                 },
@@ -196,13 +196,13 @@ class AppExitSocialLinksPage extends StatelessWidget {
                                 label: Text(
                                   isArabic
                                       ? 'العودة لتسجيل الدخول'
-                                      : 'Back to login',
+                                      : 'Back to start',
                                 ),
                               ),
                               OutlinedButton.icon(
                                 onPressed: () {
                                   Navigator.of(context).pushNamedAndRemoveUntil(
-                                    Routes.home,
+                                    Routes.splash,
                                     (route) => false,
                                   );
                                 },

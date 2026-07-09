@@ -102,11 +102,11 @@ class AppPageBackground extends StatelessWidget {
               ),
             ),
           if (showDecorativeLayers && showPattern)
-            Positioned.fill(
+            const Positioned.fill(
               child: IgnorePointer(
                 child: Opacity(
                   opacity: 0.045,
-                  child: const CustomPaint(
+                  child: CustomPaint(
                     painter: _PagePatternPainter(
                       color: AppColors.deepTeal,
                     ),
@@ -314,11 +314,11 @@ class AppSurfaceCard extends StatelessWidget {
               ),
             ),
           ),
-          Positioned.fill(
+          const Positioned.fill(
             child: IgnorePointer(
               child: Opacity(
                 opacity: 0.025,
-                child: const CustomPaint(
+                child: CustomPaint(
                   painter: _PagePatternPainter(color: AppColors.deepTeal),
                 ),
               ),

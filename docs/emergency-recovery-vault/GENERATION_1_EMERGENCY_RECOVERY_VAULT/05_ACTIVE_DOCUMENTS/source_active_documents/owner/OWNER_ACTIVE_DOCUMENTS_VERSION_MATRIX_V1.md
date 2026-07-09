@@ -1,0 +1,12 @@
+﻿# OWNER_ACTIVE_DOCUMENTS_VERSION_MATRIX_V1
+
+Status: ACTIVE_CURRENT
+Approval Date: 2026-07-02
+Section Code: SEC-OWN
+
+| Version | Documents | Status | Capsule Eligible |
+|---|---:|---|---|
+| V1 | 14 | ACTIVE_CURRENT | YES |
+
+FINAL STATUS: OWNER_ACTIVE_DOCUMENTS_VERSION_MATRIX_CREATED
+

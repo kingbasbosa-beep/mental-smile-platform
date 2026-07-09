@@ -1,8 +1,8 @@
 import 'package:flutter_test/flutter_test.dart';
 
-import '../../../../../lib/features/trust/domain/contracts/provider_trust_summary_contract.dart';
-import '../../../../../lib/features/trust/domain/models/provider_trust_summary.dart';
-import '../../../../../lib/features/trust/domain/providers/fake_provider_trust_summary_provider.dart';
+import 'package:mental_smile_os/features/trust/domain/contracts/provider_trust_summary_contract.dart';
+import 'package:mental_smile_os/features/trust/domain/models/provider_trust_summary.dart';
+import 'package:mental_smile_os/features/trust/domain/providers/fake_provider_trust_summary_provider.dart';
 import '../../fixtures/provider_trust_summary_fixtures.dart';
 
 void main() {

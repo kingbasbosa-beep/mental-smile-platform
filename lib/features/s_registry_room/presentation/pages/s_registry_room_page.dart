@@ -15,7 +15,6 @@ class SRegistryRoomPage extends StatelessWidget {
     return domainRegistry
         .where(
           (domain) => <DomainKey>{
-            DomainKey.chat,
             DomainKey.specialistWorkspace,
             DomainKey.aiPolicy,
             DomainKey.governance,
@@ -219,27 +218,6 @@ class _RegistryDomainCard extends StatelessWidget {
                     _MetadataItem(
                       'publishedVersion',
                       _stringText(status.metadata['publishedVersion']),
-                    ),
-                  ],
-                ),
-              ],
-              if (domain.key == DomainKey.chat &&
-                  status.metadata.isNotEmpty) ...<Widget>[
-                const SizedBox(height: 12),
-                _MetadataSection(
-                  title: 'Support Signal Health',
-                  items: <_MetadataItem>[
-                    _MetadataItem(
-                      'openSignalCount',
-                      _stringText(status.metadata['openEscalationsCount']),
-                    ),
-                    _MetadataItem(
-                      'openSupportRoomCount',
-                      _stringText(status.metadata['openSupportRoomCount']),
-                    ),
-                    _MetadataItem(
-                      'lastHealthSampleType',
-                      _stringText(status.metadata['lastHealthSampleType']),
                     ),
                   ],
                 ),
@@ -533,8 +511,6 @@ List<String> _visibleCollections(DomainDefinition domain) {
   return domain.ownedCollections
       .where(
         <String>{
-          'chat_threads',
-          'chat_escalations',
           'ai_policies',
           'system_domains',
           'system_alerts',

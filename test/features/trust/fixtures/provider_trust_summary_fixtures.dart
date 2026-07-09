@@ -1,4 +1,4 @@
-import '../../../../lib/features/trust/domain/models/provider_trust_summary.dart';
+import 'package:mental_smile_os/features/trust/domain/models/provider_trust_summary.dart';
 
 /// Test-only fixtures for Trust read surface model and mapper tests.
 ///

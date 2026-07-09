@@ -1,0 +1,12 @@
+﻿# ADMINISTRATIVE_ACTIVE_DOCUMENTS_VERSION_MATRIX_V1
+
+Status: ACTIVE_CURRENT
+Approval Date: 2026-07-02
+Section Code: SEC-ADM
+
+| Version | Documents | Status | Capsule Eligible |
+|---|---:|---|---|
+| V1 | 14 | ACTIVE_CURRENT | YES |
+
+FINAL STATUS: ADMINISTRATIVE_ACTIVE_DOCUMENTS_VERSION_MATRIX_CREATED
+

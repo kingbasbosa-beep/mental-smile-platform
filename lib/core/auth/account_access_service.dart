@@ -1,6 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/foundation.dart';
 import 'package:mental_smile_os/core/visibility/visibility_readiness.dart';
 import 'package:mental_smile_os/shared/contracts/role_names.dart';
 
@@ -140,11 +139,6 @@ class AccountAccessService {
   bool _matchesProviderRole(dynamic value, String expectedRole) {
     final role = _normalizedRole(value);
     return role.isEmpty || role == expectedRole;
-  }
-
-  void _accessTrace(String message) {
-    if (!kDebugMode) return;
-    debugPrint('ACCESS_TRACE $message');
   }
 
   Future<DocumentSnapshot<Map<String, dynamic>>?> _safeGet(

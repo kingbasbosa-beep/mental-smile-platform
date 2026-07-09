@@ -1,6 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
 
-import '../../../../../lib/features/trust/domain/mappers/provider_trust_summary_mapper.dart';
+import 'package:mental_smile_os/features/trust/domain/mappers/provider_trust_summary_mapper.dart';
 import '../../fixtures/provider_trust_summary_fixtures.dart';
 
 void main() {

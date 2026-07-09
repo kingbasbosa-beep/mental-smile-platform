@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 // [S] Web Surface Asset
 // Approved by Wave S-5 Classification Map.
-// Navigation skeleton only; must remain free from legacy workflow coupling.
+// Navigation readiness only; must remain free from workflow coupling.
 class SSurfaceIndexPage extends StatelessWidget {
   const SSurfaceIndexPage({super.key});
 
@@ -16,21 +16,9 @@ class SSurfaceIndexPage extends StatelessWidget {
         runSpacing: 14,
         children: <Widget>[
           _SurfaceNavigationCard(
-            title: '[S] City',
-            subtitle:
-                'Discovery city center for providers, knowledge, tools, and programs',
-            route: '/s/city',
-          ),
-          _SurfaceNavigationCard(
             title: '[S] Capital',
             subtitle: 'Monitoring, intelligence, departments, and reports',
             route: '/s/capital',
-          ),
-          _SurfaceNavigationCard(
-            title: '[S] Owner',
-            subtitle:
-                'Sovereign oversight, memory, strategy, and archive access',
-            route: '/s/owner',
           ),
         ],
       ),
@@ -170,9 +158,7 @@ class _SurfaceNavigation extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     const entries = <_SurfaceNavigationEntry>[
-      _SurfaceNavigationEntry('[S] City', '/s/city'),
       _SurfaceNavigationEntry('[S] Capital', '/s/capital'),
-      _SurfaceNavigationEntry('[S] Owner', '/s/owner'),
     ];
     final visibleEntries =
         entries.where((entry) => entry.route != currentRoute).toList();
@@ -344,7 +330,7 @@ class _BoundaryNotice extends StatelessWidget {
         border: Border.all(color: const Color(0xFFE8D8A8)),
       ),
       child: const Text(
-        'Signal-first placeholder only. No authority '
+        'Signal-first readiness surface only. No authority '
         'workflow, Firebase write, auth claim change, automation, or production '
         'data operation is attached to this surface.',
         style: TextStyle(

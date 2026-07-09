@@ -1,0 +1,3 @@
+﻿# OPERATION_REGISTRY_SNAPSHOT
+
+Source: docs/constitutional-baseline/operations/EXECUTED_OPERATIONS_REGISTRY_V1.md and EXECUTED_OPERATIONS_INDEX_V1.md.

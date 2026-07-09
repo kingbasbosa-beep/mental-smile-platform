@@ -22,6 +22,7 @@ analyzer:
     - _web_profiles/**
     - _chrome_profiles/**
     - .mk_chrome_profiles/**
+    - docs/**
     - windows/flutter/ephemeral/**
     - android/.gradle/**
     - ios/Pods/**

@@ -1,5 +1,4 @@
 enum DomainKey {
-  chat,
   specialistWorkspace,
   aiPolicy,
   governance,
@@ -26,16 +25,6 @@ class DomainDefinition {
 }
 
 const List<DomainDefinition> domainRegistry = <DomainDefinition>[
-  DomainDefinition(
-    key: DomainKey.chat,
-    id: 'chat',
-    displayName: 'Chat',
-    description: 'Threads, escalations, human support routing, and chat flows.',
-    ownedCollections: <String>[
-      'chat_threads',
-      'chat_escalations',
-    ],
-  ),
   DomainDefinition(
     key: DomainKey.specialistWorkspace,
     id: 'specialistWorkspace',
@@ -82,7 +71,7 @@ const List<DomainDefinition> domainRegistry = <DomainDefinition>[
     id: 'communication',
     displayName: 'Communication',
     description:
-        'External messaging gateways such as Facebook, Telegram, and web chat bridges.',
+        'External messaging gateways such as Facebook, Telegram, and public contact surfaces.',
   ),
   DomainDefinition(
     key: DomainKey.marketing,

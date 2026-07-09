@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:mental_smile_os/features/signals/signals.dart';
+import 'package:mental_smile_os/l10n/app_localizations.dart';
 import 'package:mental_smile_os/shared/ui_kit/app_design_system.dart';
 import 'package:mental_smile_os/shared/ui_kit/app_shell_actions.dart';
 
@@ -56,37 +57,32 @@ class _SupportIssueSelectorPageState extends State<SupportIssueSelectorPage> {
     );
   }
 
-  List<_SupportIssueOption> _options(bool isArabic) {
+  List<_SupportIssueOption> _options(AppLocalizations l10n) {
     if (_isClientSupport) {
       return [
         _SupportIssueOption(
           key: 'service_access_question',
-          label: isArabic ? 'مساعدة في الوصول للخدمة' : 'Service access help',
+          label: l10n.supportIssueClientAccess,
         ),
         _SupportIssueOption(
           key: 'provider_contact_question',
-          label:
-              isArabic ? 'مساعدة في التواصل مع مختص' : 'Provider contact help',
+          label: l10n.supportIssueClientContact,
         ),
         _SupportIssueOption(
           key: 'account_profile_issue',
-          label: isArabic
-              ? 'مشكلة في الحساب أو الملف الشخصي'
-              : 'Account/profile issue',
+          label: l10n.supportIssueClientAccount,
         ),
         _SupportIssueOption(
           key: 'complaint_bad_experience',
-          label: isArabic
-              ? 'شكوى أو تجربة غير جيدة'
-              : 'Complaint / bad experience',
+          label: l10n.supportIssueClientComplaint,
         ),
         _SupportIssueOption(
           key: 'need_human_guidance',
-          label: isArabic ? 'أحتاج إرشادًا بشريًا' : 'Need human guidance',
+          label: l10n.supportIssueClientGuidance,
         ),
         _SupportIssueOption(
           key: 'general_support_question',
-          label: isArabic ? 'استفسار دعم عام' : 'General support question',
+          label: l10n.supportIssueClientGeneral,
         ),
       ];
     }
@@ -95,26 +91,23 @@ class _SupportIssueSelectorPageState extends State<SupportIssueSelectorPage> {
       return [
         _SupportIssueOption(
           key: 'profile_visibility_issue',
-          label: isArabic ? 'مشكلة في ظهور الملف' : 'Profile visibility issue',
+          label: l10n.supportIssueCenterProfile,
         ),
         _SupportIssueOption(
           key: 'contact_request_question',
-          label:
-              isArabic ? 'استفسار عن إشارة تواصل' : 'Contact signal question',
+          label: l10n.supportIssueCenterContact,
         ),
         _SupportIssueOption(
           key: 'accessibility_information_issue',
-          label: isArabic
-              ? 'مشكلة في معلومات الإتاحة'
-              : 'Accessibility information issue',
+          label: l10n.supportIssueCenterAccess,
         ),
         _SupportIssueOption(
           key: 'system_issue',
-          label: isArabic ? 'مشكلة في النظام' : 'System issue',
+          label: l10n.supportIssueCenterSystem,
         ),
         _SupportIssueOption(
           key: 'general_support_request',
-          label: isArabic ? 'إشارة دعم عامة' : 'General support signal',
+          label: l10n.supportIssueCenterGeneral,
         ),
       ];
     }
@@ -123,25 +116,23 @@ class _SupportIssueSelectorPageState extends State<SupportIssueSelectorPage> {
       return [
         _SupportIssueOption(
           key: 'profile_visibility_issue',
-          label: isArabic ? 'مشكلة في ظهور الملف' : 'Profile visibility issue',
+          label: l10n.supportIssueCenterProfile,
         ),
         _SupportIssueOption(
           key: 'client_communication_question',
-          label: isArabic ? 'استفسار عن التواصل' : 'Communication question',
+          label: l10n.supportIssueClinicianCommunication,
         ),
         _SupportIssueOption(
           key: 'recommendation_visibility_question',
-          label: isArabic
-              ? 'استفسار عن ظهور التوصيات'
-              : 'Recommendation visibility question',
+          label: l10n.supportIssueClinicianRecommendation,
         ),
         _SupportIssueOption(
           key: 'system_issue',
-          label: isArabic ? 'مشكلة في النظام' : 'System issue',
+          label: l10n.supportIssueCenterSystem,
         ),
         _SupportIssueOption(
           key: 'need_support_room',
-          label: isArabic ? 'أحتاج دعمًا' : 'Need support',
+          label: l10n.supportIssueClinicianSupport,
         ),
       ];
     }
@@ -150,27 +141,27 @@ class _SupportIssueSelectorPageState extends State<SupportIssueSelectorPage> {
       return [
         _SupportIssueOption(
           key: 'need_specialist',
-          label: isArabic ? 'محتاج أخصائي مناسب' : 'Need a suitable specialist',
+          label: l10n.supportIssueRecoverySpecialist,
         ),
         _SupportIssueOption(
           key: 'need_center',
-          label: isArabic ? 'محتاج مركز مناسب' : 'Need a suitable center',
+          label: l10n.supportIssueRecoveryCenter,
         ),
         _SupportIssueOption(
           key: 'recovery_support',
-          label: isArabic ? 'دعم في التعافي' : 'Recovery support',
+          label: l10n.supportIssueRecoverySupport,
         ),
         _SupportIssueOption(
           key: 'relapse_concern',
-          label: isArabic ? 'قلق من الانتكاسة' : 'Relapse concern',
+          label: l10n.supportIssueRecoveryRelapse,
         ),
         _SupportIssueOption(
           key: 'risk_report',
-          label: isArabic ? 'بلاغ خطر' : 'Risk report',
+          label: l10n.supportIssueRecoveryRisk,
         ),
         _SupportIssueOption(
           key: 'general_help',
-          label: isArabic ? 'إشارة مساعدة عامة' : 'General help signal',
+          label: l10n.supportIssueRecoveryGeneral,
         ),
       ];
     }
@@ -178,29 +169,27 @@ class _SupportIssueSelectorPageState extends State<SupportIssueSelectorPage> {
     return [
       _SupportIssueOption(
         key: 'need_specialist',
-        label: isArabic ? 'محتاج أخصائي مناسب' : 'Need a suitable specialist',
+        label: l10n.supportIssueRecoverySpecialist,
       ),
       _SupportIssueOption(
         key: 'need_center',
-        label: isArabic ? 'محتاج مركز مناسب' : 'Need a suitable center',
+        label: l10n.supportIssueRecoveryCenter,
       ),
       _SupportIssueOption(
         key: 'family_guidance',
-        label: isArabic ? 'إرشاد أسري' : 'Family guidance',
+        label: l10n.supportIssueFamilyGuidance,
       ),
       _SupportIssueOption(
         key: 'special_case_support',
-        label: isArabic
-            ? 'دعم لطفل / حالة خاصة'
-            : 'Support for a child / special case',
+        label: l10n.supportIssueFamilySpecialCase,
       ),
       _SupportIssueOption(
         key: 'risk_report',
-        label: isArabic ? 'بلاغ خطر' : 'Risk report',
+        label: l10n.supportIssueRecoveryRisk,
       ),
       _SupportIssueOption(
         key: 'general_help',
-        label: isArabic ? 'إشارة مساعدة عامة' : 'General help signal',
+        label: l10n.supportIssueRecoveryGeneral,
       ),
     ];
   }
@@ -216,6 +205,8 @@ class _SupportIssueSelectorPageState extends State<SupportIssueSelectorPage> {
 
   Future<void> _submitIssue(_SupportIssueOption option) async {
     if (_submittingIssueKey != null) return;
+
+    final l10n = AppLocalizations.of(context)!;
 
     setState(() {
       _submittingIssueKey = option.key;
@@ -255,11 +246,7 @@ class _SupportIssueSelectorPageState extends State<SupportIssueSelectorPage> {
       if (!mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
-          content: Text(
-            _isArabic(context)
-                ? 'تم استلام إشارة الدعم في غرفة الدعم'
-                : 'Your support signal was received by the Support Room.',
-          ),
+          content: Text(l10n.supportIssueSelectorSuccess),
         ),
       );
       Navigator.of(context).maybePop();
@@ -267,11 +254,7 @@ class _SupportIssueSelectorPageState extends State<SupportIssueSelectorPage> {
       if (!mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
-          content: Text(
-            _isArabic(context)
-                ? 'تعذر إرسال إشارة الدعم الآن'
-                : 'Unable to submit the support signal right now.',
-          ),
+          content: Text(l10n.supportIssueSelectorError),
         ),
       );
     } finally {
@@ -285,11 +268,11 @@ class _SupportIssueSelectorPageState extends State<SupportIssueSelectorPage> {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     final isArabic = _isArabic(context);
-    final title = isArabic ? 'الدعم' : 'Support';
-    final selectorTitle =
-        isArabic ? 'اختر نوع المساعدة' : 'Choose support type';
-    final options = _options(isArabic);
+    final title = l10n.supportIssueSelectorTitle;
+    final selectorTitle = l10n.supportIssueSelectorHelpType;
+    final options = _options(l10n);
 
     return Directionality(
       textDirection: isArabic ? TextDirection.rtl : TextDirection.ltr,
@@ -350,9 +333,7 @@ class _SupportIssueSelectorPageState extends State<SupportIssueSelectorPage> {
                           ),
                           const SizedBox(height: AppSpacing.sm),
                           Text(
-                            isArabic
-                                ? 'اختر المشكلة الأقرب لاحتياجك الحالي ليتم استلامها كإشارة دعم منظمة.'
-                                : 'Choose the issue that best matches your current need so it can be received as a structured support signal.',
+                            l10n.supportIssueSelectorHelpDesc,
                             textAlign:
                                 isArabic ? TextAlign.right : TextAlign.left,
                             style: const TextStyle(color: Color(0xFFFFF4D4)),
@@ -364,50 +345,54 @@ class _SupportIssueSelectorPageState extends State<SupportIssueSelectorPage> {
                     ...options.map(
                       (option) => Padding(
                         padding: const EdgeInsets.only(bottom: AppSpacing.sm),
-                        child: InkWell(
-                          borderRadius: BorderRadius.circular(AppRadii.lg),
-                          onTap: _submittingIssueKey == null
-                              ? () => _submitIssue(option)
-                              : null,
-                          child: Container(
-                            padding: const EdgeInsets.all(AppSpacing.lg),
-                            decoration:
-                                _glassDecoration(alpha: 0.30, radius: 22),
-                            child: Row(
-                              textDirection: isArabic
-                                  ? TextDirection.rtl
-                                  : TextDirection.ltr,
-                              children: [
-                                _submittingIssueKey == option.key
-                                    ? const SizedBox(
-                                        width: 20,
-                                        height: 20,
-                                        child: CircularProgressIndicator(
-                                          strokeWidth: 2,
+                        child: Semantics(
+                          button: true,
+                          label: option.label,
+                          child: InkWell(
+                            borderRadius: BorderRadius.circular(AppRadii.lg),
+                            onTap: _submittingIssueKey == null
+                                ? () => _submitIssue(option)
+                                : null,
+                            child: Container(
+                              padding: const EdgeInsets.all(AppSpacing.lg),
+                              decoration:
+                                  _glassDecoration(alpha: 0.30, radius: 22),
+                              child: Row(
+                                textDirection: isArabic
+                                    ? TextDirection.rtl
+                                    : TextDirection.ltr,
+                                children: [
+                                  _submittingIssueKey == option.key
+                                      ? const SizedBox(
+                                          width: 20,
+                                          height: 20,
+                                          child: CircularProgressIndicator(
+                                            strokeWidth: 2,
+                                            color: Color(0xFFE7C766),
+                                          ),
+                                        )
+                                      : const Icon(
+                                          Icons.radio_button_unchecked_rounded,
                                           color: Color(0xFFE7C766),
                                         ),
-                                      )
-                                    : const Icon(
-                                        Icons.radio_button_unchecked_rounded,
-                                        color: Color(0xFFE7C766),
-                                      ),
-                                const SizedBox(width: AppSpacing.sm),
-                                Expanded(
-                                  child: Text(
-                                    option.label,
-                                    textAlign: isArabic
-                                        ? TextAlign.right
-                                        : TextAlign.left,
-                                    style: Theme.of(context)
-                                        .textTheme
-                                        .titleMedium
-                                        ?.copyWith(
-                                          color: const Color(0xFFFFF4D4),
-                                          fontWeight: FontWeight.w800,
-                                        ),
+                                  const SizedBox(width: AppSpacing.sm),
+                                  Expanded(
+                                    child: Text(
+                                      option.label,
+                                      textAlign: isArabic
+                                          ? TextAlign.right
+                                          : TextAlign.left,
+                                      style: Theme.of(context)
+                                          .textTheme
+                                          .titleMedium
+                                          ?.copyWith(
+                                            color: const Color(0xFFFFF4D4),
+                                            fontWeight: FontWeight.w800,
+                                          ),
+                                    ),
                                   ),
-                                ),
-                              ],
+                                ],
+                              ),
                             ),
                           ),
                         ),

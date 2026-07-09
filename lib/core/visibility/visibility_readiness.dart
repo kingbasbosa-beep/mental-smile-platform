@@ -34,13 +34,7 @@ class VisibilityReadinessStreams {
   ) {
     late StreamController<List<QueryDocumentSnapshot<Map<String, dynamic>>>>
         controller;
-    StreamSubscription<QuerySnapshot<Map<String, dynamic>>>?
-        canonicalSubscription;
     StreamSubscription<QuerySnapshot<Map<String, dynamic>>>? subscription;
-
-    void emit() {
-      if (controller.isClosed) return;
-    }
 
     controller =
         StreamController<List<QueryDocumentSnapshot<Map<String, dynamic>>>>(

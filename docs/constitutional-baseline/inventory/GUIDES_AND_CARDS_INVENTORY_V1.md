@@ -36,9 +36,12 @@ Runtime effect: none
 | `FINDING_REGISTRY_V1.md` | ACTIVE |
 | `ARCHIVE_REGISTRY_V1.md` | ACTIVE |
 | `MEMORY_REGISTRY_V1.md` | ACTIVE |
+| `PROMPT_REGISTRY_V1.md` | ACTIVE |
+| `KNOWLEDGE_REGISTRY_V1.md` | ACTIVE |
 | `DOMAIN_REGISTRY_V1.md` | ACTIVE |
 | `EXECUTED_OPERATIONS_REGISTRY_V1.md` | ACTIVE |
 | `EXECUTED_OPERATIONS_INDEX_V1.md` | ACTIVE |
+| `GENERATED_REPORTS_INDEX_V1.md` | ACTIVE |
 
 ## Snapshots
 
@@ -49,10 +52,48 @@ Runtime effect: none
 | `PURE_DNA_VALIDATION_EVIDENCE_V1.md` | ACTIVE |
 | `TOPOLOGY_SNAPSHOT_V1.md` | ACTIVE |
 
+## Key Guides by Section
+
+| Section | Guide(s) |
+| --- | --- |
+| OS Kernel | `OS_KERNEL_COMPLETION_CERTIFICATE_V1` |
+| Entry/Auth | `ENTRY_AUTH_CONSTITUTION_V1`, `ENTRY_AUTH_RUNTIME_GUIDE_V1` |
+| Residential | `RESIDENTIAL_CONSTITUTION_V1`, `RESIDENTIAL_SIGNAL_GUIDE_V1` |
+| Library | `LIBRARY_CONSTITUTION_V1`, `LIBRARY_PURE_DNA_GUIDE_V1` |
+| Commercial V2 | `COMMERCIAL_V2_PURE_DNA_GUIDE_V1`, `COMMERCIAL_V2_OFFICIAL_RUNTIME_DECLARATION_V1` |
+| Intelligence Engine | `INTELLIGENCE_ENGINE_FOUNDATION_COMPLETION_REPORT_V1` |
+| Governance Ops | `GOVERNANCE_OPERATIONS_ECOSYSTEM_GUIDE_V1` |
+| Human-AI | `HUMAN_AI_CONSTITUTION_V1` |
+| Landing Evolution | `LANDING_PREVIEW_CONNECTION_REPORT_V1`, `LANDING_HEADER_SIMPLIFICATION_V1`, `LANDING_HERO_ACTIONS_RELOCATION_REPORT_V1`, `LANDING_PLATFORM_GUIDES_AND_PRESENTATION_CAROUSELS_GOVERNANCE_V1` |
+| Presentation Gallery | `PRESENTATION_GALLERY_ARCHITECTURE_V1`, `PRESENTATION_GALLERY_GOVERNANCE_CARD_V1` |
+| Library Knowledge Cards | `KNOWLEDGE_CARD_ARCHITECTURE_V1`, `KNOW_YOUR_RIGHT_CARD_SYSTEM_REPORT_V1`, `KNOW_YOUR_RIGHT_PRE_FREEZE_GOVERNANCE_SYNC_V1` |
+| Official Links | `OFFICIAL_LINKS_PAGE_GOVERNANCE_CARD_V1` |
+
+## Card Repositories
+
+| Repository | Count |
+| --- | --- |
+| `docs/constitutional-baseline/cards/` | 46+ |
+| `docs/sections/*/cards/` | 135+ |
+| `docs/accessibility/` | 12+ |
+| `docs/capsules/*/builds/*/09_CARDS_GUIDES_PROMPTS/` | 1000+ |
+
 ## Counts
 
-- Guides: 6
-- Cards: 6
-- Registries and indexes: 9
-- Snapshots/reports used as snapshots: 4
-- Unknown items: 0
+- Guides: 46+ active primary guides
+- Cards: 181+ active governance cards
+- Registries and indexes: 28+
+- Snapshots/reports: 14+
+- Total doc files: 3500+
+
+## Pre-Freeze Governance Cards Added
+
+| Card / Guide | Domain | Status |
+| --- | --- | --- |
+| `PRESENTATION_GALLERY_GOVERNANCE_CARD_V1.md` | Presentation / Commercial | ACTIVE |
+| `PRESENTATION_GALLERY_ARCHITECTURE_V1.md` | Presentation / Architecture | ACTIVE |
+| `LANDING_PLATFORM_GUIDES_AND_PRESENTATION_CAROUSELS_GOVERNANCE_V1.md` | Commercial V2 Web / Landing | ACTIVE |
+| `OFFICIAL_LINKS_PAGE_GOVERNANCE_CARD_V1.md` | Library / Official Links | ACTIVE |
+| `KNOW_YOUR_RIGHT_PRE_FREEZE_GOVERNANCE_SYNC_V1.md` | Library / Knowledge Cards | ACTIVE |
+| `GENERATION_1_PRE_FREEZE_CAPSULE_SYNCHRONIZATION_V1.md` | Capsules / Generation 1 | ACTIVE |
+| `GENERATION_1_PRE_FREEZE_GOVERNANCE_SYNC_REPORT_V1.md` | Governance / Operations | ACTIVE |

@@ -411,7 +411,7 @@ class _DeclarationFilters extends StatelessWidget {
               SizedBox(
                 width: 300,
                 child: DropdownButtonFormField<_DeclarationStream>(
-                  value: selectedStream,
+                  initialValue: selectedStream,
                   decoration: const InputDecoration(
                     labelText: 'Declaration type',
                     border: OutlineInputBorder(),
@@ -442,7 +442,7 @@ class _DeclarationFilters extends StatelessWidget {
               SizedBox(
                 width: 280,
                 child: DropdownButtonFormField<String>(
-                  value: statusFilter,
+                  initialValue: statusFilter,
                   decoration: const InputDecoration(
                     labelText: 'Readiness status',
                     border: OutlineInputBorder(),
@@ -456,7 +456,7 @@ class _DeclarationFilters extends StatelessWidget {
               SizedBox(
                 width: 180,
                 child: DropdownButtonFormField<String>(
-                  value: sort,
+                  initialValue: sort,
                   decoration: const InputDecoration(
                     labelText: 'Order',
                     border: OutlineInputBorder(),
@@ -1356,10 +1356,6 @@ String _listPresence(dynamic value) {
 
 String _mapPresence(dynamic value) {
   return value is Map && value.isNotEmpty ? 'Declared' : 'Not declared';
-}
-
-String _boolText(dynamic value) {
-  return value == true ? 'Yes' : 'No';
 }
 
 String _declarationStatus(String status) {

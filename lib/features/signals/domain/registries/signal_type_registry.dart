@@ -14,15 +14,6 @@ class SignalTypeRegistry {
   static const String libraryCategoryOpened = 'library_category_opened';
   static const String providerProfileOpened = 'provider_profile_opened';
   static const String centerProfileOpened = 'center_profile_opened';
-  static const String accessibilityHubOpened = 'accessibility_hub_opened';
-  static const String accessibilityCategoryOpened =
-      'accessibility_category_opened';
-  static const String accessibilityResourceOpened =
-      'accessibility_resource_opened';
-  static const String accessibilityResourceSaved =
-      'accessibility_resource_saved';
-  static const String accessibilityResourceBrokenLinkReported =
-      'accessibility_resource_broken_link_reported';
 
   static const List<String> values = <String>[
     providerContactStarted,
@@ -35,10 +26,5 @@ class SignalTypeRegistry {
     libraryCategoryOpened,
     providerProfileOpened,
     centerProfileOpened,
-    accessibilityHubOpened,
-    accessibilityCategoryOpened,
-    accessibilityResourceOpened,
-    accessibilityResourceSaved,
-    accessibilityResourceBrokenLinkReported,
   ];
 }

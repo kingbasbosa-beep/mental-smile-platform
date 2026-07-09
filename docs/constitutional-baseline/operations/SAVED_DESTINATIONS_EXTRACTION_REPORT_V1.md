@@ -109,6 +109,16 @@ Result: no active references remained in `lib`, `firestore.rules`, `firestore.in
 
 Historical documentation and registries preserve archive references intentionally.
 
+## Post-Extraction Analyzer Correction
+
+Owner reported an analyzer error in `lib/features/monitoring/domain/adapters/monitoring_aggregation_adapter.dart` because `ResidentialMonitoringCategoryRegistry` was still used for library aggregate mapping after the import had been removed during saved destination extraction.
+
+Correction applied:
+
+- Restored `../registries/residential_monitoring_category_registry.dart` import.
+- Did not restore `saved_destinations`, `destination_saved`, or saved destination runtime behavior.
+- Registered follow-up operation: OP-SAVED-DESTINATIONS-EXTRACTION-ANALYZER-FIX-V1.
+
 ## Blockers
 
 No blockers found for saved destinations extraction.

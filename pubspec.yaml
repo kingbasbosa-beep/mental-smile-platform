@@ -20,13 +20,19 @@ dependencies:
   firebase_core: ^3.15.2
   cloud_firestore: ^5.6.12
   firebase_auth: ^5.7.0
+  firebase_storage: ^12.4.10
 
   shared_preferences: ^2.3.2
   url_launcher: ^6.3.1
+  pdf: ^3.11.1
+  printing: ^5.13.4
+  image_picker: ^1.1.2
   uuid: ^4.5.1
   geolocator: ^14.0.2
   geocoding: ^4.0.0
   firebase_analytics: ^11.6.0
+  flutter_markdown: ^0.7.4
+  markdown: ^7.2.2
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -44,17 +50,12 @@ flutter:
     - assets/branding/logo_primary.png
     - assets/branding/logo_primary_dark.png
     - assets/branding/logo_transparent.png
+    - assets/branding/web/
     - assets/branding/web/library/hodn_amen/
     - assets/branding/web/library/bedaya_amena/
     - assets/branding/web/library/backgrounds/desktop/
     - assets/branding/web/library/backgrounds/tablet/
     - assets/branding/web/library/backgrounds/mobile/
-    - assets/branding/web/registration/centers/desktop/
-    - assets/branding/web/registration/centers/tablet/
-    - assets/branding/web/registration/centers/mobile/
-    - assets/branding/web/registration/clinicians/desktop/
-    - assets/branding/web/registration/clinicians/tablet/
-    - assets/branding/web/registration/clinicians/mobile/
     - assets/branding/shared/logo/
     - assets/branding/shared/navigation/back/
     - assets/branding/shared/navigation/logout/
@@ -65,17 +66,41 @@ flutter:
     - assets/branding/menu/desktop/
     - assets/branding/menu/tablet/
     - assets/branding/menu/mobile/
+    - assets/branding/guides/
     - assets/branding/splash/
-    - assets/branding/login/
+    - assets/branding/rooms/client_room/
+    - assets/branding/rooms/accessibility_room/
+    - assets/branding/rooms/accessibility_room/cards/
+    - assets/icons/
+    - assets/icons/accessibility/ms_accessibility_guide.webp.png
+    - assets/backgrounds/commercial_background_dark.webp
+    - assets/backgrounds/residential_exit_social_portal.webp.png
+    - assets/c6_library/categories/
     - assets/c7_branding/buttons/
     - assets/c7_branding/home/
     - assets/c7_branding/logo/
-    - assets/images/
+    - assets/images/mobile/splash/
+    - assets/images/mobile/login/
+    - assets/images/mobile/client_room/
+    - assets/images/cat_articles.png
+    - assets/images/cat_audio.png
+    - assets/images/cat_exercises.png
+    - assets/images/cat_saved.png
+    - assets/images/cat_tools.png
+    - assets/images/cat_videos.png
     - assets/images/addiction/
     - assets/images/backgrounds/
     - assets/images/centers/
-    - assets/images/center_dashboard/actions/
     - assets/images/clinicians_dashboard/
     - assets/images/clinicians_dashboard/actions/
     - assets/images/family_support/
     - assets/images/specialists/
+    - assets/images/library/know_your_right/cards/
+    - assets/library/platform_guides/
+    - assets/library/backgrounds/
+    - assets/presentations/
+    - assets/content/library/know_your_right/
+    - assets/content/library/know_your_right/why_me_addicted/
+    - assets/content/library/know_your_right/coming_soon_01/
+    - assets/content/library/know_your_right/coming_soon_02/
+    - assets/content/library/know_your_right/coming_soon_03/

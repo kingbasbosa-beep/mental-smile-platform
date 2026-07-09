@@ -18,13 +18,6 @@ class DomainGovernanceCapability {
 
 const Map<DomainKey, DomainGovernanceCapability> domainGovernanceMatrix =
     <DomainKey, DomainGovernanceCapability>{
-  DomainKey.chat: DomainGovernanceCapability(
-    advisoryOnly: true,
-    maintenanceNotice: true,
-    editorDisable: false,
-    entryPointHide: false,
-    protectedRawWrites: true,
-  ),
   DomainKey.specialistWorkspace: DomainGovernanceCapability(
     advisoryOnly: true,
     maintenanceNotice: true,

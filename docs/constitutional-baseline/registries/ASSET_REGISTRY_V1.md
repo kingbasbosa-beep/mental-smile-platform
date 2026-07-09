@@ -41,6 +41,19 @@ Runtime effect: none
 | `.github/workflows/firebase-hosting-*.yml` | OWNER_DECISION_REQUIRED | OP-GHOST-INFRASTRUCTURE-ARCHIVAL-GUIDE-V1 | `GHOST_INFRASTRUCTURE_ARCHIVAL_GUIDE_V1.md` | Workflow activation decision required before commit or deployment. |
 | Firebase hosting target `public-landing` | OWNER_DECISION_REQUIRED | OP-GHOST-INFRASTRUCTURE-ARCHIVAL-GUIDE-V1 | `GHOST_INFRASTRUCTURE_ARCHIVAL_GUIDE_V1.md` | Hosting target requires Firebase sweep before deploy. |
 
+## Generation 1 Pre-Freeze Asset Ownership Notes
+
+| Asset Family / Asset | Status | Owner | Consumers | Notes |
+| --- | --- | --- | --- | --- |
+| `assets/presentations/` | ACTIVE_PRESENTATION_GALLERY | Presentation Gallery | Landing preview presentation carousel, `/presentation-gallery`, `PresentationViewerPage` | Stores image-only platform presentation posters. Runtime may use `.webp` declarations with fallback support where imported files carry `.webp.png` names. |
+| `assets/library/platform_guides/platform_guide_desktop.webp` | ACTIVE_PLATFORM_GUIDE | Landing / Platform Guides Carousel | `/landing-preview` | Opens fullscreen image viewer; no captions or overlay text. |
+| `assets/library/platform_guides/platform_guide_mobile.webp` | ACTIVE_PLATFORM_GUIDE | Landing / Platform Guides Carousel | `/landing-preview` | Opens fullscreen image viewer; no captions or overlay text. |
+| `assets/library/platform_guides/platform_guide_content_access.webp` | ACTIVE_PLATFORM_GUIDE | Landing / Platform Guides Carousel | `/landing-preview` | Opens fullscreen image viewer; no captions or overlay text. |
+| `assets/library/platform_guides/platform_official_links.webp` | ACTIVE_OFFICIAL_LINKS_GUIDE | Library / Official Links | `/landing-preview`, `/web/library/official-links` | Navigates to Official Platform Links page instead of image viewer. |
+| `assets/library/backgrounds/official_links_background.webp` | ACTIVE_LIBRARY_BACKGROUND | Library / Official Links | `/web/library/official-links` | Full-screen fixed background, `BoxFit.cover`, no blur/darken overlay. |
+| `assets/images/library/know_your_right/cards/` | ACTIVE_KNOWLEDGE_CARD_IMAGE | Library / Know Your Right | `/web/library/know-your-right/cards`, `/web/library/know-your-right/article` | Knowledge card artwork is the card cover and is not duplicated inside the redesigned article page. |
+| `assets/content/library/know_your_right/` | ACTIVE_KNOWLEDGE_MARKDOWN_CONTENT | Library / Know Your Right | Knowledge Article Viewer | Metadata-driven folder contract: `metadata.json` plus four markdown files per enabled card. |
+
 ## Rule
 
 No asset deletion before archive card and owner-reviewed purification.

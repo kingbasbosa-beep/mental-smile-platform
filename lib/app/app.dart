@@ -4,6 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:mental_smile_os/app/locale_provider.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:mental_smile_os/app/router/app_router.dart';
+import 'package:mental_smile_os/app/router/routes.dart';
 import 'package:mental_smile_os/shared/ui_kit/app_design_system.dart';
 
 class MentalSmileOSApp extends ConsumerWidget {
@@ -26,6 +27,7 @@ class MentalSmileOSApp extends ConsumerWidget {
       theme: buildMentalSmileOSTheme(effectiveLocale),
       title: 'Mental Smile',
       debugShowCheckedModeBanner: false,
+      initialRoute: Routes.splash,
       onGenerateRoute: AppRouter.onGenerateRoute,
     );
   }

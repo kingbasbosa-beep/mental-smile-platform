@@ -56,3 +56,19 @@ No route removal or rename before route card and Owner approval.
 | `/request/package` | REMOVED_FROM_ROUTER_AND_NAVIGATION | PUBLIC_INTAKE_GHOST_ROUTE_PURGED | `GHOST_ROUTE_VISIBILITY_PURGE_REPORT_V1.md` | Route constant, router case, public nav link, and intake page removed in Package C. |
 | `/s/city/tools`, `/s/city/programs`, `/s/city/marketplace` | OWNER_DECISION_REQUIRED | PLACEHOLDER_ROUTE_GROUP | `GHOST_INFRASTRUCTURE_ARCHIVAL_GUIDE_V1.md` | Keep as governed placeholders or archive until runtime exists. |
 | `/s/capital/departments`, `/s/capital/trust-safety`, `/s/capital/reports` | OWNER_DECISION_REQUIRED | AUTHORITY_PLACEHOLDER_ROUTE_GROUP | `GHOST_INFRASTRUCTURE_ARCHIVAL_GUIDE_V1.md` | Protected/generic surfaces require Owner visibility decision. |
+
+## Pre-Freeze Governance Synchronization Route Notes
+
+| Route | Status | Classification | Note |
+| --- | --- | --- | --- |
+| `/landing-preview` | ACTIVE | LANDING_EVOLUTION | Introduced as a preview surface for the redesigned landing hero and header. |
+| `/presentation-gallery` | ACTIVE | PRESENTATION_LAYER | Introduced as a gallery surface for platform presentation posters and rolling carousel. |
+| `/web/library/official-links` | ACTIVE | OFFICIAL_LINKS_PAGE | Dedicated page for official platform social and contact links. |
+| `/web/library/know-your-right/cards` | ACTIVE | KNOWLEDGE_CARD_SYSTEM | Metadata-driven knowledge card rolling carousel surface. |
+| `/web/library/know-your-right/article` | ACTIVE | KNOWLEDGE_ARTICLE_VIEWER | Markdown-based knowledge article viewer with RTL support. |
+| `/g2/mobile/client` | ACTIVE | G2_MOBILE_LITE_CLIENT | Temporary Mobile Lite client entry. |
+| `/g2/mobile/login-selection` | ACTIVE | G2_MOBILE_LOGIN_SELECTION | G2 mobile device/display selection surface. |
+| `/g2/mobile/client-room` | ACTIVE | G2_MOBILE_CLIENT_ROOM | G2 mobile-specific client friend room. |
+| `/g2/mobile/specialist-room` | ACTIVE | G2_MOBILE_SPECIALIST_ROOM | G2 mobile-specific specialist friend room. |
+| `/g2/mobile/center-room` | ACTIVE | G2_MOBILE_CENTER_ROOM | G2 mobile-specific center friend room. |
+

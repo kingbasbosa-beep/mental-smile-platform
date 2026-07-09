@@ -45,14 +45,6 @@ service cloud.firestore {
       return hasRole('support_observer');
     }
 
-    function isClinician() {
-      return signedIn() && request.auth.token.role == 'clinician';
-    }
-
-    function isCenter() {
-      return signedIn() && request.auth.token.role == 'center';
-    }
-
     function protectedAccountFields() {
       return [
         'role',
@@ -214,81 +206,22 @@ service cloud.firestore {
           .hasOnly(centerSelfRegistrationFields());
     }
 
-    function ownClinicianProfileRequest() {
-      return signedIn() && resource.data.clinicianId == uid();
-    }
-
-    function ownCenterProfileRequest() {
-      return signedIn() && resource.data.centerId == uid();
-    }
-
-    function profileRequestCreateValid(ownerField) {
-      return signedIn()
-        && request.resource.data[ownerField] == uid()
-        && request.resource.data.status == 'submitted'
-        && request.resource.data.submittedBy == uid()
-        && request.resource.data.keys().hasAll([
-          'declarationSignals',
-          'profileSignals',
-          'changeSummary',
-          'submittedAt',
-          'submittedBy'
-        ])
-        && !request.resource.data.keys().hasAny(['ownerId'])
-        && !request.resource.data.keys().hasAny(protectedAccountFields());
-    }
-
-    function safetyEscalationResolveValid() {
-      return request.resource.data.diff(resource.data).affectedKeys().hasOnly([
-          'status',
-          'resolvedByUid',
-          'resolvedAt',
-          'updatedAt'
-        ])
-        && request.resource.data.status == 'resolved'
-        && request.resource.data.resolvedByUid == uid();
-    }
-
-    function recommendedClinicianForEscalation() {
-      return isClinician()
-        && resource.data.keys().hasAny(['recommendedProviders'])
-        && uid() in resource.data.recommendedProviders;
-    }
-
-    function supportSafetyThreadUpdateValid() {
-      return request.resource.data.diff(resource.data).affectedKeys().hasOnly([
-          'needsHumanSupport',
-          'escalationLevel',
-          'safetyState',
-          'strategyMode',
-          'riskScore',
-          'riskLevel',
-          'lastEmotionalStates',
-          'lastDetectedRole',
-          'lastMessageAt',
-          'lastMessagePreview',
-          'messageCount',
-          'updatedAt'
-        ]);
-    }
-
-    function safetyEscalationCreateValid() {
-      return request.resource.data.status == 'open'
-        && request.resource.data.keys().hasAll([
-          'recommendedProviders',
-          'recommendedSignals',
-          'recommendedActions',
-          'routingSignals',
-          'safetyEscalationLevel'
-        ]);
-    }
-
     match /clinicians/{clinicianId} {
       allow read: if isDeclarationReviewer()
         || (signedIn() && clinicianId == uid())
         || visibilityReady();
       allow create: if clinicianCreateValid(clinicianId);
       allow update: if clinicianSelfUpdateValid(clinicianId);
+      allow delete: if false;
+    }
+
+    match /clinicians/{clinicianId}/profile/{profileId} {
+      allow read: if isDeclarationReviewer() || ownDoc(clinicianId);
+      allow create, update: if ownDoc(clinicianId)
+        && profileId == 'current'
+        && request.resource.data.ownerUid == uid()
+        && request.resource.data.profileType == 'specialist'
+        && request.resource.data.status in ['draft', 'published'];
       allow delete: if false;
     }
 
@@ -301,16 +234,26 @@ service cloud.firestore {
       allow delete: if false;
     }
 
+    match /centers/{centerId}/profile/{profileId} {
+      allow read: if isDeclarationReviewer() || ownDoc(centerId);
+      allow create, update: if ownDoc(centerId)
+        && profileId == 'current'
+        && request.resource.data.ownerUid == uid()
+        && request.resource.data.profileType == 'center'
+        && request.resource.data.status in ['draft', 'published'];
+      allow delete: if false;
+    }
+
     match /clinician_profile_change_requests/{requestId} {
-      allow read: if isDeclarationReviewer() || ownClinicianProfileRequest();
-      allow create: if profileRequestCreateValid('clinicianId');
+      allow read: if isDeclarationReviewer();
+      allow create: if false;
       allow update: if false;
       allow delete: if false;
     }
 
     match /center_profile_change_requests/{requestId} {
-      allow read: if isDeclarationReviewer() || ownCenterProfileRequest();
-      allow create: if profileRequestCreateValid('centerId');
+      allow read: if isDeclarationReviewer();
+      allow create: if false;
       allow update: if false;
       allow delete: if false;
     }
@@ -324,81 +267,6 @@ service cloud.firestore {
         && request.resource.data.source == 'structured_support';
       allow update: if false;
       allow delete: if false;
-    }
-
-    match /provider_contact_requests/{requestId} {
-      allow get, list: if isSupportObserver()
-        || (
-          signedIn()
-          && resource.data.providerId == uid()
-        );
-      allow create: if isNonEmptyString(request.resource.data.requesterSessionId)
-        && request.resource.data.requesterRole == 'session'
-        && isNonEmptyString(request.resource.data.providerId);
-      allow update, delete: if false;
-    }
-
-    match /center_contact_requests/{requestId} {
-      allow get, list: if isSupportObserver()
-        || (
-          signedIn()
-          && resource.data.centerId == uid()
-        );
-      allow create: if isNonEmptyString(request.resource.data.requesterSessionId)
-        && request.resource.data.requesterRole == 'session'
-        && isNonEmptyString(request.resource.data.centerId);
-      allow update, delete: if false;
-    }
-
-    match /chat_threads/{threadId} {
-      allow read: if isSupportObserver()
-        || (signedIn() && resource.data.participantUid == uid());
-      allow create: if signedIn()
-        && request.resource.data.participantUid == uid();
-      allow update: if (isSupportObserver() && supportSafetyThreadUpdateValid())
-        || (
-          signedIn()
-          && resource.data.participantUid == uid()
-        );
-      allow delete: if false;
-
-      match /messages/{messageId} {
-        allow read: if isSupportObserver()
-          || (
-            signedIn()
-            && exists(/databases/$(database)/documents/chat_threads/$(threadId))
-            && (
-              get(/databases/$(database)/documents/chat_threads/$(threadId)).data.participantUid == uid()
-            )
-          );
-        allow create: if signedIn()
-          && exists(/databases/$(database)/documents/chat_threads/$(threadId));
-        allow update, delete: if false;
-      }
-    }
-
-    match /chat_escalations/{escalationId} {
-      allow read: if isSupportObserver()
-        || recommendedClinicianForEscalation();
-      allow create: if signedIn() && safetyEscalationCreateValid();
-      allow update: if (
-          isSupportObserver()
-          || recommendedClinicianForEscalation()
-        )
-        && safetyEscalationResolveValid();
-      allow delete: if false;
-
-      match /reports/{reportId} {
-        allow read: if isSupportObserver()
-          || (
-            isClinician()
-            && exists(/databases/$(database)/documents/chat_escalations/$(escalationId))
-            && get(/databases/$(database)/documents/chat_escalations/$(escalationId)).data.keys().hasAny(['recommendedProviders'])
-            && uid() in get(/databases/$(database)/documents/chat_escalations/$(escalationId)).data.recommendedProviders
-          );
-        allow create: if signedIn();
-        allow update, delete: if false;
-      }
     }
 
     match /system_domains/{docId} {
@@ -445,9 +313,182 @@ service cloud.firestore {
       allow update, delete: if false;
     }
 
-    match /signal_aggregates/{aggregateId} {
+    function archiveSignalEventAllowedKeys() {
+      return [
+        'event_id',
+        'source_section_code',
+        'source_outbox_plug',
+        'destination_section_code',
+        'destination_inbox_plug',
+        'archive_destination_code',
+        'package_family',
+        'signal_code',
+        'magnet_code',
+        'privacy_class',
+        'retention_class',
+        'payload_minimal',
+        'created_at',
+        'guard_status',
+        'quarantine_reason',
+        'trace_id'
+      ];
+    }
+
+    function archiveSignalPayloadAllowedKeys() {
+      return [
+        'source_screen',
+        'source_widget',
+        'action',
+        'runtime_version'
+      ];
+    }
+
+    function firstControlledArchiveSignalValid(eventId) {
+      return request.resource.data.keys().hasOnly(archiveSignalEventAllowedKeys())
+        && request.resource.data.event_id == eventId
+        && request.resource.data.source_section_code == 'SEC-CV2'
+        && request.resource.data.source_outbox_plug == 'PLG-CV2-OUT'
+        && request.resource.data.destination_section_code == 'SEC-ARC'
+        && request.resource.data.destination_inbox_plug == 'PLG-ARC-IN'
+        && request.resource.data.archive_destination_code == 'ARC-SIG-CV2-SHOWCASE-001'
+        && request.resource.data.package_family == 'signal_event'
+        && request.resource.data.signal_code == 'CV2_SIG_OPEN_LIBRARY'
+        && request.resource.data.magnet_code == 'CV2-MAG-LIBRARY-INTEREST'
+        && request.resource.data.privacy_class == 'anonymous_navigation_signal'
+        && request.resource.data.retention_class == 'operational_summary'
+        && request.resource.data.guard_status == 'accepted'
+        && request.resource.data.quarantine_reason == 'NONE'
+        && request.resource.data.created_at is timestamp
+        && request.resource.data.payload_minimal is map
+        && request.resource.data.payload_minimal.keys().hasOnly(archiveSignalPayloadAllowedKeys())
+        && request.resource.data.payload_minimal.source_screen == 'Commercial V2 Web Showcase'
+        && request.resource.data.payload_minimal.source_widget == 'library showcase card'
+        && request.resource.data.payload_minimal.action == 'open_section'
+        && request.resource.data.payload_minimal.runtime_version == 'commercial-v2-c2-local-v1';
+    }
+
+    function residentialToolSignalCodes() {
+      return [
+        'R.T.001.OPEN',
+        'R.T.005.OPEN',
+        'R.T.006.OPEN',
+        'R.T.007.OPEN'
+      ];
+    }
+
+    function firstResidentialToolArchiveSignalValid(eventId) {
+      return request.resource.data.keys().hasOnly(archiveSignalEventAllowedKeys())
+        && request.resource.data.event_id == eventId
+        && request.resource.data.source_section_code == 'SEC-RES'
+        && request.resource.data.source_outbox_plug == 'PLG-RES-OUT'
+        && request.resource.data.destination_section_code == 'SEC-ARC'
+        && request.resource.data.destination_inbox_plug == 'PLG-ARC-IN'
+        && request.resource.data.archive_destination_code == 'ARC-SIG-RES-TOOLS-001'
+        && request.resource.data.package_family == 'signal_event'
+        && request.resource.data.signal_code in residentialToolSignalCodes()
+        && request.resource.data.magnet_code == 'RES-MAG-TOOLS'
+        && request.resource.data.privacy_class == 'anonymous_navigation_signal'
+        && request.resource.data.retention_class == 'operational_summary'
+        && request.resource.data.guard_status == 'accepted'
+        && request.resource.data.quarantine_reason == 'NONE'
+        && request.resource.data.created_at is timestamp
+        && request.resource.data.payload_minimal is map
+        && request.resource.data.payload_minimal.keys().hasOnly(archiveSignalPayloadAllowedKeys())
+        && isNonEmptyString(request.resource.data.payload_minimal.source_screen)
+        && isNonEmptyString(request.resource.data.payload_minimal.source_widget)
+        && isNonEmptyString(request.resource.data.payload_minimal.action)
+        && request.resource.data.payload_minimal.runtime_version == 'residential-r11-local-v1';
+    }
+
+    function firstLibraryHomeSignalValid(eventId) {
+      return request.resource.data.keys().hasOnly(archiveSignalEventAllowedKeys())
+        && request.resource.data.event_id == eventId
+        && request.resource.data.source_section_code == 'SEC-LIB'
+        && request.resource.data.source_outbox_plug == 'PLG-LIB-OUT'
+        && request.resource.data.destination_section_code == 'SEC-ARC'
+        && request.resource.data.destination_inbox_plug == 'PLG-ARC-IN'
+        && request.resource.data.archive_destination_code == 'ARC-SIG-LIB-HOME-001'
+        && request.resource.data.package_family == 'signal_event'
+        && request.resource.data.signal_code in [
+          'L.S.001.VIEW',
+          'L.C.001.OPEN'
+        ]
+        && request.resource.data.magnet_code == 'LIB-MAG-HOME'
+        && request.resource.data.privacy_class == 'anonymous_navigation_signal'
+        && request.resource.data.retention_class == 'operational_summary'
+        && request.resource.data.guard_status == 'accepted'
+        && request.resource.data.quarantine_reason == 'NONE'
+        && request.resource.data.created_at is timestamp
+        && request.resource.data.payload_minimal is map
+        && request.resource.data.payload_minimal.keys().hasOnly(archiveSignalPayloadAllowedKeys())
+        && isNonEmptyString(request.resource.data.payload_minimal.source_screen)
+        && isNonEmptyString(request.resource.data.payload_minimal.source_widget)
+        && isNonEmptyString(request.resource.data.payload_minimal.action)
+        && request.resource.data.payload_minimal.runtime_version == 'library-l2-local-v1';
+    }
+
+    function firstLibrarySpecialistsSignalValid(eventId) {
+      return request.resource.data.keys().hasOnly(archiveSignalEventAllowedKeys())
+        && request.resource.data.event_id == eventId
+        && request.resource.data.source_section_code == 'SEC-LIB-SP'
+        && request.resource.data.source_outbox_plug == 'PLG-LIB-SP-OUT'
+        && request.resource.data.destination_section_code == 'SEC-ARC'
+        && request.resource.data.destination_inbox_plug == 'PLG-ARC-IN'
+        && request.resource.data.archive_destination_code == 'ARC-SIG-LIB-SP-001'
+        && request.resource.data.package_family == 'signal_event'
+        && request.resource.data.signal_code in [
+          'L.S.003.VIEW',
+          'L.C.003.OPEN'
+        ]
+        && request.resource.data.magnet_code == 'LIB-MAG-SPECIALISTS'
+        && request.resource.data.privacy_class == 'anonymous_navigation_signal'
+        && request.resource.data.retention_class == 'operational_summary'
+        && request.resource.data.guard_status == 'accepted'
+        && request.resource.data.quarantine_reason == 'NONE'
+        && request.resource.data.created_at is timestamp
+        && request.resource.data.payload_minimal is map
+        && request.resource.data.payload_minimal.keys().hasOnly(archiveSignalPayloadAllowedKeys())
+        && isNonEmptyString(request.resource.data.payload_minimal.source_screen)
+        && isNonEmptyString(request.resource.data.payload_minimal.source_widget)
+        && isNonEmptyString(request.resource.data.payload_minimal.action)
+        && request.resource.data.payload_minimal.runtime_version == 'library-l2-local-v1';
+    }
+
+    function firstLibraryCentersSignalValid(eventId) {
+      return request.resource.data.keys().hasOnly(archiveSignalEventAllowedKeys())
+        && request.resource.data.event_id == eventId
+        && request.resource.data.source_section_code == 'SEC-LIB-CTR'
+        && request.resource.data.source_outbox_plug == 'PLG-LIB-CTR-OUT'
+        && request.resource.data.destination_section_code == 'SEC-ARC'
+        && request.resource.data.destination_inbox_plug == 'PLG-ARC-IN'
+        && request.resource.data.archive_destination_code == 'ARC-SIG-LIB-CTR-001'
+        && request.resource.data.package_family == 'signal_event'
+        && request.resource.data.signal_code in [
+          'L.S.004.VIEW',
+          'L.C.004.OPEN'
+        ]
+        && request.resource.data.magnet_code == 'LIB-MAG-CENTERS'
+        && request.resource.data.privacy_class == 'anonymous_navigation_signal'
+        && request.resource.data.retention_class == 'operational_summary'
+        && request.resource.data.guard_status == 'accepted'
+        && request.resource.data.quarantine_reason == 'NONE'
+        && request.resource.data.created_at is timestamp
+        && request.resource.data.payload_minimal is map
+        && request.resource.data.payload_minimal.keys().hasOnly(archiveSignalPayloadAllowedKeys())
+        && isNonEmptyString(request.resource.data.payload_minimal.source_screen)
+        && isNonEmptyString(request.resource.data.payload_minimal.source_widget)
+        && isNonEmptyString(request.resource.data.payload_minimal.action)
+        && request.resource.data.payload_minimal.runtime_version == 'library-l2-local-v1';
+    }
+
+    match /archive_signal_events/{eventId} {
       allow read: if isOwner() || isMonitoringOperator();
-      allow write: if false; // Client-side aggregate writes disabled for now.
+      allow create: if firstControlledArchiveSignalValid(eventId)
+        || firstResidentialToolArchiveSignalValid(eventId)
+        || firstLibraryHomeSignalValid(eventId)
+        || firstLibrarySpecialistsSignalValid(eventId)
+        || firstLibraryCentersSignalValid(eventId);
+      allow update, delete: if false;
     }
 
     match /{document=**} {

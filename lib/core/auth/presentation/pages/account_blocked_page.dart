@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:mental_smile_os/app/router/routes.dart';
+import 'package:mental_smile_os/l10n/app_localizations.dart';
 import 'package:mental_smile_os/shared/ui_kit/app_design_system.dart';
 
 class AccountBlockedPage extends StatelessWidget {
@@ -10,6 +11,7 @@ class AccountBlockedPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     final isArabic =
         Localizations.localeOf(context).languageCode.toLowerCase() == 'ar';
     final trimmedReason = (reason ?? '').trim();
@@ -53,18 +55,14 @@ class AccountBlockedPage extends StatelessWidget {
                               ),
                               const SizedBox(height: AppSpacing.md),
                               Text(
-                                isArabic
-                                    ? 'تم تقييد هذا الحساب'
-                                    : 'This account is blocked',
+                                l10n.applicationAccountBlockedTitle,
                                 style:
                                     Theme.of(context).textTheme.headlineSmall,
                                 textAlign: TextAlign.center,
                               ),
                               const SizedBox(height: AppSpacing.sm),
                               Text(
-                                isArabic
-                                    ? 'تم تسجيل الدخول بنجاح، لكن لا يمكن متابعة استخدام الحساب حاليًا. يرجى التواصل مع الإدارة.'
-                                    : 'You signed in successfully, but this account cannot continue into the app right now. Please contact support.',
+                                l10n.applicationAccountBlockedSubtitle,
                                 textAlign: TextAlign.center,
                               ),
                               if (trimmedReason.isNotEmpty) ...[
@@ -86,7 +84,7 @@ class AccountBlockedPage extends StatelessWidget {
                                         CrossAxisAlignment.stretch,
                                     children: [
                                       Text(
-                                        isArabic ? 'سبب التقييد' : 'Reason',
+                                        l10n.applicationAccountBlockedReasonLabel,
                                         style: Theme.of(context)
                                             .textTheme
                                             .titleSmall
@@ -111,19 +109,23 @@ class AccountBlockedPage extends StatelessWidget {
                               const SizedBox(height: AppSpacing.lg),
                               SizedBox(
                                 width: double.infinity,
-                                child: FilledButton.icon(
-                                  onPressed: () async {
-                                    await FirebaseAuth.instance.signOut();
-                                    if (!context.mounted) return;
-                                    Navigator.of(context)
-                                        .pushNamedAndRemoveUntil(
-                                      Routes.login,
-                                      (route) => false,
-                                    );
-                                  },
-                                  icon: const Icon(Icons.logout_rounded),
-                                  label: Text(
-                                    isArabic ? 'تسجيل الخروج' : 'Sign out',
+                                child: Semantics(
+                                  button: true,
+                                  label: l10n.applicationAccountBlockedSignOut,
+                                  child: FilledButton.icon(
+                                    onPressed: () async {
+                                      await FirebaseAuth.instance.signOut();
+                                      if (!context.mounted) return;
+                                      Navigator.of(context)
+                                          .pushNamedAndRemoveUntil(
+                                        Routes.commercialAccess,
+                                        (route) => false,
+                                      );
+                                    },
+                                    icon: const Icon(Icons.logout_rounded),
+                                    label: Text(
+                                      l10n.applicationAccountBlockedSignOut,
+                                    ),
                                   ),
                                 ),
                               ),

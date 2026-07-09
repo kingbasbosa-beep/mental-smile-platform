@@ -12,32 +12,33 @@ Runtime effect: none
 | Monitoring | Monitoring room, signals, escalations, observability | Monitoring Operator/Owner | ACTIVE |
 | Owner | Owner room, capsules, governance, strategic systems | Owner | ACTIVE |
 | Governance | Guides, cards, registries, archives, memory, operations | Owner | ACTIVE |
-| Library | Knowledge, categories, content, collections | Owner/System | ACTIVE |
+| Library | Knowledge, categories, content, collections | Owner/System | ACTIVE / PURE_DNA |
+
+## Evolution Domains
+
+| Domain | Purpose | Owner | Status |
+| --- | --- | --- | --- |
+| Intelligence Engine | AI runtime and autonomous sessions. | Owner/AI | ACTIVE |
+| Orchestration | Task and workflow coordination. | Owner/AI | ACTIVE |
+| Decisions | Governed judgment and policy engine. | Owner/AI | ACTIVE |
+| Governance Ops | Incidents, playbooks, and moderation. | Owner/System | ACTIVE |
 
 ## Rooms
 
 | Room | Domain | Owner | Status |
 | --- | --- | --- | --- |
-| Client Room | Residential | Client | ACTIVE |
-| Provider/Clinician Room | Residential | Clinician | ACTIVE |
-| Center Room | Residential | Center | ACTIVE |
-| Personal Space | Residential | Client | ACTIVE |
-| Support Room | Residential/Monitoring | Support Observer | ACTIVE |
-| Registry Room | Governance | Registry Steward | ACTIVE |
-| Declaration Review Room | Administrative | Declaration Reviewer | ACTIVE |
-| Signal Monitoring Room | Monitoring | Monitoring Operator | ACTIVE |
-| Capital Rooms | Monitoring | Monitoring Operator | ACTIVE |
-| Owner Room | Owner | Owner | ACTIVE |
-| Strategic Memory | Owner | Owner | ACTIVE |
-| Constitutional Memory | Owner/Governance | Owner | ACTIVE |
-| Sovereign Vault | Owner | Owner | ACTIVE |
-| Recovery Console | Owner | Owner | ACTIVE |
-| Owner Capsules | Owner | Owner | ACTIVE |
-| Regeneration Board | Owner | Owner | ACTIVE |
-| Construction Workbench | Owner | Owner | ACTIVE |
+| Client Friend Room | Residential | Client | ACTIVE |
+| G2 Mobile Rooms | Residential/Commercial | Client/Provider | ACTIVE |
+| Accessibility Room | Residential | System | ACTIVE |
+| Admin Operations Room | Administrative | Owner | ACTIVE |
+| AI Workshop | Owner/Engineering | Owner/AI | ACTIVE |
+| Intelligence Room | Intelligence | AI | ACTIVE |
+| Orchestration Workspace | Orchestration | AI | ACTIVE |
+| Decision Engine Board | Decisions | AI | ACTIVE |
+| Corporate Comm Vault | Governance | Owner | ACTIVE |
 
 ## Counts
 
-- Domains inventoried: 7
-- Rooms inventoried: 17
+- Domains inventoried: 11
+- Rooms inventoried: 26
 - Unknown rooms: 0

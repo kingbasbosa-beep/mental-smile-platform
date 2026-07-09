@@ -1,0 +1,12 @@
+﻿# COMMERCIAL_V2_ACTIVE_DOCUMENTS_VERSION_MATRIX_V1
+
+Status: ACTIVE_CURRENT
+Approval Date: 2026-07-02
+Section Code: SEC-CV2
+
+| Version | Documents | Status | Capsule Eligible |
+|---|---:|---|---|
+| V1 | 14 | ACTIVE_CURRENT | YES |
+
+FINAL STATUS: COMMERCIAL_V2_ACTIVE_DOCUMENTS_VERSION_MATRIX_CREATED
+

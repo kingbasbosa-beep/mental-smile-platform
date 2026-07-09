@@ -126,19 +126,19 @@ class MkLanguagePage extends ConsumerWidget {
                   _registrationItem(
                     context: context,
                     label: isArabic ? 'تسجيل عميل' : 'Register as client',
-                    route: Routes.clientSessionRoom,
+                    route: Routes.commercialRoom,
                   ),
                   const SizedBox(height: 14),
                   _registrationItem(
                     context: context,
                     label: isArabic ? 'تسجيل أخصائي' : 'Register as clinician',
-                    route: Routes.webClinicianRegister,
+                    route: Routes.commercialRoom,
                   ),
                   const SizedBox(height: 14),
                   _registrationItem(
                     context: context,
                     label: isArabic ? 'تسجيل مركز' : 'Register as center',
-                    route: Routes.webCenterRegister,
+                    route: Routes.commercialAccess,
                   ),
                 ],
               ),

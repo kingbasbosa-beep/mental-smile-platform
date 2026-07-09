@@ -15,16 +15,16 @@ class AppShellActions {
 
   static void returnToMenu(BuildContext context) {
     Navigator.of(context).pushNamedAndRemoveUntil(
-      Routes.menu,
+      Routes.splash,
       (route) => false,
     );
   }
 
-  static Future<void> signOutToLogin(BuildContext context) async {
+  static Future<void> signOutToUnifiedStart(BuildContext context) async {
     await FirebaseAuth.instance.signOut();
     if (!context.mounted) return;
     Navigator.of(context).pushNamedAndRemoveUntil(
-      Routes.exitSocialLinks,
+      Routes.residentialExitSocialLinks,
       (route) => false,
     );
   }
@@ -108,14 +108,14 @@ class AppShellActions {
         if (canLogout)
           IconButton(
             tooltip: isArabic ? 'تسجيل الخروج' : 'Logout',
-            onPressed: () => signOutToLogin(context),
+            onPressed: () => signOutToUnifiedStart(context),
             icon: const Icon(Icons.logout_rounded, color: Color(0xFFC9A75B)),
           ),
       ],
       bottom: showAccountBadge
-          ? PreferredSize(
-              preferredSize: const Size.fromHeight(34),
-              child: const _AccountRoleBanner(),
+          ? const PreferredSize(
+              preferredSize: Size.fromHeight(34),
+              child: _AccountRoleBanner(),
             )
           : null,
     );
