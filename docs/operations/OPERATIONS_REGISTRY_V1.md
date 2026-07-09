@@ -396,3 +396,50 @@ Report:
 - `docs/materialization/CURRENT_OPERATIONAL_BUILD_MATERIALIZATION_V1.md`
 
 Result: CURRENT_OPERATIONAL_BUILD_MATERIALIZATION_V1_COMPLETED
+
+## OP-ROOT-ROUTE-LANDING-RESTORE-V1
+
+Date: 2026-07-09
+
+Operation Title: Root Route Landing Restore V1
+
+Scope: Restore GitHub Pages root route behavior so `/` opens the existing Commercial V2 web showcase landing while preserving `/landing-preview`, `/splash`, and landing button navigation.
+
+Changed:
+
+- `lib/app/app.dart`
+
+Change Summary:
+
+- `MaterialApp.initialRoute` changed from `Routes.splash` to `/`.
+- Removed now-unused `Routes` import from `lib/app/app.dart`.
+
+Preserved:
+
+- `/splash`
+- `/landing-preview`
+- Desktop button to `Routes.legacySplash`
+- Mobile button to `Routes.splash`
+
+Verification:
+
+```powershell
+flutter analyze
+flutter build web --release --base-href /mental-smile-platform/
+```
+
+Analyze status: PASSED
+
+Web build status: PASSED
+
+UI changed: NO
+
+Firebase changed: NO
+
+Assets changed: NO
+
+Report:
+
+- `docs/deployment/ROOT_ROUTE_LANDING_RESTORE_V1.md`
+
+Result: ROOT_ROUTE_LANDING_RESTORE_V1_COMPLETED
