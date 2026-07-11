@@ -49,7 +49,7 @@ class PlatformCore {
       await outputGateway.emit(result.envelope!);
       return result;
     } catch (_) {
-      return CoreEmitResult.rejected(CoreEmitReason.gatewayFailure);
+      return CoreEmitResult.outputFailed(result.envelope!);
     }
   }
 }

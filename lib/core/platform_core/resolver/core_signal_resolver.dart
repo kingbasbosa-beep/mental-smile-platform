@@ -23,24 +23,40 @@ enum CoreEmitReason {
 class CoreEmitResult {
   const CoreEmitResult({
     required this.accepted,
+    required this.outputDelivered,
     required this.reason,
     this.envelope,
   });
 
   final bool accepted;
+  final bool outputDelivered;
   final CoreEmitReason reason;
   final CoreSignalEnvelope? envelope;
 
   factory CoreEmitResult.accepted(CoreSignalEnvelope envelope) {
     return CoreEmitResult(
       accepted: true,
+      outputDelivered: true,
       reason: CoreEmitReason.accepted,
       envelope: envelope,
     );
   }
 
   factory CoreEmitResult.rejected(CoreEmitReason reason) {
-    return CoreEmitResult(accepted: false, reason: reason);
+    return CoreEmitResult(
+      accepted: false,
+      outputDelivered: false,
+      reason: reason,
+    );
+  }
+
+  factory CoreEmitResult.outputFailed(CoreSignalEnvelope envelope) {
+    return CoreEmitResult(
+      accepted: true,
+      outputDelivered: false,
+      reason: CoreEmitReason.gatewayFailure,
+      envelope: envelope,
+    );
   }
 }
 

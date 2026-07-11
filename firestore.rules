@@ -313,6 +313,45 @@ service cloud.firestore {
       allow update, delete: if false;
     }
 
+    function coreTestSignalEventAllowedKeys() {
+      return [
+        'signalId',
+        'code',
+        'family',
+        'eventName',
+        'logicalTarget',
+        'sourceSectionId',
+        'environment',
+        'schemaVersion',
+        'createdAt',
+        'context',
+        'source'
+      ];
+    }
+
+    function coreTestSignalEventCreateValid(signalId) {
+      return signedIn()
+        && request.resource.data.keys().hasOnly(coreTestSignalEventAllowedKeys())
+        && request.resource.data.signalId == signalId
+        && isNonEmptyString(request.resource.data.signalId)
+        && isNonEmptyString(request.resource.data.code)
+        && isNonEmptyString(request.resource.data.family)
+        && isNonEmptyString(request.resource.data.eventName)
+        && isNonEmptyString(request.resource.data.logicalTarget)
+        && isNonEmptyString(request.resource.data.sourceSectionId)
+        && request.resource.data.environment == 'test'
+        && request.resource.data.source == 'central_platform_core_phase_2b'
+        && request.resource.data.schemaVersion == 1
+        && request.resource.data.createdAt == request.time
+        && request.resource.data.context is map;
+    }
+
+    match /core_test_signal_events/{signalId} {
+      allow read: if false;
+      allow create: if coreTestSignalEventCreateValid(signalId);
+      allow update, delete: if false;
+    }
+
     function archiveSignalEventAllowedKeys() {
       return [
         'event_id',

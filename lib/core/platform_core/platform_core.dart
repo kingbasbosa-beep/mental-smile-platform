@@ -7,6 +7,7 @@ export 'dictionary/platform_dictionary_v1.dart';
 export 'dictionary/platform_dictionary_validation_result.dart';
 export 'dock/dock_registry.dart';
 export 'gateway/core_output_gateway.dart';
+export 'gateway/firebase_core_output_gateway.dart';
 export 'platform_core_facade.dart';
 export 'registry/core_code_registry.dart';
 export 'resolver/core_signal_resolver.dart';
