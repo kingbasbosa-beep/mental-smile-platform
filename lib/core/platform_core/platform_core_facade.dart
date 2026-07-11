@@ -1,5 +1,6 @@
 import 'contracts/core_signal_request.dart';
 import 'contracts/section_socket.dart';
+import 'dictionary/platform_dictionary_v1.dart';
 import 'dock/dock_registry.dart';
 import 'gateway/core_output_gateway.dart';
 import 'registry/core_code_registry.dart';
@@ -12,7 +13,8 @@ class PlatformCore {
     CoreOutputGateway? outputGateway,
     CoreSignalResolver? resolver,
   })  : dockRegistry = dockRegistry ?? DockRegistry(),
-        codeRegistry = codeRegistry ?? CoreCodeRegistry.testDefaults(),
+        codeRegistry =
+            codeRegistry ?? CoreCodeRegistry(PlatformDictionaryV1.definitions),
         outputGateway = outputGateway ?? const NoopCoreOutputGateway(),
         _resolver = resolver;
 

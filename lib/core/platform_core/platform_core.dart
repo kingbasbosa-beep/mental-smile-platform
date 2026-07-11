@@ -1,6 +1,10 @@
 export 'contracts/core_signal_envelope.dart';
 export 'contracts/core_signal_request.dart';
 export 'contracts/section_socket.dart';
+export 'dictionary/core_code_pattern.dart';
+export 'dictionary/core_dictionary_types.dart';
+export 'dictionary/platform_dictionary_v1.dart';
+export 'dictionary/platform_dictionary_validation_result.dart';
 export 'dock/dock_registry.dart';
 export 'gateway/core_output_gateway.dart';
 export 'platform_core_facade.dart';

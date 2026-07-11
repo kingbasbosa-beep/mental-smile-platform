@@ -44,7 +44,7 @@ void main() {
       final result = await core.emit(
         const CoreSignalRequest(
           sectionId: 'test_residential',
-          code: 'cl002bt',
+          code: 'cl001bt',
           context: <String, Object?>{'surface': 'test'},
         ),
       );
@@ -87,7 +87,7 @@ void main() {
       final result = await core.emit(
         const CoreSignalRequest(
           sectionId: 'missing_section',
-          code: 'cl002bt',
+          code: 'cl001bt',
         ),
       );
 
@@ -107,6 +107,7 @@ void main() {
           enabled: true,
           environment: 'test',
           schemaVersion: 1,
+          description: 'Other feedback tap.',
         ),
       ]);
       final customCore = PlatformCore(
@@ -127,9 +128,25 @@ void main() {
     });
 
     test('rejects disabled code', () async {
-      core.connectSection(_fakeSurveySocket());
+      final registry = CoreCodeRegistry(<CoreCodeDefinition>[
+        const CoreCodeDefinition(
+          code: 'sv001sb',
+          family: 'survey',
+          eventName: 'survey_button_tap',
+          logicalTarget: 'survey',
+          allowedSections: <String>{'SURVEY_TEST'},
+          enabled: false,
+          environment: 'test',
+          schemaVersion: 1,
+          description: 'Disabled survey test code.',
+        ),
+      ]);
+      final customCore = PlatformCore(
+        codeRegistry: registry,
+        outputGateway: memoryGateway,
+      )..connectSection(_fakeSurveySocket());
 
-      final result = await core.emit(
+      final result = await customCore.emit(
         const CoreSignalRequest(
           sectionId: 'test_survey',
           code: 'sv001sb',
@@ -152,6 +169,7 @@ void main() {
           enabled: true,
           environment: 'prod',
           schemaVersion: 1,
+          description: 'Production mismatch test code.',
         ),
       ]);
       final customCore = PlatformCore(
@@ -177,7 +195,7 @@ void main() {
       final result = await core.emit(
         const CoreSignalRequest(
           sectionId: 'test_residential',
-          code: 'fb001bt',
+          code: 'cl004sb',
         ),
       );
 
@@ -194,7 +212,7 @@ void main() {
       final result = await core.emit(
         const CoreSignalRequest(
           sectionId: 'test_residential',
-          code: 'cl002bt',
+          code: 'cl001bt',
         ),
       );
 
@@ -209,7 +227,7 @@ void main() {
       final result = await core.emit(
         const CoreSignalRequest(
           sectionId: 'test_residential',
-          code: 'cl002bt',
+          code: 'cl001bt',
           context: <String, Object?>{'token': 'secret'},
         ),
       );
@@ -227,7 +245,7 @@ void main() {
       final result = await noopCore.emit(
         const CoreSignalRequest(
           sectionId: 'test_residential',
-          code: 'cl002bt',
+          code: 'cl001bt',
         ),
       );
 
@@ -240,7 +258,7 @@ void main() {
       await core.emit(
         const CoreSignalRequest(
           sectionId: 'test_residential',
-          code: 'cl002bt',
+          code: 'cl001bt',
         ),
       );
 
@@ -256,7 +274,7 @@ void main() {
       final result = await failingCore.emit(
         const CoreSignalRequest(
           sectionId: 'test_residential',
-          code: 'cl002bt',
+          code: 'cl001bt',
         ),
       );
 

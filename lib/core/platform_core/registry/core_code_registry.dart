@@ -8,6 +8,7 @@ class CoreCodeDefinition {
     required this.enabled,
     required this.environment,
     required this.schemaVersion,
+    required this.description,
   });
 
   final String code;
@@ -18,6 +19,7 @@ class CoreCodeDefinition {
   final bool enabled;
   final String environment;
   final int schemaVersion;
+  final String description;
 
   CoreCodeDefinition copyWith({bool? enabled}) {
     return CoreCodeDefinition(
@@ -29,6 +31,7 @@ class CoreCodeDefinition {
       enabled: enabled ?? this.enabled,
       environment: environment,
       schemaVersion: schemaVersion,
+      description: description,
     );
   }
 }
@@ -51,26 +54,29 @@ class CoreCodeRegistry {
         enabled: true,
         environment: 'test',
         schemaVersion: 1,
+        description: 'Client login entry tap.',
       ),
       const CoreCodeDefinition(
-        code: 'fb001bt',
+        code: 'cl004sb',
         family: 'feedback',
-        eventName: 'feedback_button_tap',
+        eventName: 'client_feedback_submit',
         logicalTarget: 'feedback',
         allowedSections: <String>{'RES_TEST'},
         enabled: true,
         environment: 'test',
         schemaVersion: 1,
+        description: 'Client feedback submit.',
       ),
       const CoreCodeDefinition(
-        code: 'sv001sb',
+        code: 'cl003sb',
         family: 'survey',
-        eventName: 'survey_button_tap',
+        eventName: 'client_survey_submit',
         logicalTarget: 'survey',
         allowedSections: <String>{'SURVEY_TEST'},
         enabled: false,
         environment: 'test',
         schemaVersion: 1,
+        description: 'Disabled survey test code.',
       ),
     ]);
   }
@@ -84,6 +90,14 @@ class CoreCodeRegistry {
     if (_definitions.containsKey(definition.code)) return false;
     _definitions[definition.code] = definition;
     return true;
+  }
+
+  int registerAll(Iterable<CoreCodeDefinition> definitions) {
+    var added = 0;
+    for (final definition in definitions) {
+      if (register(definition)) added++;
+    }
+    return added;
   }
 
   CoreCodeDefinition? resolve(String code) => _definitions[code];
