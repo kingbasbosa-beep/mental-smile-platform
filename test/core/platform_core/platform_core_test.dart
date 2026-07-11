@@ -327,6 +327,7 @@ SectionSocket _fakeSurveySocket() {
     environment: 'test',
     allowedGates: <String>{'survey'},
     allowedCodePrefixes: <String>{'sv'},
+    socketId: PlatformSocketIds.socket02,
   );
 }
 

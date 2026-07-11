@@ -1,8 +1,18 @@
 import '../contracts/section_socket.dart';
+import '../registry/platform_section_registry.dart';
+import '../socket/platform_socket_registry.dart';
 
 enum DockSlotStatus { empty, connected, active, disabled }
 
-enum DockConnectionReason { connected, duplicateSection, dockFull }
+enum DockConnectionReason {
+  connected,
+  duplicateSection,
+  dockFull,
+  unknownSocket,
+  reservedSocket,
+  wrongSocket,
+  socketOccupied,
+}
 
 class DockConnectionResult {
   const DockConnectionResult({
@@ -19,17 +29,20 @@ class DockConnectionResult {
 class DockSlot {
   const DockSlot({
     required this.index,
+    required this.socketId,
     required this.socket,
     required this.status,
   });
 
   final int index;
+  final String socketId;
   final SectionSocket socket;
   final DockSlotStatus status;
 
   DockSlot copyWith({DockSlotStatus? status}) {
     return DockSlot(
       index: index,
+      socketId: socketId,
       socket: socket,
       status: status ?? this.status,
     );
@@ -37,10 +50,18 @@ class DockSlot {
 }
 
 class DockRegistry {
-  DockRegistry({this.maxSlots = 10});
+  DockRegistry({
+    PlatformSocketRegistry? socketRegistry,
+    PlatformSectionRegistry? sectionRegistry,
+    this.maxSlots = PlatformSocketRegistry.socketCount,
+  })  : socketRegistry = socketRegistry ?? PlatformSocketRegistry(),
+        sectionRegistry = sectionRegistry ?? PlatformSectionRegistry();
 
   final int maxSlots;
+  final PlatformSocketRegistry socketRegistry;
+  final PlatformSectionRegistry sectionRegistry;
   final Map<String, DockSlot> _slotsBySectionId = <String, DockSlot>{};
+  final Map<String, DockSlot> _slotsBySocketId = <String, DockSlot>{};
 
   List<DockSlot> get slots {
     return List<DockSlot>.unmodifiable(
@@ -52,6 +73,8 @@ class DockRegistry {
   bool contains(String sectionId) => _slotsBySectionId.containsKey(sectionId);
 
   DockSlot? slotFor(String sectionId) => _slotsBySectionId[sectionId];
+
+  DockSlot? slotForSocket(String socketId) => _slotsBySocketId[socketId];
 
   DockConnectionResult connect(SectionSocket socket) {
     if (_slotsBySectionId.containsKey(socket.sectionId)) {
@@ -67,12 +90,51 @@ class DockRegistry {
       );
     }
 
+    final sectionDefinition =
+        sectionRegistry.definitionForCode(socket.sectionCode);
+    final socketId = socket.socketId ?? sectionDefinition?.defaultSocketId;
+    if (socketId == null) {
+      return const DockConnectionResult(
+        connected: false,
+        reason: DockConnectionReason.unknownSocket,
+      );
+    }
+
+    final platformSocket = socketRegistry.definitionFor(socketId);
+    if (platformSocket == null) {
+      return const DockConnectionResult(
+        connected: false,
+        reason: DockConnectionReason.unknownSocket,
+      );
+    }
+    if (platformSocket.status == PlatformSocketStatus.reserved) {
+      return const DockConnectionResult(
+        connected: false,
+        reason: DockConnectionReason.reservedSocket,
+      );
+    }
+    if (sectionDefinition != null &&
+        sectionDefinition.defaultSocketId != socketId) {
+      return const DockConnectionResult(
+        connected: false,
+        reason: DockConnectionReason.wrongSocket,
+      );
+    }
+    if (_slotsBySocketId.containsKey(socketId)) {
+      return const DockConnectionResult(
+        connected: false,
+        reason: DockConnectionReason.socketOccupied,
+      );
+    }
+
     final slot = DockSlot(
-      index: _nextIndex(),
+      index: platformSocket.socketNumber - 1,
+      socketId: socketId,
       socket: socket,
       status: DockSlotStatus.connected,
     );
     _slotsBySectionId[socket.sectionId] = slot;
+    _slotsBySocketId[socketId] = slot;
     return DockConnectionResult(
       connected: true,
       reason: DockConnectionReason.connected,
@@ -81,21 +143,18 @@ class DockRegistry {
   }
 
   bool disconnect(String sectionId) {
-    return _slotsBySectionId.remove(sectionId) != null;
+    final removed = _slotsBySectionId.remove(sectionId);
+    if (removed == null) return false;
+    _slotsBySocketId.remove(removed.socketId);
+    return true;
   }
 
   bool setStatus(String sectionId, DockSlotStatus status) {
     final slot = _slotsBySectionId[sectionId];
     if (slot == null) return false;
-    _slotsBySectionId[sectionId] = slot.copyWith(status: status);
+    final updated = slot.copyWith(status: status);
+    _slotsBySectionId[sectionId] = updated;
+    _slotsBySocketId[slot.socketId] = updated;
     return true;
-  }
-
-  int _nextIndex() {
-    if (_slotsBySectionId.isEmpty) return 0;
-    return _slotsBySectionId.values
-            .map((slot) => slot.index)
-            .reduce((a, b) => a > b ? a : b) +
-        1;
   }
 }

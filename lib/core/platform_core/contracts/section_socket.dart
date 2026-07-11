@@ -6,6 +6,7 @@ class SectionSocket {
     required this.environment,
     required this.allowedGates,
     required this.allowedCodePrefixes,
+    this.socketId,
   });
 
   final String sectionId;
@@ -14,6 +15,7 @@ class SectionSocket {
   final String environment;
   final Set<String> allowedGates;
   final Set<String> allowedCodePrefixes;
+  final String? socketId;
 
   bool allowsGate(String gate) => allowedGates.contains(gate);
 
