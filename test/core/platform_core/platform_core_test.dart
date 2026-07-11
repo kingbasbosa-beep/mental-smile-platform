@@ -278,8 +278,10 @@ void main() {
         ),
       );
 
-      expect(result.accepted, isFalse);
+      expect(result.accepted, isTrue);
+      expect(result.outputDelivered, isFalse);
       expect(result.reason, CoreEmitReason.gatewayFailure);
+      expect(result.envelope, isNotNull);
     });
 
     test('dock limit is respected', () {
