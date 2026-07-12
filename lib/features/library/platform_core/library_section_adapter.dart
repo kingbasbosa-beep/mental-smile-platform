@@ -1,7 +1,10 @@
 import 'package:mental_smile_os/core/platform_core/platform_core.dart';
 
 class LibrarySectionAdapter implements PlatformSectionAdapter {
-  const LibrarySectionAdapter({this.socketId = PlatformSocketIds.socket03});
+  const LibrarySectionAdapter({
+    this.socketId = PlatformSocketIds.socket03,
+    this.socketEnvironment = environment,
+  });
 
   static const String sectionId = 'MS-SECTION-LIBRARY';
   static const String sectionCode = 'LIB';
@@ -14,6 +17,7 @@ class LibrarySectionAdapter implements PlatformSectionAdapter {
   static const String testCode = 'lb001bt';
 
   final String socketId;
+  final String socketEnvironment;
 
   @override
   String get adapterDefaultSocketId => defaultSocketId;
@@ -27,7 +31,7 @@ class LibrarySectionAdapter implements PlatformSectionAdapter {
       sectionId: sectionId,
       sectionCode: sectionCode,
       contractVersion: contractVersion,
-      environment: environment,
+      environment: socketEnvironment,
       allowedGates: allowedFamilies,
       allowedCodePrefixes: allowedCodePrefixes,
       socketId: socketId,

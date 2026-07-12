@@ -352,6 +352,53 @@ service cloud.firestore {
       allow update, delete: if false;
     }
 
+    function coreProductionSignalEventCreateValid(signalId, family) {
+      return signedIn()
+        && request.resource.data.keys().hasOnly(coreTestSignalEventAllowedKeys())
+        && request.resource.data.signalId == signalId
+        && isNonEmptyString(request.resource.data.signalId)
+        && isNonEmptyString(request.resource.data.code)
+        && request.resource.data.family == family
+        && request.resource.data.logicalTarget == family
+        && isNonEmptyString(request.resource.data.eventName)
+        && isNonEmptyString(request.resource.data.sourceSectionId)
+        && request.resource.data.environment == 'production'
+        && request.resource.data.source == 'central_platform_core'
+        && request.resource.data.schemaVersion == 1
+        && request.resource.data.createdAt == request.time
+        && request.resource.data.context is map;
+    }
+
+    match /core_login_signals/{signalId} {
+      allow read: if false;
+      allow create: if coreProductionSignalEventCreateValid(signalId, 'login');
+      allow update, delete: if false;
+    }
+
+    match /core_logout_signals/{signalId} {
+      allow read: if false;
+      allow create: if coreProductionSignalEventCreateValid(signalId, 'logout');
+      allow update, delete: if false;
+    }
+
+    match /core_survey_signals/{signalId} {
+      allow read: if false;
+      allow create: if coreProductionSignalEventCreateValid(signalId, 'survey');
+      allow update, delete: if false;
+    }
+
+    match /core_feedback_signals/{signalId} {
+      allow read: if false;
+      allow create: if coreProductionSignalEventCreateValid(signalId, 'feedback');
+      allow update, delete: if false;
+    }
+
+    match /core_application_signals/{signalId} {
+      allow read: if false;
+      allow create: if coreProductionSignalEventCreateValid(signalId, 'application');
+      allow update, delete: if false;
+    }
+
     function archiveSignalEventAllowedKeys() {
       return [
         'event_id',

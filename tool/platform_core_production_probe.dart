@@ -3,7 +3,6 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:mental_smile_os/core/platform_core/platform_core.dart';
 import 'package:mental_smile_os/features/commercial/platform_core/commercial_section_adapter.dart';
-import 'package:mental_smile_os/features/library/platform_core/library_section_adapter.dart';
 import 'package:mental_smile_os/features/residential/platform_core/residential_section_adapter.dart';
 import 'package:mental_smile_os/firebase_options.dart';
 
@@ -24,15 +23,15 @@ Future<void> main() async {
   }
 
   runApp(
-    RealSignalGroupProbeApp(
+    PlatformCoreProductionProbeApp(
       firebaseReady: firebaseReady,
       firebaseMessage: firebaseMessage,
     ),
   );
 }
 
-class RealSignalGroupProbeApp extends StatelessWidget {
-  const RealSignalGroupProbeApp({
+class PlatformCoreProductionProbeApp extends StatelessWidget {
+  const PlatformCoreProductionProbeApp({
     required this.firebaseReady,
     this.firebaseMessage,
     super.key,
@@ -45,8 +44,8 @@ class RealSignalGroupProbeApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Platform Real Signal Group Probe',
-      home: RealSignalGroupProbePage(
+      title: 'Platform Core Production Probe',
+      home: PlatformCoreProductionProbePage(
         firebaseReady: firebaseReady,
         firebaseMessage: firebaseMessage,
       ),
@@ -54,8 +53,8 @@ class RealSignalGroupProbeApp extends StatelessWidget {
   }
 }
 
-class RealSignalGroupProbePage extends StatefulWidget {
-  RealSignalGroupProbePage({
+class PlatformCoreProductionProbePage extends StatefulWidget {
+  PlatformCoreProductionProbePage({
     required this.firebaseReady,
     this.firebaseMessage,
     FirebaseAuth? auth,
@@ -67,11 +66,12 @@ class RealSignalGroupProbePage extends StatefulWidget {
   final FirebaseAuth auth;
 
   @override
-  State<RealSignalGroupProbePage> createState() =>
-      _RealSignalGroupProbePageState();
+  State<PlatformCoreProductionProbePage> createState() =>
+      _PlatformCoreProductionProbePageState();
 }
 
-class _RealSignalGroupProbePageState extends State<RealSignalGroupProbePage> {
+class _PlatformCoreProductionProbePageState
+    extends State<PlatformCoreProductionProbePage> {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
   final Map<String, CoreEmitResult> _results = <String, CoreEmitResult>{};
@@ -80,29 +80,11 @@ class _RealSignalGroupProbePageState extends State<RealSignalGroupProbePage> {
   bool _signingIn = false;
   String? _authMessage;
 
-  static const List<_RealSignalProbeAction> _actions = <_RealSignalProbeAction>[
-    _RealSignalProbeAction(
-      label: 'Residential check-in submit',
-      sectionId: ResidentialSectionAdapter.sectionId,
-      code: 'cl012sb',
-      context: <String, Object?>{
-        'surface': 'client_checkin',
-        'formType': 'checkin',
-        'status': 'submitted',
-      },
-    ),
-    _RealSignalProbeAction(
-      label: 'Residential suggestion submit',
-      sectionId: ResidentialSectionAdapter.sectionId,
-      code: 'cl014sb',
-      context: <String, Object?>{
-        'surface': 'client_suggestion',
-        'formType': 'suggestion',
-        'status': 'submitted',
-      },
-    ),
-    _RealSignalProbeAction(
+  static const List<_ProductionProbeAction> _actions = <_ProductionProbeAction>[
+    _ProductionProbeAction(
+      family: 'login',
       label: 'Specialist login success',
+      collection: ProductionSignalCollections.login,
       sectionId: CommercialSectionAdapter.sectionId,
       code: 'sp010bt',
       context: <String, Object?>{
@@ -111,34 +93,51 @@ class _RealSignalGroupProbePageState extends State<RealSignalGroupProbePage> {
         'status': 'success',
       },
     ),
-    _RealSignalProbeAction(
+    _ProductionProbeAction(
+      family: 'logout',
+      label: 'Client logout completion',
+      collection: ProductionSignalCollections.logout,
+      sectionId: ResidentialSectionAdapter.sectionId,
+      code: 'cl016bt',
+      context: <String, Object?>{
+        'surface': 'client_room',
+        'actionType': 'logout',
+        'status': 'completed',
+      },
+    ),
+    _ProductionProbeAction(
+      family: 'survey',
+      label: 'Residential check-in submit',
+      collection: ProductionSignalCollections.survey,
+      sectionId: ResidentialSectionAdapter.sectionId,
+      code: 'cl012sb',
+      context: <String, Object?>{
+        'surface': 'client_checkin',
+        'formType': 'checkin',
+        'status': 'submitted',
+      },
+    ),
+    _ProductionProbeAction(
+      family: 'feedback',
+      label: 'Residential suggestion submit',
+      collection: ProductionSignalCollections.feedback,
+      sectionId: ResidentialSectionAdapter.sectionId,
+      code: 'cl014sb',
+      context: <String, Object?>{
+        'surface': 'client_suggestion',
+        'formType': 'suggestion',
+        'status': 'submitted',
+      },
+    ),
+    _ProductionProbeAction(
+      family: 'application',
       label: 'Specialist application submit',
+      collection: ProductionSignalCollections.application,
       sectionId: CommercialSectionAdapter.sectionId,
       code: 'sp014sb',
       context: <String, Object?>{
         'surface': 'specialist_application',
         'actorType': 'specialist',
-        'formType': 'application',
-        'status': 'submitted',
-      },
-    ),
-    _RealSignalProbeAction(
-      label: 'Center login success',
-      sectionId: CommercialSectionAdapter.sectionId,
-      code: 'ct010bt',
-      context: <String, Object?>{
-        'surface': 'center_login',
-        'actorType': 'center',
-        'status': 'success',
-      },
-    ),
-    _RealSignalProbeAction(
-      label: 'Center application submit',
-      sectionId: CommercialSectionAdapter.sectionId,
-      code: 'ct014sb',
-      context: <String, Object?>{
-        'surface': 'center_application',
-        'actorType': 'center',
         'formType': 'application',
         'status': 'submitted',
       },
@@ -154,7 +153,7 @@ class _RealSignalGroupProbePageState extends State<RealSignalGroupProbePage> {
     super.dispose();
   }
 
-  Future<void> _signInForTest() async {
+  Future<void> _signInForProductionProbe() async {
     if (_signingIn) return;
     setState(() {
       _signingIn = true;
@@ -167,7 +166,7 @@ class _RealSignalGroupProbePageState extends State<RealSignalGroupProbePage> {
         password: _passwordController.text,
       );
       if (!mounted) return;
-      setState(() => _authMessage = 'Authenticated test session ready');
+      setState(() => _authMessage = 'Authenticated production probe session');
     } on FirebaseAuthException catch (error) {
       if (!mounted) return;
       setState(() => _authMessage = 'Authentication failed: ${error.code}');
@@ -179,7 +178,7 @@ class _RealSignalGroupProbePageState extends State<RealSignalGroupProbePage> {
     }
   }
 
-  Future<void> _sendOne(_RealSignalProbeAction action) async {
+  Future<void> _sendOne(_ProductionProbeAction action) async {
     if (_sendingCodes.contains(action.code) ||
         !widget.firebaseReady ||
         _currentUser == null) {
@@ -193,13 +192,20 @@ class _RealSignalGroupProbePageState extends State<RealSignalGroupProbePage> {
 
     try {
       final core = PlatformCore(
-        outputGateway: FirebaseCoreOutputGateway(
+        outputGateway: ProductionFirebaseCoreOutputGateway(
           writer: FirebaseCoreFirestoreWriter(),
         ),
       )
-        ..connectSection(const ResidentialSectionAdapter().createSocket())
-        ..connectSection(const CommercialSectionAdapter().createSocket())
-        ..connectSection(const LibrarySectionAdapter().createSocket());
+        ..connectSection(
+          const ResidentialSectionAdapter(
+            socketEnvironment: 'production',
+          ).createSocket(),
+        )
+        ..connectSection(
+          const CommercialSectionAdapter(
+            socketEnvironment: 'production',
+          ).createSocket(),
+        );
 
       final result = await core.emit(
         CoreSignalRequest(
@@ -227,7 +233,7 @@ class _RealSignalGroupProbePageState extends State<RealSignalGroupProbePage> {
     final authenticated = _currentUser != null;
 
     return Scaffold(
-      appBar: AppBar(title: const Text('Platform Real Signal Group Probe')),
+      appBar: AppBar(title: const Text('Platform Core Production Probe')),
       body: Center(
         child: ConstrainedBox(
           constraints: const BoxConstraints(maxWidth: 860),
@@ -260,10 +266,11 @@ class _RealSignalGroupProbePageState extends State<RealSignalGroupProbePage> {
                 const SizedBox(height: 12),
                 FilledButton(
                   onPressed: widget.firebaseReady && !_signingIn
-                      ? _signInForTest
+                      ? _signInForProductionProbe
                       : null,
-                  child:
-                      Text(_signingIn ? 'Signing in...' : 'Sign in for test'),
+                  child: Text(
+                    _signingIn ? 'Signing in...' : 'Sign in for probe',
+                  ),
                 ),
               ],
               const SizedBox(height: 20),
@@ -283,15 +290,19 @@ class _RealSignalGroupProbePageState extends State<RealSignalGroupProbePage> {
   }
 }
 
-class _RealSignalProbeAction {
-  const _RealSignalProbeAction({
+class _ProductionProbeAction {
+  const _ProductionProbeAction({
+    required this.family,
     required this.label,
+    required this.collection,
     required this.sectionId,
     required this.code,
     required this.context,
   });
 
+  final String family;
   final String label;
+  final String collection;
   final String sectionId;
   final String code;
   final Map<String, Object?> context;
@@ -306,7 +317,7 @@ class _ActionPanel extends StatelessWidget {
     required this.onSend,
   });
 
-  final _RealSignalProbeAction action;
+  final _ProductionProbeAction action;
   final CoreEmitResult? result;
   final bool sending;
   final bool enabled;
@@ -326,8 +337,12 @@ class _ActionPanel extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: <Widget>[
-              Text(action.label,
-                  style: Theme.of(context).textTheme.titleMedium),
+              Text(
+                action.label,
+                style: Theme.of(context).textTheme.titleMedium,
+              ),
+              _ProbeLine(label: 'Family', value: action.family),
+              _ProbeLine(label: 'Collection', value: action.collection),
               _ProbeLine(label: 'Code', value: action.code),
               _ProbeLine(label: 'Section', value: action.sectionId),
               FilledButton(

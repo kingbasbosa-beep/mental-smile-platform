@@ -5,7 +5,7 @@ class ResidentialRuntimeSignalBridge {
   ResidentialRuntimeSignalBridge._();
 
   static final PlatformCoreSignalBridge _bridge = PlatformCoreSignalBridge(
-    adapter: const ResidentialSectionAdapter(),
+    adapter: const ResidentialSectionAdapter(socketEnvironment: 'production'),
   );
 
   static Future<CoreEmitResult> emitCheckinSubmitted() {
@@ -26,6 +26,17 @@ class ResidentialRuntimeSignalBridge {
         'surface': 'client_suggestion',
         'formType': 'suggestion',
         'status': 'submitted',
+      },
+    );
+  }
+
+  static Future<CoreEmitResult> emitClientLogoutCompleted() {
+    return _bridge.emit(
+      code: 'cl016bt',
+      context: const <String, Object?>{
+        'surface': 'client_room',
+        'actionType': 'logout',
+        'status': 'completed',
       },
     );
   }

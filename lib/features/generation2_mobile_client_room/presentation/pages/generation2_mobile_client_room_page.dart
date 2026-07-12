@@ -1,8 +1,10 @@
+import 'dart:async';
 import 'dart:typed_data';
 
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:mental_smile_os/app/router/routes.dart';
+import 'package:mental_smile_os/core/platform_core/platform_core.dart';
 import 'package:mental_smile_os/shared/accessibility/accessibility_guide_icon.dart';
 import 'package:mental_smile_os/shared/guides/daleel_assistant.dart';
 
@@ -69,6 +71,9 @@ class Generation2MobileRoomScaffold extends StatefulWidget {
 
 class _Generation2MobileRoomScaffoldState
     extends State<Generation2MobileRoomScaffold> {
+  static const ClientLocalSessionStore _sessionStore =
+      ClientLocalSessionStore();
+
   static const String _mobileBackground =
       'assets/images/mobile/client_room/background_mobile.webp';
   static const String _tabletBackground =
@@ -90,6 +95,12 @@ class _Generation2MobileRoomScaffoldState
   bool _messagePanelOpen = false;
   String? _selectedMessage;
   Uint8List? _selectedImageBytes;
+
+  @override
+  void initState() {
+    super.initState();
+    unawaited(_sessionStore.startSession());
+  }
 
   @override
   void dispose() {
@@ -160,11 +171,13 @@ class _Generation2MobileRoomScaffoldState
     final bytes = await picked.readAsBytes();
     if (!mounted) return;
     setState(() => _selectedImageBytes = bytes);
+    unawaited(_sessionStore.saveClientImageReference(picked.path));
   }
 
   void _clearImage() {
     _selectedImageBytes = null;
     _selectedMessage = null;
+    unawaited(_sessionStore.clearSession());
   }
 
   void _exitRoom() {
@@ -331,6 +344,9 @@ class _Generation2MobileRoomScaffoldState
                                       _selectedMessage = message;
                                       _messagePanelOpen = false;
                                     });
+                                    unawaited(
+                                      _sessionStore.saveSelectedNote(message),
+                                    );
                                   },
                                   onSpeak: _audioPlaceholder,
                                 ),

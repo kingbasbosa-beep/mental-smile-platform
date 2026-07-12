@@ -160,9 +160,10 @@ class PlatformDictionaryV1 {
       logicalTarget: 'survey',
       allowedSections: <String>{'RES'},
       enabled: true,
-      environment: 'test',
+      environment: 'production',
       schemaVersion: schemaVersion,
       description: 'Client check-in submission signal.',
+      usage: 'runtime',
     ),
     CoreCodeDefinition(
       code: 'cl014sb',
@@ -171,9 +172,22 @@ class PlatformDictionaryV1 {
       logicalTarget: 'feedback',
       allowedSections: <String>{'RES'},
       enabled: true,
-      environment: 'test',
+      environment: 'production',
       schemaVersion: schemaVersion,
       description: 'Client suggestion submission signal.',
+      usage: 'runtime',
+    ),
+    CoreCodeDefinition(
+      code: 'cl016bt',
+      family: 'logout',
+      eventName: 'client_logout_success',
+      logicalTarget: 'logout',
+      allowedSections: <String>{'RES'},
+      enabled: true,
+      environment: 'production',
+      schemaVersion: schemaVersion,
+      description: 'Client logout or room exit completion signal.',
+      usage: 'runtime',
     ),
     CoreCodeDefinition(
       code: 'sp010bt',
@@ -182,9 +196,10 @@ class PlatformDictionaryV1 {
       logicalTarget: 'login',
       allowedSections: <String>{'COM'},
       enabled: true,
-      environment: 'test',
+      environment: 'production',
       schemaVersion: schemaVersion,
       description: 'Specialist login success signal.',
+      usage: 'runtime',
     ),
     CoreCodeDefinition(
       code: 'sp014sb',
@@ -193,9 +208,10 @@ class PlatformDictionaryV1 {
       logicalTarget: 'application',
       allowedSections: <String>{'COM'},
       enabled: true,
-      environment: 'test',
+      environment: 'production',
       schemaVersion: schemaVersion,
       description: 'Specialist application submission signal.',
+      usage: 'runtime',
     ),
     CoreCodeDefinition(
       code: 'ct010bt',
@@ -204,9 +220,10 @@ class PlatformDictionaryV1 {
       logicalTarget: 'login',
       allowedSections: <String>{'COM'},
       enabled: true,
-      environment: 'test',
+      environment: 'production',
       schemaVersion: schemaVersion,
       description: 'Center login success signal.',
+      usage: 'runtime',
     ),
     CoreCodeDefinition(
       code: 'ct014sb',
@@ -215,9 +232,10 @@ class PlatformDictionaryV1 {
       logicalTarget: 'application',
       allowedSections: <String>{'COM'},
       enabled: true,
-      environment: 'test',
+      environment: 'production',
       schemaVersion: schemaVersion,
       description: 'Center application submission signal.',
+      usage: 'runtime',
     ),
   ];
 
@@ -261,8 +279,16 @@ class PlatformDictionaryV1 {
       if (definition.schemaVersion <= 0) {
         errors.add('invalid_schema_version:${definition.code}');
       }
-      if (definition.environment != CoreCodeEnvironment.test.value) {
-        errors.add('non_test_environment:${definition.code}');
+      if (definition.usage != 'probe' && definition.usage != 'runtime') {
+        errors.add('unknown_usage:${definition.code}');
+      }
+      if (definition.isProbeUsage &&
+          definition.environment != CoreCodeEnvironment.test.value) {
+        errors.add('probe_environment_mismatch:${definition.code}');
+      }
+      if (definition.isRuntimeUsage &&
+          definition.environment != CoreCodeEnvironment.production.value) {
+        errors.add('runtime_environment_mismatch:${definition.code}');
       }
       if (forbiddenFamilies.contains(definition.family)) {
         errors.add('forbidden_family:${definition.family}');

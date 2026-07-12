@@ -1,8 +1,10 @@
+import 'dart:async';
 import 'dart:typed_data';
 
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:mental_smile_os/app/router/routes.dart';
+import 'package:mental_smile_os/core/platform_core/platform_core.dart';
 import 'package:mental_smile_os/features/residential/signals/residential_signal_codes.dart';
 import 'package:mental_smile_os/features/residential/signals/residential_signal_emitter.dart';
 import 'package:mental_smile_os/l10n/app_localizations.dart';
@@ -18,6 +20,9 @@ class ClientRoomPage extends StatefulWidget {
 }
 
 class _ClientRoomPageState extends State<ClientRoomPage> {
+  static const ClientLocalSessionStore _sessionStore =
+      ClientLocalSessionStore();
+
   static const String _desktop =
       'assets/branding/rooms/client_room/client_room_background_desktop.png';
   static const String _tablet =
@@ -203,6 +208,7 @@ class _ClientRoomPageState extends State<ClientRoomPage> {
   @override
   void initState() {
     super.initState();
+    unawaited(_sessionStore.startSession());
     ResidentialSignalEmitter.emit(
       signalCode: ResidentialSignalCode.clientRoomView,
       sourceScreen: 'Client Room',
@@ -499,6 +505,7 @@ class _ClientRoomPageState extends State<ClientRoomPage> {
     setState(() {
       _selectedNotebookMessage = message;
     });
+    unawaited(_sessionStore.saveSelectedNote(message));
     ResidentialSignalEmitter.emit(
       signalCode: ResidentialSignalCode.motivationSelect,
       sourceScreen: 'Client Room',
@@ -966,6 +973,7 @@ class _ClientRoomPageState extends State<ClientRoomPage> {
     setState(() {
       _selectedPhotoBytes = bytes;
     });
+    unawaited(_sessionStore.saveClientImageReference(picked.path));
     ResidentialSignalEmitter.emit(
       signalCode: ResidentialSignalCode.imageUpload,
       sourceScreen: 'Client Room',
@@ -985,6 +993,7 @@ class _ClientRoomPageState extends State<ClientRoomPage> {
       _selectedPhotoBytes = null;
       _selectedNotebookMessage = null;
     });
+    unawaited(_sessionStore.clearSession());
     Navigator.of(context).pushNamedAndRemoveUntil(
       Routes.residentialExitSocialLinks,
       (route) => false,

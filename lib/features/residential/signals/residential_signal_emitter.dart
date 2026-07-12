@@ -49,6 +49,13 @@ class ResidentialSignalEmitter {
           ),
         );
         return true;
+      case ResidentialSignalCode.exit:
+        unawaited(
+          ResidentialRuntimeSignalBridge.emitClientLogoutCompleted().then<void>(
+            (_) {},
+          ),
+        );
+        return true;
     }
     return false;
   }

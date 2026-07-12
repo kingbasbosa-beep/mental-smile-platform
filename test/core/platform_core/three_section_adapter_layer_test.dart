@@ -338,7 +338,7 @@ void main() {
 
       expect(dictionary.isValid, isTrue, reason: dictionary.errors.join(', '));
       expect(language, isEmpty);
-      expect(PlatformDictionaryV1.definitions, hasLength(19));
+      expect(PlatformDictionaryV1.definitions, hasLength(20));
       expect(
         PlatformDictionaryV1.definitions.length,
         lessThanOrEqualTo(PlatformDictionaryV1.maxCodeCount),

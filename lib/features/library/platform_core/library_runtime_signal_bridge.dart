@@ -5,6 +5,6 @@ class LibraryRuntimeSignalBridge {
   LibraryRuntimeSignalBridge._();
 
   static final PlatformCoreSignalBridge bridge = PlatformCoreSignalBridge(
-    adapter: const LibrarySectionAdapter(),
+    adapter: const LibrarySectionAdapter(socketEnvironment: 'production'),
   );
 }

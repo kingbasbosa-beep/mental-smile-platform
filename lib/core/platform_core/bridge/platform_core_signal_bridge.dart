@@ -2,6 +2,7 @@ import '../contracts/core_signal_request.dart';
 import '../contracts/platform_section_adapter.dart';
 import '../gateway/core_output_gateway.dart';
 import '../gateway/firebase_core_output_gateway.dart';
+import '../gateway/production_firebase_core_output_gateway.dart';
 import '../platform_core_facade.dart';
 import '../resolver/core_signal_resolver.dart';
 
@@ -14,7 +15,7 @@ class PlatformCoreSignalBridge {
         _core = core ??
             PlatformCore(
               outputGateway: outputGateway ??
-                  FirebaseCoreOutputGateway(
+                  ProductionFirebaseCoreOutputGateway(
                     writer: FirebaseCoreFirestoreWriter(),
                   ),
             );

@@ -9,6 +9,7 @@ class CoreCodeDefinition {
     required this.environment,
     required this.schemaVersion,
     required this.description,
+    this.usage = 'probe',
   });
 
   final String code;
@@ -20,6 +21,10 @@ class CoreCodeDefinition {
   final String environment;
   final int schemaVersion;
   final String description;
+  final String usage;
+
+  bool get isRuntimeUsage => usage == 'runtime';
+  bool get isProbeUsage => usage == 'probe';
 
   CoreCodeDefinition copyWith({bool? enabled}) {
     return CoreCodeDefinition(
@@ -32,6 +37,7 @@ class CoreCodeDefinition {
       environment: environment,
       schemaVersion: schemaVersion,
       description: description,
+      usage: usage,
     );
   }
 }

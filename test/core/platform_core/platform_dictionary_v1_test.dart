@@ -3,12 +3,12 @@ import 'package:mental_smile_os/core/platform_core/platform_core.dart';
 
 void main() {
   group('PlatformDictionaryV1', () {
-    test('contains exactly 10 codes or fewer', () {
+    test('stays within the configured maximum code count', () {
       expect(
         PlatformDictionaryV1.definitions.length,
         lessThanOrEqualTo(PlatformDictionaryV1.maxCodeCount),
       );
-      expect(PlatformDictionaryV1.definitions, hasLength(19));
+      expect(PlatformDictionaryV1.definitions, hasLength(20));
     });
 
     test('contains all five official families', () {
@@ -68,9 +68,13 @@ void main() {
       }
     });
 
-    test('all codes are test environment only', () {
+    test('probe codes are test and runtime codes are production', () {
       for (final definition in PlatformDictionaryV1.definitions) {
-        expect(definition.environment, 'test');
+        if (definition.isRuntimeUsage) {
+          expect(definition.environment, 'production', reason: definition.code);
+        } else {
+          expect(definition.environment, 'test', reason: definition.code);
+        }
       }
     });
 
@@ -178,6 +182,7 @@ void main() {
       const expectedCodes = <String>{
         'cl012sb',
         'cl014sb',
+        'cl016bt',
         'sp010bt',
         'sp014sb',
         'ct010bt',
@@ -191,11 +196,13 @@ void main() {
       expect(definitionsByCode.keys, containsAll(expectedCodes));
       for (final code in expectedCodes) {
         final definition = definitionsByCode[code]!;
-        expect(definition.environment, 'test');
+        expect(definition.environment, 'production');
+        expect(definition.usage, 'runtime');
         expect(definition.family, definition.logicalTarget);
       }
       expect(definitionsByCode['cl012sb']!.allowedSections, <String>{'RES'});
       expect(definitionsByCode['cl014sb']!.allowedSections, <String>{'RES'});
+      expect(definitionsByCode['cl016bt']!.allowedSections, <String>{'RES'});
       expect(definitionsByCode['sp010bt']!.allowedSections, <String>{'COM'});
       expect(definitionsByCode['sp014sb']!.allowedSections, <String>{'COM'});
       expect(definitionsByCode['ct010bt']!.allowedSections, <String>{'COM'});

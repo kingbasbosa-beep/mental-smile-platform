@@ -5,7 +5,7 @@ class CommercialRuntimeSignalBridge {
   CommercialRuntimeSignalBridge._();
 
   static final PlatformCoreSignalBridge _bridge = PlatformCoreSignalBridge(
-    adapter: const CommercialSectionAdapter(),
+    adapter: const CommercialSectionAdapter(socketEnvironment: 'production'),
   );
 
   static Future<CoreEmitResult> emitSpecialistLoginSuccess() {

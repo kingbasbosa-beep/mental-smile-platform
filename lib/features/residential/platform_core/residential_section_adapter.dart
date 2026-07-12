@@ -1,7 +1,10 @@
 import 'package:mental_smile_os/core/platform_core/platform_core.dart';
 
 class ResidentialSectionAdapter implements PlatformSectionAdapter {
-  const ResidentialSectionAdapter({this.socketId = PlatformSocketIds.socket01});
+  const ResidentialSectionAdapter({
+    this.socketId = PlatformSocketIds.socket01,
+    this.socketEnvironment = environment,
+  });
 
   static const String sectionId = 'MS-SECTION-RESIDENTIAL';
   static const String sectionCode = 'RES';
@@ -19,6 +22,7 @@ class ResidentialSectionAdapter implements PlatformSectionAdapter {
   static const String testCode = 'cl006bt';
 
   final String socketId;
+  final String socketEnvironment;
 
   @override
   String get adapterDefaultSocketId => defaultSocketId;
@@ -32,7 +36,7 @@ class ResidentialSectionAdapter implements PlatformSectionAdapter {
       sectionId: sectionId,
       sectionCode: sectionCode,
       contractVersion: contractVersion,
-      environment: environment,
+      environment: socketEnvironment,
       allowedGates: allowedFamilies,
       allowedCodePrefixes: allowedCodePrefixes,
       socketId: socketId,

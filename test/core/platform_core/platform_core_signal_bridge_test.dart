@@ -9,8 +9,10 @@ void main() {
         () async {
       final writer = _FakeCoreFirestoreWriter();
       final bridge = PlatformCoreSignalBridge(
-        adapter: const ResidentialSectionAdapter(),
-        outputGateway: FirebaseCoreOutputGateway(writer: writer),
+        adapter: const ResidentialSectionAdapter(
+          socketEnvironment: 'production',
+        ),
+        outputGateway: ProductionFirebaseCoreOutputGateway(writer: writer),
       );
 
       final result = await bridge.emit(
@@ -43,8 +45,10 @@ void main() {
     test('wrong section never reaches writer', () async {
       final writer = _FakeCoreFirestoreWriter();
       final bridge = PlatformCoreSignalBridge(
-        adapter: const ResidentialSectionAdapter(),
-        outputGateway: FirebaseCoreOutputGateway(writer: writer),
+        adapter: const ResidentialSectionAdapter(
+          socketEnvironment: 'production',
+        ),
+        outputGateway: ProductionFirebaseCoreOutputGateway(writer: writer),
       );
 
       final result = await bridge.emit(
@@ -63,8 +67,10 @@ void main() {
     test('unknown code never reaches writer', () async {
       final writer = _FakeCoreFirestoreWriter();
       final bridge = PlatformCoreSignalBridge(
-        adapter: const CommercialSectionAdapter(),
-        outputGateway: FirebaseCoreOutputGateway(writer: writer),
+        adapter: const CommercialSectionAdapter(
+          socketEnvironment: 'production',
+        ),
+        outputGateway: ProductionFirebaseCoreOutputGateway(writer: writer),
       );
 
       final result = await bridge.emit(
@@ -83,7 +89,9 @@ void main() {
 
     test('gateway exception remains fail-soft', () async {
       final bridge = PlatformCoreSignalBridge(
-        adapter: const CommercialSectionAdapter(),
+        adapter: const CommercialSectionAdapter(
+          socketEnvironment: 'production',
+        ),
         outputGateway: _FailingGateway(),
       );
 
@@ -104,7 +112,9 @@ void main() {
 
     test('approved metadata is accepted', () async {
       final bridge = PlatformCoreSignalBridge(
-        adapter: const CommercialSectionAdapter(),
+        adapter: const CommercialSectionAdapter(
+          socketEnvironment: 'production',
+        ),
         outputGateway: MemoryCoreOutputGateway(),
       );
 
@@ -138,8 +148,10 @@ void main() {
       for (final context in blockedContexts) {
         final writer = _FakeCoreFirestoreWriter();
         final bridge = PlatformCoreSignalBridge(
-          adapter: const ResidentialSectionAdapter(),
-          outputGateway: FirebaseCoreOutputGateway(writer: writer),
+          adapter: const ResidentialSectionAdapter(
+            socketEnvironment: 'production',
+          ),
+          outputGateway: ProductionFirebaseCoreOutputGateway(writer: writer),
         );
 
         final result = await bridge.emit(code: 'cl014sb', context: context);
