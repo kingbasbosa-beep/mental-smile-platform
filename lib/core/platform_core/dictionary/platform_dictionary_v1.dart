@@ -7,7 +7,7 @@ class PlatformDictionaryV1 {
   const PlatformDictionaryV1._();
 
   static const int schemaVersion = 1;
-  static const int maxCodeCount = 15;
+  static const int maxCodeCount = 30;
 
   static const List<CoreCodeDefinition> definitions = <CoreCodeDefinition>[
     CoreCodeDefinition(
@@ -153,6 +153,72 @@ class PlatformDictionaryV1 {
       schemaVersion: schemaVersion,
       description: 'Commercial adapter test signal.',
     ),
+    CoreCodeDefinition(
+      code: 'cl012sb',
+      family: 'survey',
+      eventName: 'client_checkin_submit',
+      logicalTarget: 'survey',
+      allowedSections: <String>{'RES'},
+      enabled: true,
+      environment: 'test',
+      schemaVersion: schemaVersion,
+      description: 'Client check-in submission signal.',
+    ),
+    CoreCodeDefinition(
+      code: 'cl014sb',
+      family: 'feedback',
+      eventName: 'client_suggestion_submit',
+      logicalTarget: 'feedback',
+      allowedSections: <String>{'RES'},
+      enabled: true,
+      environment: 'test',
+      schemaVersion: schemaVersion,
+      description: 'Client suggestion submission signal.',
+    ),
+    CoreCodeDefinition(
+      code: 'sp010bt',
+      family: 'login',
+      eventName: 'specialist_login_submit',
+      logicalTarget: 'login',
+      allowedSections: <String>{'COM'},
+      enabled: true,
+      environment: 'test',
+      schemaVersion: schemaVersion,
+      description: 'Specialist login success signal.',
+    ),
+    CoreCodeDefinition(
+      code: 'sp014sb',
+      family: 'application',
+      eventName: 'specialist_application_submit_real',
+      logicalTarget: 'application',
+      allowedSections: <String>{'COM'},
+      enabled: true,
+      environment: 'test',
+      schemaVersion: schemaVersion,
+      description: 'Specialist application submission signal.',
+    ),
+    CoreCodeDefinition(
+      code: 'ct010bt',
+      family: 'login',
+      eventName: 'center_login_submit',
+      logicalTarget: 'login',
+      allowedSections: <String>{'COM'},
+      enabled: true,
+      environment: 'test',
+      schemaVersion: schemaVersion,
+      description: 'Center login success signal.',
+    ),
+    CoreCodeDefinition(
+      code: 'ct014sb',
+      family: 'application',
+      eventName: 'center_application_submit_real',
+      logicalTarget: 'application',
+      allowedSections: <String>{'COM'},
+      enabled: true,
+      environment: 'test',
+      schemaVersion: schemaVersion,
+      description: 'Center application submission signal.',
+    ),
   ];
 
   static PlatformDictionaryValidationResult validate() {
@@ -176,7 +242,7 @@ class PlatformDictionaryV1 {
     };
 
     if (definitions.length > maxCodeCount) {
-      errors.add('dictionary_must_not_exceed_15_codes');
+      errors.add('dictionary_must_not_exceed_30_codes');
     }
 
     for (final definition in definitions) {

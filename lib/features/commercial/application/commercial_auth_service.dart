@@ -1,7 +1,10 @@
+import 'dart:async';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:mental_smile_os/core/auth/account_access_service.dart';
 import 'package:mental_smile_os/core/visibility/visibility_readiness.dart';
+import 'package:mental_smile_os/features/commercial/platform_core/commercial_runtime_signal_bridge.dart';
 import 'package:mental_smile_os/shared/contracts/role_names.dart';
 
 class CommercialAuthResult {
@@ -38,6 +41,7 @@ class CommercialAuthService {
       expectedRole: RoleNames.clinician,
       fallbackCollection: 'clinicians',
       successRoleLabel: 'specialist',
+      onSuccessSignal: CommercialRuntimeSignalBridge.emitSpecialistLoginSuccess,
     );
   }
 
@@ -51,6 +55,7 @@ class CommercialAuthService {
       expectedRole: RoleNames.center,
       fallbackCollection: 'centers',
       successRoleLabel: 'center',
+      onSuccessSignal: CommercialRuntimeSignalBridge.emitCenterLoginSuccess,
     );
   }
 
@@ -71,6 +76,8 @@ class CommercialAuthService {
         'name': displayName.trim(),
         'displayName': displayName.trim(),
       },
+      onSuccessSignal:
+          CommercialRuntimeSignalBridge.emitSpecialistApplicationSubmitted,
     );
   }
 
@@ -91,6 +98,8 @@ class CommercialAuthService {
         'name': centerName.trim(),
         'centerName': centerName.trim(),
       },
+      onSuccessSignal:
+          CommercialRuntimeSignalBridge.emitCenterApplicationSubmitted,
     );
   }
 
@@ -100,6 +109,7 @@ class CommercialAuthService {
     required String expectedRole,
     required String fallbackCollection,
     required String successRoleLabel,
+    required Future<Object?> Function() onSuccessSignal,
   }) async {
     final identity = emailOrPhone.trim();
     final resolvedEmail = await _resolveEmail(
@@ -145,6 +155,7 @@ class CommercialAuthService {
         );
       }
 
+      unawaited(onSuccessSignal().then<void>((_) {}));
       return const CommercialAuthResult(success: true);
     } on FirebaseAuthException catch (error) {
       return CommercialAuthResult(
@@ -172,6 +183,7 @@ class CommercialAuthService {
     required String phone,
     required String password,
     required Map<String, Object?> extraProfileFields,
+    required Future<Object?> Function() onSuccessSignal,
   }) async {
     final normalizedEmail = email.trim().toLowerCase();
     try {
@@ -209,6 +221,7 @@ class CommercialAuthService {
         'updatedAt': FieldValue.serverTimestamp(),
       });
 
+      unawaited(onSuccessSignal().then<void>((_) {}));
       return const CommercialAuthResult(success: true);
     } on FirebaseAuthException catch (error) {
       return CommercialAuthResult(

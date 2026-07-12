@@ -1,3 +1,7 @@
+import 'dart:async';
+
+import 'package:mental_smile_os/features/residential/platform_core/residential_runtime_signal_bridge.dart';
+
 import 'residential_aggregation_point.dart';
 import 'residential_archive_signal_event_writer.dart';
 import 'residential_signal_codes.dart';
@@ -15,6 +19,10 @@ class ResidentialSignalEmitter {
     required String sourceWidget,
     required String action,
   }) {
+    if (_emitApprovedCoreSignal(signalCode)) {
+      return;
+    }
+
     final definition = ResidentialSignalRegistry.resolve(signalCode);
     final payload = definition.toPayload(
       sourceScreen: sourceScreen,
@@ -23,6 +31,26 @@ class ResidentialSignalEmitter {
     );
     ResidentialAggregationPoint.collect(payload);
     ResidentialArchiveSignalEventWriter.writeToolSignal(payload);
+  }
+
+  static bool _emitApprovedCoreSignal(String signalCode) {
+    switch (signalCode) {
+      case ResidentialSignalCode.checkinToolOpen:
+        unawaited(
+          ResidentialRuntimeSignalBridge.emitCheckinSubmitted().then<void>(
+            (_) {},
+          ),
+        );
+        return true;
+      case ResidentialSignalCode.suggestionSubmit:
+        unawaited(
+          ResidentialRuntimeSignalBridge.emitSuggestionSubmitted().then<void>(
+            (_) {},
+          ),
+        );
+        return true;
+    }
+    return false;
   }
 }
 

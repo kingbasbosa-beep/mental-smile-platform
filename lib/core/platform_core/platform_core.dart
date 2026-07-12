@@ -2,6 +2,7 @@ export 'contracts/core_signal_envelope.dart';
 export 'contracts/core_signal_request.dart';
 export 'contracts/platform_section_adapter.dart';
 export 'contracts/section_socket.dart';
+export 'bridge/platform_core_signal_bridge.dart';
 export 'dictionary/core_code_pattern.dart';
 export 'dictionary/core_dictionary_types.dart';
 export 'dictionary/platform_dictionary_v1.dart';

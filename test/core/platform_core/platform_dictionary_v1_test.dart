@@ -8,7 +8,7 @@ void main() {
         PlatformDictionaryV1.definitions.length,
         lessThanOrEqualTo(PlatformDictionaryV1.maxCodeCount),
       );
-      expect(PlatformDictionaryV1.definitions, hasLength(13));
+      expect(PlatformDictionaryV1.definitions, hasLength(19));
     });
 
     test('contains all five official families', () {
@@ -172,6 +172,34 @@ void main() {
       expect(commercial.eventName, 'commercial_adapter_test_tap');
       expect(commercial.allowedSections, <String>{'COM'});
       expect(commercial.environment, 'test');
+    });
+
+    test('contains approved real runtime signal codes', () {
+      const expectedCodes = <String>{
+        'cl012sb',
+        'cl014sb',
+        'sp010bt',
+        'sp014sb',
+        'ct010bt',
+        'ct014sb',
+      };
+      final definitionsByCode = {
+        for (final definition in PlatformDictionaryV1.definitions)
+          definition.code: definition,
+      };
+
+      expect(definitionsByCode.keys, containsAll(expectedCodes));
+      for (final code in expectedCodes) {
+        final definition = definitionsByCode[code]!;
+        expect(definition.environment, 'test');
+        expect(definition.family, definition.logicalTarget);
+      }
+      expect(definitionsByCode['cl012sb']!.allowedSections, <String>{'RES'});
+      expect(definitionsByCode['cl014sb']!.allowedSections, <String>{'RES'});
+      expect(definitionsByCode['sp010bt']!.allowedSections, <String>{'COM'});
+      expect(definitionsByCode['sp014sb']!.allowedSections, <String>{'COM'});
+      expect(definitionsByCode['ct010bt']!.allowedSections, <String>{'COM'});
+      expect(definitionsByCode['ct014sb']!.allowedSections, <String>{'COM'});
     });
   });
 }
