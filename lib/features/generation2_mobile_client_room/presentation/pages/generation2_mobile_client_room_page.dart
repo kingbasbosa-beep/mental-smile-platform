@@ -11,7 +11,7 @@ import 'package:mental_smile_os/shared/guides/daleel_assistant.dart';
 class Generation2MobileClientRoomPage extends StatelessWidget {
   const Generation2MobileClientRoomPage({super.key});
 
-  static const List<String> clientCardTitles = [
+  static const List<String> distinguishedAccessibilityDesktopCardTitles = [
     'بوابة الروابط المهمة',
     'بوابة الأدوات المساعدة',
     'شارك باقتراح',
@@ -22,7 +22,8 @@ class Generation2MobileClientRoomPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Generation2MobileRoomScaffold(
-      cardTitles: Generation2MobileClientRoomPage.clientCardTitles,
+      cardTitles: Generation2MobileClientRoomPage
+          .distinguishedAccessibilityDesktopCardTitles,
       returnRoute: Routes.generation2MobileClientRoom,
       supportSpaceEnabled: true,
       daleelAssistant: DaleelAssistant(

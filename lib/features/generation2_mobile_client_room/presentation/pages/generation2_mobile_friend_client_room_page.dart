@@ -5,7 +5,7 @@ import 'package:mental_smile_os/shared/guides/daleel_assistant.dart';
 class Generation2MobileFriendClientRoomPage extends StatelessWidget {
   const Generation2MobileFriendClientRoomPage({super.key});
 
-  static const List<String> clientCardTitles = [
+  static const List<String> normalClientDesktopCardTitles = [
     'طمّنا عليك',
     'تطبيقات وأدوات',
     'شاركنا باقتراح',
@@ -16,7 +16,8 @@ class Generation2MobileFriendClientRoomPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Generation2MobileRoomScaffold(
-      cardTitles: Generation2MobileFriendClientRoomPage.clientCardTitles,
+      cardTitles:
+          Generation2MobileFriendClientRoomPage.normalClientDesktopCardTitles,
       supportSpaceEnabled: true,
       daleelAssistant: DaleelAssistant(
         guideAssetPath: 'assets/branding/guides/client_friend_mobile_guide.png',

@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
   push:
     branches:
-      - post-separation-pure-dna-v1
+      - residential-assets-purification-v1
 
 permissions:
   contents: write
@@ -15,13 +15,13 @@ concurrency:
 
 jobs:
   build_and_deploy:
-    if: github.ref == 'refs/heads/post-separation-pure-dna-v1'
+    if: github.ref == 'refs/heads/residential-assets-purification-v1'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
         with:
-          ref: post-separation-pure-dna-v1
+          ref: residential-assets-purification-v1
           fetch-depth: 1
 
       - name: Setup Flutter
