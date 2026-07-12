@@ -4,8 +4,11 @@ import 'package:mental_smile_os/core/platform_core/platform_core.dart';
 void main() {
   group('PlatformDictionaryV1', () {
     test('contains exactly 10 codes or fewer', () {
-      expect(PlatformDictionaryV1.definitions.length, lessThanOrEqualTo(11));
-      expect(PlatformDictionaryV1.definitions, hasLength(11));
+      expect(
+        PlatformDictionaryV1.definitions.length,
+        lessThanOrEqualTo(PlatformDictionaryV1.maxCodeCount),
+      );
+      expect(PlatformDictionaryV1.definitions, hasLength(13));
     });
 
     test('contains all five official families', () {
@@ -153,6 +156,22 @@ void main() {
       expect(definition.eventName, 'library_test_entry_tap');
       expect(definition.allowedSections, <String>{'LIB'});
       expect(definition.environment, 'test');
+    });
+
+    test('contains the test-only Residential and Commercial adapter codes', () {
+      final residential = PlatformDictionaryV1.definitions.singleWhere(
+        (definition) => definition.code == 'cl006bt',
+      );
+      final commercial = PlatformDictionaryV1.definitions.singleWhere(
+        (definition) => definition.code == 'cm001bt',
+      );
+
+      expect(residential.eventName, 'client_residential_adapter_test_tap');
+      expect(residential.allowedSections, <String>{'RES'});
+      expect(residential.environment, 'test');
+      expect(commercial.eventName, 'commercial_adapter_test_tap');
+      expect(commercial.allowedSections, <String>{'COM'});
+      expect(commercial.environment, 'test');
     });
   });
 }

@@ -7,7 +7,7 @@ class PlatformDictionaryV1 {
   const PlatformDictionaryV1._();
 
   static const int schemaVersion = 1;
-  static const int maxCodeCount = 11;
+  static const int maxCodeCount = 15;
 
   static const List<CoreCodeDefinition> definitions = <CoreCodeDefinition>[
     CoreCodeDefinition(
@@ -131,6 +131,28 @@ class PlatformDictionaryV1 {
       schemaVersion: schemaVersion,
       description: 'Library adapter test signal.',
     ),
+    CoreCodeDefinition(
+      code: 'cl006bt',
+      family: 'feedback',
+      eventName: 'client_residential_adapter_test_tap',
+      logicalTarget: 'feedback',
+      allowedSections: <String>{'RES'},
+      enabled: true,
+      environment: 'test',
+      schemaVersion: schemaVersion,
+      description: 'Residential adapter test signal.',
+    ),
+    CoreCodeDefinition(
+      code: 'cm001bt',
+      family: 'feedback',
+      eventName: 'commercial_adapter_test_tap',
+      logicalTarget: 'feedback',
+      allowedSections: <String>{'COM'},
+      enabled: true,
+      environment: 'test',
+      schemaVersion: schemaVersion,
+      description: 'Commercial adapter test signal.',
+    ),
   ];
 
   static PlatformDictionaryValidationResult validate() {
@@ -154,7 +176,7 @@ class PlatformDictionaryV1 {
     };
 
     if (definitions.length > maxCodeCount) {
-      errors.add('dictionary_must_not_exceed_10_codes');
+      errors.add('dictionary_must_not_exceed_15_codes');
     }
 
     for (final definition in definitions) {

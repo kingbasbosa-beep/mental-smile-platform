@@ -1,5 +1,6 @@
 export 'contracts/core_signal_envelope.dart';
 export 'contracts/core_signal_request.dart';
+export 'contracts/platform_section_adapter.dart';
 export 'contracts/section_socket.dart';
 export 'dictionary/core_code_pattern.dart';
 export 'dictionary/core_dictionary_types.dart';
@@ -11,6 +12,7 @@ export 'gateway/firebase_core_output_gateway.dart';
 export 'language/platform_language.dart';
 export 'platform_core_facade.dart';
 export 'registry/core_code_registry.dart';
+export 'registry/platform_adapter_registry.dart';
 export 'registry/platform_section_registry.dart';
 export 'resolver/core_signal_resolver.dart';
 export 'socket/platform_socket_registry.dart';

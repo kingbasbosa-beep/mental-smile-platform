@@ -219,7 +219,11 @@ void main() {
           containsAll(<String>{'test', 'production'}));
       expect(
         PlatformLanguage.codePrefixes,
-        containsAll(<String>{'cl', 'sp', 'ct', 'lb'}),
+        containsAll(<String>{'cl', 'sp', 'ct', 'lb', 'cm'}),
+      );
+      expect(
+        PlatformLanguage.adapterTestPrefixes,
+        <String>{'cl', 'cm', 'lb'},
       );
     });
   });

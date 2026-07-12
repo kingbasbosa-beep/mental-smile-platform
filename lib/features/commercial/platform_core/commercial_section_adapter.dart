@@ -1,17 +1,23 @@
 import 'package:mental_smile_os/core/platform_core/platform_core.dart';
 
-class LibrarySectionAdapter implements PlatformSectionAdapter {
-  const LibrarySectionAdapter({this.socketId = PlatformSocketIds.socket03});
+class CommercialSectionAdapter implements PlatformSectionAdapter {
+  const CommercialSectionAdapter({this.socketId = PlatformSocketIds.socket02});
 
-  static const String sectionId = 'MS-SECTION-LIBRARY';
-  static const String sectionCode = 'LIB';
-  static const String sectionName = 'Library';
-  static const String defaultSocketId = PlatformSocketIds.socket03;
+  static const String sectionId = 'MS-SECTION-COMMERCIAL';
+  static const String sectionCode = 'COM';
+  static const String sectionName = 'Commercial';
+  static const String defaultSocketId = PlatformSocketIds.socket02;
   static const int contractVersion = 1;
   static const String environment = 'test';
-  static const Set<String> allowedFamilies = <String>{'feedback'};
-  static const Set<String> allowedCodePrefixes = <String>{'lb'};
-  static const String testCode = 'lb001bt';
+  static const Set<String> allowedFamilies = <String>{
+    'login',
+    'logout',
+    'survey',
+    'feedback',
+    'application',
+  };
+  static const Set<String> allowedCodePrefixes = <String>{'sp', 'ct', 'cm'};
+  static const String testCode = 'cm001bt';
 
   final String socketId;
 
