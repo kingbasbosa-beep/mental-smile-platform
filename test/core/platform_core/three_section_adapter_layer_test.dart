@@ -338,8 +338,11 @@ void main() {
 
       expect(dictionary.isValid, isTrue, reason: dictionary.errors.join(', '));
       expect(language, isEmpty);
-      expect(PlatformDictionaryV1.definitions, hasLength(13));
-      expect(PlatformDictionaryV1.definitions.length, lessThanOrEqualTo(15));
+      expect(PlatformDictionaryV1.definitions, hasLength(19));
+      expect(
+        PlatformDictionaryV1.definitions.length,
+        lessThanOrEqualTo(PlatformDictionaryV1.maxCodeCount),
+      );
       expect(PlatformLanguage.sectionCodes, <String>{'RES', 'COM', 'LIB'});
       expect(PlatformLanguage.adapterTestPrefixes, <String>{'cl', 'cm', 'lb'});
     });
