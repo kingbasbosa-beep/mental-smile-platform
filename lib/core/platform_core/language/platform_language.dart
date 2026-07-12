@@ -33,7 +33,7 @@ class PlatformLanguage {
         .toSet();
   }
 
-  static const Set<String> codePrefixes = <String>{'cl', 'sp', 'ct'};
+  static const Set<String> codePrefixes = <String>{'cl', 'sp', 'ct', 'lb'};
 
   static List<String> validate({
     PlatformSocketRegistry? socketRegistry,

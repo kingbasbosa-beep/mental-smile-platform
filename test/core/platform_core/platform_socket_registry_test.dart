@@ -217,8 +217,10 @@ void main() {
       expect(PlatformLanguage.signalFamilies, contains('login'));
       expect(PlatformLanguage.environments,
           containsAll(<String>{'test', 'production'}));
-      expect(PlatformLanguage.codePrefixes,
-          containsAll(<String>{'cl', 'sp', 'ct'}));
+      expect(
+        PlatformLanguage.codePrefixes,
+        containsAll(<String>{'cl', 'sp', 'ct', 'lb'}),
+      );
     });
   });
 }

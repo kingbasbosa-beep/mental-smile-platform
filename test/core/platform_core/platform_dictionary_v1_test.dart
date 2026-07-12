@@ -4,8 +4,8 @@ import 'package:mental_smile_os/core/platform_core/platform_core.dart';
 void main() {
   group('PlatformDictionaryV1', () {
     test('contains exactly 10 codes or fewer', () {
-      expect(PlatformDictionaryV1.definitions.length, lessThanOrEqualTo(10));
-      expect(PlatformDictionaryV1.definitions, hasLength(10));
+      expect(PlatformDictionaryV1.definitions.length, lessThanOrEqualTo(11));
+      expect(PlatformDictionaryV1.definitions, hasLength(11));
     });
 
     test('contains all five official families', () {
@@ -141,6 +141,18 @@ void main() {
       expect(result.accepted, isFalse);
       expect(result.reason, CoreEmitReason.sectionNotAllowed);
       expect(gateway.envelopes, isEmpty);
+    });
+
+    test('contains the test-only Library adapter code', () {
+      final definition = PlatformDictionaryV1.definitions.singleWhere(
+        (definition) => definition.code == 'lb001bt',
+      );
+
+      expect(definition.family, 'feedback');
+      expect(definition.logicalTarget, 'feedback');
+      expect(definition.eventName, 'library_test_entry_tap');
+      expect(definition.allowedSections, <String>{'LIB'});
+      expect(definition.environment, 'test');
     });
   });
 }

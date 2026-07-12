@@ -7,7 +7,7 @@ class PlatformDictionaryV1 {
   const PlatformDictionaryV1._();
 
   static const int schemaVersion = 1;
-  static const int maxCodeCount = 10;
+  static const int maxCodeCount = 11;
 
   static const List<CoreCodeDefinition> definitions = <CoreCodeDefinition>[
     CoreCodeDefinition(
@@ -119,6 +119,17 @@ class PlatformDictionaryV1 {
       environment: 'test',
       schemaVersion: schemaVersion,
       description: 'Center application submit.',
+    ),
+    CoreCodeDefinition(
+      code: 'lb001bt',
+      family: 'feedback',
+      eventName: 'library_test_entry_tap',
+      logicalTarget: 'feedback',
+      allowedSections: <String>{'LIB'},
+      enabled: true,
+      environment: 'test',
+      schemaVersion: schemaVersion,
+      description: 'Library adapter test signal.',
     ),
   ];
 
