@@ -3,7 +3,7 @@ import 'package:flutter_markdown/flutter_markdown.dart';
 import 'package:markdown/markdown.dart' as md;
 import 'package:mental_smile_os/features/library/knowledge_cards/data/knowledge_card_repository.dart';
 import 'package:mental_smile_os/features/library/knowledge_cards/domain/models/knowledge_card.dart';
-import 'package:url_launcher/url_launcher.dart';
+import 'package:mental_smile_os/shared/links/safe_external_link_launcher.dart';
 
 class KnowledgeArticleViewerPage extends StatefulWidget {
   KnowledgeArticleViewerPage({
@@ -237,7 +237,8 @@ class _MarkdownTabPane extends StatelessWidget {
                   selectable: true,
                   softLineBreak: true,
                   extensionSet: md.ExtensionSet.gitHubFlavored,
-                  onTapLink: (text, href, title) => _openMarkdownLink(href),
+                  onTapLink: (text, href, title) =>
+                      _openMarkdownLink(context, href),
                   sizedImageBuilder: (config) {
                     return _MarkdownImage(
                       uri: config.uri,
@@ -385,10 +386,7 @@ MarkdownStyleSheet _markdownStyle(BuildContext context) {
   );
 }
 
-Future<void> _openMarkdownLink(String? href) async {
+Future<void> _openMarkdownLink(BuildContext context, String? href) async {
   if (href == null || href.trim().isEmpty) return;
-  final uri = Uri.tryParse(href.trim());
-  if (uri == null) return;
-  if (uri.scheme != 'http' && uri.scheme != 'https') return;
-  await launchUrl(uri, mode: LaunchMode.externalApplication);
+  await SafeExternalLinkLauncher.open(context, href);
 }

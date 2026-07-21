@@ -1,0 +1,322 @@
+﻿{
+    "capsuleId":  "MS-CAPSULE-COM-BLUEPRINT",
+    "routes":  [
+                   {
+                       "routeCode":  "MS-COM-ROUTE-000",
+                       "routePath":  "/",
+                       "routeConstant":  "ROOT_DIRECT_NO_CONSTANT",
+                       "destinationFile":  "lib/features/commercial_v2_web/presentation/pages/commercial_v2_web_showcase_page.dart",
+                       "destinationClass":  "CommercialV2WebShowcasePage",
+                       "owner":  "COMMERCIAL_V2_WEB",
+                       "callers":  [
+                                       "lib/app/router/app_router.dart"
+                                   ],
+                       "initialEntry":  true,
+                       "externalEntry":  true,
+                       "centralRouterDependency":  "lib/app/router/app_router.dart",
+                       "canonicalLine":  "MS-LINE-ROUTE-01"
+                   },
+                   {
+                       "routeCode":  "MS-COM-ROUTE-001",
+                       "routePath":  "/commercial/access",
+                       "routeConstant":  "Routes.commercialAccess",
+                       "destinationFile":  "lib/features/commercial/presentation/pages/commercial_access_page.dart",
+                       "destinationClass":  "CommercialAccessPage",
+                       "owner":  "COMMERCIAL",
+                       "callers":  [
+                                       "lib/app/router/app_router.dart",
+                                       "lib/core/auth/presentation/pages/account_blocked_page.dart",
+                                       "lib/features/app_exit/presentation/pages/app_exit_social_links_page.dart",
+                                       "lib/features/commercial/presentation/pages/specialist_login_page.dart",
+                                       "lib/features/splash/presentation/pages/splash_page.dart"
+                                   ],
+                       "initialEntry":  true,
+                       "externalEntry":  true,
+                       "centralRouterDependency":  "lib/app/router/app_router.dart",
+                       "canonicalLine":  "MS-LINE-ROUTE-01"
+                   },
+                   {
+                       "routeCode":  "MS-COM-ROUTE-002",
+                       "routePath":  "/commercial/specialist/login",
+                       "routeConstant":  "Routes.commercialSpecialistLogin",
+                       "destinationFile":  "lib/features/commercial/presentation/pages/specialist_login_page.dart",
+                       "destinationClass":  "SpecialistLoginPage",
+                       "owner":  "SPECIALIST",
+                       "callers":  [
+                                       "lib/app/router/app_router.dart",
+                                       "lib/features/commercial/presentation/pages/commercial_access_page.dart",
+                                       "lib/features/commercial/presentation/pages/commercial_register_pages.dart",
+                                       "lib/features/generation2_mobile_entry/presentation/pages/generation2_mobile_selection_pages.dart"
+                                   ],
+                       "initialEntry":  false,
+                       "externalEntry":  false,
+                       "centralRouterDependency":  "lib/app/router/app_router.dart",
+                       "canonicalLine":  "MS-LINE-ROUTE-01"
+                   },
+                   {
+                       "routeCode":  "MS-COM-ROUTE-003",
+                       "routePath":  "/commercial/specialist/register",
+                       "routeConstant":  "Routes.commercialSpecialistRegister",
+                       "destinationFile":  "lib/features/commercial/presentation/pages/commercial_register_pages.dart",
+                       "destinationClass":  "SpecialistRegisterPage",
+                       "owner":  "SPECIALIST",
+                       "callers":  [
+                                       "lib/app/router/app_router.dart",
+                                       "lib/features/commercial/presentation/pages/specialist_login_page.dart"
+                                   ],
+                       "initialEntry":  false,
+                       "externalEntry":  false,
+                       "centralRouterDependency":  "lib/app/router/app_router.dart",
+                       "canonicalLine":  "MS-LINE-ROUTE-01"
+                   },
+                   {
+                       "routeCode":  "MS-COM-ROUTE-004",
+                       "routePath":  "/commercial/center/login",
+                       "routeConstant":  "Routes.commercialCenterLogin",
+                       "destinationFile":  "lib/features/commercial/presentation/pages/center_login_page.dart",
+                       "destinationClass":  "CenterLoginPage",
+                       "owner":  "CENTER",
+                       "callers":  [
+                                       "lib/app/router/app_router.dart",
+                                       "lib/features/commercial/presentation/pages/commercial_access_page.dart",
+                                       "lib/features/commercial/presentation/pages/commercial_register_pages.dart",
+                                       "lib/features/generation2_mobile_entry/presentation/pages/generation2_mobile_selection_pages.dart"
+                                   ],
+                       "initialEntry":  false,
+                       "externalEntry":  false,
+                       "centralRouterDependency":  "lib/app/router/app_router.dart",
+                       "canonicalLine":  "MS-LINE-ROUTE-01"
+                   },
+                   {
+                       "routeCode":  "MS-COM-ROUTE-005",
+                       "routePath":  "/commercial/center/register",
+                       "routeConstant":  "Routes.commercialCenterRegister",
+                       "destinationFile":  "lib/features/commercial/presentation/pages/commercial_register_pages.dart",
+                       "destinationClass":  "CenterRegisterPage",
+                       "owner":  "CENTER",
+                       "callers":  [
+                                       "lib/app/router/app_router.dart",
+                                       "lib/features/commercial/presentation/pages/center_login_page.dart"
+                                   ],
+                       "initialEntry":  false,
+                       "externalEntry":  false,
+                       "centralRouterDependency":  "lib/app/router/app_router.dart",
+                       "canonicalLine":  "MS-LINE-ROUTE-01"
+                   },
+                   {
+                       "routeCode":  "MS-COM-ROUTE-006",
+                       "routePath":  "/commercial/room",
+                       "routeConstant":  "Routes.commercialRoom",
+                       "destinationFile":  "lib/features/commercial/presentation/pages/commercial_room_page.dart",
+                       "destinationClass":  "CommercialRoomPage",
+                       "owner":  "SPECIALIST",
+                       "callers":  [
+                                       "lib/app/router/app_router.dart",
+                                       "lib/features/commercial/presentation/pages/commercial_register_pages.dart",
+                                       "lib/features/commercial/presentation/pages/commercial_room_page.dart",
+                                       "lib/features/commercial/presentation/pages/specialist_login_page.dart",
+                                       "lib/features/commercial/presentation/pages/specialist_professional_library_page.dart",
+                                       "lib/features/library/presentation/pages/library_page.dart",
+                                       "lib/features/library/presentation/pages/library_provider_content_pages.dart"
+                                   ],
+                       "initialEntry":  false,
+                       "externalEntry":  false,
+                       "centralRouterDependency":  "lib/app/router/app_router.dart",
+                       "canonicalLine":  "MS-LINE-ROUTE-01"
+                   },
+                   {
+                       "routeCode":  "MS-COM-ROUTE-007",
+                       "routePath":  "/commercial/specialist/professional-profile",
+                       "routeConstant":  "Routes.commercialSpecialistProfessionalProfile",
+                       "destinationFile":  "lib/features/commercial/presentation/pages/specialist_professional_profile_clean_layout_page.dart",
+                       "destinationClass":  "SpecialistProfessionalProfileCleanLayoutPage",
+                       "owner":  "SPECIALIST",
+                       "callers":  [
+                                       "lib/app/router/app_router.dart",
+                                       "lib/shared/generation2_mobile/generation2_mobile_room_scaffold.dart"
+                                   ],
+                       "initialEntry":  false,
+                       "externalEntry":  false,
+                       "centralRouterDependency":  "lib/app/router/app_router.dart",
+                       "canonicalLine":  "MS-LINE-ROUTE-01"
+                   },
+                   {
+                       "routeCode":  "MS-COM-ROUTE-008",
+                       "routePath":  "/commercial/specialist/professional-library",
+                       "routeConstant":  "Routes.commercialSpecialistProfessionalLibrary",
+                       "destinationFile":  "lib/features/commercial/presentation/pages/specialist_professional_library_page.dart",
+                       "destinationClass":  "SpecialistProfessionalLibraryPage",
+                       "owner":  "SPECIALIST",
+                       "callers":  [
+                                       "lib/app/router/app_router.dart",
+                                       "lib/shared/generation2_mobile/generation2_mobile_room_scaffold.dart"
+                                   ],
+                       "initialEntry":  false,
+                       "externalEntry":  false,
+                       "centralRouterDependency":  "lib/app/router/app_router.dart",
+                       "canonicalLine":  "MS-LINE-ROUTE-01"
+                   },
+                   {
+                       "routeCode":  "MS-COM-ROUTE-009",
+                       "routePath":  "/commercial/center/room",
+                       "routeConstant":  "Routes.commercialCenterRoom",
+                       "destinationFile":  "lib/features/commercial/presentation/pages/center_room_page.dart",
+                       "destinationClass":  "CenterRoomPage",
+                       "owner":  "CENTER",
+                       "callers":  [
+                                       "lib/app/router/app_router.dart",
+                                       "lib/features/commercial/presentation/pages/center_login_page.dart",
+                                       "lib/features/commercial/presentation/pages/center_professional_library_page.dart",
+                                       "lib/features/commercial/presentation/pages/center_room_page.dart",
+                                       "lib/features/commercial/presentation/pages/commercial_register_pages.dart",
+                                       "lib/features/library/presentation/pages/library_page.dart",
+                                       "lib/features/library/presentation/pages/library_provider_content_pages.dart"
+                                   ],
+                       "initialEntry":  false,
+                       "externalEntry":  false,
+                       "centralRouterDependency":  "lib/app/router/app_router.dart",
+                       "canonicalLine":  "MS-LINE-ROUTE-01"
+                   },
+                   {
+                       "routeCode":  "MS-COM-ROUTE-010",
+                       "routePath":  "/commercial/center/professional-profile",
+                       "routeConstant":  "Routes.commercialCenterProfessionalProfile",
+                       "destinationFile":  "lib/features/commercial/presentation/pages/center_professional_profile_clean_layout_page.dart",
+                       "destinationClass":  "CenterProfessionalProfileCleanLayoutPage",
+                       "owner":  "CENTER",
+                       "callers":  [
+                                       "lib/app/router/app_router.dart",
+                                       "lib/features/commercial/presentation/pages/center_room_page.dart",
+                                       "lib/shared/generation2_mobile/generation2_mobile_room_scaffold.dart"
+                                   ],
+                       "initialEntry":  false,
+                       "externalEntry":  false,
+                       "centralRouterDependency":  "lib/app/router/app_router.dart",
+                       "canonicalLine":  "MS-LINE-ROUTE-01"
+                   },
+                   {
+                       "routeCode":  "MS-COM-ROUTE-011",
+                       "routePath":  "/commercial/center/professional-library",
+                       "routeConstant":  "Routes.commercialCenterProfessionalLibrary",
+                       "destinationFile":  "lib/features/commercial/presentation/pages/center_professional_library_page.dart",
+                       "destinationClass":  "CenterProfessionalLibraryPage",
+                       "owner":  "CENTER",
+                       "callers":  [
+                                       "lib/app/router/app_router.dart",
+                                       "lib/features/commercial/presentation/pages/center_room_page.dart",
+                                       "lib/shared/generation2_mobile/generation2_mobile_room_scaffold.dart"
+                                   ],
+                       "initialEntry":  false,
+                       "externalEntry":  false,
+                       "centralRouterDependency":  "lib/app/router/app_router.dart",
+                       "canonicalLine":  "MS-LINE-ROUTE-01"
+                   },
+                   {
+                       "routeCode":  "MS-COM-ROUTE-012",
+                       "routePath":  "/commercial/tools/assistive",
+                       "routeConstant":  "Routes.commercialAssistiveTools",
+                       "destinationFile":  "lib/features/commercial/presentation/pages/commercial_shared_assistive_tools_page.dart",
+                       "destinationClass":  "CommercialSharedAssistiveToolsPage",
+                       "owner":  "COMMERCIAL",
+                       "callers":  [
+                                       "lib/app/router/app_router.dart",
+                                       "lib/features/commercial/presentation/pages/center_room_page.dart",
+                                       "lib/shared/generation2_mobile/generation2_mobile_room_scaffold.dart"
+                                   ],
+                       "initialEntry":  false,
+                       "externalEntry":  false,
+                       "centralRouterDependency":  "lib/app/router/app_router.dart",
+                       "canonicalLine":  "MS-LINE-ROUTE-01"
+                   },
+                   {
+                       "routeCode":  "MS-COM-ROUTE-013",
+                       "routePath":  "/commercial/public-accounts",
+                       "routeConstant":  "Routes.commercialPublicAccounts",
+                       "destinationFile":  "lib/features/commercial/presentation/pages/commercial_public_accounts_page.dart",
+                       "destinationClass":  "CommercialPublicAccountsPage",
+                       "owner":  "COMMERCIAL",
+                       "callers":  [
+                                       "lib/app/router/app_router.dart"
+                                   ],
+                       "initialEntry":  true,
+                       "externalEntry":  true,
+                       "centralRouterDependency":  "lib/app/router/app_router.dart",
+                       "canonicalLine":  "MS-LINE-ROUTE-01"
+                   },
+                   {
+                       "routeCode":  "MS-COM-ROUTE-014",
+                       "routePath":  "/commercial-v2/web",
+                       "routeConstant":  "Routes.commercialV2Web",
+                       "destinationFile":  "lib/features/commercial_v2_web/presentation/pages/commercial_v2_web_showcase_page.dart",
+                       "destinationClass":  "CommercialV2WebShowcasePage",
+                       "owner":  "COMMERCIAL_V2_WEB",
+                       "callers":  [
+                                       "lib/app/router/app_router.dart"
+                                   ],
+                       "initialEntry":  true,
+                       "externalEntry":  true,
+                       "centralRouterDependency":  "lib/app/router/app_router.dart",
+                       "canonicalLine":  "MS-LINE-ROUTE-01"
+                   },
+                   {
+                       "routeCode":  "MS-COM-ROUTE-015",
+                       "routePath":  "/landing-preview",
+                       "routeConstant":  "Routes.landingPreview",
+                       "destinationFile":  "lib/features/commercial_v2_web/presentation/pages/commercial_v2_web_showcase_page.dart",
+                       "destinationClass":  "CommercialV2WebShowcasePage",
+                       "owner":  "COMMERCIAL_V2_WEB",
+                       "callers":  [
+                                       "lib/app/router/app_router.dart"
+                                   ],
+                       "initialEntry":  true,
+                       "externalEntry":  true,
+                       "centralRouterDependency":  "lib/app/router/app_router.dart",
+                       "canonicalLine":  "MS-LINE-ROUTE-01"
+                   },
+                   {
+                       "routeCode":  "MS-COM-ROUTE-016",
+                       "routePath":  "/g2/mobile/specialist-room",
+                       "routeConstant":  "Routes.generation2MobileSpecialistRoom",
+                       "destinationFile":  "lib/features/generation2_mobile_specialist_room/presentation/pages/generation2_mobile_specialist_room_page.dart",
+                       "destinationClass":  "Generation2MobileSpecialistRoomPage",
+                       "owner":  "GENERATION2_SPECIALIST",
+                       "callers":  [
+                                       "lib/app/router/app_router.dart",
+                                       "lib/features/generation2_mobile_entry/presentation/pages/generation2_mobile_selection_pages.dart",
+                                       "lib/features/generation2_mobile_specialist_room/presentation/pages/generation2_mobile_specialist_room_page.dart",
+                                       "lib/features/library/presentation/pages/library_page.dart",
+                                       "lib/features/library/presentation/pages/library_provider_content_pages.dart"
+                                   ],
+                       "initialEntry":  false,
+                       "externalEntry":  false,
+                       "centralRouterDependency":  "lib/app/router/app_router.dart",
+                       "canonicalLine":  "MS-LINE-ROUTE-01"
+                   },
+                   {
+                       "routeCode":  "MS-COM-ROUTE-017",
+                       "routePath":  "/g2/mobile/center-room",
+                       "routeConstant":  "Routes.generation2MobileCenterRoom",
+                       "destinationFile":  "lib/features/generation2_mobile_center_room/presentation/pages/generation2_mobile_center_room_page.dart",
+                       "destinationClass":  "Generation2MobileCenterRoomPage",
+                       "owner":  "GENERATION2_CENTER",
+                       "callers":  [
+                                       "lib/app/router/app_router.dart",
+                                       "lib/features/generation2_mobile_center_room/presentation/pages/generation2_mobile_center_room_page.dart",
+                                       "lib/features/generation2_mobile_entry/presentation/pages/generation2_mobile_selection_pages.dart",
+                                       "lib/features/library/presentation/pages/library_page.dart",
+                                       "lib/features/library/presentation/pages/library_provider_content_pages.dart"
+                                   ],
+                       "initialEntry":  false,
+                       "externalEntry":  false,
+                       "centralRouterDependency":  "lib/app/router/app_router.dart",
+                       "canonicalLine":  "MS-LINE-ROUTE-01"
+                   }
+               ],
+    "counts":  {
+                   "commercialRouteConstants":  17,
+                   "commercialRouterCases":  17,
+                   "commercialReachableRoutes":  18,
+                   "commercialUnreachableRoutes":  0,
+                   "directRootEntry":  1
+               }
+}

@@ -18,9 +18,9 @@ class Generation2MobileLoginSelectionPage extends ConsumerStatefulWidget {
 class _Generation2MobileLoginSelectionPageState
     extends ConsumerState<Generation2MobileLoginSelectionPage> {
   static const String _mobileBackground =
-      'assets/images/mobile/login/background_mobile.webp';
+      'assets/app/generation2_mobile_login_selection/background_mobile.webp';
   static const String _tabletBackground =
-      'assets/images/mobile/login/background_tablet.webp';
+      'assets/app/generation2_mobile_login_selection/background_tablet.webp';
   static const double _backgroundScale = 0.96;
 
   static final List<_G2LoginAction> _actions = [

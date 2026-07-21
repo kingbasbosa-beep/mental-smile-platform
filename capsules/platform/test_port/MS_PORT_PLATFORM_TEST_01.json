@@ -1,0 +1,7 @@
+{
+  "portId": "MS-PORT-PLATFORM-TEST-01",
+  "capsuleId": "MS-CAPSULE-PLATFORM-INFRASTRUCTURE",
+  "mode": "TEST",
+  "state": "MANUAL_VERIFICATION_PENDING",
+  "activatesCapsules": false
+}

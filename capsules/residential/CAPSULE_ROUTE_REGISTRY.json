@@ -1,0 +1,275 @@
+﻿{
+    "capsuleId":  "MS-CAPSULE-RES-R-1.07.2026",
+    "mode":  "BLUEPRINT",
+    "routes":  [
+                   {
+                       "routeCode":  "MS-RES-ROUTE-001",
+                       "routePath":  "/splash",
+                       "routeConstant":  "Routes.splash",
+                       "destinationFile":  "lib/features/generation2_mobile_entry/presentation/pages/generation2_splash_page.dart",
+                       "destinationClass":  "Generation2SplashPage",
+                       "owner":  "GENERATION2_ENTRY",
+                       "callers":  [
+                                       "lib/app/app.dart",
+                                       "lib/app/router/app_router.dart",
+                                       "lib/features/app_exit/presentation/pages/app_exit_social_links_page.dart",
+                                       "lib/features/commercial/presentation/pages/commercial_access_page.dart",
+                                       "lib/features/commercial/presentation/widgets/commercial_room_screen_image.dart",
+                                       "lib/features/commercial/presentation/widgets/commercial_room_tv_apps.dart",
+                                       "lib/features/commercial_v2_web/presentation/pages/commercial_v2_web_showcase_page.dart",
+                                       "lib/features/generation2_mobile_entry/presentation/pages/generation2_mobile_login_selection_page.dart",
+                                       "lib/features/library/presentation/pages/library_page.dart",
+                                       "lib/features/library/presentation/pages/library_provider_content_pages.dart",
+                                       "lib/features/residential/presentation/pages/residential_exit_social_portal_page.dart",
+                                       "lib/shared/generation2_mobile/generation2_mobile_room_scaffold.dart"
+                                   ],
+                       "initialEntry":  true,
+                       "externalEntry":  true,
+                       "centralRouterDependency":  "lib/app/router/app_router.dart",
+                       "canonicalLine":  "MS-LINE-ROUTE-01",
+                       "runtimeState":  "ROUTE_DESTINATION"
+                   },
+                   {
+                       "routeCode":  "MS-RES-ROUTE-002",
+                       "routePath":  "/legacy/splash",
+                       "routeConstant":  "Routes.legacySplash",
+                       "destinationFile":  "lib/features/splash/presentation/pages/splash_page.dart",
+                       "destinationClass":  "SplashPage",
+                       "owner":  "RESIDENTIAL_ENTRY",
+                       "callers":  [
+                                       "lib/app/router/app_router.dart",
+                                       "lib/features/commercial_v2_web/presentation/pages/commercial_v2_web_showcase_page.dart",
+                                       "lib/features/generation2_mobile_entry/presentation/pages/generation2_splash_page.dart"
+                                   ],
+                       "initialEntry":  true,
+                       "externalEntry":  true,
+                       "centralRouterDependency":  "lib/app/router/app_router.dart",
+                       "canonicalLine":  "MS-LINE-ROUTE-01",
+                       "runtimeState":  "ROUTE_DESTINATION"
+                   },
+                   {
+                       "routeCode":  "MS-RES-ROUTE-003",
+                       "routePath":  "/g2/mobile/client",
+                       "routeConstant":  "Routes.generation2MobileLiteClient",
+                       "destinationFile":  "lib/features/generation2_mobile_entry/presentation/pages/generation2_mobile_lite_client_page.dart",
+                       "destinationClass":  "Generation2MobileLiteClientPage",
+                       "owner":  "GENERATION2_CLIENT",
+                       "callers":  [
+                                       "lib/app/router/app_router.dart"
+                                   ],
+                       "initialEntry":  true,
+                       "externalEntry":  true,
+                       "centralRouterDependency":  "lib/app/router/app_router.dart",
+                       "canonicalLine":  "MS-LINE-ROUTE-01",
+                       "runtimeState":  "ROUTE_DESTINATION"
+                   },
+                   {
+                       "routeCode":  "MS-RES-ROUTE-004",
+                       "routePath":  "/g2/mobile/login-selection",
+                       "routeConstant":  "Routes.generation2MobileLoginSelection",
+                       "destinationFile":  "lib/features/generation2_mobile_entry/presentation/pages/generation2_mobile_login_selection_page.dart",
+                       "destinationClass":  "Generation2MobileLoginSelectionPage",
+                       "owner":  "GENERATION2_ENTRY",
+                       "callers":  [
+                                       "lib/app/router/app_router.dart",
+                                       "lib/features/generation2_mobile_entry/presentation/pages/generation2_splash_page.dart",
+                                       "lib/features/splash/presentation/pages/splash_page.dart",
+                                       "lib/shared/generation2_mobile/generation2_mobile_room_scaffold.dart"
+                                   ],
+                       "initialEntry":  false,
+                       "externalEntry":  false,
+                       "centralRouterDependency":  "lib/app/router/app_router.dart",
+                       "canonicalLine":  "MS-LINE-ROUTE-01",
+                       "runtimeState":  "ROUTE_DESTINATION"
+                   },
+                   {
+                       "routeCode":  "MS-RES-ROUTE-005",
+                       "routePath":  "/g2/mobile/client-room",
+                       "routeConstant":  "Routes.generation2MobileClientRoom",
+                       "destinationFile":  "lib/features/generation2_mobile_client_room/presentation/pages/generation2_mobile_client_room_page.dart",
+                       "destinationClass":  "Generation2MobileClientRoomPage",
+                       "owner":  "GENERATION2_CLIENT",
+                       "callers":  [
+                                       "lib/app/router/app_router.dart",
+                                       "lib/features/generation2_mobile_client_room/presentation/pages/generation2_mobile_client_room_page.dart",
+                                       "lib/features/generation2_mobile_entry/presentation/pages/generation2_mobile_selection_pages.dart"
+                                   ],
+                       "initialEntry":  false,
+                       "externalEntry":  false,
+                       "centralRouterDependency":  "lib/app/router/app_router.dart",
+                       "canonicalLine":  "MS-LINE-ROUTE-01",
+                       "runtimeState":  "ROUTE_DESTINATION"
+                   },
+                   {
+                       "routeCode":  "MS-RES-ROUTE-006",
+                       "routePath":  "/client/room",
+                       "routeConstant":  "Routes.clientRoom",
+                       "destinationFile":  "lib/features/client/presentation/pages/client_room_page.dart",
+                       "destinationClass":  "ClientRoomPage",
+                       "owner":  "CLIENT",
+                       "callers":  [
+                                       "lib/app/router/app_router.dart",
+                                       "lib/features/client/presentation/pages/client_room_page.dart",
+                                       "lib/features/splash/presentation/pages/splash_page.dart"
+                                   ],
+                       "initialEntry":  false,
+                       "externalEntry":  false,
+                       "centralRouterDependency":  "lib/app/router/app_router.dart",
+                       "canonicalLine":  "MS-LINE-ROUTE-01",
+                       "runtimeState":  "ROUTE_DESTINATION"
+                   },
+                   {
+                       "routeCode":  "MS-RES-ROUTE-007",
+                       "routePath":  "/accessibility/room",
+                       "routeConstant":  "Routes.accessibilityRoom",
+                       "destinationFile":  "lib/features/accessibility/presentation/pages/accessibility_room_page.dart",
+                       "destinationClass":  "AccessibilityRoomPage",
+                       "owner":  "ACCESSIBILITY",
+                       "callers":  [
+                                       "lib/app/router/app_router.dart",
+                                       "lib/features/accessibility/presentation/pages/accessibility_room_page.dart",
+                                       "lib/features/splash/presentation/pages/splash_page.dart"
+                                   ],
+                       "initialEntry":  false,
+                       "externalEntry":  false,
+                       "centralRouterDependency":  "lib/app/router/app_router.dart",
+                       "canonicalLine":  "MS-LINE-ROUTE-01",
+                       "runtimeState":  "ROUTE_DESTINATION"
+                   },
+                   {
+                       "routeCode":  "MS-RES-ROUTE-008",
+                       "routePath":  "/accessibility/links",
+                       "routeConstant":  "Routes.accessibilityLinks",
+                       "destinationFile":  "lib/features/accessibility/presentation/pages/accessibility_links_page.dart",
+                       "destinationClass":  "AccessibilityLinksPage",
+                       "owner":  "ACCESSIBILITY",
+                       "callers":  [
+                                       "lib/app/router/app_router.dart",
+                                       "lib/features/accessibility/presentation/pages/accessibility_room_page.dart",
+                                       "lib/shared/generation2_mobile/generation2_mobile_room_scaffold.dart"
+                                   ],
+                       "initialEntry":  false,
+                       "externalEntry":  false,
+                       "centralRouterDependency":  "lib/app/router/app_router.dart",
+                       "canonicalLine":  "MS-LINE-ROUTE-01",
+                       "runtimeState":  "ROUTE_DESTINATION"
+                   },
+                   {
+                       "routeCode":  "MS-RES-ROUTE-009",
+                       "routePath":  "/accessibility/tools",
+                       "routeConstant":  "Routes.accessibilityTools",
+                       "destinationFile":  "lib/features/accessibility/presentation/pages/accessibility_tools_page.dart",
+                       "destinationClass":  "AccessibilityToolsPage",
+                       "owner":  "ACCESSIBILITY",
+                       "callers":  [
+                                       "lib/app/router/app_router.dart",
+                                       "lib/features/accessibility/presentation/pages/accessibility_room_page.dart",
+                                       "lib/shared/generation2_mobile/generation2_mobile_room_scaffold.dart"
+                                   ],
+                       "initialEntry":  false,
+                       "externalEntry":  false,
+                       "centralRouterDependency":  "lib/app/router/app_router.dart",
+                       "canonicalLine":  "MS-LINE-ROUTE-01",
+                       "runtimeState":  "ROUTE_DESTINATION"
+                   },
+                   {
+                       "routeCode":  "MS-RES-ROUTE-010",
+                       "routePath":  "/accessibility/suggestions",
+                       "routeConstant":  "Routes.accessibilitySuggestions",
+                       "destinationFile":  "lib/features/accessibility/presentation/pages/accessibility_suggestions_page.dart",
+                       "destinationClass":  "AccessibilitySuggestionsPage",
+                       "owner":  "ACCESSIBILITY",
+                       "callers":  [
+                                       "lib/app/router/app_router.dart",
+                                       "lib/features/accessibility/presentation/pages/accessibility_room_page.dart",
+                                       "lib/features/client/presentation/pages/client_room_page.dart",
+                                       "lib/shared/generation2_mobile/generation2_mobile_room_scaffold.dart"
+                                   ],
+                       "initialEntry":  false,
+                       "externalEntry":  false,
+                       "centralRouterDependency":  "lib/app/router/app_router.dart",
+                       "canonicalLine":  "MS-LINE-ROUTE-01",
+                       "runtimeState":  "ROUTE_DESTINATION"
+                   },
+                   {
+                       "routeCode":  "MS-RES-ROUTE-011",
+                       "routePath":  "/accessibility/community-tools",
+                       "routeConstant":  "Routes.accessibilityCommunityTools",
+                       "destinationFile":  "lib/features/accessibility/presentation/pages/accessibility_community_tools_page.dart",
+                       "destinationClass":  "AccessibilityCommunityToolsPage",
+                       "owner":  "ACCESSIBILITY",
+                       "callers":  [
+                                       "lib/app/router/app_router.dart",
+                                       "lib/features/accessibility/presentation/pages/accessibility_room_page.dart",
+                                       "lib/features/client/presentation/pages/client_room_page.dart",
+                                       "lib/shared/generation2_mobile/generation2_mobile_room_scaffold.dart"
+                                   ],
+                       "initialEntry":  false,
+                       "externalEntry":  false,
+                       "centralRouterDependency":  "lib/app/router/app_router.dart",
+                       "canonicalLine":  "MS-LINE-ROUTE-01",
+                       "runtimeState":  "ROUTE_DESTINATION"
+                   },
+                   {
+                       "routeCode":  "MS-RES-ROUTE-012",
+                       "routePath":  "/accessibility/checkin",
+                       "routeConstant":  "Routes.accessibilityCheckin",
+                       "destinationFile":  "lib/features/accessibility/presentation/pages/accessibility_checkin_page.dart",
+                       "destinationClass":  "AccessibilityCheckinPage",
+                       "owner":  "ACCESSIBILITY",
+                       "callers":  [
+                                       "lib/app/router/app_router.dart",
+                                       "lib/features/accessibility/presentation/pages/accessibility_room_page.dart",
+                                       "lib/features/client/presentation/pages/client_room_page.dart",
+                                       "lib/shared/generation2_mobile/generation2_mobile_room_scaffold.dart",
+                                       "lib/shared/wellbeing/shared_wellbeing_room_card.dart"
+                                   ],
+                       "initialEntry":  false,
+                       "externalEntry":  false,
+                       "centralRouterDependency":  "lib/app/router/app_router.dart",
+                       "canonicalLine":  "MS-LINE-ROUTE-01",
+                       "runtimeState":  "ROUTE_DESTINATION"
+                   },
+                   {
+                       "routeCode":  "MS-RES-ROUTE-013",
+                       "routePath":  "/accessibility/message-of-the-day",
+                       "routeConstant":  "Routes.accessibilityMessageOfDay",
+                       "destinationFile":  "lib/features/accessibility/presentation/pages/accessibility_message_of_day_page.dart",
+                       "destinationClass":  "AccessibilityMessageOfDayPage",
+                       "owner":  "ACCESSIBILITY",
+                       "callers":  [
+                                       "lib/app/router/app_router.dart"
+                                   ],
+                       "initialEntry":  false,
+                       "externalEntry":  true,
+                       "centralRouterDependency":  "lib/app/router/app_router.dart",
+                       "canonicalLine":  "MS-LINE-ROUTE-01",
+                       "runtimeState":  "ROUTE_DESTINATION"
+                   },
+                   {
+                       "routeCode":  "MS-RES-ROUTE-014",
+                       "routePath":  "/residential/exit-social-links",
+                       "routeConstant":  "Routes.residentialExitSocialLinks",
+                       "destinationFile":  "lib/features/residential/presentation/pages/residential_exit_social_portal_page.dart",
+                       "destinationClass":  "ResidentialExitSocialPortalPage",
+                       "owner":  "RESIDENTIAL_EXIT",
+                       "callers":  [
+                                       "lib/app/router/app_router.dart",
+                                       "lib/features/accessibility/presentation/pages/accessibility_room_page.dart",
+                                       "lib/features/client/presentation/pages/client_room_page.dart",
+                                       "lib/features/commercial/presentation/widgets/commercial_room_utility_tools.dart"
+                                   ],
+                       "initialEntry":  false,
+                       "externalEntry":  false,
+                       "centralRouterDependency":  "lib/app/router/app_router.dart",
+                       "canonicalLine":  "MS-LINE-ROUTE-01",
+                       "runtimeState":  "ROUTE_DESTINATION"
+                   }
+               ],
+    "counts":  {
+                   "residentialRouteConstants":  14,
+                   "residentialRouterCases":  14,
+                   "residentialReachableRoutes":  14,
+                   "residentialUnreachableRoutes":  0
+               }
+}

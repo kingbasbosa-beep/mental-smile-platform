@@ -1,0 +1,5 @@
+arb-dir: .
+template-arb-file: shared_ar.arb
+output-localization-file: shared_localizations.dart
+output-class: SharedLocalizations
+nullable-getter: false

@@ -1,0 +1,29 @@
+{
+  "contracts": [
+    {
+      "contractId": "MS-PLATFORM-CONTRACT-IDENTITY-01",
+      "kind": "identity",
+      "direction": "host_to_registry",
+      "readonly": true
+    },
+    {
+      "contractId": "MS-PLATFORM-CONTRACT-COMPATIBILITY-01",
+      "kind": "compatibility",
+      "direction": "request_to_engine",
+      "readonly": true
+    },
+    {
+      "contractId": "MS-PLATFORM-CONTRACT-MOUNT-01",
+      "kind": "mount",
+      "direction": "test_port_to_mount_manager",
+      "readonly": true
+    }
+  ],
+  "forbiddenContracts": [
+    "firebase_write",
+    "firebase_read",
+    "section_runtime_copy",
+    "dynamic_code_loading",
+    "filesystem_runtime_scan"
+  ]
+}

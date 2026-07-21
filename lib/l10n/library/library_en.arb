@@ -1,0 +1,17 @@
+{
+    "@@locale":  "en",
+    "libraryComingSoon":  "Coming soon",
+    "libraryEducationalDisclaimer":  "This content is educational and does not replace consulting a specialist when needed.",
+    "libraryNoteArticles":  "Educational and supportive articles will be added gradually.",
+    "libraryNoteAudio":  "Calming and general support audio, not therapeutic intervention.",
+    "libraryNoteExercises":  "Light support exercises only, not a treatment protocol.",
+    "libraryNoteSaved":  "Saving is not active yet. No items are stored in this phase.",
+    "libraryNoteTools":  "Support tools are being prepared. Professional or sensitive tools require specialist supervision.",
+    "libraryNoteVideos":  "Educational video resources. Future external links will require safety observation.",
+    "libraryProviderCenters":  "Centers and institutions",
+    "libraryProviderContentTitle":  "Provider content",
+    "libraryProviderSpecialists":  "Specialists",
+    "libraryTitle":  "Library",
+    "menuSpecialists":  "Specialists",
+    "menuCenters":  "Centers"
+}

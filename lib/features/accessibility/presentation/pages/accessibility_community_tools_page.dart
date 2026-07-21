@@ -1,25 +1,35 @@
 import 'package:flutter/material.dart';
 import 'package:mental_smile_os/features/residential/signals/residential_signal_codes.dart';
 import 'package:mental_smile_os/features/residential/signals/residential_signal_emitter.dart';
-import 'package:mental_smile_os/l10n/app_localizations.dart';
+import 'package:mental_smile_os/features/residential/speech/residential_speech_contract.dart';
+import 'package:mental_smile_os/l10n/accessibility/accessibility_localizations.dart';
+import 'package:mental_smile_os/l10n/residential/residential_localizations.dart';
 import 'package:mental_smile_os/shared/accessibility/accessibility_guide_icon.dart';
 
 class AccessibilityCommunityToolsPage extends StatelessWidget {
   const AccessibilityCommunityToolsPage({super.key});
 
   static const String _background =
-      'assets/branding/rooms/accessibility_room/cards/accessibility_links_papyrus_background.png';
+      'assets/accessibility/accessibility_community_tools/accessibility_community_tools_papyrus_background.png';
 
-  void _showSpeechPlaceholder(BuildContext context, String label) {
+  Future<void> _speakLocalizedLabel(
+    BuildContext context, {
+    required String sectionId,
+    required String localizationKey,
+    required String text,
+  }) {
     ResidentialSignalEmitter.emit(
       signalCode: ResidentialSignalCode.listenSupportPlay,
       sourceScreen: 'Accessibility Community Tools',
       sourceWidget: 'AccessibilityGuideIcon',
       action: 'request_audio_support',
     );
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(
-        content: Text(AppLocalizations.of(context)!.applicationAudioSoon),
+    return ResidentialSpeechGenerator.instance.speak(
+      context,
+      ResidentialSpeechNode(
+        sectionId: sectionId,
+        localizationKey: localizationKey,
+        localizedText: text,
       ),
     );
   }
@@ -32,7 +42,7 @@ class AccessibilityCommunityToolsPage extends StatelessWidget {
       sourceWidget: 'AccessibilityCommunityToolsPage',
       action: 'view',
     );
-    final l10n = AppLocalizations.of(context)!;
+    final l10n = AccessibilityLocalizations.of(context);
     return Scaffold(
       backgroundColor: const Color(0xFF2B1B0D),
       body: SafeArea(
@@ -91,14 +101,18 @@ class AccessibilityCommunityToolsPage extends StatelessWidget {
                             children: [
                               Semantics(
                                 header: true,
-                                label:
-                                    l10n.applicationClientCommunityToolsTitle,
+                                label: ResidentialLocalizations.of(context)
+                                    .applicationClientCommunityToolsTitle,
                                 child: _SpeakableText(
                                   icon: '📱',
-                                  text:
-                                      l10n.applicationClientCommunityToolsTitle,
-                                  onSpeak: () => _showSpeechPlaceholder(context,
-                                      l10n.applicationClientCommunityToolsTitle),
+                                  text: ResidentialLocalizations.of(context)
+                                      .applicationClientCommunityToolsTitle,
+                                  onSpeak: () => _speakLocalizedLabel(context,
+                                      sectionId: 'residential',
+                                      localizationKey:
+                                          'applicationClientCommunityToolsTitle',
+                                      text: ResidentialLocalizations.of(context)
+                                          .applicationClientCommunityToolsTitle),
                                   style: const TextStyle(
                                     color: Color(0xFF7A4A00),
                                     fontSize: 34,
@@ -111,8 +125,12 @@ class AccessibilityCommunityToolsPage extends StatelessWidget {
                                 icon: '💬',
                                 text: l10n
                                     .applicationAccessibilityCommunityToolsComingSoon,
-                                onSpeak: () => _showSpeechPlaceholder(context,
-                                    l10n.applicationAccessibilityCommunityToolsComingSoon),
+                                onSpeak: () => _speakLocalizedLabel(context,
+                                    sectionId: 'accessibility',
+                                    localizationKey:
+                                        'applicationAccessibilityCommunityToolsComingSoon',
+                                    text: l10n
+                                        .applicationAccessibilityCommunityToolsComingSoon),
                                 style: const TextStyle(
                                   color: Color(0xFF3A2A18),
                                   fontSize: 22,
@@ -124,8 +142,12 @@ class AccessibilityCommunityToolsPage extends StatelessWidget {
                                 icon: '🌿',
                                 text: l10n
                                     .applicationAccessibilityCommunityToolsNote,
-                                onSpeak: () => _showSpeechPlaceholder(context,
-                                    l10n.applicationAccessibilityCommunityToolsNote),
+                                onSpeak: () => _speakLocalizedLabel(context,
+                                    sectionId: 'accessibility',
+                                    localizationKey:
+                                        'applicationAccessibilityCommunityToolsNote',
+                                    text: l10n
+                                        .applicationAccessibilityCommunityToolsNote),
                                 style: const TextStyle(
                                   color: Color(0xFF3A2A18),
                                   fontSize: 18,
@@ -180,9 +202,13 @@ class AccessibilityCommunityToolsPage extends StatelessWidget {
                                   const SizedBox(width: 8),
                                   AccessibilityGuideIcon(
                                     size: 24,
-                                    onPressed: () => _showSpeechPlaceholder(
+                                    onPressed: () => _speakLocalizedLabel(
                                         context,
-                                        l10n.applicationAccessibilityCommunityToolsBackToRoom),
+                                        sectionId: 'accessibility',
+                                        localizationKey:
+                                            'applicationAccessibilityCommunityToolsBackToRoom',
+                                        text: l10n
+                                            .applicationAccessibilityCommunityToolsBackToRoom),
                                   ),
                                 ],
                               ),
@@ -209,8 +235,9 @@ class _AccessibilityCardBackButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AccessibilityLocalizations.of(context);
     return IconButton(
-      tooltip: 'رجوع',
+      tooltip: l10n.applicationAccessibilityCommunityToolsBackToRoom,
       onPressed: onPressed,
       style: IconButton.styleFrom(
         backgroundColor: const Color(0xFF1B1007).withValues(alpha: 0.55),

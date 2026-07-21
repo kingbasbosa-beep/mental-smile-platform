@@ -1,0 +1,36 @@
+{
+  "capsuleId": "MS-CAPSULE-LIB-BLUEPRINT",
+  "coreFirestoreSignals": [
+    {"signalCode":"lb001bt","owner":"LIBRARY_PLATFORM_ADAPTER","emitter":"LibrarySectionAdapter.testCode","receiver":"Platform Core socket/dictionary tests","persistence":"PlatformCoreSignalBridge fake writer in tests","collectionOrBuffer":"platform_core_signal_bridge_test","ttl":"platform_core_defined","maximumRecords":null,"piiAllowed":false,"canonicalLine":"MS-LINE-SIGNAL-01","runtimeState":"TEST_REQUIRED"}
+  ],
+  "libraryLocalSignals": [
+    {"signalCode":"L.S.001.VIEW","symbol":"libraryHomeView","persistence":"LocalSectionSignalBuffer","runtimeState":"ACTIVE_DIRECT"},
+    {"signalCode":"L.S.002.VIEW","symbol":"libraryPolicyView","persistence":"none_currently","runtimeState":"DATA_REGISTRY"},
+    {"signalCode":"L.S.003.VIEW","symbol":"specialistsBranchView","persistence":"LocalSectionSignalBuffer","runtimeState":"ACTIVE_DIRECT"},
+    {"signalCode":"L.S.004.VIEW","symbol":"centersBranchView","persistence":"LocalSectionSignalBuffer","runtimeState":"ACTIVE_DIRECT"},
+    {"signalCode":"L.S.005.VIEW","symbol":"providerCategoryBranchView","persistence":"none_currently","runtimeState":"DATA_REGISTRY"},
+    {"signalCode":"L.C.001.OPEN","symbol":"categoryCardOpen","persistence":"LocalSectionSignalBuffer","runtimeState":"ACTIVE_DIRECT"},
+    {"signalCode":"L.C.003.OPEN","symbol":"providerSpecialistsOpen","persistence":"LocalSectionSignalBuffer","runtimeState":"ACTIVE_DIRECT"},
+    {"signalCode":"L.C.004.OPEN","symbol":"providerCentersOpen","persistence":"LocalSectionSignalBuffer","runtimeState":"ACTIVE_DIRECT"},
+    {"signalCode":"L.C.005.OPEN","symbol":"providerBranchCategoryOpen","persistence":"none_currently","runtimeState":"DATA_REGISTRY"},
+    {"signalCode":"L.B.001.TAP","symbol":"carouselNextTap","persistence":"none_currently","runtimeState":"ACTIVE_INDIRECT"},
+    {"signalCode":"L.B.002.TAP","symbol":"carouselPreviousTap","persistence":"none_currently","runtimeState":"ACTIVE_INDIRECT"},
+    {"signalCode":"L.B.003.TAP","symbol":"backTap","persistence":"none_currently","runtimeState":"ACTIVE_INDIRECT"},
+    {"signalCode":"L.B.004.TAP","symbol":"policyTap","persistence":"none_currently","runtimeState":"DATA_REGISTRY"},
+    {"signalCode":"L.SE.001.SEARCH","symbol":"searchFuture","persistence":"none_currently","runtimeState":"DATA_REGISTRY"},
+    {"signalCode":"L.F.001.FILTER","symbol":"filterFuture","persistence":"none_currently","runtimeState":"DATA_REGISTRY"},
+    {"signalCode":"L.SO.001.SORT","symbol":"sortFuture","persistence":"none_currently","runtimeState":"DATA_REGISTRY"},
+    {"signalCode":"L.P.001.OPEN","symbol":"profileOpenFuture","persistence":"none_currently","runtimeState":"DATA_REGISTRY"},
+    {"signalCode":"L.E.001.OPEN","symbol":"externalResourceOpenFuture","persistence":"none_currently","runtimeState":"DATA_REGISTRY"},
+    {"signalCode":"L.R.001.SUBMIT","symbol":"registrationSubmitFuture","persistence":"none_currently","runtimeState":"DATA_REGISTRY"},
+    {"signalCode":"L.A.001.PLAY","symbol":"accessibilityAction","persistence":"none_currently","runtimeState":"DATA_REGISTRY"},
+    {"signalCode":"L.G.001.SUBMIT","symbol":"suggestionFuture","persistence":"none_currently","runtimeState":"DATA_REGISTRY"},
+    {"signalCode":"L.X.001.OPEN","symbol":"complaintSupportFuture","persistence":"none_currently","runtimeState":"DATA_REGISTRY"}
+  ],
+  "counts": {
+    "coreSignals": 1,
+    "localSignals": 22,
+    "persistedLocalSignals": 6,
+    "dictionaryOnlySignals": 16
+  }
+}

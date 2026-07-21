@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:mental_smile_os/l10n/app_localizations.dart';
+import 'package:mental_smile_os/l10n/accessibility/accessibility_localizations.dart';
+import 'package:mental_smile_os/l10n/app/app_section_localizations.dart';
+import 'package:mental_smile_os/l10n/commercial/commercial_localizations.dart';
+import 'package:mental_smile_os/l10n/library/library_localizations.dart';
+import 'package:mental_smile_os/l10n/residential/residential_localizations.dart';
+import 'package:mental_smile_os/l10n/shared/shared_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:mental_smile_os/app/locale_provider.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -17,9 +22,14 @@ class MentalSmileOSApp extends ConsumerWidget {
 
     return MaterialApp(
       locale: effectiveLocale,
-      supportedLocales: AppLocalizations.supportedLocales,
+      supportedLocales: AppSectionLocalizations.supportedLocales,
       localizationsDelegates: const [
-        AppLocalizations.delegate,
+        CommercialLocalizations.delegate,
+        LibraryLocalizations.delegate,
+        AccessibilityLocalizations.delegate,
+        ResidentialLocalizations.delegate,
+        AppSectionLocalizations.delegate,
+        SharedLocalizations.delegate,
         GlobalMaterialLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,
         GlobalCupertinoLocalizations.delegate,

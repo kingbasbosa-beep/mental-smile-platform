@@ -1,0 +1,64 @@
+﻿{
+    "capsuleId":  "MS-CAPSULE-RES-R-1.07.2026",
+    "mode":  "PORT_MOUNTED",
+    "tests":  [
+                  {
+                      "testCode":  "MS-RES-TEST-001",
+                      "path":  "test/core/local_signals/local_section_signal_buffer_test.dart",
+                      "purpose":  "Local 24-hour signal buffer contract",
+                      "owner":  "RESIDENTIAL_LOCAL_SIGNALS_CENTRAL_IMPORT",
+                      "requiredForBuildable":  true,
+                      "requiredForRunnable":  true,
+                      "requiredForClonable":  true,
+                      "requiredForMergeable":  true
+                  },
+                  {
+                      "testCode":  "MS-RES-TEST-002",
+                      "path":  "test/features/residential/speech/residential_speech_boundary_test.dart",
+                      "purpose":  "Residential speech boundary coverage",
+                      "owner":  "RESIDENTIAL_SPEECH",
+                      "requiredForBuildable":  true,
+                      "requiredForRunnable":  true,
+                      "requiredForClonable":  true,
+                      "requiredForMergeable":  true
+                  },
+                  {
+                      "testCode":  "MS-RES-TEST-003",
+                      "path":  "test/shared/accessibility/speech/localized_speech_service_test.dart",
+                      "purpose":  "Residential speech boundary coverage",
+                      "owner":  "RESIDENTIAL_SPEECH",
+                      "requiredForBuildable":  true,
+                      "requiredForRunnable":  true,
+                      "requiredForClonable":  true,
+                      "requiredForMergeable":  true
+                  },
+                  {
+                      "testCode":  "MS-RES-TEST-004",
+                      "path":  "capsules/residential/package/test/capsule_descriptor_test.dart",
+                      "purpose":  "Package descriptor and canonical line contract",
+                      "owner":  "RESIDENTIAL_CAPSULE_DESCRIPTOR",
+                      "requiredForBuildable":  true,
+                      "requiredForRunnable":  true,
+                      "requiredForClonable":  true,
+                      "requiredForMergeable":  false
+                  },
+                  {
+                      "testCode":  "MS-RES-TEST-005",
+                      "path":  "test/shared/capsule_runtime/residential_capsule_test_port_test.dart",
+                      "purpose":  "Central test port compatibility, mount isolation, signal isolation, route protection, and Platform Core protection",
+                      "owner":  "RESIDENTIAL_TEST_PORT",
+                      "requiredForBuildable":  true,
+                      "requiredForRunnable":  true,
+                      "requiredForClonable":  true,
+                      "requiredForMergeable":  false
+                  }
+              ],
+    "counts":  {
+                   "tests":  5,
+                   "requiredForBuildable":  5,
+                   "requiredForRunnable":  5,
+                   "requiredForClonable":  5,
+                   "requiredForMergeable":  3,
+                   "testCasesAdded":  26
+               }
+}

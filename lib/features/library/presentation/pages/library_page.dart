@@ -5,8 +5,9 @@ import 'package:mental_smile_os/app/router/routes.dart';
 import 'package:mental_smile_os/features/library/data/library_signal_metadata.dart';
 import 'package:mental_smile_os/features/library/signals/library_signal_codes.dart';
 import 'package:mental_smile_os/features/library/signals/library_signal_emitter.dart';
-import 'package:mental_smile_os/l10n/app_localizations.dart';
+import 'package:mental_smile_os/l10n/library/library_localizations.dart';
 import 'package:mental_smile_os/shared/accessibility/accessibility_guide_icon.dart';
+import 'package:mental_smile_os/shared/accessibility/speech/localized_speech_action.dart';
 import 'package:mental_smile_os/shared/utils/asset_path_utils.dart';
 
 /// C6 Library UI.
@@ -113,7 +114,7 @@ class _LibraryPageState extends State<LibraryPage> {
 
   @override
   Widget build(BuildContext context) {
-    final l10n = AppLocalizations.of(context)!;
+    final l10n = LibraryLocalizations.of(context);
     final lang = Localizations.localeOf(context).languageCode.toLowerCase();
     final isAr = lang == 'ar';
 
@@ -361,7 +362,7 @@ class _LibraryPageState extends State<LibraryPage> {
 class _LibraryHeader extends StatelessWidget {
   const _LibraryHeader({required this.l10n, required this.isAr});
 
-  final AppLocalizations l10n;
+  final LibraryLocalizations l10n;
   final bool isAr;
 
   @override
@@ -553,12 +554,14 @@ class _LibraryAudioPreviewIcon extends StatelessWidget {
     this.assetPath,
     this.icon,
     this.compact = false,
+    this.onPressed,
   });
 
   final String title;
   final String? assetPath;
   final IconData? icon;
   final bool compact;
+  final VoidCallback? onPressed;
 
   @override
   Widget build(BuildContext context) {
@@ -580,12 +583,13 @@ class _LibraryAudioPreviewIcon extends StatelessWidget {
       child: AccessibilityGuideIcon(
         size: compact ? 18 : 21,
         tooltipIconSize: compact ? 74 : 84,
-        onPressed: () => _showLibraryVisualPreview(
-          context,
-          title: title,
-          assetPath: assetPath,
-          icon: icon,
-        ),
+        onPressed: onPressed ??
+            () => _showLibraryVisualPreview(
+                  context,
+                  title: title,
+                  assetPath: assetPath,
+                  icon: icon,
+                ),
       ),
     );
   }
@@ -687,7 +691,7 @@ class _LibraryProviderContentSection extends StatelessWidget {
   const _LibraryProviderContentSection(
       {required this.l10n, required this.returnRoute, required this.compact});
 
-  final AppLocalizations l10n;
+  final LibraryLocalizations l10n;
   final String returnRoute;
   final bool compact;
 
@@ -729,18 +733,26 @@ class _LibraryProviderContentSection extends StatelessWidget {
                     title: '\u062d\u0642\u0643 \u062a\u0639\u0631\u0641',
                     route: Routes.knowledgeCards,
                     icon: Icons.menu_book_outlined,
+                    backgroundAssetPath:
+                        'assets/library/category_cards/know_your_right_background.png',
                     returnRoute: returnRoute,
                   ),
                   _LibraryProviderContentCard(
                     title: l10n.libraryProviderSpecialists,
+                    speechLocalizationKey: 'libraryProviderSpecialists',
                     route: Routes.libraryProviderSpecialists,
                     icon: Icons.person_search_outlined,
+                    backgroundAssetPath:
+                        'assets/library/category_cards/library_provider_specialists_background.png',
                     returnRoute: returnRoute,
                   ),
                   _LibraryProviderContentCard(
                     title: l10n.libraryProviderCenters,
+                    speechLocalizationKey: 'libraryProviderCenters',
                     route: Routes.libraryProviderCenters,
                     icon: Icons.apartment_outlined,
+                    backgroundAssetPath:
+                        'assets/library/category_cards/library_provider_centers_background.png',
                     returnRoute: returnRoute,
                   ),
                 ],
@@ -758,13 +770,17 @@ class _LibraryProviderContentCard extends StatefulWidget {
     required this.title,
     required this.route,
     required this.icon,
+    required this.backgroundAssetPath,
     required this.returnRoute,
+    this.speechLocalizationKey,
   });
 
   final String title;
   final String route;
   final IconData icon;
+  final String backgroundAssetPath;
   final String returnRoute;
+  final String? speechLocalizationKey;
 
   @override
   State<_LibraryProviderContentCard> createState() =>
@@ -803,7 +819,6 @@ class _LibraryProviderContentCardState
           },
           child: Container(
             width: 230,
-            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 13),
             decoration: BoxDecoration(
               color: const Color(0xFF120B05).withValues(alpha: 0.64),
               borderRadius: BorderRadius.circular(22),
@@ -822,43 +837,79 @@ class _LibraryProviderContentCardState
                 ),
               ],
             ),
+            clipBehavior: Clip.antiAlias,
             child: Stack(
-              clipBehavior: Clip.none,
+              clipBehavior: Clip.hardEdge,
               children: [
-                Padding(
-                  padding: const EdgeInsetsDirectional.only(end: 30),
-                  child: Row(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      Icon(
-                        widget.icon,
-                        color: const Color(0xFFFFD47A),
-                        size: 28,
-                      ),
-                      const SizedBox(width: 12),
-                      Expanded(
-                        child: Text(
-                          widget.title,
-                          textDirection: TextDirection.rtl,
-                          maxLines: 2,
-                          overflow: TextOverflow.ellipsis,
-                          style: const TextStyle(
-                            color: Color(0xFFFFE7B2),
-                            fontSize: 17,
-                            fontWeight: FontWeight.w900,
-                          ),
-                        ),
-                      ),
-                    ],
+                Positioned.fill(
+                  child: Image.asset(
+                    widget.backgroundAssetPath,
+                    fit: BoxFit.cover,
+                    errorBuilder: (context, error, stackTrace) =>
+                        const SizedBox.shrink(),
                   ),
                 ),
-                PositionedDirectional(
-                  top: -8,
-                  end: -6,
-                  child: _LibraryAudioPreviewIcon(
-                    title: widget.title,
-                    icon: widget.icon,
-                    compact: true,
+                Positioned.fill(
+                  child: ColoredBox(
+                    color: const Color(0xFF120B05).withValues(alpha: 0.44),
+                  ),
+                ),
+                Padding(
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 16, vertical: 13),
+                  child: Stack(
+                    clipBehavior: Clip.none,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsetsDirectional.only(end: 30),
+                        child: Row(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            Icon(
+                              widget.icon,
+                              color: const Color(0xFFFFD47A),
+                              size: 28,
+                            ),
+                            const SizedBox(width: 12),
+                            Expanded(
+                              child: Text(
+                                widget.title,
+                                textDirection: TextDirection.rtl,
+                                maxLines: 2,
+                                overflow: TextOverflow.ellipsis,
+                                style: const TextStyle(
+                                  color: Color(0xFFFFE7B2),
+                                  fontSize: 17,
+                                  fontWeight: FontWeight.w900,
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      PositionedDirectional(
+                        top: -8,
+                        end: -6,
+                        child: widget.speechLocalizationKey == null
+                            ? _LibraryAudioPreviewIcon(
+                                title: widget.title,
+                                icon: widget.icon,
+                                compact: true,
+                              )
+                            : _LibraryAudioPreviewIcon(
+                                title: widget.title,
+                                icon: widget.icon,
+                                compact: true,
+                                onPressed: () => speakLocalizedText(
+                                  context,
+                                  sectionId: 'library',
+                                  localizationKey:
+                                      widget.speechLocalizationKey!,
+                                  text: widget.title,
+                                ),
+                              ),
+                      ),
+                    ],
                   ),
                 ),
               ],
@@ -878,7 +929,7 @@ class _LibraryStandardCategoryDetail extends StatelessWidget {
     required this.compact,
   });
 
-  final AppLocalizations l10n;
+  final LibraryLocalizations l10n;
   final _LibCat category;
   final bool isAr;
   final bool compact;
@@ -950,7 +1001,7 @@ class _LibraryStandardCategoryDetail extends StatelessWidget {
                 ),
                 SizedBox(height: compact ? 14 : 18),
                 Text(
-                  isAr ? category.titleAr : category.titleEn,
+                  _libraryCategoryTitle(category, isAr),
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     color: const Color(0xFFFFD47A),
@@ -1191,8 +1242,7 @@ class _LibraryCarouselCardState extends State<_LibraryCarouselCard> {
   @override
   Widget build(BuildContext context) {
     final radius = widget.compact ? 30.0 : 36.0;
-    final title =
-        widget.isAr ? widget.category.titleAr : widget.category.titleEn;
+    final title = _libraryCategoryTitle(widget.category, widget.isAr);
 
     return MouseRegion(
       onEnter: (_) => setState(() => _hovered = true),
@@ -1557,6 +1607,19 @@ String _currentLibraryRouteName(BuildContext context) {
     return Routes.webLibrary;
   }
   return Routes.webLibrary;
+}
+
+String _libraryCategoryTitle(_LibCat category, bool isAr) {
+  if (!isAr) return category.titleEn;
+  return switch (category.keyName) {
+    'articles' => 'مقالات',
+    'exercises' => 'تمارين',
+    'audio' => 'صوتيات',
+    'videos' => 'فيديو',
+    'tools' => 'أدوات',
+    'saved' => 'المحفوظات',
+    _ => category.titleAr,
+  };
 }
 
 bool _showsLibraryReturnPageButton(String returnRoute) {

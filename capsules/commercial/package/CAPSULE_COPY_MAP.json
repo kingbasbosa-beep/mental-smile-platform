@@ -1,0 +1,338 @@
+﻿[
+    {
+        "originalPath":  "lib/core/local_signals/local_section_signal_buffer.dart",
+        "capsulePath":  "lib/src/runtime_mirror/core_local_signals_local_section_signal_buffer.dart",
+        "owner":  "COMMERCIAL_LOCAL_SIGNALS_CENTRAL_IMPORT",
+        "checksum":  "PENDING_MANUAL_VERIFICATION",
+        "copyState":  "CONTRACT_REWIRED",
+        "rewiringReason":  "Commercial test capsule forbids direct root, Firebase, Storage, Residential, and Library implementation imports."
+    },
+    {
+        "originalPath":  "lib/core/local_signals/local_section_signal_record.dart",
+        "capsulePath":  "lib/src/runtime_mirror/core_local_signals_local_section_signal_record.dart",
+        "owner":  "COMMERCIAL_LOCAL_SIGNALS_CENTRAL_IMPORT",
+        "checksum":  "PENDING_MANUAL_VERIFICATION",
+        "copyState":  "CONTRACT_REWIRED",
+        "rewiringReason":  "Commercial test capsule forbids direct root, Firebase, Storage, Residential, and Library implementation imports."
+    },
+    {
+        "originalPath":  "lib/features/commercial/application/commercial_auth_service.dart",
+        "capsulePath":  "lib/src/runtime_mirror/features_commercial_application_commercial_auth_service.dart",
+        "owner":  "COMMERCIAL_AUTH",
+        "checksum":  "PENDING_MANUAL_VERIFICATION",
+        "copyState":  "CONTRACT_REWIRED",
+        "rewiringReason":  "Commercial test capsule forbids direct root, Firebase, Storage, Residential, and Library implementation imports."
+    },
+    {
+        "originalPath":  "lib/features/commercial/data/provider_profile_repository.dart",
+        "capsulePath":  "lib/src/runtime_mirror/features_commercial_data_provider_profile_repository.dart",
+        "owner":  "PROVIDER_PROFILE",
+        "checksum":  "PENDING_MANUAL_VERIFICATION",
+        "copyState":  "CONTRACT_REWIRED",
+        "rewiringReason":  "Commercial test capsule forbids direct root, Firebase, Storage, Residential, and Library implementation imports."
+    },
+    {
+        "originalPath":  "lib/features/commercial/domain/provider_profile_storage.dart",
+        "capsulePath":  "lib/src/runtime_mirror/features_commercial_domain_provider_profile_storage.dart",
+        "owner":  "PROVIDER_PROFILE",
+        "checksum":  "PENDING_MANUAL_VERIFICATION",
+        "copyState":  "CONTRACT_REWIRED",
+        "rewiringReason":  "Commercial test capsule forbids direct root, Firebase, Storage, Residential, and Library implementation imports."
+    },
+    {
+        "originalPath":  "lib/features/commercial/platform_core/commercial_runtime_signal_bridge.dart",
+        "capsulePath":  "lib/src/runtime_mirror/features_commercial_platform_core_commercial_runtime_signal_bridge.dart",
+        "owner":  "COMMERCIAL",
+        "checksum":  "PENDING_MANUAL_VERIFICATION",
+        "copyState":  "CONTRACT_REWIRED",
+        "rewiringReason":  "Commercial test capsule forbids direct root, Firebase, Storage, Residential, and Library implementation imports."
+    },
+    {
+        "originalPath":  "lib/features/commercial/platform_core/commercial_section_adapter.dart",
+        "capsulePath":  "lib/src/runtime_mirror/features_commercial_platform_core_commercial_section_adapter.dart",
+        "owner":  "COMMERCIAL",
+        "checksum":  "PENDING_MANUAL_VERIFICATION",
+        "copyState":  "CONTRACT_REWIRED",
+        "rewiringReason":  "Commercial test capsule forbids direct root, Firebase, Storage, Residential, and Library implementation imports."
+    },
+    {
+        "originalPath":  "lib/features/commercial/presentation/pages/center_login_page.dart",
+        "capsulePath":  "lib/src/runtime_mirror/features_commercial_presentation_pages_center_login_page.dart",
+        "owner":  "CENTER",
+        "checksum":  "PENDING_MANUAL_VERIFICATION",
+        "copyState":  "CONTRACT_REWIRED",
+        "rewiringReason":  "Commercial test capsule forbids direct root, Firebase, Storage, Residential, and Library implementation imports."
+    },
+    {
+        "originalPath":  "lib/features/commercial/presentation/pages/center_professional_library_page.dart",
+        "capsulePath":  "lib/src/runtime_mirror/features_commercial_presentation_pages_center_professional_library_page.dart",
+        "owner":  "CENTER",
+        "checksum":  "PENDING_MANUAL_VERIFICATION",
+        "copyState":  "CONTRACT_REWIRED",
+        "rewiringReason":  "Commercial test capsule forbids direct root, Firebase, Storage, Residential, and Library implementation imports."
+    },
+    {
+        "originalPath":  "lib/features/commercial/presentation/pages/center_professional_profile_clean_layout_page.dart",
+        "capsulePath":  "lib/src/runtime_mirror/features_commercial_presentation_pages_center_professional_profile_clean_layout_page.dart",
+        "owner":  "CENTER",
+        "checksum":  "PENDING_MANUAL_VERIFICATION",
+        "copyState":  "CONTRACT_REWIRED",
+        "rewiringReason":  "Commercial test capsule forbids direct root, Firebase, Storage, Residential, and Library implementation imports."
+    },
+    {
+        "originalPath":  "lib/features/commercial/presentation/pages/center_room_page.dart",
+        "capsulePath":  "lib/src/runtime_mirror/features_commercial_presentation_pages_center_room_page.dart",
+        "owner":  "CENTER",
+        "checksum":  "PENDING_MANUAL_VERIFICATION",
+        "copyState":  "CONTRACT_REWIRED",
+        "rewiringReason":  "Commercial test capsule forbids direct root, Firebase, Storage, Residential, and Library implementation imports."
+    },
+    {
+        "originalPath":  "lib/features/commercial/presentation/pages/commercial_access_page.dart",
+        "capsulePath":  "lib/src/runtime_mirror/features_commercial_presentation_pages_commercial_access_page.dart",
+        "owner":  "COMMERCIAL",
+        "checksum":  "PENDING_MANUAL_VERIFICATION",
+        "copyState":  "CONTRACT_REWIRED",
+        "rewiringReason":  "Commercial test capsule forbids direct root, Firebase, Storage, Residential, and Library implementation imports."
+    },
+    {
+        "originalPath":  "lib/features/commercial/presentation/pages/commercial_public_accounts_page.dart",
+        "capsulePath":  "lib/src/runtime_mirror/features_commercial_presentation_pages_commercial_public_accounts_page.dart",
+        "owner":  "COMMERCIAL",
+        "checksum":  "PENDING_MANUAL_VERIFICATION",
+        "copyState":  "CONTRACT_REWIRED",
+        "rewiringReason":  "Commercial test capsule forbids direct root, Firebase, Storage, Residential, and Library implementation imports."
+    },
+    {
+        "originalPath":  "lib/features/commercial/presentation/pages/commercial_register_pages.dart",
+        "capsulePath":  "lib/src/runtime_mirror/features_commercial_presentation_pages_commercial_register_pages.dart",
+        "owner":  "COMMERCIAL",
+        "checksum":  "PENDING_MANUAL_VERIFICATION",
+        "copyState":  "CONTRACT_REWIRED",
+        "rewiringReason":  "Commercial test capsule forbids direct root, Firebase, Storage, Residential, and Library implementation imports."
+    },
+    {
+        "originalPath":  "lib/features/commercial/presentation/pages/commercial_room_page.dart",
+        "capsulePath":  "lib/src/runtime_mirror/features_commercial_presentation_pages_commercial_room_page.dart",
+        "owner":  "COMMERCIAL",
+        "checksum":  "PENDING_MANUAL_VERIFICATION",
+        "copyState":  "CONTRACT_REWIRED",
+        "rewiringReason":  "Commercial test capsule forbids direct root, Firebase, Storage, Residential, and Library implementation imports."
+    },
+    {
+        "originalPath":  "lib/features/commercial/presentation/pages/commercial_shared_assistive_tools_page.dart",
+        "capsulePath":  "lib/src/runtime_mirror/features_commercial_presentation_pages_commercial_shared_assistive_tools_page.dart",
+        "owner":  "COMMERCIAL",
+        "checksum":  "PENDING_MANUAL_VERIFICATION",
+        "copyState":  "CONTRACT_REWIRED",
+        "rewiringReason":  "Commercial test capsule forbids direct root, Firebase, Storage, Residential, and Library implementation imports."
+    },
+    {
+        "originalPath":  "lib/features/commercial/presentation/pages/specialist_login_page.dart",
+        "capsulePath":  "lib/src/runtime_mirror/features_commercial_presentation_pages_specialist_login_page.dart",
+        "owner":  "SPECIALIST",
+        "checksum":  "PENDING_MANUAL_VERIFICATION",
+        "copyState":  "CONTRACT_REWIRED",
+        "rewiringReason":  "Commercial test capsule forbids direct root, Firebase, Storage, Residential, and Library implementation imports."
+    },
+    {
+        "originalPath":  "lib/features/commercial/presentation/pages/specialist_professional_library_page.dart",
+        "capsulePath":  "lib/src/runtime_mirror/features_commercial_presentation_pages_specialist_professional_library_page.dart",
+        "owner":  "SPECIALIST",
+        "checksum":  "PENDING_MANUAL_VERIFICATION",
+        "copyState":  "CONTRACT_REWIRED",
+        "rewiringReason":  "Commercial test capsule forbids direct root, Firebase, Storage, Residential, and Library implementation imports."
+    },
+    {
+        "originalPath":  "lib/features/commercial/presentation/pages/specialist_professional_profile_clean_layout_page.dart",
+        "capsulePath":  "lib/src/runtime_mirror/features_commercial_presentation_pages_specialist_professional_profile_clean_layout_page.dart",
+        "owner":  "SPECIALIST",
+        "checksum":  "PENDING_MANUAL_VERIFICATION",
+        "copyState":  "CONTRACT_REWIRED",
+        "rewiringReason":  "Commercial test capsule forbids direct root, Firebase, Storage, Residential, and Library implementation imports."
+    },
+    {
+        "originalPath":  "lib/features/commercial/presentation/widgets/commercial_room_screen_image.dart",
+        "capsulePath":  "lib/src/runtime_mirror/features_commercial_presentation_widgets_commercial_room_screen_image.dart",
+        "owner":  "COMMERCIAL",
+        "checksum":  "PENDING_MANUAL_VERIFICATION",
+        "copyState":  "CONTRACT_REWIRED",
+        "rewiringReason":  "Commercial test capsule forbids direct root, Firebase, Storage, Residential, and Library implementation imports."
+    },
+    {
+        "originalPath":  "lib/features/commercial/presentation/widgets/commercial_room_tv_apps.dart",
+        "capsulePath":  "lib/src/runtime_mirror/features_commercial_presentation_widgets_commercial_room_tv_apps.dart",
+        "owner":  "COMMERCIAL",
+        "checksum":  "PENDING_MANUAL_VERIFICATION",
+        "copyState":  "CONTRACT_REWIRED",
+        "rewiringReason":  "Commercial test capsule forbids direct root, Firebase, Storage, Residential, and Library implementation imports."
+    },
+    {
+        "originalPath":  "lib/features/commercial/presentation/widgets/commercial_room_utility_tools.dart",
+        "capsulePath":  "lib/src/runtime_mirror/features_commercial_presentation_widgets_commercial_room_utility_tools.dart",
+        "owner":  "COMMERCIAL",
+        "checksum":  "PENDING_MANUAL_VERIFICATION",
+        "copyState":  "CONTRACT_REWIRED",
+        "rewiringReason":  "Commercial test capsule forbids direct root, Firebase, Storage, Residential, and Library implementation imports."
+    },
+    {
+        "originalPath":  "lib/features/commercial/presentation/widgets/commercial_sub_page_background.dart",
+        "capsulePath":  "lib/src/runtime_mirror/features_commercial_presentation_widgets_commercial_sub_page_background.dart",
+        "owner":  "COMMERCIAL",
+        "checksum":  "PENDING_MANUAL_VERIFICATION",
+        "copyState":  "CONTRACT_REWIRED",
+        "rewiringReason":  "Commercial test capsule forbids direct root, Firebase, Storage, Residential, and Library implementation imports."
+    },
+    {
+        "originalPath":  "lib/features/commercial_v2_web/domain/commercial_v2_web_section.dart",
+        "capsulePath":  "lib/src/runtime_mirror/features_commercial_v2_web_domain_commercial_v2_web_section.dart",
+        "owner":  "COMMERCIAL_V2_WEB",
+        "checksum":  "PENDING_MANUAL_VERIFICATION",
+        "copyState":  "CONTRACT_REWIRED",
+        "rewiringReason":  "Commercial test capsule forbids direct root, Firebase, Storage, Residential, and Library implementation imports."
+    },
+    {
+        "originalPath":  "lib/features/commercial_v2_web/presentation/pages/commercial_v2_web_showcase_page.dart",
+        "capsulePath":  "lib/src/runtime_mirror/features_commercial_v2_web_presentation_pages_commercial_v2_web_showcase_page.dart",
+        "owner":  "COMMERCIAL_V2_WEB",
+        "checksum":  "PENDING_MANUAL_VERIFICATION",
+        "copyState":  "CONTRACT_REWIRED",
+        "rewiringReason":  "Commercial test capsule forbids direct root, Firebase, Storage, Residential, and Library implementation imports."
+    },
+    {
+        "originalPath":  "lib/features/commercial_v2_web/presentation/widgets/commercial_v2_web_accessibility_icon.dart",
+        "capsulePath":  "lib/src/runtime_mirror/features_commercial_v2_web_presentation_widgets_commercial_v2_web_accessibility_icon.dart",
+        "owner":  "COMMERCIAL_V2_WEB",
+        "checksum":  "PENDING_MANUAL_VERIFICATION",
+        "copyState":  "CONTRACT_REWIRED",
+        "rewiringReason":  "Commercial test capsule forbids direct root, Firebase, Storage, Residential, and Library implementation imports."
+    },
+    {
+        "originalPath":  "lib/features/commercial_v2_web/presentation/widgets/commercial_v2_web_background.dart",
+        "capsulePath":  "lib/src/runtime_mirror/features_commercial_v2_web_presentation_widgets_commercial_v2_web_background.dart",
+        "owner":  "COMMERCIAL_V2_WEB",
+        "checksum":  "PENDING_MANUAL_VERIFICATION",
+        "copyState":  "CONTRACT_REWIRED",
+        "rewiringReason":  "Commercial test capsule forbids direct root, Firebase, Storage, Residential, and Library implementation imports."
+    },
+    {
+        "originalPath":  "lib/features/commercial_v2_web/presentation_gallery/data/presentation_gallery_repository.dart",
+        "capsulePath":  "lib/src/runtime_mirror/features_commercial_v2_web_presentation_gallery_data_presentation_gallery_repository.dart",
+        "owner":  "COMMERCIAL_V2_WEB",
+        "checksum":  "PENDING_MANUAL_VERIFICATION",
+        "copyState":  "CONTRACT_REWIRED",
+        "rewiringReason":  "Commercial test capsule forbids direct root, Firebase, Storage, Residential, and Library implementation imports."
+    },
+    {
+        "originalPath":  "lib/features/commercial_v2_web/presentation_gallery/domain/models/presentation_card.dart",
+        "capsulePath":  "lib/src/runtime_mirror/features_commercial_v2_web_presentation_gallery_domain_models_presentation_card.dart",
+        "owner":  "COMMERCIAL_V2_WEB",
+        "checksum":  "PENDING_MANUAL_VERIFICATION",
+        "copyState":  "CONTRACT_REWIRED",
+        "rewiringReason":  "Commercial test capsule forbids direct root, Firebase, Storage, Residential, and Library implementation imports."
+    },
+    {
+        "originalPath":  "lib/features/commercial_v2_web/presentation_gallery/presentation/pages/presentation_viewer_page.dart",
+        "capsulePath":  "lib/src/runtime_mirror/features_commercial_v2_web_presentation_gallery_presentation_pages_presentation_viewer_page.dart",
+        "owner":  "COMMERCIAL_V2_WEB",
+        "checksum":  "PENDING_MANUAL_VERIFICATION",
+        "copyState":  "CONTRACT_REWIRED",
+        "rewiringReason":  "Commercial test capsule forbids direct root, Firebase, Storage, Residential, and Library implementation imports."
+    },
+    {
+        "originalPath":  "lib/features/commercial_v2_web/presentation_gallery/presentation/widgets/presentation_asset_image.dart",
+        "capsulePath":  "lib/src/runtime_mirror/features_commercial_v2_web_presentation_gallery_presentation_widgets_presentation_asset_image.dart",
+        "owner":  "COMMERCIAL_V2_WEB",
+        "checksum":  "PENDING_MANUAL_VERIFICATION",
+        "copyState":  "CONTRACT_REWIRED",
+        "rewiringReason":  "Commercial test capsule forbids direct root, Firebase, Storage, Residential, and Library implementation imports."
+    },
+    {
+        "originalPath":  "lib/features/commercial_v2_web/signals/commercial_v2_aggregation_point.dart",
+        "capsulePath":  "lib/src/runtime_mirror/features_commercial_v2_web_signals_commercial_v2_aggregation_point.dart",
+        "owner":  "COMMERCIAL_V2_WEB",
+        "checksum":  "PENDING_MANUAL_VERIFICATION",
+        "copyState":  "CONTRACT_REWIRED",
+        "rewiringReason":  "Commercial test capsule forbids direct root, Firebase, Storage, Residential, and Library implementation imports."
+    },
+    {
+        "originalPath":  "lib/features/commercial_v2_web/signals/commercial_v2_archive_signal_event_writer.dart",
+        "capsulePath":  "lib/src/runtime_mirror/features_commercial_v2_web_signals_commercial_v2_archive_signal_event_writer.dart",
+        "owner":  "COMMERCIAL_V2_WEB",
+        "checksum":  "PENDING_MANUAL_VERIFICATION",
+        "copyState":  "CONTRACT_REWIRED",
+        "rewiringReason":  "Commercial test capsule forbids direct root, Firebase, Storage, Residential, and Library implementation imports."
+    },
+    {
+        "originalPath":  "lib/features/commercial_v2_web/signals/commercial_v2_inbox_outbox_interfaces.dart",
+        "capsulePath":  "lib/src/runtime_mirror/features_commercial_v2_web_signals_commercial_v2_inbox_outbox_interfaces.dart",
+        "owner":  "COMMERCIAL_V2_WEB",
+        "checksum":  "PENDING_MANUAL_VERIFICATION",
+        "copyState":  "CONTRACT_REWIRED",
+        "rewiringReason":  "Commercial test capsule forbids direct root, Firebase, Storage, Residential, and Library implementation imports."
+    },
+    {
+        "originalPath":  "lib/features/commercial_v2_web/signals/commercial_v2_signal_codes.dart",
+        "capsulePath":  "lib/src/runtime_mirror/features_commercial_v2_web_signals_commercial_v2_signal_codes.dart",
+        "owner":  "COMMERCIAL_V2_WEB",
+        "checksum":  "PENDING_MANUAL_VERIFICATION",
+        "copyState":  "CONTRACT_REWIRED",
+        "rewiringReason":  "Commercial test capsule forbids direct root, Firebase, Storage, Residential, and Library implementation imports."
+    },
+    {
+        "originalPath":  "lib/features/commercial_v2_web/signals/commercial_v2_signal_emitter.dart",
+        "capsulePath":  "lib/src/runtime_mirror/features_commercial_v2_web_signals_commercial_v2_signal_emitter.dart",
+        "owner":  "COMMERCIAL_V2_WEB",
+        "checksum":  "PENDING_MANUAL_VERIFICATION",
+        "copyState":  "CONTRACT_REWIRED",
+        "rewiringReason":  "Commercial test capsule forbids direct root, Firebase, Storage, Residential, and Library implementation imports."
+    },
+    {
+        "originalPath":  "lib/features/commercial_v2_web/signals/commercial_v2_signal_payload.dart",
+        "capsulePath":  "lib/src/runtime_mirror/features_commercial_v2_web_signals_commercial_v2_signal_payload.dart",
+        "owner":  "COMMERCIAL_V2_WEB",
+        "checksum":  "PENDING_MANUAL_VERIFICATION",
+        "copyState":  "CONTRACT_REWIRED",
+        "rewiringReason":  "Commercial test capsule forbids direct root, Firebase, Storage, Residential, and Library implementation imports."
+    },
+    {
+        "originalPath":  "lib/features/commercial_v2_web/signals/commercial_v2_signal_registry.dart",
+        "capsulePath":  "lib/src/runtime_mirror/features_commercial_v2_web_signals_commercial_v2_signal_registry.dart",
+        "owner":  "COMMERCIAL_V2_WEB",
+        "checksum":  "PENDING_MANUAL_VERIFICATION",
+        "copyState":  "CONTRACT_REWIRED",
+        "rewiringReason":  "Commercial test capsule forbids direct root, Firebase, Storage, Residential, and Library implementation imports."
+    },
+    {
+        "originalPath":  "lib/features/generation2_mobile_center_room/presentation/pages/generation2_mobile_center_room_page.dart",
+        "capsulePath":  "lib/src/runtime_mirror/features_generation2_mobile_center_room_presentation_pages_generation2_mobile_center_room_page.dart",
+        "owner":  "GENERATION2_CENTER",
+        "checksum":  "PENDING_MANUAL_VERIFICATION",
+        "copyState":  "CONTRACT_REWIRED",
+        "rewiringReason":  "Commercial test capsule forbids direct root, Firebase, Storage, Residential, and Library implementation imports."
+    },
+    {
+        "originalPath":  "lib/features/generation2_mobile_specialist_room/presentation/pages/generation2_mobile_specialist_room_page.dart",
+        "capsulePath":  "lib/src/runtime_mirror/features_generation2_mobile_specialist_room_presentation_pages_generation2_mobile_specialist_room_page.dart",
+        "owner":  "GENERATION2_SPECIALIST",
+        "checksum":  "PENDING_MANUAL_VERIFICATION",
+        "copyState":  "CONTRACT_REWIRED",
+        "rewiringReason":  "Commercial test capsule forbids direct root, Firebase, Storage, Residential, and Library implementation imports."
+    },
+    {
+        "originalPath":  "lib/shared/provider_profiles/provider_profile_categories.dart",
+        "capsulePath":  "lib/src/runtime_mirror/shared_provider_profiles_provider_profile_categories.dart",
+        "owner":  "PROVIDER_PROFILE_CENTRAL_IMPORT",
+        "checksum":  "PENDING_MANUAL_VERIFICATION",
+        "copyState":  "CONTRACT_REWIRED",
+        "rewiringReason":  "Commercial test capsule forbids direct root, Firebase, Storage, Residential, and Library implementation imports."
+    },
+    {
+        "originalPath":  "lib/shared/provider_profiles/provider_public_profile.dart",
+        "capsulePath":  "lib/src/runtime_mirror/shared_provider_profiles_provider_public_profile.dart",
+        "owner":  "PROVIDER_PROFILE_CENTRAL_IMPORT",
+        "checksum":  "PENDING_MANUAL_VERIFICATION",
+        "copyState":  "CONTRACT_REWIRED",
+        "rewiringReason":  "Commercial test capsule forbids direct root, Firebase, Storage, Residential, and Library implementation imports."
+    }
+]

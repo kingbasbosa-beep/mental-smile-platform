@@ -1,0 +1,31 @@
+﻿{
+    "capsuleId":  "MS-CAPSULE-COM-BLUEPRINT",
+    "runtimeMap":  "CAPSULE_RUNTIME_MAP.json",
+    "routes":  "CAPSULE_ROUTE_REGISTRY.json",
+    "signals":  "CAPSULE_SIGNAL_REGISTRY.json",
+    "ports":  "CAPSULE_PORT_REGISTRY.json",
+    "firebase":  "CAPSULE_FIREBASE_REGISTRY.json",
+    "assets":  "CAPSULE_ASSET_REGISTRY.json",
+    "localization":  "CAPSULE_LOCALIZATION_REGISTRY.json",
+    "tests":  "CAPSULE_TEST_REGISTRY.json",
+    "validation":  "CAPSULE_VALIDATION.json",
+    "packagePath":  "capsules/commercial/package",
+    "publicEntry":  "package:mental_smile_commercial_capsule/mental_smile_commercial_capsule.dart",
+    "testPortId":  "MS-PORT-COM-TEST-01",
+    "activePortId":  "MS-PORT-COM-ACTIVE-01",
+    "testRoute":  "/__capsule_test/commercial",
+    "schemaFingerprint":  "MS-CAPSULE-COM-BLUEPRINT|contract:1|routes:18|core:4|local:7|assets:39|l10n:47|speech:17:2:15|firebase:5|storage:2|lines:11",
+    "materialized":  true,
+    "platformMounted":  true,
+    "testMounted":  true,
+    "active":  false,
+    "mergeable":  false,
+    "speechComplete":  false,
+    "speechState":  "PARTIAL_TEST_ONLY",
+    "verification":  {
+                         "compatibilityGatePassed":  "PENDING_MANUAL_VERIFICATION",
+                         "buildable":  "PENDING_MANUAL_VERIFICATION",
+                         "runnable":  "PENDING_MANUAL_VERIFICATION",
+                         "clonable":  "PENDING_MANUAL_VERIFICATION"
+                     }
+}

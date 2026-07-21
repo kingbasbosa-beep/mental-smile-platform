@@ -1,0 +1,6 @@
+analyzer:
+  exclude:
+    - lib/src/runtime_mirror/**
+
+linter:
+  rules: {}

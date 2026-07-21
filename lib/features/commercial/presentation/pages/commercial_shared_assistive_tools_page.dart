@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mental_smile_os/features/commercial/presentation/widgets/commercial_sub_page_background.dart';
-import 'package:url_launcher/url_launcher.dart';
+import 'package:mental_smile_os/shared/links/safe_external_link_launcher.dart';
 
 class CommercialSharedAssistiveToolsPage extends StatefulWidget {
   const CommercialSharedAssistiveToolsPage({super.key});
@@ -455,7 +455,7 @@ class _ToolRow extends StatelessWidget {
               const Icon(Icons.headphones, color: Color(0xFFFFE29A), size: 18),
               IconButton(
                 tooltip: 'فتح الأداة',
-                onPressed: () => _openExternal(tool.url),
+                onPressed: () => _openExternal(context, tool.url),
                 icon: const Icon(Icons.open_in_new, color: Color(0xFFFFE29A)),
               ),
             ],
@@ -465,8 +465,8 @@ class _ToolRow extends StatelessWidget {
     );
   }
 
-  Future<void> _openExternal(String url) async {
-    await launchUrl(Uri.parse(url), mode: LaunchMode.externalApplication);
+  Future<void> _openExternal(BuildContext context, String url) async {
+    await SafeExternalLinkLauncher.open(context, url);
   }
 }
 

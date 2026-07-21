@@ -1,0 +1,8 @@
+{
+  "capsuleId": "MS-CAPSULE-PLATFORM-INFRASTRUCTURE",
+  "repositoryId": "MS-PLATFORM-DNA-V1-PRO",
+  "sectionId": "PLATFORM",
+  "packageName": "mental_smile_platform_capsule",
+  "type": "platform",
+  "responsibility": "capsule infrastructure only"
+}

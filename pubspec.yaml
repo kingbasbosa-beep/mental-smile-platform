@@ -24,15 +24,19 @@ dependencies:
 
   shared_preferences: ^2.3.2
   url_launcher: ^6.3.1
-  pdf: ^3.11.1
-  printing: ^5.13.4
+  flutter_tts: ^4.2.5
   image_picker: ^1.1.2
-  uuid: ^4.5.1
-  geolocator: ^14.0.2
-  geocoding: ^4.0.0
   firebase_analytics: ^11.6.0
   flutter_markdown: ^0.7.4
   markdown: ^7.2.2
+  intl: any
+  mental_smile_commercial_capsule:
+    path: capsules/commercial/package
+  mental_smile_library_capsule:
+    path: capsules/library/package
+  mental_smile_residential_capsule:
+    path: capsules/residential/package
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -50,22 +54,23 @@ flutter:
     - assets/branding/logo_primary.png
     - assets/branding/logo_primary_dark.png
     - assets/branding/logo_transparent.png
+    - assets/accessibility/accessibility_checkin/
+    - assets/accessibility/accessibility_community_tools/
+    - assets/accessibility/accessibility_links/
+    - assets/accessibility/accessibility_message_of_day/
+    - assets/accessibility/accessibility_room/
+    - assets/accessibility/accessibility_suggestions/
+    - assets/accessibility/accessibility_tools/
+    - assets/app/generation2_mobile_login_selection/
+    - assets/app/generation2_mobile_supporters_selection/
     - assets/branding/web/
-    - assets/branding/web/library/hodn_amen/
-    - assets/branding/web/library/bedaya_amena/
     - assets/branding/web/library/backgrounds/desktop/
     - assets/branding/web/library/backgrounds/tablet/
     - assets/branding/web/library/backgrounds/mobile/
     - assets/branding/shared/logo/
     - assets/branding/shared/navigation/back/
-    - assets/branding/shared/navigation/logout/
-    - assets/branding/navigation/logout/
     - assets/branding/navigation/back/
     - assets/branding/language/
-    - assets/branding/menu/
-    - assets/branding/menu/desktop/
-    - assets/branding/menu/tablet/
-    - assets/branding/menu/mobile/
     - assets/branding/guides/
     - assets/branding/splash/
     - assets/branding/rooms/client_room/
@@ -75,29 +80,31 @@ flutter:
     - assets/icons/accessibility/ms_accessibility_guide.webp.png
     - assets/backgrounds/commercial_background_dark.webp
     - assets/backgrounds/residential_exit_social_portal.webp.png
+    - assets/client/client_room/
+    - assets/client/client_room/cards/
+    - assets/client/generation2_mobile_client_room/
+    - assets/client/generation2_mobile_client_selection/
+    - assets/commercial/commercial_room_utility_tools/
+    - assets/commercial/generation2_mobile_specialist_room/
+    - assets/commercial/specialist_category_cards/
+    - assets/commercial/center_category_cards/
+    - assets/platform/wellbeing/
+    - assets/c5/avatars/
+    - assets/c5/icons/
+    - assets/c5/sheet/
+    - assets/c5/ui/badges/
+    - assets/c5/ui/buttons/
+    - assets/c5/ui/gradients/
+    - assets/c5/ui/ornaments/
+    - assets/c5/ui/status_dots/
     - assets/c6_library/categories/
-    - assets/c7_branding/buttons/
     - assets/c7_branding/home/
     - assets/c7_branding/logo/
     - assets/images/mobile/splash/
-    - assets/images/mobile/login/
     - assets/images/mobile/client_room/
-    - assets/images/cat_articles.png
-    - assets/images/cat_audio.png
-    - assets/images/cat_exercises.png
-    - assets/images/cat_saved.png
-    - assets/images/cat_tools.png
-    - assets/images/cat_videos.png
-    - assets/images/addiction/
-    - assets/images/backgrounds/
-    - assets/images/centers/
-    - assets/images/clinicians_dashboard/
-    - assets/images/clinicians_dashboard/actions/
-    - assets/images/family_support/
-    - assets/images/specialists/
     - assets/images/library/know_your_right/cards/
     - assets/library/platform_guides/
-    - assets/library/backgrounds/
+    - assets/library/category_cards/
     - assets/presentations/
     - assets/content/library/know_your_right/
     - assets/content/library/know_your_right/why_me_addicted/

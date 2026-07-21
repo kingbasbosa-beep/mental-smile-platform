@@ -1,0 +1,11 @@
+{
+  "name": "Mental Smile Library Capsule",
+  "short_name": "Library Capsule",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#101820",
+  "theme_color": "#101820",
+  "description": "Mental Smile Library Capsule example harness",
+  "orientation": "portrait-primary",
+  "prefer_related_applications": false
+}

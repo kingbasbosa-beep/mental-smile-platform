@@ -1,5 +1,5 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/foundation.dart';
+import 'package:mental_smile_os/core/local_signals/local_section_signal_buffer.dart';
 
 import 'residential_archive_signal_package_builder.dart';
 import 'residential_signal_payload.dart';
@@ -31,22 +31,36 @@ class ResidentialArchiveSignalEventWriter {
 
     final createdAt = DateTime.now().toUtc();
     final eventId = 'res_tool_${createdAt.microsecondsSinceEpoch.toString()}';
-    final event = ResidentialArchiveSignalPackageBuilder.buildEvent(
-      payload: payload,
-      eventId: eventId,
+    final context = <String, Object?>{
+      'sourceScreen': payload.sourceScreen,
+      'sourceWidget': payload.sourceWidget,
+      'action': payload.action,
+      'runtimeVersion': payload.runtimeVersion,
+      'signalFamily': payload.signalFamily,
+      'archiveMagnetCode': payload.archiveMagnetCode,
+    };
+
+    debugPrint(
+      'RES_LOCAL_SIGNAL_BUFFER_PAYLOAD event_id=$eventId payload=$context',
     );
 
-    debugPrint('RES_FIRST_TOOL_WRITE_PAYLOAD event_id=$eventId payload=$event');
-
     try {
-      await FirebaseFirestore.instance
-          .collection(ResidentialArchiveSignalPackageBuilder.collectionPath)
-          .doc(eventId)
-          .set(event)
-          .timeout(const Duration(seconds: 8));
+      final result = await LocalSectionSignalBuffer().append(
+        sectionId: LocalSectionSignalBuffer.residentialSection,
+        code: payload.signalCode,
+        eventName: payload.signalFamily,
+        context: context,
+      );
+      if (!result.stored) {
+        return ResidentialArchiveSignalWriteResult(
+          success: false,
+          eventId: eventId,
+          errorMessage: result.reason,
+        );
+      }
       debugPrint(
-        'RES_FIRST_TOOL_WRITE_SUCCESS event_id=$eventId '
-        'collection=${ResidentialArchiveSignalPackageBuilder.collectionPath}',
+        'RES_LOCAL_SIGNAL_BUFFER_SUCCESS event_id=$eventId '
+        'section=${LocalSectionSignalBuffer.residentialSection}',
       );
       return ResidentialArchiveSignalWriteResult(
         success: true,
@@ -54,9 +68,7 @@ class ResidentialArchiveSignalEventWriter {
       );
     } catch (error, stackTrace) {
       debugPrint(
-        'RES_FIRST_TOOL_WRITE_FAILURE event_id=$eventId '
-        'collection=${ResidentialArchiveSignalPackageBuilder.collectionPath} '
-        'error=$error',
+        'RES_LOCAL_SIGNAL_BUFFER_FAILURE event_id=$eventId error=$error',
       );
       debugPrintStack(stackTrace: stackTrace);
       return ResidentialArchiveSignalWriteResult(

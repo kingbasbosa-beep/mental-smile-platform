@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mental_smile_os/app/router/routes.dart';
-import 'package:mental_smile_os/l10n/app_localizations.dart';
+import 'package:mental_smile_os/l10n/commercial/commercial_localizations.dart';
 import 'package:mental_smile_os/shared/accessibility/accessibility_guide_icon.dart';
 import 'package:mental_smile_os/shared/guides/daleel_assistant.dart';
 
@@ -12,7 +12,7 @@ class CommercialAccessPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final l10n = AppLocalizations.of(context)!;
+    final l10n = CommercialLocalizations.of(context);
     return Scaffold(
       backgroundColor: Colors.black,
       body: SafeArea(
@@ -61,13 +61,6 @@ class CommercialAccessPage extends StatelessWidget {
                               Routes.commercialCenterLogin,
                             ),
                           ),
-                          const SizedBox(height: 18),
-                          _GoldAccessButton(
-                            label: l10n.commercialAccessAdmin,
-                            onPressed: () => Navigator.of(context).pushNamed(
-                              Routes.commercialAdminLogin,
-                            ),
-                          ),
                         ],
                       ),
                     ),
@@ -111,7 +104,7 @@ class _BackToSplashButtonState extends State<_BackToSplashButton> {
 
   @override
   Widget build(BuildContext context) {
-    final l10n = AppLocalizations.of(context)!;
+    final l10n = CommercialLocalizations.of(context);
     return Semantics(
       button: true,
       label: l10n.authBackToHome,

@@ -1,0 +1,680 @@
+﻿{
+    "capsuleId":  "MS-CAPSULE-COM-BLUEPRINT",
+    "assets":  [
+                   {
+                       "assetCode":  "MS-COM-ASSET-001",
+                       "path":  "assets/backgrounds/commercial_background_dark.webp",
+                       "owner":  "CENTRAL_IMPORTED",
+                       "consumers":  [
+                                         "lib/features/commercial/presentation/widgets/commercial_sub_page_background.dart"
+                                     ],
+                       "responsiveFamily":  null,
+                       "desktopVariant":  null,
+                       "tabletVariant":  null,
+                       "mobileVariant":  null,
+                       "registered":  true,
+                       "required":  true,
+                       "capsuleOwned":  false,
+                       "centralImported":  true,
+                       "canonicalLine":  "MS-LINE-ASSET-01"
+                   },
+                   {
+                       "assetCode":  "MS-COM-ASSET-002",
+                       "path":  "assets/branding/guides/center_desktop_login_guide.png",
+                       "owner":  "CENTRAL_IMPORTED",
+                       "consumers":  [
+                                         "lib/features/commercial/presentation/pages/center_login_page.dart"
+                                     ],
+                       "responsiveFamily":  "assets/branding/guides/center_{breakpoint}_login_guide.png",
+                       "desktopVariant":  "assets/branding/guides/center_desktop_login_guide.png",
+                       "tabletVariant":  null,
+                       "mobileVariant":  null,
+                       "registered":  true,
+                       "required":  true,
+                       "capsuleOwned":  false,
+                       "centralImported":  true,
+                       "canonicalLine":  "MS-LINE-ASSET-01"
+                   },
+                   {
+                       "assetCode":  "MS-COM-ASSET-003",
+                       "path":  "assets/branding/guides/center_friend_mobile_guide.png",
+                       "owner":  "CENTRAL_IMPORTED",
+                       "consumers":  [
+                                         "lib/features/generation2_mobile_center_room/presentation/pages/generation2_mobile_center_room_page.dart"
+                                     ],
+                       "responsiveFamily":  "assets/branding/guides/center_friend_{breakpoint}_guide.png",
+                       "desktopVariant":  null,
+                       "tabletVariant":  null,
+                       "mobileVariant":  "assets/branding/guides/center_friend_mobile_guide.png",
+                       "registered":  true,
+                       "required":  true,
+                       "capsuleOwned":  false,
+                       "centralImported":  true,
+                       "canonicalLine":  "MS-LINE-ASSET-01"
+                   },
+                   {
+                       "assetCode":  "MS-COM-ASSET-004",
+                       "path":  "assets/branding/guides/center_room_mobile_guide.png",
+                       "owner":  "CENTRAL_IMPORTED",
+                       "consumers":  [
+                                         "lib/features/commercial/presentation/pages/center_room_page.dart"
+                                     ],
+                       "responsiveFamily":  "assets/branding/guides/center_room_{breakpoint}_guide.png",
+                       "desktopVariant":  null,
+                       "tabletVariant":  null,
+                       "mobileVariant":  "assets/branding/guides/center_room_mobile_guide.png",
+                       "registered":  true,
+                       "required":  true,
+                       "capsuleOwned":  false,
+                       "centralImported":  true,
+                       "canonicalLine":  "MS-LINE-ASSET-01"
+                   },
+                   {
+                       "assetCode":  "MS-COM-ASSET-005",
+                       "path":  "assets/branding/guides/commercial_desktop_login.png",
+                       "owner":  "CENTRAL_IMPORTED",
+                       "consumers":  [
+                                         "lib/features/commercial/presentation/pages/commercial_access_page.dart"
+                                     ],
+                       "responsiveFamily":  "assets/branding/guides/commercial_{breakpoint}_login.png",
+                       "desktopVariant":  "assets/branding/guides/commercial_desktop_login.png",
+                       "tabletVariant":  null,
+                       "mobileVariant":  null,
+                       "registered":  true,
+                       "required":  true,
+                       "capsuleOwned":  false,
+                       "centralImported":  true,
+                       "canonicalLine":  "MS-LINE-ASSET-01"
+                   },
+                   {
+                       "assetCode":  "MS-COM-ASSET-006",
+                       "path":  "assets/branding/guides/specialist_desktop_login_guide.png",
+                       "owner":  "CENTRAL_IMPORTED",
+                       "consumers":  [
+                                         "lib/features/commercial/presentation/pages/specialist_login_page.dart"
+                                     ],
+                       "responsiveFamily":  "assets/branding/guides/specialist_{breakpoint}_login_guide.png",
+                       "desktopVariant":  "assets/branding/guides/specialist_desktop_login_guide.png",
+                       "tabletVariant":  null,
+                       "mobileVariant":  null,
+                       "registered":  true,
+                       "required":  true,
+                       "capsuleOwned":  false,
+                       "centralImported":  true,
+                       "canonicalLine":  "MS-LINE-ASSET-01"
+                   },
+                   {
+                       "assetCode":  "MS-COM-ASSET-007",
+                       "path":  "assets/branding/guides/specialist_room_mobile_guide.png",
+                       "owner":  "CENTRAL_IMPORTED",
+                       "consumers":  [
+                                         "lib/features/commercial/presentation/pages/commercial_room_page.dart"
+                                     ],
+                       "responsiveFamily":  "assets/branding/guides/specialist_room_{breakpoint}_guide.png",
+                       "desktopVariant":  null,
+                       "tabletVariant":  null,
+                       "mobileVariant":  "assets/branding/guides/specialist_room_mobile_guide.png",
+                       "registered":  true,
+                       "required":  true,
+                       "capsuleOwned":  false,
+                       "centralImported":  true,
+                       "canonicalLine":  "MS-LINE-ASSET-01"
+                   },
+                   {
+                       "assetCode":  "MS-COM-ASSET-008",
+                       "path":  "assets/branding/logo_primary.png",
+                       "owner":  "CENTRAL_IMPORTED",
+                       "consumers":  [
+                                         "lib/features/commercial/presentation/pages/commercial_access_page.dart",
+                                         "lib/features/commercial/presentation/pages/specialist_login_page.dart"
+                                     ],
+                       "responsiveFamily":  null,
+                       "desktopVariant":  null,
+                       "tabletVariant":  null,
+                       "mobileVariant":  null,
+                       "registered":  true,
+                       "required":  true,
+                       "capsuleOwned":  false,
+                       "centralImported":  true,
+                       "canonicalLine":  "MS-LINE-ASSET-01"
+                   },
+                   {
+                       "assetCode":  "MS-COM-ASSET-009",
+                       "path":  "assets/branding/logo_transparent.png",
+                       "owner":  "CENTRAL_IMPORTED",
+                       "consumers":  [
+                                         "lib/features/commercial/presentation/pages/commercial_public_accounts_page.dart"
+                                     ],
+                       "responsiveFamily":  null,
+                       "desktopVariant":  null,
+                       "tabletVariant":  null,
+                       "mobileVariant":  null,
+                       "registered":  true,
+                       "required":  true,
+                       "capsuleOwned":  false,
+                       "centralImported":  true,
+                       "canonicalLine":  "MS-LINE-ASSET-01"
+                   },
+                   {
+                       "assetCode":  "MS-COM-ASSET-010",
+                       "path":  "assets/branding/rooms/client_room/client_room_background_desktop.png",
+                       "owner":  "CENTRAL_IMPORTED",
+                       "consumers":  [
+                                         "lib/features/commercial/presentation/pages/center_room_page.dart",
+                                         "lib/features/commercial/presentation/pages/commercial_room_page.dart"
+                                     ],
+                       "responsiveFamily":  "assets/branding/rooms/client_room/client_room_background_{breakpoint}.png",
+                       "desktopVariant":  "assets/branding/rooms/client_room/client_room_background_desktop.png",
+                       "tabletVariant":  null,
+                       "mobileVariant":  null,
+                       "registered":  true,
+                       "required":  true,
+                       "capsuleOwned":  false,
+                       "centralImported":  true,
+                       "canonicalLine":  "MS-LINE-ASSET-01"
+                   },
+                   {
+                       "assetCode":  "MS-COM-ASSET-011",
+                       "path":  "assets/branding/rooms/client_room/client_room_background_mobile.png",
+                       "owner":  "CENTRAL_IMPORTED",
+                       "consumers":  [
+                                         "lib/features/commercial/presentation/pages/center_room_page.dart",
+                                         "lib/features/commercial/presentation/pages/commercial_room_page.dart"
+                                     ],
+                       "responsiveFamily":  "assets/branding/rooms/client_room/client_room_background_{breakpoint}.png",
+                       "desktopVariant":  null,
+                       "tabletVariant":  null,
+                       "mobileVariant":  "assets/branding/rooms/client_room/client_room_background_mobile.png",
+                       "registered":  true,
+                       "required":  true,
+                       "capsuleOwned":  false,
+                       "centralImported":  true,
+                       "canonicalLine":  "MS-LINE-ASSET-01"
+                   },
+                   {
+                       "assetCode":  "MS-COM-ASSET-012",
+                       "path":  "assets/branding/rooms/client_room/client_room_background_tablet.png",
+                       "owner":  "CENTRAL_IMPORTED",
+                       "consumers":  [
+                                         "lib/features/commercial/presentation/pages/center_room_page.dart",
+                                         "lib/features/commercial/presentation/pages/commercial_room_page.dart"
+                                     ],
+                       "responsiveFamily":  "assets/branding/rooms/client_room/client_room_background_{breakpoint}.png",
+                       "desktopVariant":  null,
+                       "tabletVariant":  "assets/branding/rooms/client_room/client_room_background_tablet.png",
+                       "mobileVariant":  null,
+                       "registered":  true,
+                       "required":  true,
+                       "capsuleOwned":  false,
+                       "centralImported":  true,
+                       "canonicalLine":  "MS-LINE-ASSET-01"
+                   },
+                   {
+                       "assetCode":  "MS-COM-ASSET-013",
+                       "path":  "assets/branding/web/website_hero_top_v2.png",
+                       "owner":  "COMMERCIAL_V2_WEB",
+                       "consumers":  [
+                                         "lib/features/commercial_v2_web/presentation/pages/commercial_v2_web_showcase_page.dart"
+                                     ],
+                       "responsiveFamily":  null,
+                       "desktopVariant":  null,
+                       "tabletVariant":  null,
+                       "mobileVariant":  null,
+                       "registered":  true,
+                       "required":  true,
+                       "capsuleOwned":  true,
+                       "centralImported":  false,
+                       "canonicalLine":  "MS-LINE-ASSET-01"
+                   },
+                   {
+                       "assetCode":  "MS-COM-ASSET-014",
+                       "path":  "assets/commercial/center_category_cards/addiction_treatment_center_background.png",
+                       "owner":  "COMMERCIAL",
+                       "consumers":  [
+                                         "lib/shared/provider_profiles/provider_profile_categories.dart"
+                                     ],
+                       "responsiveFamily":  null,
+                       "desktopVariant":  null,
+                       "tabletVariant":  null,
+                       "mobileVariant":  null,
+                       "registered":  true,
+                       "required":  true,
+                       "capsuleOwned":  true,
+                       "centralImported":  false,
+                       "canonicalLine":  "MS-LINE-ASSET-01"
+                   },
+                   {
+                       "assetCode":  "MS-COM-ASSET-015",
+                       "path":  "assets/commercial/center_category_cards/clinic_center_background.png",
+                       "owner":  "COMMERCIAL",
+                       "consumers":  [
+                                         "lib/shared/provider_profiles/provider_profile_categories.dart"
+                                     ],
+                       "responsiveFamily":  null,
+                       "desktopVariant":  null,
+                       "tabletVariant":  null,
+                       "mobileVariant":  null,
+                       "registered":  true,
+                       "required":  true,
+                       "capsuleOwned":  true,
+                       "centralImported":  false,
+                       "canonicalLine":  "MS-LINE-ASSET-01"
+                   },
+                   {
+                       "assetCode":  "MS-COM-ASSET-016",
+                       "path":  "assets/commercial/center_category_cards/community_center_background.png",
+                       "owner":  "COMMERCIAL",
+                       "consumers":  [
+                                         "lib/shared/provider_profiles/provider_profile_categories.dart"
+                                     ],
+                       "responsiveFamily":  null,
+                       "desktopVariant":  null,
+                       "tabletVariant":  null,
+                       "mobileVariant":  null,
+                       "registered":  true,
+                       "required":  true,
+                       "capsuleOwned":  true,
+                       "centralImported":  false,
+                       "canonicalLine":  "MS-LINE-ASSET-01"
+                   },
+                   {
+                       "assetCode":  "MS-COM-ASSET-017",
+                       "path":  "assets/commercial/center_category_cards/consulting_center_background.png",
+                       "owner":  "COMMERCIAL",
+                       "consumers":  [
+                                         "lib/shared/provider_profiles/provider_profile_categories.dart"
+                                     ],
+                       "responsiveFamily":  null,
+                       "desktopVariant":  null,
+                       "tabletVariant":  null,
+                       "mobileVariant":  null,
+                       "registered":  true,
+                       "required":  true,
+                       "capsuleOwned":  true,
+                       "centralImported":  false,
+                       "canonicalLine":  "MS-LINE-ASSET-01"
+                   },
+                   {
+                       "assetCode":  "MS-COM-ASSET-018",
+                       "path":  "assets/commercial/center_category_cards/mental_health_center_background.png",
+                       "owner":  "COMMERCIAL",
+                       "consumers":  [
+                                         "lib/shared/provider_profiles/provider_profile_categories.dart"
+                                     ],
+                       "responsiveFamily":  null,
+                       "desktopVariant":  null,
+                       "tabletVariant":  null,
+                       "mobileVariant":  null,
+                       "registered":  true,
+                       "required":  true,
+                       "capsuleOwned":  true,
+                       "centralImported":  false,
+                       "canonicalLine":  "MS-LINE-ASSET-01"
+                   },
+                   {
+                       "assetCode":  "MS-COM-ASSET-019",
+                       "path":  "assets/commercial/center_category_cards/rehabilitation_center_background.png",
+                       "owner":  "COMMERCIAL",
+                       "consumers":  [
+                                         "lib/shared/provider_profiles/provider_profile_categories.dart"
+                                     ],
+                       "responsiveFamily":  null,
+                       "desktopVariant":  null,
+                       "tabletVariant":  null,
+                       "mobileVariant":  null,
+                       "registered":  true,
+                       "required":  true,
+                       "capsuleOwned":  true,
+                       "centralImported":  false,
+                       "canonicalLine":  "MS-LINE-ASSET-01"
+                   },
+                   {
+                       "assetCode":  "MS-COM-ASSET-020",
+                       "path":  "assets/commercial/commercial_room_utility_tools/commercial_room_exit_button.png",
+                       "owner":  "COMMERCIAL",
+                       "consumers":  [
+                                         "lib/features/commercial/presentation/widgets/commercial_room_utility_tools.dart"
+                                     ],
+                       "responsiveFamily":  null,
+                       "desktopVariant":  null,
+                       "tabletVariant":  null,
+                       "mobileVariant":  null,
+                       "registered":  true,
+                       "required":  true,
+                       "capsuleOwned":  true,
+                       "centralImported":  false,
+                       "canonicalLine":  "MS-LINE-ASSET-01"
+                   },
+                   {
+                       "assetCode":  "MS-COM-ASSET-021",
+                       "path":  "assets/commercial/commercial_room_utility_tools/commercial_room_note_feather_button.png",
+                       "owner":  "COMMERCIAL",
+                       "consumers":  [
+                                         "lib/features/commercial/presentation/widgets/commercial_room_utility_tools.dart"
+                                     ],
+                       "responsiveFamily":  null,
+                       "desktopVariant":  null,
+                       "tabletVariant":  null,
+                       "mobileVariant":  null,
+                       "registered":  true,
+                       "required":  true,
+                       "capsuleOwned":  true,
+                       "centralImported":  false,
+                       "canonicalLine":  "MS-LINE-ASSET-01"
+                   },
+                   {
+                       "assetCode":  "MS-COM-ASSET-022",
+                       "path":  "assets/commercial/generation2_mobile_specialist_room/specialist_friend_mobile_guide.png",
+                       "owner":  "COMMERCIAL",
+                       "consumers":  [
+                                         "lib/features/generation2_mobile_specialist_room/presentation/pages/generation2_mobile_specialist_room_page.dart"
+                                     ],
+                       "responsiveFamily":  "assets/commercial/generation2_{breakpoint}_specialist_room/specialist_friend_{breakpoint}_guide.png",
+                       "desktopVariant":  null,
+                       "tabletVariant":  null,
+                       "mobileVariant":  "assets/commercial/generation2_mobile_specialist_room/specialist_friend_mobile_guide.png",
+                       "registered":  true,
+                       "required":  true,
+                       "capsuleOwned":  true,
+                       "centralImported":  false,
+                       "canonicalLine":  "MS-LINE-ASSET-01"
+                   },
+                   {
+                       "assetCode":  "MS-COM-ASSET-023",
+                       "path":  "assets/commercial/specialist_category_cards/addiction_behavior_specialist_background.png",
+                       "owner":  "COMMERCIAL",
+                       "consumers":  [
+                                         "lib/shared/provider_profiles/provider_profile_categories.dart"
+                                     ],
+                       "responsiveFamily":  null,
+                       "desktopVariant":  null,
+                       "tabletVariant":  null,
+                       "mobileVariant":  null,
+                       "registered":  true,
+                       "required":  true,
+                       "capsuleOwned":  true,
+                       "centralImported":  false,
+                       "canonicalLine":  "MS-LINE-ASSET-01"
+                   },
+                   {
+                       "assetCode":  "MS-COM-ASSET-024",
+                       "path":  "assets/commercial/specialist_category_cards/addiction_recovery_specialist_background.png",
+                       "owner":  "COMMERCIAL",
+                       "consumers":  [
+                                         "lib/shared/provider_profiles/provider_profile_categories.dart"
+                                     ],
+                       "responsiveFamily":  null,
+                       "desktopVariant":  null,
+                       "tabletVariant":  null,
+                       "mobileVariant":  null,
+                       "registered":  true,
+                       "required":  true,
+                       "capsuleOwned":  true,
+                       "centralImported":  false,
+                       "canonicalLine":  "MS-LINE-ASSET-01"
+                   },
+                   {
+                       "assetCode":  "MS-COM-ASSET-025",
+                       "path":  "assets/commercial/specialist_category_cards/behavior_autism_specialist_background.png",
+                       "owner":  "COMMERCIAL",
+                       "consumers":  [
+                                         "lib/shared/provider_profiles/provider_profile_categories.dart"
+                                     ],
+                       "responsiveFamily":  null,
+                       "desktopVariant":  null,
+                       "tabletVariant":  null,
+                       "mobileVariant":  null,
+                       "registered":  true,
+                       "required":  true,
+                       "capsuleOwned":  true,
+                       "centralImported":  false,
+                       "canonicalLine":  "MS-LINE-ASSET-01"
+                   },
+                   {
+                       "assetCode":  "MS-COM-ASSET-026",
+                       "path":  "assets/commercial/specialist_category_cards/clinical_specialist_background.png",
+                       "owner":  "COMMERCIAL",
+                       "consumers":  [
+                                         "lib/shared/provider_profiles/provider_profile_categories.dart"
+                                     ],
+                       "responsiveFamily":  null,
+                       "desktopVariant":  null,
+                       "tabletVariant":  null,
+                       "mobileVariant":  null,
+                       "registered":  true,
+                       "required":  true,
+                       "capsuleOwned":  true,
+                       "centralImported":  false,
+                       "canonicalLine":  "MS-LINE-ASSET-01"
+                   },
+                   {
+                       "assetCode":  "MS-COM-ASSET-027",
+                       "path":  "assets/commercial/specialist_category_cards/coaching_specialist_background.png",
+                       "owner":  "COMMERCIAL",
+                       "consumers":  [
+                                         "lib/shared/provider_profiles/provider_profile_categories.dart"
+                                     ],
+                       "responsiveFamily":  null,
+                       "desktopVariant":  null,
+                       "tabletVariant":  null,
+                       "mobileVariant":  null,
+                       "registered":  true,
+                       "required":  true,
+                       "capsuleOwned":  true,
+                       "centralImported":  false,
+                       "canonicalLine":  "MS-LINE-ASSET-01"
+                   },
+                   {
+                       "assetCode":  "MS-COM-ASSET-028",
+                       "path":  "assets/commercial/specialist_category_cards/family_counseling_specialist_background.png",
+                       "owner":  "COMMERCIAL",
+                       "consumers":  [
+                                         "lib/shared/provider_profiles/provider_profile_categories.dart"
+                                     ],
+                       "responsiveFamily":  null,
+                       "desktopVariant":  null,
+                       "tabletVariant":  null,
+                       "mobileVariant":  null,
+                       "registered":  true,
+                       "required":  true,
+                       "capsuleOwned":  true,
+                       "centralImported":  false,
+                       "canonicalLine":  "MS-LINE-ASSET-01"
+                   },
+                   {
+                       "assetCode":  "MS-COM-ASSET-029",
+                       "path":  "assets/commercial/specialist_category_cards/psychologist_specialist_background.png",
+                       "owner":  "COMMERCIAL",
+                       "consumers":  [
+                                         "lib/shared/provider_profiles/provider_profile_categories.dart"
+                                     ],
+                       "responsiveFamily":  null,
+                       "desktopVariant":  null,
+                       "tabletVariant":  null,
+                       "mobileVariant":  null,
+                       "registered":  true,
+                       "required":  true,
+                       "capsuleOwned":  true,
+                       "centralImported":  false,
+                       "canonicalLine":  "MS-LINE-ASSET-01"
+                   },
+                   {
+                       "assetCode":  "MS-COM-ASSET-030",
+                       "path":  "assets/commercial/specialist_category_cards/social_worker_specialist_background.png",
+                       "owner":  "COMMERCIAL",
+                       "consumers":  [
+                                         "lib/shared/provider_profiles/provider_profile_categories.dart"
+                                     ],
+                       "responsiveFamily":  null,
+                       "desktopVariant":  null,
+                       "tabletVariant":  null,
+                       "mobileVariant":  null,
+                       "registered":  true,
+                       "required":  true,
+                       "capsuleOwned":  true,
+                       "centralImported":  false,
+                       "canonicalLine":  "MS-LINE-ASSET-01"
+                   },
+                   {
+                       "assetCode":  "MS-COM-ASSET-031",
+                       "path":  "assets/commercial/specialist_category_cards/speech_specialist_background.png",
+                       "owner":  "COMMERCIAL",
+                       "consumers":  [
+                                         "lib/shared/provider_profiles/provider_profile_categories.dart"
+                                     ],
+                       "responsiveFamily":  null,
+                       "desktopVariant":  null,
+                       "tabletVariant":  null,
+                       "mobileVariant":  null,
+                       "registered":  true,
+                       "required":  true,
+                       "capsuleOwned":  true,
+                       "centralImported":  false,
+                       "canonicalLine":  "MS-LINE-ASSET-01"
+                   },
+                   {
+                       "assetCode":  "MS-COM-ASSET-032",
+                       "path":  "assets/commercial/specialist_category_cards/support_supervisor_specialist_background.png",
+                       "owner":  "COMMERCIAL",
+                       "consumers":  [
+                                         "lib/shared/provider_profiles/provider_profile_categories.dart"
+                                     ],
+                       "responsiveFamily":  null,
+                       "desktopVariant":  null,
+                       "tabletVariant":  null,
+                       "mobileVariant":  null,
+                       "registered":  true,
+                       "required":  true,
+                       "capsuleOwned":  true,
+                       "centralImported":  false,
+                       "canonicalLine":  "MS-LINE-ASSET-01"
+                   },
+                   {
+                       "assetCode":  "MS-COM-ASSET-033",
+                       "path":  "assets/icons/centers.png",
+                       "owner":  "CENTRAL_IMPORTED",
+                       "consumers":  [
+                                         "lib/features/commercial/presentation/widgets/commercial_room_screen_image.dart",
+                                         "lib/features/commercial/presentation/widgets/commercial_room_tv_apps.dart"
+                                     ],
+                       "responsiveFamily":  null,
+                       "desktopVariant":  null,
+                       "tabletVariant":  null,
+                       "mobileVariant":  null,
+                       "registered":  true,
+                       "required":  true,
+                       "capsuleOwned":  false,
+                       "centralImported":  true,
+                       "canonicalLine":  "MS-LINE-ASSET-01"
+                   },
+                   {
+                       "assetCode":  "MS-COM-ASSET-034",
+                       "path":  "assets/icons/library.png",
+                       "owner":  "CENTRAL_IMPORTED",
+                       "consumers":  [
+                                         "lib/features/commercial/presentation/widgets/commercial_room_screen_image.dart",
+                                         "lib/features/commercial/presentation/widgets/commercial_room_tv_apps.dart"
+                                     ],
+                       "responsiveFamily":  null,
+                       "desktopVariant":  null,
+                       "tabletVariant":  null,
+                       "mobileVariant":  null,
+                       "registered":  true,
+                       "required":  true,
+                       "capsuleOwned":  false,
+                       "centralImported":  true,
+                       "canonicalLine":  "MS-LINE-ASSET-01"
+                   },
+                   {
+                       "assetCode":  "MS-COM-ASSET-035",
+                       "path":  "assets/icons/specialists.png",
+                       "owner":  "CENTRAL_IMPORTED",
+                       "consumers":  [
+                                         "lib/features/commercial/presentation/widgets/commercial_room_screen_image.dart",
+                                         "lib/features/commercial/presentation/widgets/commercial_room_tv_apps.dart"
+                                     ],
+                       "responsiveFamily":  null,
+                       "desktopVariant":  null,
+                       "tabletVariant":  null,
+                       "mobileVariant":  null,
+                       "registered":  true,
+                       "required":  true,
+                       "capsuleOwned":  false,
+                       "centralImported":  true,
+                       "canonicalLine":  "MS-LINE-ASSET-01"
+                   },
+                   {
+                       "assetCode":  "MS-COM-ASSET-036",
+                       "path":  "assets/library/platform_guides/platform_guide_content_access.webp.png",
+                       "owner":  "COMMERCIAL_V2_WEB",
+                       "consumers":  [
+                                         "lib/features/commercial_v2_web/presentation/pages/commercial_v2_web_showcase_page.dart"
+                                     ],
+                       "responsiveFamily":  null,
+                       "desktopVariant":  null,
+                       "tabletVariant":  null,
+                       "mobileVariant":  null,
+                       "registered":  true,
+                       "required":  true,
+                       "capsuleOwned":  true,
+                       "centralImported":  false,
+                       "canonicalLine":  "MS-LINE-ASSET-01"
+                   },
+                   {
+                       "assetCode":  "MS-COM-ASSET-037",
+                       "path":  "assets/library/platform_guides/platform_guide_desktop.webp.png",
+                       "owner":  "COMMERCIAL_V2_WEB",
+                       "consumers":  [
+                                         "lib/features/commercial_v2_web/presentation/pages/commercial_v2_web_showcase_page.dart"
+                                     ],
+                       "responsiveFamily":  "assets/library/platform_guides/platform_guide_{breakpoint}.webp.png",
+                       "desktopVariant":  "assets/library/platform_guides/platform_guide_desktop.webp.png",
+                       "tabletVariant":  null,
+                       "mobileVariant":  null,
+                       "registered":  true,
+                       "required":  true,
+                       "capsuleOwned":  true,
+                       "centralImported":  false,
+                       "canonicalLine":  "MS-LINE-ASSET-01"
+                   },
+                   {
+                       "assetCode":  "MS-COM-ASSET-038",
+                       "path":  "assets/library/platform_guides/platform_guide_mobile.webp.png",
+                       "owner":  "COMMERCIAL_V2_WEB",
+                       "consumers":  [
+                                         "lib/features/commercial_v2_web/presentation/pages/commercial_v2_web_showcase_page.dart"
+                                     ],
+                       "responsiveFamily":  "assets/library/platform_guides/platform_guide_{breakpoint}.webp.png",
+                       "desktopVariant":  null,
+                       "tabletVariant":  null,
+                       "mobileVariant":  "assets/library/platform_guides/platform_guide_mobile.webp.png",
+                       "registered":  true,
+                       "required":  true,
+                       "capsuleOwned":  true,
+                       "centralImported":  false,
+                       "canonicalLine":  "MS-LINE-ASSET-01"
+                   },
+                   {
+                       "assetCode":  "MS-COM-ASSET-039",
+                       "path":  "assets/presentations",
+                       "owner":  "COMMERCIAL_V2_WEB",
+                       "consumers":  [
+                                         "lib/features/commercial_v2_web/presentation_gallery/data/presentation_gallery_repository.dart"
+                                     ],
+                       "responsiveFamily":  null,
+                       "desktopVariant":  null,
+                       "tabletVariant":  null,
+                       "mobileVariant":  null,
+                       "registered":  true,
+                       "required":  true,
+                       "capsuleOwned":  true,
+                       "centralImported":  false,
+                       "canonicalLine":  "MS-LINE-ASSET-01"
+                   }
+               ],
+    "counts":  {
+                   "assets":  39,
+                   "missingActiveReferences":  0,
+                   "responsiveAssetFamilies":  9
+               }
+}

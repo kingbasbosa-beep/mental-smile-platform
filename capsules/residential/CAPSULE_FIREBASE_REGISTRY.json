@@ -1,0 +1,13 @@
+﻿{
+    "capsuleId":  "MS-CAPSULE-RES-R-1.07.2026",
+    "mode":  "BLUEPRINT",
+    "firebase":  [
+
+                 ],
+    "note":  "No direct FirebaseAuth/FirebaseFirestore/FirebaseStorage/FirebaseAnalytics usage was found in Residential-owned runtime scope. Core signal bridge is mapped under signal registry as PlatformCoreSignalBridge.",
+    "counts":  {
+                   "firebaseUsages":  0,
+                   "collections":  0,
+                   "uncontractedUsages":  0
+               }
+}

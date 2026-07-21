@@ -109,11 +109,7 @@ class AccountAccessService {
   }
 
   bool _isConstitutionalRole(String? role) {
-    return role == RoleNames.owner ||
-        role == RoleNames.monitoringOperator ||
-        role == RoleNames.registrySteward ||
-        role == RoleNames.declarationReviewer ||
-        role == RoleNames.supportObserver;
+    return role == RoleNames.owner;
   }
 
   SignedInAccessState _stateForDoc({

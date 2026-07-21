@@ -1521,7 +1521,7 @@ class _DaleelSurveySheetState extends State<_DaleelSurveySheet> {
     );
     ScaffoldMessenger.of(context).showSnackBar(
       const SnackBar(
-        content: Text('تم تسجيل رأيك محليًا مؤقتًا.'),
+        content: Text('تم استقبال رأيك داخل هذه الجلسة فقط.'),
       ),
     );
     Navigator.of(context).pop();

@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:mental_smile_os/features/commercial/presentation/widgets/commercial_sub_page_background.dart';
-import 'package:mental_smile_os/l10n/app_localizations.dart';
+import 'package:mental_smile_os/l10n/commercial/commercial_localizations.dart';
 import 'package:mental_smile_os/shared/accessibility/accessibility_guide_icon.dart';
-import 'package:url_launcher/url_launcher.dart';
+import 'package:mental_smile_os/shared/accessibility/speech/localized_speech_action.dart';
+import 'package:mental_smile_os/shared/links/safe_external_link_launcher.dart';
 
 class CommercialPublicAccountsPage extends StatelessWidget {
   const CommercialPublicAccountsPage({super.key});
@@ -12,68 +13,84 @@ class CommercialPublicAccountsPage extends StatelessWidget {
   static const Color _gold = Color(0xFFFFE29A);
   static const Color _mutedGold = Color(0xFFE0C174);
 
-  List<_PublicAccountLink> _platformAccounts(AppLocalizations l10n) => [
+  List<_PublicAccountLink> _platformAccounts(CommercialLocalizations l10n) => [
         _PublicAccountLink(
             label: l10n.commercialPublicAccountsWebsite,
-            icon: Icons.language_rounded),
+            icon: Icons.language_rounded,
+            localizationKey: 'commercialPublicAccountsWebsite'),
         _PublicAccountLink(
           label: l10n.commercialPublicAccountsSpecialists,
           icon: Icons.person_search_rounded,
+          localizationKey: 'commercialPublicAccountsSpecialists',
         ),
         _PublicAccountLink(
             label: l10n.commercialPublicAccountsCenters,
-            icon: Icons.apartment_rounded),
+            icon: Icons.apartment_rounded,
+            localizationKey: 'commercialPublicAccountsCenters'),
         _PublicAccountLink(
             label: l10n.commercialPublicAccountsLibrary,
-            icon: Icons.menu_book_rounded),
+            icon: Icons.menu_book_rounded,
+            localizationKey: 'commercialPublicAccountsLibrary'),
       ];
 
-  List<_PublicAccountLink> _socialAccounts(AppLocalizations l10n) => [
+  List<_PublicAccountLink> _socialAccounts(CommercialLocalizations l10n) => [
         _PublicAccountLink(
             label: l10n.commercialPublicAccountsFacebook,
-            icon: Icons.groups_rounded),
+            icon: Icons.groups_rounded,
+            localizationKey: 'commercialPublicAccountsFacebook'),
         _PublicAccountLink(
             label: l10n.commercialPublicAccountsInstagram,
-            icon: Icons.photo_camera_rounded),
+            icon: Icons.photo_camera_rounded,
+            localizationKey: 'commercialPublicAccountsInstagram'),
         _PublicAccountLink(
             label: l10n.commercialPublicAccountsLinkedin,
-            icon: Icons.business_center_rounded),
+            icon: Icons.business_center_rounded,
+            localizationKey: 'commercialPublicAccountsLinkedin'),
         _PublicAccountLink(
             label: l10n.commercialPublicAccountsX,
-            icon: Icons.alternate_email_rounded),
+            icon: Icons.alternate_email_rounded,
+            localizationKey: 'commercialPublicAccountsX'),
         _PublicAccountLink(
             label: l10n.commercialPublicAccountsTiktok,
-            icon: Icons.music_note_rounded),
+            icon: Icons.music_note_rounded,
+            localizationKey: 'commercialPublicAccountsTiktok'),
         _PublicAccountLink(
             label: l10n.commercialPublicAccountsYoutube,
-            icon: Icons.play_circle_rounded),
+            icon: Icons.play_circle_rounded,
+            localizationKey: 'commercialPublicAccountsYoutube'),
         _PublicAccountLink(
             label: l10n.commercialPublicAccountsTelegram,
-            icon: Icons.send_rounded),
+            icon: Icons.send_rounded,
+            localizationKey: 'commercialPublicAccountsTelegram'),
         _PublicAccountLink(
             label: l10n.commercialPublicAccountsWhatsapp,
-            icon: Icons.chat_rounded),
+            icon: Icons.chat_rounded,
+            localizationKey: 'commercialPublicAccountsWhatsapp'),
       ];
 
-  List<_PublicAccountLink> _productAccounts(AppLocalizations l10n) => [
+  List<_PublicAccountLink> _productAccounts(CommercialLocalizations l10n) => [
         _PublicAccountLink(
             label: l10n.commercialPublicAccountsBusinessCards,
-            icon: Icons.badge_rounded),
+            icon: Icons.badge_rounded,
+            localizationKey: 'commercialPublicAccountsBusinessCards'),
         _PublicAccountLink(
           label: l10n.commercialPublicAccountsResume,
           icon: Icons.description_rounded,
+          localizationKey: 'commercialPublicAccountsResume',
         ),
         _PublicAccountLink(
             label: l10n.commercialPublicAccountsPosters,
-            icon: Icons.article_rounded),
+            icon: Icons.article_rounded,
+            localizationKey: 'commercialPublicAccountsPosters'),
         _PublicAccountLink(
             label: l10n.commercialPublicAccountsQrProfiles,
-            icon: Icons.qr_code_rounded),
+            icon: Icons.qr_code_rounded,
+            localizationKey: 'commercialPublicAccountsQrProfiles'),
       ];
 
   @override
   Widget build(BuildContext context) {
-    final l10n = AppLocalizations.of(context)!;
+    final l10n = CommercialLocalizations.of(context);
     return Scaffold(
       backgroundColor: Colors.black,
       body: CommercialSubPageBackground(
@@ -129,6 +146,18 @@ class CommercialPublicAccountsPage extends StatelessWidget {
   }
 }
 
+String _openLinkLabel(BuildContext context) {
+  return Localizations.localeOf(context).languageCode == 'ar'
+      ? 'فتح الرابط'
+      : 'Open link';
+}
+
+String _comingSoonLabel(BuildContext context) {
+  return Localizations.localeOf(context).languageCode == 'ar'
+      ? 'قريبًا'
+      : 'Coming soon';
+}
+
 class _TopBar extends StatelessWidget {
   const _TopBar({required this.onBack});
 
@@ -136,7 +165,7 @@ class _TopBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final l10n = AppLocalizations.of(context)!;
+    final l10n = CommercialLocalizations.of(context);
     return Padding(
       padding: const EdgeInsets.fromLTRB(14, 10, 14, 0),
       child: Row(
@@ -156,7 +185,11 @@ class _TopBar extends StatelessWidget {
             children: [
               AccessibilityGuideIcon(
                 size: 22,
-                onPressed: () => _showSpeechPlaceholder(context),
+                onPressed: () => _speakCommercialPublicAccounts(
+                  context,
+                  localizationKey: 'commercialPublicAccountsTitle',
+                  text: l10n.commercialPublicAccountsTitle,
+                ),
               ),
               const SizedBox(width: 12),
               const Icon(
@@ -179,7 +212,7 @@ class _PageHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final l10n = AppLocalizations.of(context)!;
+    final l10n = CommercialLocalizations.of(context);
     return Column(
       children: [
         Image.asset(
@@ -275,7 +308,11 @@ class _SectionTitle extends StatelessWidget {
       children: [
         AccessibilityGuideIcon(
           size: 22,
-          onPressed: () => _showSpeechPlaceholder(context),
+          onPressed: () => _speakCommercialPublicAccounts(
+            context,
+            localizationKey: _sectionKeyForTitle(context, title),
+            text: title,
+          ),
         ),
         const SizedBox(width: 10),
         Text(
@@ -303,27 +340,23 @@ class _PublicAccountChip extends StatelessWidget {
 
   final _PublicAccountLink account;
 
-  Future<void> _open() async {
+  Future<void> _open(BuildContext context) async {
     if (account.url.isEmpty) return;
-    await launchUrl(
-      Uri.parse(account.url),
-      mode: LaunchMode.externalApplication,
-    );
+    await SafeExternalLinkLauncher.open(context, account.url);
   }
 
   @override
   Widget build(BuildContext context) {
-    final l10n = AppLocalizations.of(context)!;
     final enabled = account.url.isNotEmpty;
     final foreground =
         enabled ? Colors.black : CommercialPublicAccountsPage._gold;
     return Semantics(
       button: enabled,
       label:
-          '${account.label} ${enabled ? l10n.applicationClientDialogLinksOpen : l10n.libraryComingSoon}',
+          '${account.label} ${enabled ? _openLinkLabel(context) : _comingSoonLabel(context)}',
       child: InkWell(
         borderRadius: BorderRadius.circular(999),
-        onTap: enabled ? _open : null,
+        onTap: enabled ? () => _open(context) : null,
         child: Container(
           constraints: const BoxConstraints(minHeight: 48, minWidth: 166),
           padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 11),
@@ -349,13 +382,17 @@ class _PublicAccountChip extends StatelessWidget {
               const SizedBox(width: 8),
               AccessibilityGuideIcon(
                 size: 20,
-                onPressed: () => _showSpeechPlaceholder(context),
+                onPressed: () => _speakCommercialPublicAccounts(
+                  context,
+                  localizationKey: account.localizationKey,
+                  text: account.label,
+                ),
               ),
               const SizedBox(width: 8),
               Text(
                 enabled
                     ? account.label
-                    : '${account.label} · ${l10n.libraryComingSoon}',
+                    : '${account.label} · ${_comingSoonLabel(context)}',
                 textDirection: TextDirection.rtl,
                 style: TextStyle(
                   color: enabled
@@ -383,17 +420,35 @@ class _PublicAccountLink {
   const _PublicAccountLink({
     required this.label,
     required this.icon,
+    required this.localizationKey,
   }) : url = CommercialPublicAccountsPage.pendingUrl;
 
   final String label;
   final IconData icon;
+  final String localizationKey;
   final String url;
 }
 
-void _showSpeechPlaceholder(BuildContext context) {
-  ScaffoldMessenger.of(context).showSnackBar(
-    SnackBar(
-      content: Text(AppLocalizations.of(context)!.applicationAudioSoon),
-    ),
+String _sectionKeyForTitle(BuildContext context, String title) {
+  final l10n = CommercialLocalizations.of(context);
+  if (title == l10n.commercialPublicAccountsSectionSocial) {
+    return 'commercialPublicAccountsSectionSocial';
+  }
+  if (title == l10n.commercialPublicAccountsSectionIdentity) {
+    return 'commercialPublicAccountsSectionIdentity';
+  }
+  return 'commercialPublicAccountsSectionPlatform';
+}
+
+Future<void> _speakCommercialPublicAccounts(
+  BuildContext context, {
+  required String localizationKey,
+  required String text,
+}) {
+  return speakLocalizedText(
+    context,
+    sectionId: 'commercial',
+    localizationKey: localizationKey,
+    text: text,
   );
 }

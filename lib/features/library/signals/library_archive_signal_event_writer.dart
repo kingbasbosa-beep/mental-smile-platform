@@ -1,5 +1,5 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/foundation.dart';
+import 'package:mental_smile_os/core/local_signals/local_section_signal_buffer.dart';
 
 import 'library_archive_signal_package_builder.dart';
 import 'library_signal_payload.dart';
@@ -56,17 +56,38 @@ class LibraryArchiveSignalEventWriter {
       );
     }
 
-    debugPrint('LIB_PROVIDER_WRITE_PAYLOAD event_id=$eventId payload=$event');
+    final context = <String, Object?>{
+      'sourceScreen': payload.sourceScreen,
+      'sourceWidget': payload.sourceWidget,
+      'action': payload.action,
+      'runtimeVersion': payload.runtimeVersion,
+      'signalFamily': payload.signalFamily,
+      'archiveMagnetCode': payload.archiveMagnetCode,
+      'archiveRoute': event['archive_destination_code'],
+    };
+
+    debugPrint(
+      'LIB_LOCAL_SIGNAL_BUFFER_PAYLOAD event_id=$eventId payload=$context',
+    );
 
     try {
-      await FirebaseFirestore.instance
-          .collection(LibraryArchiveSignalPackageBuilder.collectionPath)
-          .doc(eventId)
-          .set(event)
-          .timeout(const Duration(seconds: 8));
+      final result = await LocalSectionSignalBuffer().append(
+        sectionId: LocalSectionSignalBuffer.librarySection,
+        code: payload.signalCode,
+        eventName: payload.signalFamily,
+        context: context,
+      );
+      if (!result.stored) {
+        _sessionWrittenKeys.remove(sessionKey);
+        return LibraryArchiveSignalWriteResult(
+          success: false,
+          eventId: eventId,
+          errorMessage: result.reason,
+        );
+      }
       debugPrint(
-        'LIB_PROVIDER_WRITE_SUCCESS event_id=$eventId '
-        'collection=${LibraryArchiveSignalPackageBuilder.collectionPath}',
+        'LIB_LOCAL_SIGNAL_BUFFER_SUCCESS event_id=$eventId '
+        'section=${LocalSectionSignalBuffer.librarySection}',
       );
       return LibraryArchiveSignalWriteResult(
         success: true,
@@ -75,9 +96,7 @@ class LibraryArchiveSignalEventWriter {
     } catch (error, stackTrace) {
       _sessionWrittenKeys.remove(sessionKey);
       debugPrint(
-        'LIB_PROVIDER_WRITE_FAILURE event_id=$eventId '
-        'collection=${LibraryArchiveSignalPackageBuilder.collectionPath} '
-        'error=$error',
+        'LIB_LOCAL_SIGNAL_BUFFER_FAILURE event_id=$eventId error=$error',
       );
       debugPrintStack(stackTrace: stackTrace);
       return LibraryArchiveSignalWriteResult(

@@ -1,8 +1,13 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:mental_smile_os/app/router/routes.dart';
+import 'package:mental_smile_os/features/library/presentation/widgets/center_public_white_card.dart';
+import 'package:mental_smile_os/features/library/presentation/widgets/specialist_public_white_card.dart';
 import 'package:mental_smile_os/features/library/signals/library_signal_codes.dart';
 import 'package:mental_smile_os/features/library/signals/library_signal_emitter.dart';
 import 'package:mental_smile_os/shared/accessibility/accessibility_guide_icon.dart';
+import 'package:mental_smile_os/shared/provider_profiles/provider_profile_categories.dart';
+import 'package:mental_smile_os/shared/provider_profiles/provider_public_profile.dart';
 
 enum LibraryProviderBranchType {
   specialist,
@@ -29,7 +34,7 @@ class LibrarySpecialistsPage extends StatelessWidget {
       title: 'الأخصائيون',
       intro:
           'مسارات نشر محتوى الأخصائيين داخل مكتبة Mental Smile، حيث تظهر البطاقات المهنية كأصول محتوى قابلة للاكتشاف.',
-      categories: _specialistBranches,
+      categories: _specialistProviderBranches(),
       returnRoute: returnRoute,
     );
   }
@@ -55,7 +60,7 @@ class LibraryCentersPage extends StatelessWidget {
       title: 'المراكز والجهات',
       intro:
           'مسارات نشر محتوى المراكز والجهات داخل المكتبة، مع فصل واضح بين أنواع الجهات ومساحات عرضها المستقبلية.',
-      categories: _centerBranches,
+      categories: _centerProviderBranches(),
       returnRoute: returnRoute,
     );
   }
@@ -67,156 +72,57 @@ class LibraryProviderBranch {
     required this.intro,
     required this.type,
     required this.icon,
+    required this.backgroundAssetPath,
+    this.librarySectionId = '',
+    this.collectionName,
+    this.profileType,
   });
 
   final String title;
   final String intro;
   final LibraryProviderBranchType type;
   final IconData icon;
+  final String backgroundAssetPath;
+  final String librarySectionId;
+  final String? collectionName;
+  final ProviderProfileType? profileType;
 }
 
-const List<LibraryProviderBranch> _specialistBranches = [
-  LibraryProviderBranch(
-    title: 'الأخصائيون النفسيون',
-    intro:
-        'مساحة عرض مخصصة للمحتوى المهني المرتبط بالدعم النفسي العام والتثقيف النفسي غير العلاجي.',
-    type: LibraryProviderBranchType.specialist,
-    icon: Icons.psychology_alt_outlined,
-  ),
-  LibraryProviderBranch(
-    title: 'الأخصائيون الاجتماعيون',
-    intro:
-        'فرع محتوى يعرض بطاقات الأخصائيين الاجتماعيين وخبراتهم في الدعم المجتمعي والأسري.',
-    type: LibraryProviderBranchType.specialist,
-    icon: Icons.diversity_3_outlined,
-  ),
-  LibraryProviderBranch(
-    title: 'الأخصائيون الإكلينيكيون',
-    intro:
-        'مسار محتوى للأخصائيين الإكلينيكيين مع إبقاء المكتبة سطح اكتشاف لا سطح تشخيص أو علاج.',
-    type: LibraryProviderBranchType.specialist,
-    icon: Icons.health_and_safety_outlined,
-  ),
-  LibraryProviderBranch(
-    title: 'أخصائيو الإرشاد والمشورة الأسرية',
-    intro:
-        'فرع لنشر محتوى الإرشاد الأسري والمشورة العامة ضمن حدود الاكتشاف والتوعية.',
-    type: LibraryProviderBranchType.specialist,
-    icon: Icons.family_restroom_outlined,
-  ),
-  LibraryProviderBranch(
-    title: 'أخصائيو علاج السلوكيات الإدمانية والتعافي',
-    intro:
-        'مساحة محتوى للتعريف بخبرات الدعم والتعافي والسلوكيات الإدمانية دون إدارة علاج أو جلسات.',
-    type: LibraryProviderBranchType.specialist,
-    icon: Icons.volunteer_activism_outlined,
-  ),
-  LibraryProviderBranch(
-    title: 'أخصائيو تعديل السلوك والتوحد',
-    intro:
-        'فرع يعرض المحتوى المهني المرتبط بتعديل السلوك والتوحد وإرشاد الأسر.',
-    type: LibraryProviderBranchType.specialist,
-    icon: Icons.extension_outlined,
-  ),
-  LibraryProviderBranch(
-    title: 'أخصائيو الاحتياجات الخاصة وإعادة التأهيل',
-    intro:
-        'مسار لاكتشاف محتوى المختصين في التأهيل والدعم الوظيفي واحتياجات الوصول.',
-    type: LibraryProviderBranchType.specialist,
-    icon: Icons.accessible_forward_outlined,
-  ),
-  LibraryProviderBranch(
-    title: 'الكوتشينج والتطوير الشخصي',
-    intro: 'فرع محتوى للتطوير الشخصي والكوتشينج في نطاق التوعية والنمو العام.',
-    type: LibraryProviderBranchType.specialist,
-    icon: Icons.trending_up_outlined,
-  ),
-  LibraryProviderBranch(
-    title: 'مشرفو برامج الدعم والتعافي',
-    intro: 'مساحة نشر لمحتوى مشرفي برامج الدعم والتعافي والأنشطة المساندة.',
-    type: LibraryProviderBranchType.specialist,
-    icon: Icons.groups_2_outlined,
-  ),
-  LibraryProviderBranch(
-    title: 'المحاضرون والمدربون',
-    intro:
-        'فرع لعرض محتوى المحاضرين والمدربين في التوعية والتعليم والتدريب المجتمعي.',
-    type: LibraryProviderBranchType.specialist,
-    icon: Icons.school_outlined,
-  ),
-];
+List<LibraryProviderBranch> _specialistProviderBranches() {
+  return ProviderProfileCategoryRegistry.specialistCategories
+      .map(
+        (category) => LibraryProviderBranch(
+          title: category.libraryLabel,
+          intro: 'Published specialist profiles for this Library section.',
+          type: LibraryProviderBranchType.specialist,
+          icon: category.icon,
+          backgroundAssetPath: category.backgroundAssetPath,
+          librarySectionId: category.librarySectionId,
+          collectionName: 'public_specialist_profiles',
+          profileType: ProviderProfileType.specialist,
+        ),
+      )
+      .toList(growable: false);
+}
 
-const List<LibraryProviderBranch> _centerBranches = [
-  LibraryProviderBranch(
-    title: 'مراكز علاج الإدمان وسحب السموم',
-    intro:
-        'مساحة محتوى للمراكز المتخصصة في التعريف بخدمات التعافي وسحب السموم كأصول معلوماتية.',
-    type: LibraryProviderBranchType.center,
-    icon: Icons.local_hospital_outlined,
-  ),
-  LibraryProviderBranch(
-    title: 'مراكز إعادة التأهيل والتعافي',
-    intro:
-        'فرع محتوى للمراكز التي تقدم برامج إعادة التأهيل والتعافي ضمن سطح اكتشاف عام.',
-    type: LibraryProviderBranchType.center,
-    icon: Icons.spa_outlined,
-  ),
-  LibraryProviderBranch(
-    title: 'مراكز الصحة النفسية',
-    intro:
-        'مسار عرض للمحتوى التعريفي بمراكز الصحة النفسية دون حجز أو إدارة علاج.',
-    type: LibraryProviderBranchType.center,
-    icon: Icons.psychology_outlined,
-  ),
-  LibraryProviderBranch(
-    title: 'مراكز تعديل السلوك والتوحد',
-    intro: 'فرع مخصص لبطاقات ومحتوى مراكز تعديل السلوك والتوحد والدعم الأسري.',
-    type: LibraryProviderBranchType.center,
-    icon: Icons.account_tree_outlined,
-  ),
-  LibraryProviderBranch(
-    title: 'مراكز خدمات وتأهيل ذوي الاحتياجات الخاصة',
-    intro:
-        'مساحة نشر لمحتوى مراكز خدمات وتأهيل ذوي الاحتياجات الخاصة وإتاحة الوصول.',
-    type: LibraryProviderBranchType.center,
-    icon: Icons.accessibility_new_outlined,
-  ),
-  LibraryProviderBranch(
-    title: 'مراكز ومكاتب الإرشاد والمشورة الأسرية',
-    intro: 'فرع يعرض محتوى مراكز ومكاتب الإرشاد الأسري والمشورة العامة.',
-    type: LibraryProviderBranchType.center,
-    icon: Icons.home_work_outlined,
-  ),
-  LibraryProviderBranch(
-    title: 'المراكز التعليمية والتدريبية',
-    intro:
-        'مسار محتوى للمراكز التعليمية والتدريبية المرتبطة بالتوعية وبناء القدرات.',
-    type: LibraryProviderBranchType.center,
-    icon: Icons.menu_book_outlined,
-  ),
-  LibraryProviderBranch(
-    title: 'الجهات الحكومية',
-    intro:
-        'فرع محتوى للجهات الحكومية ذات الصلة بالدعم، التوعية، والخدمات العامة.',
-    type: LibraryProviderBranchType.center,
-    icon: Icons.account_balance_outlined,
-  ),
-  LibraryProviderBranch(
-    title: 'الجمعيات والمؤسسات الأهلية',
-    intro: 'مساحة عرض للجمعيات والمؤسسات الأهلية ومحتواها المجتمعي والتوعوي.',
-    type: LibraryProviderBranchType.center,
-    icon: Icons.handshake_outlined,
-  ),
-  LibraryProviderBranch(
-    title: 'المنظمات والهيئات المحلية والدولية',
-    intro:
-        'فرع محتوى للمنظمات والهيئات المحلية والدولية ذات العلاقة بالوعي والدعم المجتمعي.',
-    type: LibraryProviderBranchType.center,
-    icon: Icons.public_outlined,
-  ),
-];
+List<LibraryProviderBranch> _centerProviderBranches() {
+  return ProviderProfileCategoryRegistry.centerCategories
+      .map(
+        (category) => LibraryProviderBranch(
+          title: category.libraryLabel,
+          intro: 'Published center profiles for this Library section.',
+          type: LibraryProviderBranchType.center,
+          icon: category.icon,
+          backgroundAssetPath: category.backgroundAssetPath,
+          librarySectionId: category.librarySectionId,
+          collectionName: 'public_center_profiles',
+          profileType: ProviderProfileType.center,
+        ),
+      )
+      .toList(growable: false);
+}
 
-class _LibraryProviderCategoryListPage extends StatelessWidget {
+class _LibraryProviderCategoryListPage extends StatefulWidget {
   const _LibraryProviderCategoryListPage({
     required this.title,
     required this.intro,
@@ -228,6 +134,15 @@ class _LibraryProviderCategoryListPage extends StatelessWidget {
   final String intro;
   final List<LibraryProviderBranch> categories;
   final String returnRoute;
+
+  @override
+  State<_LibraryProviderCategoryListPage> createState() =>
+      _LibraryProviderCategoryListPageState();
+}
+
+class _LibraryProviderCategoryListPageState
+    extends State<_LibraryProviderCategoryListPage> {
+  String _query = '';
 
   @override
   Widget build(BuildContext context) {
@@ -245,7 +160,7 @@ class _LibraryProviderCategoryListPage extends StatelessWidget {
                 );
                 Navigator.of(context).pushReplacementNamed(
                   _libraryRouteName(context),
-                  arguments: {'returnRoute': returnRoute},
+                  arguments: {'returnRoute': widget.returnRoute},
                 );
               },
             ),
@@ -260,10 +175,10 @@ class _LibraryProviderCategoryListPage extends StatelessWidget {
                     _BackToLibraryButton(
                       sourceScreen: 'Library Provider Category List',
                       sourceWidget: 'ProviderCategoryListBackToLibrary',
-                      returnRoute: returnRoute,
+                      returnRoute: widget.returnRoute,
                     ),
-                    if (_showsProviderReturnPageButton(returnRoute))
-                      _BackToReturnPageButton(returnRoute: returnRoute),
+                    if (_showsProviderReturnPageButton(widget.returnRoute))
+                      _BackToReturnPageButton(returnRoute: widget.returnRoute),
                   ],
                 ),
               ),
@@ -276,7 +191,14 @@ class _LibraryProviderCategoryListPage extends StatelessWidget {
                   constraints: const BoxConstraints(maxWidth: 1180),
                   child: Column(
                     children: [
-                      _LibraryProviderHeader(title: title, subtitle: intro),
+                      _LibraryProviderHeader(
+                        title: widget.title,
+                        subtitle: widget.intro,
+                      ),
+                      const SizedBox(height: 18),
+                      _ProviderSearchField(
+                        onChanged: (value) => setState(() => _query = value),
+                      ),
                       const SizedBox(height: 26),
                       LayoutBuilder(
                         builder: (context, constraints) {
@@ -289,17 +211,18 @@ class _LibraryProviderCategoryListPage extends StatelessWidget {
                           return GridView.builder(
                             shrinkWrap: true,
                             physics: const NeverScrollableScrollPhysics(),
-                            itemCount: categories.length,
+                            itemCount: widget.categories.length,
                             gridDelegate:
                                 SliverGridDelegateWithFixedCrossAxisCount(
                               crossAxisCount: crossAxisCount,
                               crossAxisSpacing: 16,
                               mainAxisSpacing: 16,
-                              childAspectRatio: width < 680 ? 3.2 : 2.35,
+                              childAspectRatio: width < 680 ? 0.95 : 0.78,
                             ),
                             itemBuilder: (context, index) {
                               return _ProviderCategoryCard(
-                                branch: categories[index],
+                                branch: widget.categories[index],
+                                query: _query,
                               );
                             },
                           );
@@ -404,10 +327,54 @@ class _LibraryProviderHeader extends StatelessWidget {
   }
 }
 
+class _ProviderSearchField extends StatelessWidget {
+  const _ProviderSearchField({required this.onChanged});
+
+  final ValueChanged<String> onChanged;
+
+  @override
+  Widget build(BuildContext context) {
+    return ConstrainedBox(
+      constraints: const BoxConstraints(maxWidth: 540),
+      child: TextField(
+        onChanged: onChanged,
+        textDirection: TextDirection.rtl,
+        style: const TextStyle(color: Color(0xFFFFE7B2)),
+        decoration: InputDecoration(
+          hintText: 'Search published profiles',
+          hintStyle: TextStyle(
+            color: const Color(0xFFFFE7B2).withValues(alpha: 0.58),
+          ),
+          prefixIcon: const Icon(
+            Icons.search,
+            color: Color(0xFFFFD47A),
+          ),
+          filled: true,
+          fillColor: const Color(0xFF0B0804).withValues(alpha: 0.74),
+          enabledBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(16),
+            borderSide: BorderSide(
+              color: const Color(0xFFFFD98A).withValues(alpha: 0.36),
+            ),
+          ),
+          focusedBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(16),
+            borderSide: const BorderSide(color: Color(0xFFFFD98A)),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
 class _ProviderCategoryCard extends StatefulWidget {
-  const _ProviderCategoryCard({required this.branch});
+  const _ProviderCategoryCard({
+    required this.branch,
+    required this.query,
+  });
 
   final LibraryProviderBranch branch;
+  final String query;
 
   @override
   State<_ProviderCategoryCard> createState() => _ProviderCategoryCardState();
@@ -445,41 +412,87 @@ class _ProviderCategoryCardState extends State<_ProviderCategoryCard> {
                 ),
               ],
             ),
-            child: Padding(
-              padding: const EdgeInsets.all(16),
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(22),
               child: Stack(
-                clipBehavior: Clip.none,
+                fit: StackFit.expand,
                 children: [
+                  Image.asset(
+                    widget.branch.backgroundAssetPath,
+                    fit: BoxFit.cover,
+                    errorBuilder: (context, error, stackTrace) =>
+                        const SizedBox.shrink(),
+                  ),
+                  DecoratedBox(
+                    decoration: BoxDecoration(
+                      color: const Color(0xFF0B0804).withValues(alpha: 0.54),
+                    ),
+                  ),
                   Padding(
-                    padding: const EdgeInsetsDirectional.only(end: 32),
-                    child: Row(
+                    padding: const EdgeInsets.all(16),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Icon(
-                          widget.branch.icon,
-                          color: const Color(0xFFFFD47A),
-                          size: 32,
-                        ),
-                        const SizedBox(width: 14),
-                        Expanded(
-                          child: Text(
-                            widget.branch.title,
-                            maxLines: 3,
-                            overflow: TextOverflow.ellipsis,
-                            style: const TextStyle(
-                              color: Color(0xFFFFE7B2),
-                              fontSize: 17,
-                              fontWeight: FontWeight.w900,
-                              height: 1.2,
+                        Stack(
+                          clipBehavior: Clip.none,
+                          children: [
+                            Padding(
+                              padding:
+                                  const EdgeInsetsDirectional.only(end: 32),
+                              child: Row(
+                                children: [
+                                  Icon(
+                                    widget.branch.icon,
+                                    color: const Color(0xFFFFD47A),
+                                    size: 32,
+                                  ),
+                                  const SizedBox(width: 14),
+                                  Expanded(
+                                    child: Text(
+                                      widget.branch.title,
+                                      maxLines: 3,
+                                      overflow: TextOverflow.ellipsis,
+                                      style: const TextStyle(
+                                        color: Color(0xFFFFE7B2),
+                                        fontSize: 17,
+                                        fontWeight: FontWeight.w900,
+                                        height: 1.2,
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
                             ),
+                            PositionedDirectional(
+                              top: -8,
+                              end: -8,
+                              child: _ProviderAudioPreviewIcon(
+                                branch: widget.branch,
+                              ),
+                            ),
+                          ],
+                        ),
+                        const SizedBox(height: 10),
+                        Text(
+                          widget.branch.intro,
+                          maxLines: 2,
+                          overflow: TextOverflow.ellipsis,
+                          style: const TextStyle(
+                            color: Color(0xFFFFE7B2),
+                            fontSize: 12.5,
+                            fontWeight: FontWeight.w600,
+                            height: 1.35,
+                          ),
+                        ),
+                        const SizedBox(height: 12),
+                        Expanded(
+                          child: _ProviderPublishedProfiles(
+                            branch: widget.branch,
+                            query: widget.query,
                           ),
                         ),
                       ],
                     ),
-                  ),
-                  PositionedDirectional(
-                    top: -8,
-                    end: -8,
-                    child: _ProviderAudioPreviewIcon(branch: widget.branch),
                   ),
                 ],
               ),
@@ -488,6 +501,102 @@ class _ProviderCategoryCardState extends State<_ProviderCategoryCard> {
         ),
       ),
     );
+  }
+}
+
+class _ProviderPublishedProfiles extends StatelessWidget {
+  const _ProviderPublishedProfiles({
+    required this.branch,
+    required this.query,
+  });
+
+  final LibraryProviderBranch branch;
+  final String query;
+
+  @override
+  Widget build(BuildContext context) {
+    final collectionName = branch.collectionName;
+    final profileType = branch.profileType;
+    if (collectionName == null ||
+        profileType == null ||
+        branch.librarySectionId.isEmpty) {
+      return const _ProviderEmptyProfiles();
+    }
+
+    return StreamBuilder<QuerySnapshot<Map<String, dynamic>>>(
+      stream: FirebaseFirestore.instance
+          .collection(collectionName)
+          .where('status', isEqualTo: 'published')
+          .snapshots(),
+      builder: (context, snapshot) {
+        if (snapshot.connectionState == ConnectionState.waiting &&
+            !snapshot.hasData) {
+          return const Center(
+            child: SizedBox.square(
+              dimension: 22,
+              child: CircularProgressIndicator(strokeWidth: 2),
+            ),
+          );
+        }
+        final documents = snapshot.data?.docs
+                .map((doc) => Map<String, Object?>.from(doc.data()))
+                .toList(growable: false) ??
+            const <Map<String, Object?>>[];
+        final profiles = PublicProviderProfile.visibleProfilesForSection(
+          documents: documents,
+          type: profileType,
+          librarySectionId: branch.librarySectionId,
+          query: query,
+        );
+        if (profiles.isEmpty) {
+          return const _ProviderEmptyProfiles();
+        }
+        return ListView.separated(
+          physics: const NeverScrollableScrollPhysics(),
+          itemCount: profiles.length > 3 ? 3 : profiles.length,
+          separatorBuilder: (_, __) => const SizedBox(height: 8),
+          itemBuilder: (context, index) {
+            return _PublishedProviderTile(profile: profiles[index]);
+          },
+        );
+      },
+    );
+  }
+}
+
+class _ProviderEmptyProfiles extends StatelessWidget {
+  const _ProviderEmptyProfiles();
+
+  @override
+  Widget build(BuildContext context) {
+    return const Center(
+      child: Text(
+        'No published profiles yet.',
+        textAlign: TextAlign.center,
+        style: TextStyle(
+          color: Color(0xFFBFA45F),
+          fontSize: 12,
+          fontWeight: FontWeight.w700,
+        ),
+      ),
+    );
+  }
+}
+
+class _PublishedProviderTile extends StatelessWidget {
+  const _PublishedProviderTile({required this.profile});
+
+  final PublicProviderProfile profile;
+
+  @override
+  Widget build(BuildContext context) {
+    if (profile.profileType == ProviderProfileType.specialist) {
+      return SpecialistPublicWhiteCard(profile: profile);
+    }
+    if (profile.profileType == ProviderProfileType.center) {
+      return CenterPublicWhiteCard(profile: profile);
+    }
+    return const SizedBox.shrink();
   }
 }
 

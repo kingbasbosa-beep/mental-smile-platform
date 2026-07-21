@@ -3,10 +3,10 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:mental_smile_os/app/locale_provider.dart';
 import 'package:mental_smile_os/app/router/routes.dart';
 import 'package:mental_smile_os/features/commercial_v2_web/presentation/widgets/commercial_v2_web_background.dart';
-import 'package:mental_smile_os/features/presentation_gallery/data/presentation_gallery_repository.dart';
-import 'package:mental_smile_os/features/presentation_gallery/domain/models/presentation_card.dart';
-import 'package:mental_smile_os/features/presentation_gallery/presentation/pages/presentation_viewer_page.dart';
-import 'package:mental_smile_os/features/presentation_gallery/presentation/widgets/presentation_asset_image.dart';
+import 'package:mental_smile_os/features/commercial_v2_web/presentation_gallery/data/presentation_gallery_repository.dart';
+import 'package:mental_smile_os/features/commercial_v2_web/presentation_gallery/domain/models/presentation_card.dart';
+import 'package:mental_smile_os/features/commercial_v2_web/presentation_gallery/presentation/pages/presentation_viewer_page.dart';
+import 'package:mental_smile_os/features/commercial_v2_web/presentation_gallery/presentation/widgets/presentation_asset_image.dart';
 
 class CommercialV2WebShowcasePage extends ConsumerStatefulWidget {
   const CommercialV2WebShowcasePage({super.key});
@@ -302,12 +302,6 @@ class _PlatformGuidesCarouselState extends State<_PlatformGuidesCarousel> {
       assetPath:
           'assets/library/platform_guides/platform_guide_content_access.webp.png',
     ),
-    _PlatformGuide(
-      assetPath: 'assets/library/platform_guides/platform_official_links.webp',
-      fallbackAssetPath:
-          'assets/library/backgrounds/official_links_background.webp.png',
-      routeName: Routes.officialPlatformLinks,
-    ),
   ];
 
   PageController? _controller;
@@ -361,20 +355,12 @@ class _PlatformGuidesCarouselState extends State<_PlatformGuidesCarousel> {
   }
 
   void _openGuide(int index) {
-    final guide = _guides[index];
-    if (guide.routeName != null) {
-      Navigator.of(context).pushNamed(guide.routeName!);
-      return;
-    }
-
     final viewerGuides = [
       for (final item in _guides)
-        if (item.routeName == null)
-          PresentationCard(
-            id: item.assetPath,
-            assetPath: item.assetPath,
-            fallbackAssetPath: item.fallbackAssetPath,
-          ),
+        PresentationCard(
+          id: item.assetPath,
+          assetPath: item.assetPath,
+        ),
     ];
 
     Navigator.of(context).push(
@@ -480,13 +466,9 @@ class _PlatformGuidesCarouselState extends State<_PlatformGuidesCarousel> {
 class _PlatformGuide {
   const _PlatformGuide({
     required this.assetPath,
-    this.fallbackAssetPath,
-    this.routeName,
   });
 
   final String assetPath;
-  final String? fallbackAssetPath;
-  final String? routeName;
 }
 
 class _PlatformGuideCard extends StatefulWidget {
@@ -550,15 +532,7 @@ class _PlatformGuideCardState extends State<_PlatformGuideCard> {
                   widget.guide.assetPath,
                   fit: BoxFit.cover,
                   filterQuality: FilterQuality.high,
-                  errorBuilder: (_, __, ___) {
-                    final fallback = widget.guide.fallbackAssetPath;
-                    if (fallback == null) return const SizedBox.shrink();
-                    return Image.asset(
-                      fallback,
-                      fit: BoxFit.cover,
-                      filterQuality: FilterQuality.high,
-                    );
-                  },
+                  errorBuilder: (_, __, ___) => const SizedBox.shrink(),
                 ),
               ),
             ),

@@ -1,0 +1,39 @@
+﻿{
+    "capsuleId":  "MS-CAPSULE-COM-BLUEPRINT",
+    "localization":  [
+                         {
+                             "localizationCode":  "MS-COM-L10N-001",
+                             "owner":  "COMMERCIAL",
+                             "arbArabic":  "lib/l10n/commercial/commercial_ar.arb",
+                             "arbEnglish":  "lib/l10n/commercial/commercial_en.arb",
+                             "generatedClass":  "CommercialLocalizations",
+                             "generatedFiles":  [
+
+                                                ],
+                             "keyCount":  42,
+                             "activeConsumerCount":  17,
+                             "speechKeyCount":  38,
+                             "crossOwnerUsage":  "section_owned",
+                             "canonicalLine":  "MS-LINE-LOCALIZATION-01"
+                         },
+                         {
+                             "localizationCode":  "MS-COM-L10N-002",
+                             "owner":  "SHARED_CENTRAL_IMPORT_VIA_SPEECH_ACTION",
+                             "arbArabic":  "lib/l10n/shared/shared_ar.arb",
+                             "arbEnglish":  "lib/l10n/shared/shared_en.arb",
+                             "generatedClass":  "SharedLocalizations",
+                             "generatedFiles":  [
+
+                                                ],
+                             "keyCount":  5,
+                             "activeConsumerCount":  0,
+                             "speechKeyCount":  38,
+                             "crossOwnerUsage":  "central_import_only",
+                             "canonicalLine":  "MS-LINE-LOCALIZATION-01"
+                         }
+                     ],
+    "counts":  {
+                   "localizationOwners":  2,
+                   "localizationKeys":  47
+               }
+}

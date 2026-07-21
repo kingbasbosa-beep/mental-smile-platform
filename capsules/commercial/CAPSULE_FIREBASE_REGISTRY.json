@@ -1,0 +1,75 @@
+﻿{
+    "capsuleId":  "MS-CAPSULE-COM-BLUEPRINT",
+    "firebase":  [
+                     {
+                         "code":  "MS-COM-FIREBASE-001",
+                         "service":  "FirebaseAuth",
+                         "collection":  null,
+                         "documentPath":  null,
+                         "operation":  "signIn/create/signOut/currentUser",
+                         "owner":  "COMMERCIAL_AUTH",
+                         "consumer":  "commercial_auth_service.dart and profile pages",
+                         "ruleMatch":  "firebase_auth",
+                         "indexRequired":  false,
+                         "portLine":  "MS-LINE-AUTH-01",
+                         "activeState":  "ACTIVE_DIRECT"
+                     },
+                     {
+                         "code":  "MS-COM-FIREBASE-002",
+                         "service":  "Firestore",
+                         "collection":  "clinicians",
+                         "documentPath":  "clinicians/{uid}/profile/current",
+                         "operation":  "read/write/query",
+                         "owner":  "SPECIALIST",
+                         "consumer":  "CommercialAuthService, ProviderProfileRepository",
+                         "ruleMatch":  "firestore.rules clinicians/profile",
+                         "indexRequired":  false,
+                         "portLine":  "MS-LINE-DATA-WRITE-01",
+                         "activeState":  "ACTIVE_DIRECT"
+                     },
+                     {
+                         "code":  "MS-COM-FIREBASE-003",
+                         "service":  "Firestore",
+                         "collection":  "centers",
+                         "documentPath":  "centers/{uid}/profile/current",
+                         "operation":  "read/write/query",
+                         "owner":  "CENTER",
+                         "consumer":  "CommercialAuthService, ProviderProfileRepository",
+                         "ruleMatch":  "firestore.rules centers/profile",
+                         "indexRequired":  false,
+                         "portLine":  "MS-LINE-DATA-WRITE-01",
+                         "activeState":  "ACTIVE_DIRECT"
+                     },
+                     {
+                         "code":  "MS-COM-FIREBASE-004",
+                         "service":  "Firestore",
+                         "collection":  "public_specialist_profiles",
+                         "documentPath":  "public_specialist_profiles/{uid}",
+                         "operation":  "write",
+                         "owner":  "PROVIDER_PROFILE",
+                         "consumer":  "ProviderProfileRepository",
+                         "ruleMatch":  "firestore.rules public_specialist_profiles",
+                         "indexRequired":  false,
+                         "portLine":  "MS-LINE-DATA-WRITE-01",
+                         "activeState":  "ACTIVE_DIRECT"
+                     },
+                     {
+                         "code":  "MS-COM-FIREBASE-005",
+                         "service":  "Firestore",
+                         "collection":  "public_center_profiles",
+                         "documentPath":  "public_center_profiles/{uid}",
+                         "operation":  "write",
+                         "owner":  "PROVIDER_PROFILE",
+                         "consumer":  "ProviderProfileRepository",
+                         "ruleMatch":  "firestore.rules public_center_profiles",
+                         "indexRequired":  false,
+                         "portLine":  "MS-LINE-DATA-WRITE-01",
+                         "activeState":  "ACTIVE_DIRECT"
+                     }
+                 ],
+    "counts":  {
+                   "firebaseUsages":  5,
+                   "collections":  4,
+                   "uncontractedUsages":  0
+               }
+}

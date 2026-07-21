@@ -1,0 +1,23 @@
+{
+  "validationId": "MS-PLATFORM-VALIDATION-01",
+  "checks": [
+    "identity",
+    "registry",
+    "port",
+    "compatibility",
+    "contracts",
+    "lifecycle",
+    "canonical_lines",
+    "duplicate_ids",
+    "unknown_capsule",
+    "invalid_mount",
+    "invalid_transition",
+    "forbidden_dependency",
+    "registry_mismatch",
+    "manifest_mismatch",
+    "schema_mismatch",
+    "port_collision",
+    "canonical_line_collision"
+  ],
+  "manualVerificationRequired": true
+}

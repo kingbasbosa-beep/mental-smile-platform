@@ -1,0 +1,281 @@
+﻿[
+    {
+        "originalPath":  "lib/core/local_signals/local_section_signal_buffer.dart",
+        "capsulePath":  "lib/src/signals/local/local_section_signal_buffer.dart",
+        "owner":  "RESIDENTIAL_LOCAL_SIGNALS_CENTRAL_IMPORT",
+        "checksum":  "BB860C6314EAEAE37838D159091439728383422408ED01010B18E2F0AD67D027",
+        "copyState":  "IMPORT_REWIRED",
+        "modificationsRequired":  true,
+        "modificationReason":  "imports rewired to capsule package and asset paths rewired to package namespace"
+    },
+    {
+        "originalPath":  "lib/core/local_signals/local_section_signal_record.dart",
+        "capsulePath":  "lib/src/signals/local/local_section_signal_record.dart",
+        "owner":  "RESIDENTIAL_LOCAL_SIGNALS_CENTRAL_IMPORT",
+        "checksum":  "1BB9DDC67CE23479EBBBB6846A12FC59144F609F91F44AE3EA5FFCD794D6A7D7",
+        "copyState":  "IMPORT_REWIRED",
+        "modificationsRequired":  true,
+        "modificationReason":  "imports rewired to capsule package and asset paths rewired to package namespace"
+    },
+    {
+        "originalPath":  "lib/features/accessibility/presentation/pages/accessibility_checkin_page.dart",
+        "capsulePath":  "lib/src/accessibility/presentation/pages/accessibility_checkin_page.dart",
+        "owner":  "ACCESSIBILITY",
+        "checksum":  "3EE014C25FEB21A0CC5B4639CD2C0A8BFA0A9D8CF7B80FFAEB3D19ED8575EC98",
+        "copyState":  "IMPORT_REWIRED",
+        "modificationsRequired":  true,
+        "modificationReason":  "imports rewired to capsule package and asset paths rewired to package namespace"
+    },
+    {
+        "originalPath":  "lib/features/accessibility/presentation/pages/accessibility_community_tools_page.dart",
+        "capsulePath":  "lib/src/accessibility/presentation/pages/accessibility_community_tools_page.dart",
+        "owner":  "ACCESSIBILITY",
+        "checksum":  "2E87545613C1F4824978C20FC8C56A6FEFC8E3D0DE71BCDE6C2C816DBEC765AB",
+        "copyState":  "IMPORT_REWIRED",
+        "modificationsRequired":  true,
+        "modificationReason":  "imports rewired to capsule package and asset paths rewired to package namespace"
+    },
+    {
+        "originalPath":  "lib/features/accessibility/presentation/pages/accessibility_links_page.dart",
+        "capsulePath":  "lib/src/accessibility/presentation/pages/accessibility_links_page.dart",
+        "owner":  "ACCESSIBILITY",
+        "checksum":  "7779C84D6589A71D75E83BA8237C00B85D0E9136D2A7F5CFC3B7B7DB6CEA53EB",
+        "copyState":  "IMPORT_REWIRED",
+        "modificationsRequired":  true,
+        "modificationReason":  "imports rewired to capsule package and asset paths rewired to package namespace"
+    },
+    {
+        "originalPath":  "lib/features/accessibility/presentation/pages/accessibility_message_of_day_page.dart",
+        "capsulePath":  "lib/src/accessibility/presentation/pages/accessibility_message_of_day_page.dart",
+        "owner":  "ACCESSIBILITY",
+        "checksum":  "26498A79117ADE77C4B0D0559E4196AEEA07B30631E52D6E4BB08D46E0EF6761",
+        "copyState":  "IMPORT_REWIRED",
+        "modificationsRequired":  true,
+        "modificationReason":  "imports rewired to capsule package and asset paths rewired to package namespace"
+    },
+    {
+        "originalPath":  "lib/features/accessibility/presentation/pages/accessibility_room_page.dart",
+        "capsulePath":  "lib/src/accessibility/presentation/pages/accessibility_room_page.dart",
+        "owner":  "ACCESSIBILITY",
+        "checksum":  "F2895D202C47B8B98EE4B11904253DB1EB2895C4AA315E2EFB00194A6119675F",
+        "copyState":  "IMPORT_REWIRED",
+        "modificationsRequired":  true,
+        "modificationReason":  "imports rewired to capsule package and asset paths rewired to package namespace"
+    },
+    {
+        "originalPath":  "lib/features/accessibility/presentation/pages/accessibility_suggestions_page.dart",
+        "capsulePath":  "lib/src/accessibility/presentation/pages/accessibility_suggestions_page.dart",
+        "owner":  "ACCESSIBILITY",
+        "checksum":  "DCC588EB7928625A39AFA15C1C9D136948FD665C4F89C6133C15EC23A8937AE1",
+        "copyState":  "IMPORT_REWIRED",
+        "modificationsRequired":  true,
+        "modificationReason":  "imports rewired to capsule package and asset paths rewired to package namespace"
+    },
+    {
+        "originalPath":  "lib/features/accessibility/presentation/pages/accessibility_tools_page.dart",
+        "capsulePath":  "lib/src/accessibility/presentation/pages/accessibility_tools_page.dart",
+        "owner":  "ACCESSIBILITY",
+        "checksum":  "C4C94D665403A8185356EDF22D79AE300F07A94FB1FBBA64DE75328A542CEC1A",
+        "copyState":  "IMPORT_REWIRED",
+        "modificationsRequired":  true,
+        "modificationReason":  "imports rewired to capsule package and asset paths rewired to package namespace"
+    },
+    {
+        "originalPath":  "lib/features/client/presentation/pages/client_room_page.dart",
+        "capsulePath":  "lib/src/client/presentation/pages/client_room_page.dart",
+        "owner":  "CLIENT",
+        "checksum":  "62BCF819A89016EAC39453F54F76E0D26BC73C3BE4212D22D6360B3B0164F39F",
+        "copyState":  "IMPORT_REWIRED",
+        "modificationsRequired":  true,
+        "modificationReason":  "imports rewired to capsule package and asset paths rewired to package namespace"
+    },
+    {
+        "originalPath":  "lib/features/generation2_mobile_client_room/presentation/pages/generation2_mobile_client_room_page.dart",
+        "capsulePath":  "lib/src/generation2/client_room/presentation/pages/generation2_mobile_client_room_page.dart",
+        "owner":  "GENERATION2_CLIENT",
+        "checksum":  "1F12E55DD689652129A25A1A1CA62A57A6B03AAA69651B70BD164C87F4F67161",
+        "copyState":  "IMPORT_REWIRED",
+        "modificationsRequired":  true,
+        "modificationReason":  "imports rewired to capsule package and asset paths rewired to package namespace"
+    },
+    {
+        "originalPath":  "lib/features/generation2_mobile_client_room/presentation/pages/generation2_mobile_friend_client_room_page.dart",
+        "capsulePath":  "lib/src/generation2/client_room/presentation/pages/generation2_mobile_friend_client_room_page.dart",
+        "owner":  "GENERATION2_CLIENT",
+        "checksum":  "88C21C71351E868B1D9A1920038BE02800D3565D5AB4712F2FE1197DDE74EDE6",
+        "copyState":  "IMPORT_REWIRED",
+        "modificationsRequired":  true,
+        "modificationReason":  "imports rewired to capsule package and asset paths rewired to package namespace"
+    },
+    {
+        "originalPath":  "lib/features/generation2_mobile_entry/presentation/pages/generation2_mobile_lite_client_page.dart",
+        "capsulePath":  "lib/src/generation2/entry/presentation/pages/generation2_mobile_lite_client_page.dart",
+        "owner":  "GENERATION2_ENTRY",
+        "checksum":  "FE804FAAD2173561232717445A48652CAD964BE8B44D19107144F7C041715379",
+        "copyState":  "IMPORT_REWIRED",
+        "modificationsRequired":  true,
+        "modificationReason":  "imports rewired to capsule package and asset paths rewired to package namespace"
+    },
+    {
+        "originalPath":  "lib/features/generation2_mobile_entry/presentation/pages/generation2_mobile_login_selection_page.dart",
+        "capsulePath":  "lib/src/generation2/entry/presentation/pages/generation2_mobile_login_selection_page.dart",
+        "owner":  "GENERATION2_ENTRY",
+        "checksum":  "1276448F38E1A385374D784EE9E5F529A375B6FE9482D2CF1E4E1B48AC5701D7",
+        "copyState":  "IMPORT_REWIRED",
+        "modificationsRequired":  true,
+        "modificationReason":  "imports rewired to capsule package and asset paths rewired to package namespace"
+    },
+    {
+        "originalPath":  "lib/features/generation2_mobile_entry/presentation/pages/generation2_mobile_selection_pages.dart",
+        "capsulePath":  "lib/src/generation2/entry/presentation/pages/generation2_mobile_selection_pages.dart",
+        "owner":  "GENERATION2_ENTRY",
+        "checksum":  "DD0F6C7C3604CE1A979AB44E0E743AF3D27C67BF90E4DE16E5A1FA007D0DC7D8",
+        "copyState":  "IMPORT_REWIRED",
+        "modificationsRequired":  true,
+        "modificationReason":  "imports rewired to capsule package and asset paths rewired to package namespace"
+    },
+    {
+        "originalPath":  "lib/features/generation2_mobile_entry/presentation/pages/generation2_splash_page.dart",
+        "capsulePath":  "lib/src/generation2/entry/presentation/pages/generation2_splash_page.dart",
+        "owner":  "GENERATION2_ENTRY",
+        "checksum":  "5BCC87692EBB45A38EEAE385B26E1396B2FCFE8744D6CCA4B460A1997A4CC493",
+        "copyState":  "IMPORT_REWIRED",
+        "modificationsRequired":  true,
+        "modificationReason":  "imports rewired to capsule package and asset paths rewired to package namespace"
+    },
+    {
+        "originalPath":  "lib/features/residential/platform_core/residential_runtime_signal_bridge.dart",
+        "capsulePath":  "lib/src/residential/platform_core/residential_runtime_signal_bridge.dart",
+        "owner":  "RESIDENTIAL_PLATFORM_CORE_ADAPTER",
+        "checksum":  "63A710B41ED9CC131DE40E55576C5ABCB0492DFC52A6E597CC1399A751C8E404",
+        "copyState":  "IMPORT_REWIRED",
+        "modificationsRequired":  true,
+        "modificationReason":  "imports rewired to capsule package and asset paths rewired to package namespace"
+    },
+    {
+        "originalPath":  "lib/features/residential/platform_core/residential_section_adapter.dart",
+        "capsulePath":  "lib/src/residential/platform_core/residential_section_adapter.dart",
+        "owner":  "RESIDENTIAL_PLATFORM_CORE_ADAPTER",
+        "checksum":  "2EC28DC2A5231398B73307D7E174ADF9545E54171460E91B692E61E095978CA3",
+        "copyState":  "IMPORT_REWIRED",
+        "modificationsRequired":  true,
+        "modificationReason":  "imports rewired to capsule package and asset paths rewired to package namespace"
+    },
+    {
+        "originalPath":  "lib/features/residential/presentation/pages/residential_exit_social_portal_page.dart",
+        "capsulePath":  "lib/src/residential/presentation/pages/residential_exit_social_portal_page.dart",
+        "owner":  "RESIDENTIAL",
+        "checksum":  "30369661EA50E9CAC0F4B3ED300B6FE67AA21327A07E2F7E26955D9C11BA2E8A",
+        "copyState":  "IMPORT_REWIRED",
+        "modificationsRequired":  true,
+        "modificationReason":  "imports rewired to capsule package and asset paths rewired to package namespace"
+    },
+    {
+        "originalPath":  "lib/features/residential/signals/residential_aggregation_point.dart",
+        "capsulePath":  "lib/src/residential/signals/residential_aggregation_point.dart",
+        "owner":  "RESIDENTIAL_LOCAL_SIGNALS",
+        "checksum":  "5C8FDC35F49292B12D7E4EF32ED6E3A5E8EA9DC7E1BBF0C279695500FCE733B6",
+        "copyState":  "IMPORT_REWIRED",
+        "modificationsRequired":  true,
+        "modificationReason":  "imports rewired to capsule package and asset paths rewired to package namespace"
+    },
+    {
+        "originalPath":  "lib/features/residential/signals/residential_archive_signal_event_writer.dart",
+        "capsulePath":  "lib/src/residential/signals/residential_archive_signal_event_writer.dart",
+        "owner":  "RESIDENTIAL_LOCAL_SIGNALS",
+        "checksum":  "C6201C1E7CA11F5CB38EE12D734851BB26261EF3A251E81F2721860C34886254",
+        "copyState":  "IMPORT_REWIRED",
+        "modificationsRequired":  true,
+        "modificationReason":  "imports rewired to capsule package and asset paths rewired to package namespace"
+    },
+    {
+        "originalPath":  "lib/features/residential/signals/residential_archive_signal_package_builder.dart",
+        "capsulePath":  "lib/src/residential/signals/residential_archive_signal_package_builder.dart",
+        "owner":  "RESIDENTIAL_LOCAL_SIGNALS",
+        "checksum":  "DDD448F8050D3613B2553BFDF79E557229E732EA5A1E14174C2F0F27B861A304",
+        "copyState":  "IMPORT_REWIRED",
+        "modificationsRequired":  true,
+        "modificationReason":  "imports rewired to capsule package and asset paths rewired to package namespace"
+    },
+    {
+        "originalPath":  "lib/features/residential/signals/residential_signal_codes.dart",
+        "capsulePath":  "lib/src/residential/signals/residential_signal_codes.dart",
+        "owner":  "RESIDENTIAL_LOCAL_SIGNALS",
+        "checksum":  "39C25E331983A8A7FD298A4F8CA75555E66050D226F73E3F43F78A1CCA177DB2",
+        "copyState":  "IMPORT_REWIRED",
+        "modificationsRequired":  true,
+        "modificationReason":  "imports rewired to capsule package and asset paths rewired to package namespace"
+    },
+    {
+        "originalPath":  "lib/features/residential/signals/residential_signal_emitter.dart",
+        "capsulePath":  "lib/src/residential/signals/residential_signal_emitter.dart",
+        "owner":  "RESIDENTIAL_LOCAL_SIGNALS",
+        "checksum":  "ACF672FD5C8791CE846C7527B83202F29660DD1FBB285C578B77D911BC3FBD3D",
+        "copyState":  "IMPORT_REWIRED",
+        "modificationsRequired":  true,
+        "modificationReason":  "imports rewired to capsule package and asset paths rewired to package namespace"
+    },
+    {
+        "originalPath":  "lib/features/residential/signals/residential_signal_payload.dart",
+        "capsulePath":  "lib/src/residential/signals/residential_signal_payload.dart",
+        "owner":  "RESIDENTIAL_LOCAL_SIGNALS",
+        "checksum":  "7492CCD53DC106E9DF908F83726CA98217926BAEB15661935E7DA51FBCFFC407",
+        "copyState":  "IMPORT_REWIRED",
+        "modificationsRequired":  true,
+        "modificationReason":  "imports rewired to capsule package and asset paths rewired to package namespace"
+    },
+    {
+        "originalPath":  "lib/features/residential/signals/residential_signal_registry.dart",
+        "capsulePath":  "lib/src/residential/signals/residential_signal_registry.dart",
+        "owner":  "RESIDENTIAL_LOCAL_SIGNALS",
+        "checksum":  "5923D6B3CB6F0F5B62817D568D7511DC8E3B51B0A0F3920D0C28B317161884C6",
+        "copyState":  "IMPORT_REWIRED",
+        "modificationsRequired":  true,
+        "modificationReason":  "imports rewired to capsule package and asset paths rewired to package namespace"
+    },
+    {
+        "originalPath":  "lib/features/residential/speech/residential_speech_contract.dart",
+        "capsulePath":  "lib/src/residential/speech/residential_speech_contract.dart",
+        "owner":  "RESIDENTIAL_SPEECH",
+        "checksum":  "420BDE7C061DE589494203D53C452E33017D41287705B030DBDE513F43706D5F",
+        "copyState":  "IMPORT_REWIRED",
+        "modificationsRequired":  true,
+        "modificationReason":  "imports rewired to capsule package and asset paths rewired to package namespace"
+    },
+    {
+        "originalPath":  "lib/features/residential/speech/residential_speech_generator.dart",
+        "capsulePath":  "lib/src/residential/speech/residential_speech_generator.dart",
+        "owner":  "RESIDENTIAL_SPEECH",
+        "checksum":  "2D38C9CD955FDEA71543F4A85B221625AD7CB995E69DB10399BF99C076968CE1",
+        "copyState":  "IMPORT_REWIRED",
+        "modificationsRequired":  true,
+        "modificationReason":  "imports rewired to capsule package and asset paths rewired to package namespace"
+    },
+    {
+        "originalPath":  "lib/features/residential/speech/residential_speech_node.dart",
+        "capsulePath":  "lib/src/residential/speech/residential_speech_node.dart",
+        "owner":  "RESIDENTIAL_SPEECH",
+        "checksum":  "4E3413797E2E025537F46C1187F2190659FFFB112508FAC7A81E4E488CEC7632",
+        "copyState":  "IMPORT_REWIRED",
+        "modificationsRequired":  true,
+        "modificationReason":  "imports rewired to capsule package and asset paths rewired to package namespace"
+    },
+    {
+        "originalPath":  "lib/features/splash/presentation/pages/splash_page.dart",
+        "capsulePath":  "lib/src/entry/splash/presentation/pages/splash_page.dart",
+        "owner":  "RESIDENTIAL_ENTRY",
+        "checksum":  "B073FB3B8DF668BCDFC05370370CF2E567005B5AE893CECDB561566EEBC9F68A",
+        "copyState":  "IMPORT_REWIRED",
+        "modificationsRequired":  true,
+        "modificationReason":  "imports rewired to capsule package and asset paths rewired to package namespace"
+    },
+    {
+        "originalPath":  "lib/shared/generation2_mobile/generation2_mobile_room_scaffold.dart",
+        "capsulePath":  "lib/src/generation2/shared/generation2_mobile_room_scaffold.dart",
+        "owner":  "CENTRAL_IMPORT_FOR_GENERATION2_CLIENT",
+        "checksum":  "DEBA45FC65BEC402F2D4B5CEBFA9E5016FCD1952F340726441DA59AF84DACB46",
+        "copyState":  "IMPORT_REWIRED",
+        "modificationsRequired":  true,
+        "modificationReason":  "imports rewired to capsule package and asset paths rewired to package namespace"
+    }
+]

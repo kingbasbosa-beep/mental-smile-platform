@@ -1,0 +1,19 @@
+name: mental_smile_platform_capsule_example
+description: Mental Smile Platform Capsule example.
+publish_to: none
+
+environment:
+  sdk: ^3.8.0
+
+dependencies:
+  flutter:
+    sdk: flutter
+  mental_smile_platform_capsule:
+    path: ..
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+flutter:
+  uses-material-design: true

@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:mental_smile_os/features/residential/signals/residential_signal_codes.dart';
 import 'package:mental_smile_os/features/residential/signals/residential_signal_emitter.dart';
-import 'package:mental_smile_os/l10n/app_localizations.dart';
+import 'package:mental_smile_os/features/residential/speech/residential_speech_contract.dart';
+import 'package:mental_smile_os/l10n/accessibility/accessibility_localizations.dart';
+import 'package:mental_smile_os/l10n/residential/residential_localizations.dart';
 import 'package:mental_smile_os/shared/accessibility/accessibility_guide_icon.dart';
 import 'package:mental_smile_os/app/router/routes.dart';
-import 'package:url_launcher/url_launcher.dart';
+import 'package:mental_smile_os/shared/links/safe_external_link_launcher.dart';
 
 class AccessibilityCheckinPage extends StatefulWidget {
   const AccessibilityCheckinPage({super.key});
@@ -16,7 +18,7 @@ class AccessibilityCheckinPage extends StatefulWidget {
 
 class _AccessibilityCheckinPageState extends State<AccessibilityCheckinPage> {
   static const String _background =
-      'assets/branding/rooms/accessibility_room/cards/accessibility_links_papyrus_background.png';
+      'assets/accessibility/accessibility_checkin/accessibility_checkin_papyrus_background.png';
   static const String _adminWhatsAppNumber = '201014116531';
 
   final List<TextEditingController> _questionControllers =
@@ -44,31 +46,40 @@ class _AccessibilityCheckinPageState extends State<AccessibilityCheckinPage> {
     super.dispose();
   }
 
-  void _showSpeechPlaceholder(BuildContext context, String label) {
+  Future<void> _speakLocalizedLabel(
+    BuildContext context, {
+    required String localizationKey,
+    required String localizedText,
+  }) {
     ResidentialSignalEmitter.emit(
       signalCode: ResidentialSignalCode.listenSupportPlay,
       sourceScreen: 'Accessibility Check-in',
       sourceWidget: 'AccessibilityGuideIcon',
       action: 'request_audio_support',
     );
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(
-        content: Text(AppLocalizations.of(context)!.applicationAudioSoon),
+    return ResidentialSpeechGenerator.instance.speak(
+      context,
+      ResidentialSpeechNode(
+        sectionId: 'accessibility',
+        localizationKey: localizationKey,
+        localizedText: localizedText,
       ),
     );
   }
 
-  Future<void> _openWhatsApp(String message) async {
+  Future<bool> _openWhatsApp(String message) async {
     final uri = Uri.https(
       'wa.me',
       '/$_adminWhatsAppNumber',
       <String, String>{'text': message},
     );
-    await launchUrl(uri, mode: LaunchMode.externalApplication);
+    return SafeExternalLinkLauncher.openUri(context, uri);
   }
 
-  Future<void> _sendCheckin(AppLocalizations l10n) async {
-    await _openWhatsApp(l10n.applicationAccessibilityCheckinMessage);
+  Future<void> _sendCheckin(AccessibilityLocalizations l10n) async {
+    final opened =
+        await _openWhatsApp(l10n.applicationAccessibilityCheckinMessage);
+    if (!opened) return;
     ResidentialSignalEmitter.emit(
       signalCode: ResidentialSignalCode.checkinToolOpen,
       sourceScreen: 'Accessibility Check-in',
@@ -103,15 +114,19 @@ class _AccessibilityCheckinPageState extends State<AccessibilityCheckinPage> {
         actions: [
           TextButton(
             onPressed: () => Navigator.of(context).pop(),
-            child: Text(l10n.applicationClientDialogOk),
+            child: Text(
+                ResidentialLocalizations.of(context).applicationClientDialogOk),
           ),
         ],
       ),
     );
   }
 
-  Future<void> _openGeneralContact(AppLocalizations l10n) async {
-    await _openWhatsApp(l10n.applicationAccessibilityCheckinWhatsappContact);
+  Future<void> _openGeneralContact(AccessibilityLocalizations l10n) async {
+    final opened = await _openWhatsApp(
+      l10n.applicationAccessibilityCheckinWhatsappContact,
+    );
+    if (!opened) return;
     ResidentialSignalEmitter.emit(
       signalCode: ResidentialSignalCode.supportOpen,
       sourceScreen: 'Accessibility Check-in',
@@ -123,6 +138,22 @@ class _AccessibilityCheckinPageState extends State<AccessibilityCheckinPage> {
   bool get _supportSpaceEnabled {
     final args = ModalRoute.of(context)?.settings.arguments;
     return args is Map && args['supportSpaceEnabled'] == true;
+  }
+
+  bool _isArabic(BuildContext context) {
+    return Localizations.localeOf(context).languageCode == 'ar';
+  }
+
+  String _librarySpecialistsLabel(BuildContext context) {
+    return _isArabic(context) ? 'Ø§Ù„Ø£Ø®ØµØ§Ø¦ÙŠÙˆÙ†' : 'Specialists';
+  }
+
+  String _libraryCentersLabel(BuildContext context) {
+    return _isArabic(context) ? 'Ø§Ù„Ù…Ø±Ø§ÙƒØ²' : 'Centers';
+  }
+
+  String _libraryTitleLabel(BuildContext context) {
+    return _isArabic(context) ? 'Ø§Ù„Ù…ÙƒØªØ¨Ø©' : 'Library';
   }
 
   void _openSupportSpace(_SupportSpaceMode mode) {
@@ -139,7 +170,7 @@ class _AccessibilityCheckinPageState extends State<AccessibilityCheckinPage> {
 
   @override
   Widget build(BuildContext context) {
-    final l10n = AppLocalizations.of(context)!;
+    final l10n = AccessibilityLocalizations.of(context);
     return Scaffold(
       backgroundColor: const Color(0xFF2B1B0D),
       body: SafeArea(
@@ -196,29 +227,44 @@ class _AccessibilityCheckinPageState extends State<AccessibilityCheckinPage> {
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
                               _CheckinSection(
-                                icon: '🌿',
-                                title: l10n.applicationClientCheckInTitle,
-                                onSpeak: () => _showSpeechPlaceholder(context,
-                                    l10n.applicationClientCheckInTitle),
+                                icon: 'ðŸŒ¿',
+                                title: ResidentialLocalizations.of(context)
+                                    .applicationClientCheckInTitle,
+                                onSpeak: () => _speakLocalizedLabel(
+                                  context,
+                                  localizationKey:
+                                      'applicationClientCheckInTitle',
+                                  localizedText:
+                                      ResidentialLocalizations.of(context)
+                                          .applicationClientCheckInTitle,
+                                ),
                                 children: [
                                   for (var index = 0; index < 5; index++) ...[
                                     _CheckinField(
                                       controller: _questionControllers[index],
-                                      icon: '💬',
+                                      icon: 'ðŸ’¬',
                                       label: _questionLabel(index, l10n),
-                                      onSpeak: () => _showSpeechPlaceholder(
-                                          context, _questionLabel(index, l10n)),
+                                      onSpeak: () => _speakLocalizedLabel(
+                                        context,
+                                        localizationKey: _questionKey(index),
+                                        localizedText:
+                                            _questionLabel(index, l10n),
+                                      ),
                                     ),
                                     const SizedBox(height: 12),
                                   ],
                                   _SpeakableButton(
-                                    icon: '📨',
+                                    icon: 'ðŸ“¨',
                                     label: l10n
                                         .applicationAccessibilitySuggestionsSubmit,
                                     onPressed: () => _sendCheckin(l10n),
-                                    onSpeak: () => _showSpeechPlaceholder(
-                                        context,
-                                        l10n.applicationAccessibilitySuggestionsSubmit),
+                                    onSpeak: () => _speakLocalizedLabel(
+                                      context,
+                                      localizationKey:
+                                          'applicationAccessibilitySuggestionsSubmit',
+                                      localizedText: l10n
+                                          .applicationAccessibilitySuggestionsSubmit,
+                                    ),
                                   ),
                                 ],
                               ),
@@ -231,36 +277,48 @@ class _AccessibilityCheckinPageState extends State<AccessibilityCheckinPage> {
                                   onView: () => _openSupportSpace(
                                     _SupportSpaceMode.view,
                                   ),
-                                  onSpeak: (label) =>
-                                      _showSpeechPlaceholder(context, label),
                                 ),
                               ],
                               const SizedBox(height: 28),
                               _CheckinSection(
-                                icon: '🤝',
+                                icon: 'ðŸ¤',
                                 title: l10n
                                     .applicationAccessibilityCheckinSectionGeneral,
-                                onSpeak: () => _showSpeechPlaceholder(context,
-                                    l10n.applicationAccessibilityCheckinSectionGeneral),
+                                onSpeak: () => _speakLocalizedLabel(
+                                  context,
+                                  localizationKey:
+                                      'applicationAccessibilityCheckinSectionGeneral',
+                                  localizedText: l10n
+                                      .applicationAccessibilityCheckinSectionGeneral,
+                                ),
                                 children: [
                                   _SpeakableButton(
-                                    icon: '💬',
+                                    icon: 'ðŸ’¬',
                                     label: l10n
                                         .applicationAccessibilityCheckinWhatsappContact,
                                     onPressed: () => _openGeneralContact(l10n),
-                                    onSpeak: () => _showSpeechPlaceholder(
-                                        context,
-                                        l10n.applicationAccessibilityCheckinWhatsappContact),
+                                    onSpeak: () => _speakLocalizedLabel(
+                                      context,
+                                      localizationKey:
+                                          'applicationAccessibilityCheckinWhatsappContact',
+                                      localizedText: l10n
+                                          .applicationAccessibilityCheckinWhatsappContact,
+                                    ),
                                   ),
                                 ],
                               ),
                               const SizedBox(height: 28),
                               _CheckinSection(
-                                icon: '🧩',
+                                icon: 'ðŸ§©',
                                 title: l10n
                                     .applicationAccessibilityCheckinSectionSpecialist,
-                                onSpeak: () => _showSpeechPlaceholder(context,
-                                    l10n.applicationAccessibilityCheckinSectionSpecialist),
+                                onSpeak: () => _speakLocalizedLabel(
+                                  context,
+                                  localizationKey:
+                                      'applicationAccessibilityCheckinSectionSpecialist',
+                                  localizedText: l10n
+                                      .applicationAccessibilityCheckinSectionSpecialist,
+                                ),
                                 children: [
                                   Wrap(
                                     alignment: WrapAlignment.center,
@@ -268,28 +326,42 @@ class _AccessibilityCheckinPageState extends State<AccessibilityCheckinPage> {
                                     runSpacing: 10,
                                     children: [
                                       _NavigationButton(
-                                        icon: '🧑‍⚕️',
-                                        label: l10n.menuSpecialists,
+                                        icon: 'ðŸ§‘â€âš•ï¸',
+                                        label:
+                                            _librarySpecialistsLabel(context),
                                         route:
                                             Routes.libraryProviderSpecialists,
-                                        onSpeak: () => _showSpeechPlaceholder(
-                                            context, l10n.menuSpecialists),
+                                        onSpeak: () => _speakLocalizedLabel(
+                                          context,
+                                          localizationKey:
+                                              'applicationAccessibilityCheckinSpecialists',
+                                          localizedText: l10n
+                                              .applicationAccessibilityCheckinSpecialists,
+                                        ),
                                       ),
                                       _NavigationButton(
-                                        icon: '🏥',
-                                        label: l10n.menuCenters,
+                                        icon: 'ðŸ¥',
+                                        label: _libraryCentersLabel(context),
                                         route: Routes.libraryProviderCenters,
-                                        onSpeak: () => _showSpeechPlaceholder(
-                                            context, l10n.menuCenters),
+                                        onSpeak: () => _speakLocalizedLabel(
+                                          context,
+                                          localizationKey:
+                                              'applicationAccessibilityCheckinCenters',
+                                          localizedText: l10n
+                                              .applicationAccessibilityCheckinCenters,
+                                        ),
                                       ),
                                       if (isDesktop)
                                         _NavigationButton(
-                                          icon: '📚',
-                                          label: l10n.libraryTitle,
+                                          icon: 'ðŸ“š',
+                                          label: _libraryTitleLabel(context),
                                           route: Routes.webLibrary,
-                                          onSpeak: () => _showSpeechPlaceholder(
+                                          onSpeak: () => _speakLocalizedLabel(
                                             context,
-                                            l10n.libraryTitle,
+                                            localizationKey:
+                                                'applicationAccessibilityCheckinLibrary',
+                                            localizedText: l10n
+                                                .applicationAccessibilityCheckinLibrary,
                                           ),
                                         ),
                                     ],
@@ -311,7 +383,7 @@ class _AccessibilityCheckinPageState extends State<AccessibilityCheckinPage> {
     );
   }
 
-  String _questionLabel(int index, AppLocalizations l10n) {
+  String _questionLabel(int index, AccessibilityLocalizations l10n) {
     switch (index) {
       case 0:
         return l10n.applicationAccessibilityCheckinQuestion1;
@@ -325,6 +397,21 @@ class _AccessibilityCheckinPageState extends State<AccessibilityCheckinPage> {
         return l10n.applicationAccessibilityCheckinQuestion5;
     }
   }
+
+  String _questionKey(int index) {
+    switch (index) {
+      case 0:
+        return 'applicationAccessibilityCheckinQuestion1';
+      case 1:
+        return 'applicationAccessibilityCheckinQuestion2';
+      case 2:
+        return 'applicationAccessibilityCheckinQuestion3';
+      case 3:
+        return 'applicationAccessibilityCheckinQuestion4';
+      default:
+        return 'applicationAccessibilityCheckinQuestion5';
+    }
+  }
 }
 
 class _AccessibilityCardBackButton extends StatelessWidget {
@@ -334,8 +421,9 @@ class _AccessibilityCardBackButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AccessibilityLocalizations.of(context);
     return IconButton(
-      tooltip: 'رجوع',
+      tooltip: l10n.applicationAccessibilityCommunityToolsBackToRoom,
       onPressed: onPressed,
       style: IconButton.styleFrom(
         backgroundColor: const Color(0xFF1B1007).withValues(alpha: 0.55),
@@ -518,25 +606,28 @@ class _SharingEntrySection extends StatelessWidget {
   const _SharingEntrySection({
     required this.onShare,
     required this.onView,
-    required this.onSpeak,
   });
 
   final VoidCallback onShare;
   final VoidCallback onView;
-  final ValueChanged<String> onSpeak;
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AccessibilityLocalizations.of(context);
     return _CheckinSection(
       icon: '+',
-      title: 'ولو حابب تشارك...',
-      onSpeak: () => onSpeak('ولو حابب تشارك...'),
+      title: l10n.applicationAccessibilityCheckinSharingTitle,
+      onSpeak: () => _speakSharingText(
+        context,
+        localizationKey: 'applicationAccessibilityCheckinSharingTitle',
+        localizedText: l10n.applicationAccessibilityCheckinSharingTitle,
+      ),
       children: [
-        const Text(
-          'لو حابب تسيب رسالة بسيطة، فكرة، إحساس، أو كلمة دعم لأصدقاء Mental Smile أثناء مرحلة الاختبار، تقدر تشارك من هنا.',
+        Text(
+          l10n.applicationAccessibilityCheckinSharingBody,
           textAlign: TextAlign.center,
           textDirection: TextDirection.rtl,
-          style: TextStyle(
+          style: const TextStyle(
             color: Color(0xFF3A2A18),
             fontSize: 16,
             height: 1.5,
@@ -551,21 +642,44 @@ class _SharingEntrySection extends StatelessWidget {
           children: [
             _SpeakableButton(
               icon: '+',
-              label: 'شارك برسالة',
+              label: l10n.applicationAccessibilityCheckinSharingShare,
               onPressed: onShare,
-              onSpeak: () => onSpeak('شارك برسالة'),
+              onSpeak: () => _speakSharingText(
+                context,
+                localizationKey: 'applicationAccessibilityCheckinSharingShare',
+                localizedText: l10n.applicationAccessibilityCheckinSharingShare,
+              ),
             ),
             _SpeakableButton(
               icon: '>',
-              label: 'شاهد المشاركات',
+              label: l10n.applicationAccessibilityCheckinSharingView,
               onPressed: onView,
-              onSpeak: () => onSpeak('شاهد المشاركات'),
+              onSpeak: () => _speakSharingText(
+                context,
+                localizationKey: 'applicationAccessibilityCheckinSharingView',
+                localizedText: l10n.applicationAccessibilityCheckinSharingView,
+              ),
             ),
           ],
         ),
       ],
     );
   }
+}
+
+Future<void> _speakSharingText(
+  BuildContext context, {
+  required String localizationKey,
+  required String localizedText,
+}) {
+  return ResidentialSpeechGenerator.instance.speak(
+    context,
+    ResidentialSpeechNode(
+      sectionId: 'accessibility',
+      localizationKey: localizationKey,
+      localizedText: localizedText,
+    ),
+  );
 }
 
 class _ClientSupportSpacePage extends StatefulWidget {
@@ -580,12 +694,12 @@ class _ClientSupportSpacePage extends StatefulWidget {
 
 class _ClientSupportSpacePageState extends State<_ClientSupportSpacePage> {
   static const String _safeSpaceError =
-      'محتاجين نحافظ على مساحة آمنة للجميع. من فضلك عدّل المشاركة وحاول مرة أخرى.';
+      'Ù…Ø­ØªØ§Ø¬ÙŠÙ† Ù†Ø­Ø§ÙØ¸ Ø¹Ù„Ù‰ Ù…Ø³Ø§Ø­Ø© Ø¢Ù…Ù†Ø© Ù„Ù„Ø¬Ù…ÙŠØ¹. Ù…Ù† ÙØ¶Ù„Ùƒ Ø¹Ø¯Ù‘Ù„ Ø§Ù„Ù…Ø´Ø§Ø±ÙƒØ© ÙˆØ­Ø§ÙˆÙ„ Ù…Ø±Ø© Ø£Ø®Ø±Ù‰.';
   static const List<String> _blockedWords = [
-    'شتيمة',
-    'إهانة',
-    'حقير',
-    'غبي',
+    'Ø´ØªÙŠÙ…Ø©',
+    'Ø¥Ù‡Ø§Ù†Ø©',
+    'Ø­Ù‚ÙŠØ±',
+    'ØºØ¨ÙŠ',
     'stupid',
     'idiot',
     'hate',
@@ -649,7 +763,7 @@ class _ClientSupportSpacePageState extends State<_ClientSupportSpacePage> {
     ScaffoldMessenger.of(context).showSnackBar(
       const SnackBar(
         content: Text(
-          'تم حفظ مشاركتك محليًا أثناء مرحلة الاختبار.',
+          'ØªÙ… Ø­ÙØ¸ Ù…Ø´Ø§Ø±ÙƒØªÙƒ Ù…Ø­Ù„ÙŠÙ‹Ø§ Ø£Ø«Ù†Ø§Ø¡ Ù…Ø±Ø­Ù„Ø© Ø§Ù„Ø§Ø®ØªØ¨Ø§Ø±.',
           textDirection: TextDirection.rtl,
         ),
       ),
@@ -658,17 +772,17 @@ class _ClientSupportSpacePageState extends State<_ClientSupportSpacePage> {
 
   String? _validateMessage(String message) {
     if (!_acceptedRules) {
-      return 'من فضلك اقرأ القواعد ووافق عليها قبل المشاركة.';
+      return 'Ù…Ù† ÙØ¶Ù„Ùƒ Ø§Ù‚Ø±Ø£ Ø§Ù„Ù‚ÙˆØ§Ø¹Ø¯ ÙˆÙˆØ§ÙÙ‚ Ø¹Ù„ÙŠÙ‡Ø§ Ù‚Ø¨Ù„ Ø§Ù„Ù…Ø´Ø§Ø±ÙƒØ©.';
     }
     if (message.isEmpty) {
-      return 'اكتب رسالة قصيرة قبل النشر.';
+      return 'Ø§ÙƒØªØ¨ Ø±Ø³Ø§Ù„Ø© Ù‚ØµÙŠØ±Ø© Ù‚Ø¨Ù„ Ø§Ù„Ù†Ø´Ø±.';
     }
     if (message.length > 500) {
-      return 'خلي المشاركة 500 حرف أو أقل.';
+      return 'Ø®Ù„ÙŠ Ø§Ù„Ù…Ø´Ø§Ø±ÙƒØ© 500 Ø­Ø±Ù Ø£Ùˆ Ø£Ù‚Ù„.';
     }
     final lineCount = message.split(RegExp(r'\r\n|\r|\n')).length;
     if (lineCount > 5) {
-      return 'خلي المشاركة في 5 سطور كحد أقصى.';
+      return 'Ø®Ù„ÙŠ Ø§Ù„Ù…Ø´Ø§Ø±ÙƒØ© ÙÙŠ 5 Ø³Ø·ÙˆØ± ÙƒØ­Ø¯ Ø£Ù‚ØµÙ‰.';
     }
     final normalized = message.toLowerCase();
     for (final word in _blockedWords) {
@@ -691,7 +805,7 @@ class _ClientSupportSpacePageState extends State<_ClientSupportSpacePage> {
           foregroundColor: const Color(0xFFFFE7B2),
           centerTitle: true,
           title: const Text(
-            'مساحة المشاركة',
+            'Ù…Ø³Ø§Ø­Ø© Ø§Ù„Ù…Ø´Ø§Ø±ÙƒØ©',
             style: TextStyle(fontWeight: FontWeight.w900),
           ),
         ),
@@ -700,7 +814,7 @@ class _ClientSupportSpacePageState extends State<_ClientSupportSpacePage> {
             padding: const EdgeInsets.fromLTRB(18, 18, 18, 32),
             children: [
               const Text(
-                'مساحة قصيرة وآمنة للتعبير والدعم أثناء مرحلة الاختبار.',
+                'Ù…Ø³Ø§Ø­Ø© Ù‚ØµÙŠØ±Ø© ÙˆØ¢Ù…Ù†Ø© Ù„Ù„ØªØ¹Ø¨ÙŠØ± ÙˆØ§Ù„Ø¯Ø¹Ù… Ø£Ø«Ù†Ø§Ø¡ Ù…Ø±Ø­Ù„Ø© Ø§Ù„Ø§Ø®ØªØ¨Ø§Ø±.',
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   color: Color(0xFFFFE7B2),
@@ -711,7 +825,7 @@ class _ClientSupportSpacePageState extends State<_ClientSupportSpacePage> {
               ),
               const SizedBox(height: 8),
               const Text(
-                'طمنّا عليك تبدأ بأسئلة بسيطة تساعدك تعبّر عن حالتك، وبعدها لو حابب تشارك رسالة قصيرة أو تشوف رسائل دعم من أصدقاء Mental Smile، تقدر تستخدم مساحة المشاركة.',
+                'Ø·Ù…Ù†Ù‘Ø§ Ø¹Ù„ÙŠÙƒ ØªØ¨Ø¯Ø£ Ø¨Ø£Ø³Ø¦Ù„Ø© Ø¨Ø³ÙŠØ·Ø© ØªØ³Ø§Ø¹Ø¯Ùƒ ØªØ¹Ø¨Ù‘Ø± Ø¹Ù† Ø­Ø§Ù„ØªÙƒØŒ ÙˆØ¨Ø¹Ø¯Ù‡Ø§ Ù„Ùˆ Ø­Ø§Ø¨Ø¨ ØªØ´Ø§Ø±Ùƒ Ø±Ø³Ø§Ù„Ø© Ù‚ØµÙŠØ±Ø© Ø£Ùˆ ØªØ´ÙˆÙ Ø±Ø³Ø§Ø¦Ù„ Ø¯Ø¹Ù… Ù…Ù† Ø£ØµØ¯Ù‚Ø§Ø¡ Mental SmileØŒ ØªÙ‚Ø¯Ø± ØªØ³ØªØ®Ø¯Ù… Ù…Ø³Ø§Ø­Ø© Ø§Ù„Ù…Ø´Ø§Ø±ÙƒØ©.',
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   color: Color(0xFFE0C174),
@@ -743,7 +857,7 @@ class _ClientSupportSpacePageState extends State<_ClientSupportSpacePage> {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           const Text(
-            'مساحة المشاركة مكان آمن للتعبير والدعم.\nمن فضلك:\n- لا تكتب بياناتك الشخصية.\n- لا تذكر أسماء أشخاص آخرين.\n- لا تستخدم ألفاظ جارحة.\n- لا تقدم نصائح طبية أو علاجية.\n- لا تطلب مساعدة طارئة من هنا.\n- إذا كنت في خطر أو تحتاج مساعدة فورية، تواصل مع جهة طوارئ أو شخص تثق به.',
+            'Ù…Ø³Ø§Ø­Ø© Ø§Ù„Ù…Ø´Ø§Ø±ÙƒØ© Ù…ÙƒØ§Ù† Ø¢Ù…Ù† Ù„Ù„ØªØ¹Ø¨ÙŠØ± ÙˆØ§Ù„Ø¯Ø¹Ù….\nÙ…Ù† ÙØ¶Ù„Ùƒ:\n- Ù„Ø§ ØªÙƒØªØ¨ Ø¨ÙŠØ§Ù†Ø§ØªÙƒ Ø§Ù„Ø´Ø®ØµÙŠØ©.\n- Ù„Ø§ ØªØ°ÙƒØ± Ø£Ø³Ù…Ø§Ø¡ Ø£Ø´Ø®Ø§Øµ Ø¢Ø®Ø±ÙŠÙ†.\n- Ù„Ø§ ØªØ³ØªØ®Ø¯Ù… Ø£Ù„ÙØ§Ø¸ Ø¬Ø§Ø±Ø­Ø©.\n- Ù„Ø§ ØªÙ‚Ø¯Ù… Ù†ØµØ§Ø¦Ø­ Ø·Ø¨ÙŠØ© Ø£Ùˆ Ø¹Ù„Ø§Ø¬ÙŠØ©.\n- Ù„Ø§ ØªØ·Ù„Ø¨ Ù…Ø³Ø§Ø¹Ø¯Ø© Ø·Ø§Ø±Ø¦Ø© Ù…Ù† Ù‡Ù†Ø§.\n- Ø¥Ø°Ø§ ÙƒÙ†Øª ÙÙŠ Ø®Ø·Ø± Ø£Ùˆ ØªØ­ØªØ§Ø¬ Ù…Ø³Ø§Ø¹Ø¯Ø© ÙÙˆØ±ÙŠØ©ØŒ ØªÙˆØ§ØµÙ„ Ù…Ø¹ Ø¬Ù‡Ø© Ø·ÙˆØ§Ø±Ø¦ Ø£Ùˆ Ø´Ø®Øµ ØªØ«Ù‚ Ø¨Ù‡.',
             textAlign: TextAlign.right,
             style: TextStyle(
               color: Color(0xFFFFE7B2),
@@ -765,7 +879,7 @@ class _ClientSupportSpacePageState extends State<_ClientSupportSpacePage> {
             checkColor: Colors.black,
             controlAffinity: ListTileControlAffinity.leading,
             title: const Text(
-              'قرأت القواعد وأوافق على المشاركة باحترام.',
+              'Ù‚Ø±Ø£Øª Ø§Ù„Ù‚ÙˆØ§Ø¹Ø¯ ÙˆØ£ÙˆØ§ÙÙ‚ Ø¹Ù„Ù‰ Ø§Ù„Ù…Ø´Ø§Ø±ÙƒØ© Ø¨Ø§Ø­ØªØ±Ø§Ù….',
               textDirection: TextDirection.rtl,
               style: TextStyle(
                 color: Color(0xFFFFE7B2),
@@ -782,8 +896,9 @@ class _ClientSupportSpacePageState extends State<_ClientSupportSpacePage> {
             maxLines: 5,
             maxLength: 500,
             decoration: InputDecoration(
-              labelText: 'اكتب رسالتك',
-              hintText: 'اكتب مشاركة قصيرة تساعدك على التعبير أو الدعم...',
+              labelText: 'Ø§ÙƒØªØ¨ Ø±Ø³Ø§Ù„ØªÙƒ',
+              hintText:
+                  'Ø§ÙƒØªØ¨ Ù…Ø´Ø§Ø±ÙƒØ© Ù‚ØµÙŠØ±Ø© ØªØ³Ø§Ø¹Ø¯Ùƒ Ø¹Ù„Ù‰ Ø§Ù„ØªØ¹Ø¨ÙŠØ± Ø£Ùˆ Ø§Ù„Ø¯Ø¹Ù…...',
               labelStyle: const TextStyle(color: Color(0xFFE0C174)),
               hintStyle: TextStyle(
                 color: const Color(0xFFFFE7B2).withValues(alpha: 0.58),
@@ -835,7 +950,7 @@ class _ClientSupportSpacePageState extends State<_ClientSupportSpacePage> {
               ),
             ),
             child: const Text(
-              'نشر المشاركة',
+              'Ù†Ø´Ø± Ø§Ù„Ù…Ø´Ø§Ø±ÙƒØ©',
               style: TextStyle(fontSize: 17, fontWeight: FontWeight.w900),
             ),
           ),
@@ -848,7 +963,7 @@ class _ClientSupportSpacePageState extends State<_ClientSupportSpacePage> {
     if (messages.isEmpty) {
       return const _SupportSpacePanel(
         child: Text(
-          'لسه مفيش مشاركات. كن أول من يترك رسالة بسيطة.',
+          'Ù„Ø³Ù‡ Ù…ÙÙŠØ´ Ù…Ø´Ø§Ø±ÙƒØ§Øª. ÙƒÙ† Ø£ÙˆÙ„ Ù…Ù† ÙŠØªØ±Ùƒ Ø±Ø³Ø§Ù„Ø© Ø¨Ø³ÙŠØ·Ø©.',
           textAlign: TextAlign.center,
           style: TextStyle(
             color: Color(0xFFFFE7B2),
@@ -863,7 +978,7 @@ class _ClientSupportSpacePageState extends State<_ClientSupportSpacePage> {
     return Column(
       children: [
         const Text(
-          'مشاركات الأصدقاء',
+          'Ù…Ø´Ø§Ø±ÙƒØ§Øª Ø§Ù„Ø£ØµØ¯Ù‚Ø§Ø¡',
           textAlign: TextAlign.center,
           style: TextStyle(
             color: Color(0xFFFFE7B2),
@@ -899,13 +1014,13 @@ class _SupportSpaceModeSwitch extends StatelessWidget {
       children: [
         _SupportSpaceToggleButton(
           selected: mode == _SupportSpaceMode.write,
-          label: 'شارك برسالة',
+          label: 'Ø´Ø§Ø±Ùƒ Ø¨Ø±Ø³Ø§Ù„Ø©',
           icon: Icons.edit_note_rounded,
           onPressed: () => onModeChanged(_SupportSpaceMode.write),
         ),
         _SupportSpaceToggleButton(
           selected: mode == _SupportSpaceMode.view,
-          label: 'شاهد المشاركات',
+          label: 'Ø´Ø§Ù‡Ø¯ Ø§Ù„Ù…Ø´Ø§Ø±ÙƒØ§Øª',
           icon: Icons.visibility_rounded,
           onPressed: () => onModeChanged(_SupportSpaceMode.view),
         ),

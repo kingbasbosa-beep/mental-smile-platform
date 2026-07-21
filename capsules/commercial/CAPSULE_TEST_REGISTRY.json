@@ -1,0 +1,64 @@
+﻿{
+    "capsuleId":  "MS-CAPSULE-COM-BLUEPRINT",
+    "mode":  "PORT_MOUNTED",
+    "tests":  [
+                  {
+                      "testCode":  "MS-COM-TEST-001",
+                      "path":  "test/features/commercial/provider_profile_connection_test.dart",
+                      "purpose":  "Commercial provider profile contract",
+                      "owner":  "COMMERCIAL",
+                      "requiredForBuildable":  true,
+                      "requiredForRunnable":  true,
+                      "requiredForClonable":  true,
+                      "requiredForMergeable":  true
+                  },
+                  {
+                      "testCode":  "MS-COM-TEST-002",
+                      "path":  "test/features/commercial/provider_profile_final_closure_test.dart",
+                      "purpose":  "Commercial provider profile contract",
+                      "owner":  "COMMERCIAL",
+                      "requiredForBuildable":  true,
+                      "requiredForRunnable":  true,
+                      "requiredForClonable":  true,
+                      "requiredForMergeable":  true
+                  },
+                  {
+                      "testCode":  "MS-COM-TEST-003",
+                      "path":  "capsules/commercial/package/test/commercial_capsule_descriptor_test.dart",
+                      "purpose":  "Commercial package descriptor, routes, and speech partial status",
+                      "owner":  "COMMERCIAL_CAPSULE_DESCRIPTOR",
+                      "requiredForBuildable":  true,
+                      "requiredForRunnable":  true,
+                      "requiredForClonable":  true,
+                      "requiredForMergeable":  false
+                  },
+                  {
+                      "testCode":  "MS-COM-TEST-004",
+                      "path":  "capsules/commercial/package/test/commercial_capsule_boundary_test.dart",
+                      "purpose":  "Commercial package boundary import protection",
+                      "owner":  "COMMERCIAL_CAPSULE_BOUNDARY",
+                      "requiredForBuildable":  true,
+                      "requiredForRunnable":  true,
+                      "requiredForClonable":  true,
+                      "requiredForMergeable":  false
+                  },
+                  {
+                      "testCode":  "MS-COM-TEST-005",
+                      "path":  "test/shared/capsule_runtime/commercial_capsule_test_port_test.dart",
+                      "purpose":  "Central Commercial test-port compatibility and isolation",
+                      "owner":  "COMMERCIAL_TEST_PORT",
+                      "requiredForBuildable":  true,
+                      "requiredForRunnable":  true,
+                      "requiredForClonable":  true,
+                      "requiredForMergeable":  false
+                  }
+              ],
+    "counts":  {
+                   "tests":  5,
+                   "requiredForBuildable":  5,
+                   "requiredForRunnable":  5,
+                   "requiredForClonable":  5,
+                   "requiredForMergeable":  2,
+                   "testCasesAdded":  30
+               }
+}

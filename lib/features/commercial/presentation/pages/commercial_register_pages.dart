@@ -32,6 +32,7 @@ class _SpecialistRegisterPageState extends State<SpecialistRegisterPage> {
 
   @override
   Widget build(BuildContext context) {
+    final successRoute = _successRoute(Routes.commercialRoom);
     return CommercialLoginScaffold(
       title: 'تسجيل الأخصائي',
       fields: [
@@ -76,6 +77,7 @@ class _SpecialistRegisterPageState extends State<SpecialistRegisterPage> {
       secondaryLabel: 'Back to Login',
       onSecondaryPressed: () => Navigator.of(context).pushReplacementNamed(
         Routes.commercialSpecialistLogin,
+        arguments: <String, Object>{'successRoute': successRoute},
       ),
     );
   }
@@ -111,9 +113,17 @@ class _SpecialistRegisterPageState extends State<SpecialistRegisterPage> {
     }
 
     Navigator.of(context).pushNamedAndRemoveUntil(
-      Routes.commercialRoom,
+      _successRoute(Routes.commercialRoom),
       (route) => false,
     );
+  }
+
+  String _successRoute(String fallback) {
+    final args = ModalRoute.of(context)?.settings.arguments;
+    if (args is Map && args['successRoute'] is String) {
+      return args['successRoute'] as String;
+    }
+    return fallback;
   }
 
   bool _validate() {
@@ -173,6 +183,7 @@ class _CenterRegisterPageState extends State<CenterRegisterPage> {
 
   @override
   Widget build(BuildContext context) {
+    final successRoute = _successRoute(Routes.commercialCenterRoom);
     return CommercialLoginScaffold(
       title: 'تسجيل المركز',
       fields: [
@@ -217,6 +228,7 @@ class _CenterRegisterPageState extends State<CenterRegisterPage> {
       secondaryLabel: 'Back to Login',
       onSecondaryPressed: () => Navigator.of(context).pushReplacementNamed(
         Routes.commercialCenterLogin,
+        arguments: <String, Object>{'successRoute': successRoute},
       ),
     );
   }
@@ -252,9 +264,17 @@ class _CenterRegisterPageState extends State<CenterRegisterPage> {
     }
 
     Navigator.of(context).pushNamedAndRemoveUntil(
-      Routes.commercialCenterRoom,
+      _successRoute(Routes.commercialCenterRoom),
       (route) => false,
     );
+  }
+
+  String _successRoute(String fallback) {
+    final args = ModalRoute.of(context)?.settings.arguments;
+    if (args is Map && args['successRoute'] is String) {
+      return args['successRoute'] as String;
+    }
+    return fallback;
   }
 
   bool _validate() {

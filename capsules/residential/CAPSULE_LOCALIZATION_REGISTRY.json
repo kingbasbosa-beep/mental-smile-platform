@@ -1,0 +1,83 @@
+﻿{
+    "capsuleId":  "MS-CAPSULE-RES-R-1.07.2026",
+    "mode":  "BLUEPRINT",
+    "localization":  [
+                         {
+                             "localizationCode":  "MS-RES-L10N-001",
+                             "owner":  "RESIDENTIAL",
+                             "arbArabic":  "lib/l10n/residential/residential_ar.arb",
+                             "arbEnglish":  "lib/l10n/residential/residential_en.arb",
+                             "generatedClass":  "ResidentialLocalizations",
+                             "generatedFiles":  [
+                                                    "lib/l10n/residential/residential_localizations.dart",
+                                                    "lib/l10n/residential/residential_localizations_ar.dart",
+                                                    "lib/l10n/residential/residential_localizations_en.dart"
+                                                ],
+                             "keyCount":  61,
+                             "activeConsumerCount":  32,
+                             "speechKeyCount":  105,
+                             "crossOwnerUsage":  "section_owned",
+                             "canonicalLine":  "MS-LINE-LOCALIZATION-01",
+                             "runtimeState":  "ACTIVE_DIRECT"
+                         },
+                         {
+                             "localizationCode":  "MS-RES-L10N-002",
+                             "owner":  "ACCESSIBILITY",
+                             "arbArabic":  "lib/l10n/accessibility/accessibility_ar.arb",
+                             "arbEnglish":  "lib/l10n/accessibility/accessibility_en.arb",
+                             "generatedClass":  "AccessibilityLocalizations",
+                             "generatedFiles":  [
+                                                    "lib/l10n/accessibility/accessibility_localizations.dart",
+                                                    "lib/l10n/accessibility/accessibility_localizations_ar.dart",
+                                                    "lib/l10n/accessibility/accessibility_localizations_en.dart"
+                                                ],
+                             "keyCount":  146,
+                             "activeConsumerCount":  29,
+                             "speechKeyCount":  105,
+                             "crossOwnerUsage":  "section_owned",
+                             "canonicalLine":  "MS-LINE-LOCALIZATION-01",
+                             "runtimeState":  "ACTIVE_DIRECT"
+                         },
+                         {
+                             "localizationCode":  "MS-RES-L10N-003",
+                             "owner":  "APP_SECTION_CENTRAL_IMPORT",
+                             "arbArabic":  "lib/l10n/app/app_ar.arb",
+                             "arbEnglish":  "lib/l10n/app/app_en.arb",
+                             "generatedClass":  "AppSectionLocalizations",
+                             "generatedFiles":  [
+                                                    "lib/l10n/app/app_section_localizations.dart",
+                                                    "lib/l10n/app/app_section_localizations_ar.dart",
+                                                    "lib/l10n/app/app_section_localizations_en.dart"
+                                                ],
+                             "keyCount":  26,
+                             "activeConsumerCount":  2,
+                             "speechKeyCount":  105,
+                             "crossOwnerUsage":  "central_import_only",
+                             "canonicalLine":  "MS-LINE-LOCALIZATION-01",
+                             "runtimeState":  "CENTRAL_IMPORT"
+                         },
+                         {
+                             "localizationCode":  "MS-RES-L10N-004",
+                             "owner":  "SHARED_CENTRAL_IMPORT",
+                             "arbArabic":  "lib/l10n/shared/shared_ar.arb",
+                             "arbEnglish":  "lib/l10n/shared/shared_en.arb",
+                             "generatedClass":  "SharedLocalizations",
+                             "generatedFiles":  [
+                                                    "lib/l10n/shared/shared_localizations.dart",
+                                                    "lib/l10n/shared/shared_localizations_ar.dart",
+                                                    "lib/l10n/shared/shared_localizations_en.dart"
+                                                ],
+                             "keyCount":  5,
+                             "activeConsumerCount":  4,
+                             "speechKeyCount":  0,
+                             "crossOwnerUsage":  "central_import_only",
+                             "canonicalLine":  "MS-LINE-LOCALIZATION-01",
+                             "runtimeState":  "CENTRAL_IMPORT"
+                         }
+                     ],
+    "counts":  {
+                   "localizationOwners":  4,
+                   "localizationKeys":  238,
+                   "crossOwnerUsage":  "central imports recorded, not copied"
+               }
+}

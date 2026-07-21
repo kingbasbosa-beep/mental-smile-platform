@@ -1,0 +1,273 @@
+﻿{
+    "capsuleId":  "MS-CAPSULE-RES-R-1.07.2026",
+    "mode":  "PORT_MOUNTED",
+    "ports":  [
+                  {
+                      "portId":  "MS-PORT-RES-ACTIVE-01",
+                      "sectionId":  "MS-SECTION-RESIDENTIAL",
+                      "mode":  "ACTIVE",
+                      "allowedLines":  [
+                                           "MS-LINE-LIFECYCLE-01",
+                                           "MS-LINE-ROUTE-01",
+                                           "MS-LINE-SIGNAL-01",
+                                           "MS-LINE-LOCALIZATION-01",
+                                           "MS-LINE-ASSET-01",
+                                           "MS-LINE-EXTERNAL-ACTION-01",
+                                           "MS-LINE-ERROR-01"
+                                       ],
+                      "contractVersion":  1,
+                      "writeIdentity":  "residential-active",
+                      "localStateIdentity":  "mental_smile_local_signals_residential",
+                      "activationState":  "DESIGNED_NOT_IMPLEMENTED"
+                  },
+                  {
+                      "portId":  "MS-PORT-RES-TEST-01",
+                      "sectionId":  "MS-SECTION-RESIDENTIAL",
+                      "mode":  "TEST",
+                      "allowedLines":  [
+                                           "MS-LINE-LIFECYCLE-01",
+                                           "MS-LINE-ROUTE-01",
+                                           "MS-LINE-SIGNAL-01",
+                                           "MS-LINE-LOCALIZATION-01",
+                                           "MS-LINE-ASSET-01",
+                                           "MS-LINE-EXTERNAL-ACTION-01",
+                                           "MS-LINE-ERROR-01"
+                                       ],
+                      "contractVersion":  1,
+                      "writeIdentity":  "residential-test",
+                      "localStateIdentity":  "mental_smile_local_signals_residential_test",
+                      "activationState":  "MOUNTED_TEST",
+                      "public":  false,
+                      "default":  false,
+                      "productionWrites":  false,
+                      "productionSignals":  false,
+                      "isolatedLocalState":  true,
+                      "isolatedRouteNamespace":  true,
+                      "compatibilityRequired":  true,
+                      "mountState":  "MOUNTED_TEST",
+                      "routeNamespace":  "/__capsule_test/residential",
+                      "localStatePrefix":  "ms_capsule_res_test_01_",
+                      "schemaFingerprint":  "MS-CAPSULE-RES-R-1.07.2026|contract:1|routes:14|core:3|local:58|assets:60|l10n:238|speech:48|lines:7"
+                  }
+              ],
+    "canonicalLineMap":  [
+                             {
+                                 "source":  "Residential runtime",
+                                 "target":  "package:mental_smile_os/app/locale_provider.dart",
+                                 "purpose":  "central runtime dependency required by current Residential runtime",
+                                 "lineCode":  "MS-LINE-LIFECYCLE-01",
+                                 "contractId":  "MS-RES-IMPORT-001",
+                                 "version":  "current-repository-state",
+                                 "direction":  "section_to_central",
+                                 "requiredPayload":  "current runtime call",
+                                 "expectedResponse":  "current dependency behavior",
+                                 "failureCode":  "fail fast or no-op according to current central dependency behavior",
+                                 "activeConsumerCount":  1
+                             },
+                             {
+                                 "source":  "Residential runtime",
+                                 "target":  "package:mental_smile_os/app/router/routes.dart",
+                                 "purpose":  "central runtime dependency required by current Residential runtime",
+                                 "lineCode":  "MS-LINE-ROUTE-01",
+                                 "contractId":  "MS-RES-IMPORT-002",
+                                 "version":  "current-repository-state",
+                                 "direction":  "section_to_central",
+                                 "requiredPayload":  "current runtime call",
+                                 "expectedResponse":  "current dependency behavior",
+                                 "failureCode":  "fail fast or no-op according to current central dependency behavior",
+                                 "activeConsumerCount":  1
+                             },
+                             {
+                                 "source":  "Residential runtime",
+                                 "target":  "package:mental_smile_os/core/local_signals/local_section_signal_buffer.dart",
+                                 "purpose":  "central runtime dependency required by current Residential runtime",
+                                 "lineCode":  "MS-LINE-SIGNAL-01",
+                                 "contractId":  "MS-RES-IMPORT-003",
+                                 "version":  "current-repository-state",
+                                 "direction":  "section_to_central",
+                                 "requiredPayload":  "current runtime call",
+                                 "expectedResponse":  "current dependency behavior",
+                                 "failureCode":  "fail fast or no-op according to current central dependency behavior",
+                                 "activeConsumerCount":  1
+                             },
+                             {
+                                 "source":  "Residential runtime",
+                                 "target":  "package:mental_smile_os/core/platform_core/platform_core.dart",
+                                 "purpose":  "central runtime dependency required by current Residential runtime",
+                                 "lineCode":  "MS-LINE-SIGNAL-01",
+                                 "contractId":  "MS-RES-IMPORT-004",
+                                 "version":  "current-repository-state",
+                                 "direction":  "section_to_central",
+                                 "requiredPayload":  "current runtime call",
+                                 "expectedResponse":  "current dependency behavior",
+                                 "failureCode":  "fail fast or no-op according to current central dependency behavior",
+                                 "activeConsumerCount":  1
+                             },
+                             {
+                                 "source":  "Residential runtime",
+                                 "target":  "package:mental_smile_os/core/storage/locale_storage.dart",
+                                 "purpose":  "central runtime dependency required by current Residential runtime",
+                                 "lineCode":  "MS-LINE-LIFECYCLE-01",
+                                 "contractId":  "MS-RES-IMPORT-005",
+                                 "version":  "current-repository-state",
+                                 "direction":  "section_to_central",
+                                 "requiredPayload":  "current runtime call",
+                                 "expectedResponse":  "current dependency behavior",
+                                 "failureCode":  "fail fast or no-op according to current central dependency behavior",
+                                 "activeConsumerCount":  1
+                             },
+                             {
+                                 "source":  "Residential runtime",
+                                 "target":  "package:mental_smile_os/l10n/accessibility/accessibility_localizations.dart",
+                                 "purpose":  "central runtime dependency required by current Residential runtime",
+                                 "lineCode":  "MS-LINE-LOCALIZATION-01",
+                                 "contractId":  "MS-RES-IMPORT-006",
+                                 "version":  "current-repository-state",
+                                 "direction":  "section_to_central",
+                                 "requiredPayload":  "current runtime call",
+                                 "expectedResponse":  "current dependency behavior",
+                                 "failureCode":  "fail fast or no-op according to current central dependency behavior",
+                                 "activeConsumerCount":  1
+                             },
+                             {
+                                 "source":  "Residential runtime",
+                                 "target":  "package:mental_smile_os/l10n/app/app_section_localizations.dart",
+                                 "purpose":  "central runtime dependency required by current Residential runtime",
+                                 "lineCode":  "MS-LINE-LOCALIZATION-01",
+                                 "contractId":  "MS-RES-IMPORT-007",
+                                 "version":  "current-repository-state",
+                                 "direction":  "section_to_central",
+                                 "requiredPayload":  "current runtime call",
+                                 "expectedResponse":  "current dependency behavior",
+                                 "failureCode":  "fail fast or no-op according to current central dependency behavior",
+                                 "activeConsumerCount":  1
+                             },
+                             {
+                                 "source":  "Residential runtime",
+                                 "target":  "package:mental_smile_os/l10n/residential/residential_localizations.dart",
+                                 "purpose":  "central runtime dependency required by current Residential runtime",
+                                 "lineCode":  "MS-LINE-LOCALIZATION-01",
+                                 "contractId":  "MS-RES-IMPORT-008",
+                                 "version":  "current-repository-state",
+                                 "direction":  "section_to_central",
+                                 "requiredPayload":  "current runtime call",
+                                 "expectedResponse":  "current dependency behavior",
+                                 "failureCode":  "fail fast or no-op according to current central dependency behavior",
+                                 "activeConsumerCount":  1
+                             },
+                             {
+                                 "source":  "Residential runtime",
+                                 "target":  "package:mental_smile_os/l10n/shared/shared_localizations.dart",
+                                 "purpose":  "central runtime dependency required by current Residential runtime",
+                                 "lineCode":  "MS-LINE-LOCALIZATION-01",
+                                 "contractId":  "MS-RES-IMPORT-009",
+                                 "version":  "current-repository-state",
+                                 "direction":  "section_to_central",
+                                 "requiredPayload":  "current runtime call",
+                                 "expectedResponse":  "current dependency behavior",
+                                 "failureCode":  "fail fast or no-op according to current central dependency behavior",
+                                 "activeConsumerCount":  1
+                             },
+                             {
+                                 "source":  "Residential runtime",
+                                 "target":  "package:mental_smile_os/shared/accessibility/accessibility_guide_icon.dart",
+                                 "purpose":  "central runtime dependency required by current Residential runtime",
+                                 "lineCode":  "MS-LINE-LIFECYCLE-01",
+                                 "contractId":  "MS-RES-IMPORT-010",
+                                 "version":  "current-repository-state",
+                                 "direction":  "section_to_central",
+                                 "requiredPayload":  "current runtime call",
+                                 "expectedResponse":  "current dependency behavior",
+                                 "failureCode":  "fail fast or no-op according to current central dependency behavior",
+                                 "activeConsumerCount":  1
+                             },
+                             {
+                                 "source":  "Residential runtime",
+                                 "target":  "package:mental_smile_os/shared/accessibility/speech/localized_speech_request.dart",
+                                 "purpose":  "central runtime dependency required by current Residential runtime",
+                                 "lineCode":  "MS-LINE-EXTERNAL-ACTION-01",
+                                 "contractId":  "MS-RES-IMPORT-011",
+                                 "version":  "current-repository-state",
+                                 "direction":  "section_to_central",
+                                 "requiredPayload":  "current runtime call",
+                                 "expectedResponse":  "current dependency behavior",
+                                 "failureCode":  "fail fast or no-op according to current central dependency behavior",
+                                 "activeConsumerCount":  1
+                             },
+                             {
+                                 "source":  "Residential runtime",
+                                 "target":  "package:mental_smile_os/shared/accessibility/speech/localized_speech_service.dart",
+                                 "purpose":  "central runtime dependency required by current Residential runtime",
+                                 "lineCode":  "MS-LINE-EXTERNAL-ACTION-01",
+                                 "contractId":  "MS-RES-IMPORT-012",
+                                 "version":  "current-repository-state",
+                                 "direction":  "section_to_central",
+                                 "requiredPayload":  "current runtime call",
+                                 "expectedResponse":  "current dependency behavior",
+                                 "failureCode":  "fail fast or no-op according to current central dependency behavior",
+                                 "activeConsumerCount":  1
+                             },
+                             {
+                                 "source":  "Residential runtime",
+                                 "target":  "package:mental_smile_os/shared/generation2_mobile/generation2_mobile_room_scaffold.dart",
+                                 "purpose":  "central runtime dependency required by current Residential runtime",
+                                 "lineCode":  "MS-LINE-LIFECYCLE-01",
+                                 "contractId":  "MS-RES-IMPORT-013",
+                                 "version":  "current-repository-state",
+                                 "direction":  "section_to_central",
+                                 "requiredPayload":  "current runtime call",
+                                 "expectedResponse":  "current dependency behavior",
+                                 "failureCode":  "fail fast or no-op according to current central dependency behavior",
+                                 "activeConsumerCount":  1
+                             },
+                             {
+                                 "source":  "Residential runtime",
+                                 "target":  "package:mental_smile_os/shared/guides/daleel_assistant.dart",
+                                 "purpose":  "central runtime dependency required by current Residential runtime",
+                                 "lineCode":  "MS-LINE-LIFECYCLE-01",
+                                 "contractId":  "MS-RES-IMPORT-014",
+                                 "version":  "current-repository-state",
+                                 "direction":  "section_to_central",
+                                 "requiredPayload":  "current runtime call",
+                                 "expectedResponse":  "current dependency behavior",
+                                 "failureCode":  "fail fast or no-op according to current central dependency behavior",
+                                 "activeConsumerCount":  1
+                             },
+                             {
+                                 "source":  "Residential runtime",
+                                 "target":  "package:mental_smile_os/shared/links/safe_external_link_launcher.dart",
+                                 "purpose":  "central runtime dependency required by current Residential runtime",
+                                 "lineCode":  "MS-LINE-EXTERNAL-ACTION-01",
+                                 "contractId":  "MS-RES-IMPORT-015",
+                                 "version":  "current-repository-state",
+                                 "direction":  "section_to_central",
+                                 "requiredPayload":  "current runtime call",
+                                 "expectedResponse":  "current dependency behavior",
+                                 "failureCode":  "fail fast or no-op according to current central dependency behavior",
+                                 "activeConsumerCount":  1
+                             }
+                         ],
+    "reservedLines":  [
+                          {
+                              "lineCode":  "MS-LINE-EXT-01",
+                              "state":  "RESERVED_UNUSED"
+                          },
+                          {
+                              "lineCode":  "MS-LINE-EXT-02",
+                              "state":  "RESERVED_UNUSED"
+                          },
+                          {
+                              "lineCode":  "MS-LINE-EXT-03",
+                              "state":  "RESERVED_UNUSED"
+                          }
+                      ],
+    "counts":  {
+                   "canonicalLinesUsed":  7,
+                   "centralImports":  15,
+                   "unmappedConnections":  0,
+                   "oneOffLines":  0,
+                   "portsImplemented":  1,
+                   "testPortImplemented":  true,
+                   "activePortImplemented":  false
+               }
+}

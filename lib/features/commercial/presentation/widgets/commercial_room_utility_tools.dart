@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:mental_smile_os/app/router/routes.dart';
 import 'package:mental_smile_os/features/commercial/presentation/widgets/commercial_room_screen_image.dart';
-import 'package:mental_smile_os/l10n/app_localizations.dart';
+import 'package:mental_smile_os/l10n/commercial/commercial_localizations.dart';
 import 'package:mental_smile_os/shared/accessibility/accessibility_guide_icon.dart';
+import 'package:mental_smile_os/shared/accessibility/speech/localized_speech_action.dart';
 
 class CommercialRoomUtilityTools extends StatefulWidget {
   const CommercialRoomUtilityTools({
@@ -26,9 +27,9 @@ class CommercialRoomUtilityTools extends StatefulWidget {
 class _CommercialRoomUtilityToolsState
     extends State<CommercialRoomUtilityTools> {
   static const String _exitCup =
-      'assets/branding/rooms/client_room/accessibility_room_exit_button.png';
+      'assets/commercial/commercial_room_utility_tools/commercial_room_exit_button.png';
   static const String _noteFeather =
-      'assets/branding/rooms/accessibility_room/cards/accessibility_note_feather_button.png';
+      'assets/commercial/commercial_room_utility_tools/commercial_room_note_feather_button.png';
 
   String _savedNote = '';
   String _savedDateTime = '';
@@ -40,11 +41,16 @@ class _CommercialRoomUtilityToolsState
     );
   }
 
-  void _showSpeechPlaceholder(BuildContext context, String label) {
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(
-        content: Text(AppLocalizations.of(context)!.applicationAudioSoon),
-      ),
+  Future<void> _speakCommercial(
+    BuildContext context, {
+    required String localizationKey,
+    required String text,
+  }) {
+    return speakLocalizedText(
+      context,
+      sectionId: 'commercial',
+      localizationKey: localizationKey,
+      text: text,
     );
   }
 
@@ -82,7 +88,7 @@ class _CommercialRoomUtilityToolsState
     );
   }
 
-  Future<void> _openNotebook(AppLocalizations l10n) async {
+  Future<void> _openNotebook(CommercialLocalizations l10n) async {
     final noteController = TextEditingController(text: _savedNote);
     final dateController = TextEditingController(text: _savedDateTime);
     await showDialog<void>(
@@ -109,8 +115,11 @@ class _CommercialRoomUtilityToolsState
                 ),
               ),
               AccessibilityGuideIcon(
-                onPressed: () =>
-                    _showSpeechPlaceholder(context, widget.noteTitle),
+                onPressed: () => _speakCommercial(
+                  context,
+                  localizationKey: 'commercialRoomNoteTitle',
+                  text: widget.noteTitle,
+                ),
               ),
             ],
           ),
@@ -129,9 +138,10 @@ class _CommercialRoomUtilityToolsState
                   ),
                   decoration: _notebookFieldDecoration(
                     label: l10n.commercialRoomNotebookNote,
-                    onSpeak: () => _showSpeechPlaceholder(
+                    onSpeak: () => _speakCommercial(
                       context,
-                      l10n.commercialRoomNotebookNote,
+                      localizationKey: 'commercialRoomNotebookNote',
+                      text: l10n.commercialRoomNotebookNote,
                     ),
                   ),
                 ),
@@ -145,9 +155,10 @@ class _CommercialRoomUtilityToolsState
                   ),
                   decoration: _notebookFieldDecoration(
                     label: l10n.commercialRoomNotebookReminder,
-                    onSpeak: () => _showSpeechPlaceholder(
+                    onSpeak: () => _speakCommercial(
                       context,
-                      l10n.commercialRoomNotebookReminder,
+                      localizationKey: 'commercialRoomNotebookReminder',
+                      text: l10n.commercialRoomNotebookReminder,
                     ),
                   ),
                 ),
@@ -196,7 +207,7 @@ class _CommercialRoomUtilityToolsState
 
   @override
   Widget build(BuildContext context) {
-    final l10n = AppLocalizations.of(context)!;
+    final commercialL10n = CommercialLocalizations.of(context);
     return Stack(
       fit: StackFit.expand,
       children: [
@@ -204,21 +215,27 @@ class _CommercialRoomUtilityToolsState
           assetPath: _noteFeather,
           placement: widget.featherPlacement,
           imageSize: widget.featherImageSize,
-          tooltip: l10n.commercialRoomNotebookTooltip,
+          tooltip: commercialL10n.commercialRoomNotebookTooltip,
           semanticLabel: widget.noteTitle,
-          onPressed: () => _openNotebook(l10n),
-          onSpeak: () => _showSpeechPlaceholder(
-              context, l10n.commercialRoomNotebookTooltip),
+          onPressed: () => _openNotebook(commercialL10n),
+          onSpeak: () => _speakCommercial(
+            context,
+            localizationKey: 'commercialRoomNotebookTooltip',
+            text: commercialL10n.commercialRoomNotebookTooltip,
+          ),
         ),
         _RoomAssetButton(
           assetPath: _exitCup,
           placement: widget.cupPlacement,
-          tooltip: l10n.commercialRoomExitRoomTooltip,
-          semanticLabel: l10n.applicationClientExitRoom,
+          tooltip: commercialL10n.commercialRoomExitRoomTooltip,
+          semanticLabel: commercialL10n.commercialRoomExitRoomTooltip,
           onPressed: _exitRoom,
           useAccessibilityGuideIcon: true,
-          onSpeak: () => _showSpeechPlaceholder(
-              context, l10n.commercialRoomExitRoomTooltip),
+          onSpeak: () => _speakCommercial(
+            context,
+            localizationKey: 'commercialRoomExitRoomTooltip',
+            text: commercialL10n.commercialRoomExitRoomTooltip,
+          ),
         ),
       ],
     );

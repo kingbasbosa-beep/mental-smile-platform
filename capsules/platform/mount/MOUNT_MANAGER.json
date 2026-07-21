@@ -1,0 +1,7 @@
+{
+  "managerId": "MS-PLATFORM-MOUNT-MANAGER-01",
+  "testPortId": "MS-PORT-PLATFORM-TEST-01",
+  "activatesCapsules": false,
+  "allowedMountMode": "TEST",
+  "invalidMountPolicy": "reject"
+}

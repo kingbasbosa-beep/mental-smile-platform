@@ -1,0 +1,16 @@
+{
+  "states": [
+    "DESIGNED_NOT_IMPLEMENTED",
+    "PACKAGE_READY",
+    "MOUNTED_TEST",
+    "MANUAL_VERIFICATION_PENDING",
+    "MANUAL_VERIFICATION_PASSED",
+    "ELIGIBLE_FOR_ACTIVATION",
+    "ACTIVE",
+    "SUSPENDED",
+    "REJECTED",
+    "INCOMPATIBLE"
+  ],
+  "initialState": "PACKAGE_READY",
+  "activeCapsulesAllowedByPlatformCapsule": false
+}

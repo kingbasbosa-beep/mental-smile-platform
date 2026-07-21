@@ -3,55 +3,124 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:mental_smile_os/features/residential/signals/residential_signal_codes.dart';
 import 'package:mental_smile_os/features/residential/signals/residential_signal_emitter.dart';
-import 'package:mental_smile_os/l10n/app_localizations.dart';
+import 'package:mental_smile_os/features/residential/speech/residential_speech_contract.dart';
+import 'package:mental_smile_os/l10n/accessibility/accessibility_localizations.dart';
+import 'package:mental_smile_os/l10n/residential/residential_localizations.dart';
 import 'package:mental_smile_os/shared/accessibility/accessibility_guide_icon.dart';
 
 class AccessibilityMessageOfDayPage extends StatelessWidget {
   const AccessibilityMessageOfDayPage({super.key});
 
   static const String _background =
-      'assets/branding/rooms/accessibility_room/cards/accessibility_links_papyrus_background.png';
+      'assets/accessibility/accessibility_message_of_day/accessibility_message_of_day_papyrus_background.png';
 
-  List<String> _messages(AppLocalizations l10n) => [
-        l10n.applicationAccessibilityMessage1,
-        l10n.applicationAccessibilityMessage2,
-        l10n.applicationAccessibilityMessage3,
-        l10n.applicationAccessibilityMessage4,
-        l10n.applicationAccessibilityMessage5,
-        l10n.applicationAccessibilityMessage6,
-        l10n.applicationAccessibilityMessage7,
-        l10n.applicationAccessibilityMessage8,
-        l10n.applicationAccessibilityMessage9,
-        l10n.applicationAccessibilityMessage10,
-        l10n.applicationAccessibilityMessage11,
-        l10n.applicationAccessibilityMessage12,
-        l10n.applicationAccessibilityMessage13,
-        l10n.applicationAccessibilityMessage14,
-        l10n.applicationAccessibilityMessage15,
-        l10n.applicationAccessibilityMessage16,
-        l10n.applicationAccessibilityMessage17,
-        l10n.applicationAccessibilityMessage18,
-        l10n.applicationAccessibilityMessage19,
-        l10n.applicationAccessibilityMessage20,
+  List<_LocalizedMessage> _messages(AccessibilityLocalizations l10n) => [
+        _LocalizedMessage(
+          key: 'applicationAccessibilityMessage1',
+          text: l10n.applicationAccessibilityMessage1,
+        ),
+        _LocalizedMessage(
+          key: 'applicationAccessibilityMessage2',
+          text: l10n.applicationAccessibilityMessage2,
+        ),
+        _LocalizedMessage(
+          key: 'applicationAccessibilityMessage3',
+          text: l10n.applicationAccessibilityMessage3,
+        ),
+        _LocalizedMessage(
+          key: 'applicationAccessibilityMessage4',
+          text: l10n.applicationAccessibilityMessage4,
+        ),
+        _LocalizedMessage(
+          key: 'applicationAccessibilityMessage5',
+          text: l10n.applicationAccessibilityMessage5,
+        ),
+        _LocalizedMessage(
+          key: 'applicationAccessibilityMessage6',
+          text: l10n.applicationAccessibilityMessage6,
+        ),
+        _LocalizedMessage(
+          key: 'applicationAccessibilityMessage7',
+          text: l10n.applicationAccessibilityMessage7,
+        ),
+        _LocalizedMessage(
+          key: 'applicationAccessibilityMessage8',
+          text: l10n.applicationAccessibilityMessage8,
+        ),
+        _LocalizedMessage(
+          key: 'applicationAccessibilityMessage9',
+          text: l10n.applicationAccessibilityMessage9,
+        ),
+        _LocalizedMessage(
+          key: 'applicationAccessibilityMessage10',
+          text: l10n.applicationAccessibilityMessage10,
+        ),
+        _LocalizedMessage(
+          key: 'applicationAccessibilityMessage11',
+          text: l10n.applicationAccessibilityMessage11,
+        ),
+        _LocalizedMessage(
+          key: 'applicationAccessibilityMessage12',
+          text: l10n.applicationAccessibilityMessage12,
+        ),
+        _LocalizedMessage(
+          key: 'applicationAccessibilityMessage13',
+          text: l10n.applicationAccessibilityMessage13,
+        ),
+        _LocalizedMessage(
+          key: 'applicationAccessibilityMessage14',
+          text: l10n.applicationAccessibilityMessage14,
+        ),
+        _LocalizedMessage(
+          key: 'applicationAccessibilityMessage15',
+          text: l10n.applicationAccessibilityMessage15,
+        ),
+        _LocalizedMessage(
+          key: 'applicationAccessibilityMessage16',
+          text: l10n.applicationAccessibilityMessage16,
+        ),
+        _LocalizedMessage(
+          key: 'applicationAccessibilityMessage17',
+          text: l10n.applicationAccessibilityMessage17,
+        ),
+        _LocalizedMessage(
+          key: 'applicationAccessibilityMessage18',
+          text: l10n.applicationAccessibilityMessage18,
+        ),
+        _LocalizedMessage(
+          key: 'applicationAccessibilityMessage19',
+          text: l10n.applicationAccessibilityMessage19,
+        ),
+        _LocalizedMessage(
+          key: 'applicationAccessibilityMessage20',
+          text: l10n.applicationAccessibilityMessage20,
+        ),
       ];
 
-  void _showSpeechPlaceholder(BuildContext context, String label) {
+  Future<void> _speakLocalizedLabel(
+    BuildContext context, {
+    required String localizationKey,
+    required String localizedText,
+  }) {
     ResidentialSignalEmitter.emit(
       signalCode: ResidentialSignalCode.listenSupportPlay,
       sourceScreen: 'Accessibility Message of Day',
       sourceWidget: 'AccessibilityGuideIcon',
       action: 'request_audio_support',
     );
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(
-        content: Text(AppLocalizations.of(context)!.applicationAudioSoon),
+    return ResidentialSpeechGenerator.instance.speak(
+      context,
+      ResidentialSpeechNode(
+        sectionId: 'accessibility',
+        localizationKey: localizationKey,
+        localizedText: localizedText,
       ),
     );
   }
 
-  void _selectRandom(BuildContext context, AppLocalizations l10n) {
+  void _selectRandom(BuildContext context, AccessibilityLocalizations l10n) {
     final messages = _messages(l10n);
-    final message = messages[Random().nextInt(messages.length)];
+    final message = messages[Random().nextInt(messages.length)].text;
     ResidentialSignalEmitter.emit(
       signalCode: ResidentialSignalCode.motivationSelect,
       sourceScreen: 'Accessibility Message of Day',
@@ -79,7 +148,7 @@ class AccessibilityMessageOfDayPage extends StatelessWidget {
       sourceWidget: 'AccessibilityMessageOfDayPage',
       action: 'view',
     );
-    final l10n = AppLocalizations.of(context)!;
+    final l10n = AccessibilityLocalizations.of(context);
     return Scaffold(
       backgroundColor: const Color(0xFF2B1B0D),
       body: SafeArea(
@@ -120,12 +189,19 @@ class AccessibilityMessageOfDayPage extends StatelessWidget {
                             children: [
                               Semantics(
                                 header: true,
-                                label: l10n.applicationClientFeatherNotebook,
+                                label: ResidentialLocalizations.of(context)
+                                    .applicationClientFeatherNotebook,
                                 child: _SpeakableText(
                                   text:
-                                      '🌿 ${l10n.applicationClientFeatherNotebook}',
-                                  onSpeak: () => _showSpeechPlaceholder(context,
-                                      l10n.applicationClientFeatherNotebook),
+                                      '🌿 ${ResidentialLocalizations.of(context).applicationClientFeatherNotebook}',
+                                  onSpeak: () => _speakLocalizedLabel(
+                                    context,
+                                    localizationKey:
+                                        'applicationClientFeatherNotebook',
+                                    localizedText:
+                                        ResidentialLocalizations.of(context)
+                                            .applicationClientFeatherNotebook,
+                                  ),
                                   style: const TextStyle(
                                     color: Color(0xFF7A4A00),
                                     fontSize: 34,
@@ -137,8 +213,13 @@ class AccessibilityMessageOfDayPage extends StatelessWidget {
                               _SpeakableText(
                                 text:
                                     '📝 ${l10n.applicationAccessibilityDialogSelectMessage}',
-                                onSpeak: () => _showSpeechPlaceholder(context,
-                                    l10n.applicationAccessibilityDialogSelectMessage),
+                                onSpeak: () => _speakLocalizedLabel(
+                                  context,
+                                  localizationKey:
+                                      'applicationAccessibilityDialogSelectMessage',
+                                  localizedText: l10n
+                                      .applicationAccessibilityDialogSelectMessage,
+                                ),
                                 style: const TextStyle(
                                   color: Color(0xFF3A2A18),
                                   fontSize: 19,
@@ -150,17 +231,25 @@ class AccessibilityMessageOfDayPage extends StatelessWidget {
                                 text: l10n
                                     .applicationAccessibilityDialogRandomMessage,
                                 onPressed: () => _selectRandom(context, l10n),
-                                onSpeak: () => _showSpeechPlaceholder(context,
-                                    l10n.applicationAccessibilityDialogRandomMessage),
+                                onSpeak: () => _speakLocalizedLabel(
+                                  context,
+                                  localizationKey:
+                                      'applicationAccessibilityDialogRandomMessage',
+                                  localizedText: l10n
+                                      .applicationAccessibilityDialogRandomMessage,
+                                ),
                               ),
                               const SizedBox(height: 16),
                               for (final message in _messages(l10n))
                                 _MessageOption(
-                                  text: message,
+                                  text: message.text,
                                   onPressed: () =>
-                                      _selectMessage(context, message),
-                                  onSpeak: () =>
-                                      _showSpeechPlaceholder(context, message),
+                                      _selectMessage(context, message.text),
+                                  onSpeak: () => _speakLocalizedLabel(
+                                    context,
+                                    localizationKey: message.key,
+                                    localizedText: message.text,
+                                  ),
                                 ),
                             ],
                           ),
@@ -176,6 +265,16 @@ class AccessibilityMessageOfDayPage extends StatelessWidget {
       ),
     );
   }
+}
+
+class _LocalizedMessage {
+  const _LocalizedMessage({
+    required this.key,
+    required this.text,
+  });
+
+  final String key;
+  final String text;
 }
 
 class _MessageOption extends StatelessWidget {

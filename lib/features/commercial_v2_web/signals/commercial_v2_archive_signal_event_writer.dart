@@ -1,5 +1,5 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/foundation.dart';
+import 'package:mental_smile_os/core/local_signals/local_section_signal_buffer.dart';
 
 import 'commercial_v2_inbox_outbox_interfaces.dart';
 import 'commercial_v2_signal_codes.dart';
@@ -46,43 +46,37 @@ class CommercialV2ArchiveSignalEventWriter {
     final createdAt = DateTime.now().toUtc();
     final eventId =
         'cv2_open_library_${createdAt.microsecondsSinceEpoch.toString()}';
-    final traceId = 'trace_$eventId';
-
-    final event = <String, Object>{
-      'event_id': eventId,
-      'source_section_code': CommercialV2PlugCodes.sectionCode,
-      'source_outbox_plug': CommercialV2PlugCodes.outboxPlug,
-      'destination_section_code': destinationSectionCode,
-      'destination_inbox_plug': destinationInboxPlug,
-      'archive_destination_code': archiveDestinationCode,
-      'package_family': packageFamily,
-      'signal_code': payload.signalCode,
-      'magnet_code': payload.archiveMagnetCode,
-      'privacy_class': payload.privacyClass,
-      'retention_class': payload.retentionClass,
-      'payload_minimal': <String, Object>{
-        'source_screen': payload.sourceScreen,
-        'source_widget': payload.sourceWidget,
-        'action': payload.action,
-        'runtime_version': payload.runtimeVersion,
-      },
-      'created_at': FieldValue.serverTimestamp(),
-      'guard_status': acceptedGuardStatus,
-      'quarantine_reason': noQuarantineReason,
-      'trace_id': traceId,
+    final context = <String, Object?>{
+      'sourceScreen': payload.sourceScreen,
+      'sourceWidget': payload.sourceWidget,
+      'action': payload.action,
+      'runtimeVersion': payload.runtimeVersion,
+      'signalFamily': payload.signalFamily,
+      'archiveMagnetCode': payload.archiveMagnetCode,
+      'sourceSectionCode': CommercialV2PlugCodes.sectionCode,
     };
 
-    debugPrint('CV2_FIRST_WRITE_PAYLOAD event_id=$eventId payload=$event');
+    debugPrint(
+      'CV2_LOCAL_SIGNAL_BUFFER_PAYLOAD event_id=$eventId payload=$context',
+    );
 
     try {
-      await FirebaseFirestore.instance
-          .collection(collectionPath)
-          .doc(eventId)
-          .set(event)
-          .timeout(const Duration(seconds: 8));
+      final result = await LocalSectionSignalBuffer().append(
+        sectionId: LocalSectionSignalBuffer.commercialSection,
+        code: payload.signalCode,
+        eventName: payload.signalFamily,
+        context: context,
+      );
+      if (!result.stored) {
+        return CommercialV2ArchiveSignalWriteResult(
+          success: false,
+          eventId: eventId,
+          errorMessage: result.reason,
+        );
+      }
       debugPrint(
-        'CV2_FIRST_WRITE_SUCCESS event_id=$eventId '
-        'collection=$collectionPath',
+        'CV2_LOCAL_SIGNAL_BUFFER_SUCCESS event_id=$eventId '
+        'section=${LocalSectionSignalBuffer.commercialSection}',
       );
       return CommercialV2ArchiveSignalWriteResult(
         success: true,
@@ -90,8 +84,7 @@ class CommercialV2ArchiveSignalEventWriter {
       );
     } catch (error, stackTrace) {
       debugPrint(
-        'CV2_FIRST_WRITE_FAILURE event_id=$eventId '
-        'collection=$collectionPath error=$error',
+        'CV2_LOCAL_SIGNAL_BUFFER_FAILURE event_id=$eventId error=$error',
       );
       debugPrintStack(stackTrace: stackTrace);
       return CommercialV2ArchiveSignalWriteResult(

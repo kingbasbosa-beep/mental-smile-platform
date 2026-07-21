@@ -1,0 +1,164 @@
+﻿{
+    "capsuleId":  "MS-CAPSULE-COM-BLUEPRINT",
+    "coreFirestoreSignals":  [
+                                 {
+                                     "signalCode":  "sp010bt",
+                                     "owner":  "COMMERCIAL",
+                                     "emitter":  "lib/features/commercial/platform_core/commercial_runtime_signal_bridge.dart",
+                                     "receiver":  "PlatformCoreSignalBridge",
+                                     "persistence":  "PlatformCoreSignalBridge",
+                                     "collectionOrBuffer":  "platform_core_signal_bridge",
+                                     "ttl":  "platform_core_defined",
+                                     "maximumRecords":  null,
+                                     "piiAllowed":  false,
+                                     "canonicalLine":  "MS-LINE-SIGNAL-01",
+                                     "runtimeState":  "ACTIVE_DIRECT"
+                                 },
+                                 {
+                                     "signalCode":  "ct010bt",
+                                     "owner":  "COMMERCIAL",
+                                     "emitter":  "lib/features/commercial/platform_core/commercial_runtime_signal_bridge.dart",
+                                     "receiver":  "PlatformCoreSignalBridge",
+                                     "persistence":  "PlatformCoreSignalBridge",
+                                     "collectionOrBuffer":  "platform_core_signal_bridge",
+                                     "ttl":  "platform_core_defined",
+                                     "maximumRecords":  null,
+                                     "piiAllowed":  false,
+                                     "canonicalLine":  "MS-LINE-SIGNAL-01",
+                                     "runtimeState":  "ACTIVE_DIRECT"
+                                 },
+                                 {
+                                     "signalCode":  "sp014sb",
+                                     "owner":  "COMMERCIAL",
+                                     "emitter":  "lib/features/commercial/platform_core/commercial_runtime_signal_bridge.dart",
+                                     "receiver":  "PlatformCoreSignalBridge",
+                                     "persistence":  "PlatformCoreSignalBridge",
+                                     "collectionOrBuffer":  "platform_core_signal_bridge",
+                                     "ttl":  "platform_core_defined",
+                                     "maximumRecords":  null,
+                                     "piiAllowed":  false,
+                                     "canonicalLine":  "MS-LINE-SIGNAL-01",
+                                     "runtimeState":  "ACTIVE_DIRECT"
+                                 },
+                                 {
+                                     "signalCode":  "ct014sb",
+                                     "owner":  "COMMERCIAL",
+                                     "emitter":  "lib/features/commercial/platform_core/commercial_runtime_signal_bridge.dart",
+                                     "receiver":  "PlatformCoreSignalBridge",
+                                     "persistence":  "PlatformCoreSignalBridge",
+                                     "collectionOrBuffer":  "platform_core_signal_bridge",
+                                     "ttl":  "platform_core_defined",
+                                     "maximumRecords":  null,
+                                     "piiAllowed":  false,
+                                     "canonicalLine":  "MS-LINE-SIGNAL-01",
+                                     "runtimeState":  "ACTIVE_DIRECT"
+                                 }
+                             ],
+    "commercialLocalSignals":  [
+                                   {
+                                       "signalCode":  "CV2_SIG_OPEN_LIBRARY",
+                                       "owner":  "COMMERCIAL_V2_WEB",
+                                       "emitter":  "lib/features/commercial_v2_web/signals/commercial_v2_signal_emitter.dart",
+                                       "receiver":  "lib/features/commercial_v2_web/signals/commercial_v2_archive_signal_event_writer.dart",
+                                       "persistence":  "LocalSectionSignalBuffer",
+                                       "collectionOrBuffer":  "mental_smile_local_signals_commercial",
+                                       "ttl":  "24h",
+                                       "maximumRecords":  200,
+                                       "piiAllowed":  false,
+                                       "canonicalLine":  "MS-LINE-SIGNAL-01",
+                                       "runtimeState":  "ACTIVE_DIRECT"
+                                   },
+                                   {
+                                       "signalCode":  "CV2_SIG_OPEN_SPECIALISTS",
+                                       "owner":  "COMMERCIAL_V2_WEB",
+                                       "emitter":  "lib/features/commercial_v2_web/signals/commercial_v2_signal_emitter.dart",
+                                       "receiver":  "lib/features/commercial_v2_web/signals/commercial_v2_archive_signal_event_writer.dart",
+                                       "persistence":  "LocalSectionSignalBuffer",
+                                       "collectionOrBuffer":  "mental_smile_local_signals_commercial",
+                                       "ttl":  "24h",
+                                       "maximumRecords":  200,
+                                       "piiAllowed":  false,
+                                       "canonicalLine":  "MS-LINE-SIGNAL-01",
+                                       "runtimeState":  "ACTIVE_INDIRECT_SKIPPED_BY_WRITER"
+                                   },
+                                   {
+                                       "signalCode":  "CV2_SIG_OPEN_CENTERS",
+                                       "owner":  "COMMERCIAL_V2_WEB",
+                                       "emitter":  "lib/features/commercial_v2_web/signals/commercial_v2_signal_emitter.dart",
+                                       "receiver":  "lib/features/commercial_v2_web/signals/commercial_v2_archive_signal_event_writer.dart",
+                                       "persistence":  "LocalSectionSignalBuffer",
+                                       "collectionOrBuffer":  "mental_smile_local_signals_commercial",
+                                       "ttl":  "24h",
+                                       "maximumRecords":  200,
+                                       "piiAllowed":  false,
+                                       "canonicalLine":  "MS-LINE-SIGNAL-01",
+                                       "runtimeState":  "ACTIVE_INDIRECT_SKIPPED_BY_WRITER"
+                                   },
+                                   {
+                                       "signalCode":  "CV2_SIG_BACK",
+                                       "owner":  "COMMERCIAL_V2_WEB",
+                                       "emitter":  "lib/features/commercial_v2_web/signals/commercial_v2_signal_emitter.dart",
+                                       "receiver":  "lib/features/commercial_v2_web/signals/commercial_v2_archive_signal_event_writer.dart",
+                                       "persistence":  "LocalSectionSignalBuffer",
+                                       "collectionOrBuffer":  "mental_smile_local_signals_commercial",
+                                       "ttl":  "24h",
+                                       "maximumRecords":  200,
+                                       "piiAllowed":  false,
+                                       "canonicalLine":  "MS-LINE-SIGNAL-01",
+                                       "runtimeState":  "ACTIVE_INDIRECT_SKIPPED_BY_WRITER"
+                                   },
+                                   {
+                                       "signalCode":  "CV2_SIG_REGISTRATION_PACKAGE_READY",
+                                       "owner":  "COMMERCIAL_V2_WEB",
+                                       "emitter":  "lib/features/commercial_v2_web/signals/commercial_v2_signal_emitter.dart",
+                                       "receiver":  "lib/features/commercial_v2_web/signals/commercial_v2_archive_signal_event_writer.dart",
+                                       "persistence":  "LocalSectionSignalBuffer",
+                                       "collectionOrBuffer":  "mental_smile_local_signals_commercial",
+                                       "ttl":  "24h",
+                                       "maximumRecords":  200,
+                                       "piiAllowed":  false,
+                                       "canonicalLine":  "MS-LINE-SIGNAL-01",
+                                       "runtimeState":  "ACTIVE_INDIRECT_SKIPPED_BY_WRITER"
+                                   },
+                                   {
+                                       "signalCode":  "CV2_SIG_PROFILE_GENERATION_READY",
+                                       "owner":  "COMMERCIAL_V2_WEB",
+                                       "emitter":  "lib/features/commercial_v2_web/signals/commercial_v2_signal_emitter.dart",
+                                       "receiver":  "lib/features/commercial_v2_web/signals/commercial_v2_archive_signal_event_writer.dart",
+                                       "persistence":  "LocalSectionSignalBuffer",
+                                       "collectionOrBuffer":  "mental_smile_local_signals_commercial",
+                                       "ttl":  "24h",
+                                       "maximumRecords":  200,
+                                       "piiAllowed":  false,
+                                       "canonicalLine":  "MS-LINE-SIGNAL-01",
+                                       "runtimeState":  "ACTIVE_INDIRECT_SKIPPED_BY_WRITER"
+                                   },
+                                   {
+                                       "signalCode":  "CV2_SIG_PUBLISHING_PACKAGE_READY",
+                                       "owner":  "COMMERCIAL_V2_WEB",
+                                       "emitter":  "lib/features/commercial_v2_web/signals/commercial_v2_signal_emitter.dart",
+                                       "receiver":  "lib/features/commercial_v2_web/signals/commercial_v2_archive_signal_event_writer.dart",
+                                       "persistence":  "LocalSectionSignalBuffer",
+                                       "collectionOrBuffer":  "mental_smile_local_signals_commercial",
+                                       "ttl":  "24h",
+                                       "maximumRecords":  200,
+                                       "piiAllowed":  false,
+                                       "canonicalLine":  "MS-LINE-SIGNAL-01",
+                                       "runtimeState":  "ACTIVE_INDIRECT_SKIPPED_BY_WRITER"
+                                   }
+                               ],
+    "testOnlySignals":  [
+
+                        ],
+    "unusedDictionaryCodes":  [
+
+                              ],
+    "counts":  {
+                   "coreFirestoreSignalCodes":  4,
+                   "commercialLocalSignalCodes":  7,
+                   "testOnlySignalCodes":  0,
+                   "unusedSignalCodes":  0,
+                   "writerAcceptedLocalSignals":  1,
+                   "writerSkippedLocalSignals":  6
+               }
+}

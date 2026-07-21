@@ -11,8 +11,7 @@
     "assets/c5/ui/status_dots/",
     "assets/c5/ui/gradients/",
     "assets/c5/ui/ornaments/",
-    "assets/c5/sheet/",
-    "assets/c5/docs/"
+    "assets/c5/sheet/"
   ],
   "files": [
     "assets/c5/sheet/c5_sheet.png",
@@ -20,7 +19,6 @@
     "assets/c5/avatars/avatar_clinician_f.png",
     "assets/c5/avatars/avatar_clinician_m.png",
     "assets/c5/avatars/avatar_client.png",
-    "assets/c5/avatars/avatar_admin_support.png",
 
     "assets/c5/icons/icon_pending.png",
     "assets/c5/icons/icon_approved.png",

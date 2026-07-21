@@ -11,10 +11,12 @@ class Generation2MobileFriendsSelectionPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return _G2MobilePortalPage(
       title: 'الأصدقاء',
+      backgroundAssetPath:
+          'assets/client/generation2_mobile_client_selection/background_mobile.webp',
       daleelAssistant: const DaleelAssistant(
         iconOnly: true,
         guideAssetPath:
-            'assets/branding/guides/client_account_selection_mobile_guide.png',
+            'assets/client/generation2_mobile_client_selection/client_account_selection_mobile_guide.png',
         surveyTitle: 'رأيك يهمنا',
         surveyIntro: 'ساعدنا في تحسين شاشة اختيار نوع حساب العميل.\n\n'
             'لن يستغرق هذا الاستبيان سوى دقيقة واحدة.',
@@ -62,6 +64,8 @@ class Generation2MobileSupportersSelectionPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return _G2MobilePortalPage(
       title: 'الداعمين',
+      backgroundAssetPath:
+          'assets/app/generation2_mobile_supporters_selection/background_mobile.webp',
       daleelAssistant: const DaleelAssistant(
         iconOnly: true,
         guideAssetPath:
@@ -90,14 +94,20 @@ class Generation2MobileSupportersSelectionPage extends StatelessWidget {
           label: 'أخصائيين داعمين',
           icon: Icons.medical_services_rounded,
           onPressed: () => Navigator.of(context).pushNamed(
-            Routes.generation2MobileSpecialistRoom,
+            Routes.commercialSpecialistLogin,
+            arguments: const <String, Object>{
+              'successRoute': Routes.generation2MobileSpecialistRoom,
+            },
           ),
         ),
         _G2MobilePortalButtonData(
           label: 'مراكز داعمة',
           icon: Icons.apartment_rounded,
           onPressed: () => Navigator.of(context).pushNamed(
-            Routes.generation2MobileCenterRoom,
+            Routes.commercialCenterLogin,
+            arguments: const <String, Object>{
+              'successRoute': Routes.generation2MobileCenterRoom,
+            },
           ),
         ),
       ],
@@ -109,15 +119,15 @@ class _G2MobilePortalPage extends StatelessWidget {
   const _G2MobilePortalPage({
     required this.title,
     required this.buttons,
+    required this.backgroundAssetPath,
     this.daleelAssistant,
   });
 
-  static const String _background =
-      'assets/images/mobile/login/background_mobile.webp';
   static const double _backgroundScale = 0.96;
 
   final String title;
   final List<_G2MobilePortalButtonData> buttons;
+  final String backgroundAssetPath;
   final Widget? daleelAssistant;
 
   @override
@@ -143,7 +153,7 @@ class _G2MobilePortalPage extends StatelessWidget {
                       child: Transform.scale(
                         scale: _backgroundScale,
                         child: Image.asset(
-                          _background,
+                          backgroundAssetPath,
                           width: shellWidth,
                           height: mediaSize.height,
                           fit: BoxFit.contain,

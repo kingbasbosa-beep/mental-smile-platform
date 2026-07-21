@@ -1,0 +1,20 @@
+{
+  "capsuleId": "MS-CAPSULE-LIB-BLUEPRINT",
+  "mode": "PORT_MOUNTED",
+  "tests": [
+    {"testCode":"MS-LIB-TEST-001","path":"test/features/library/specialist_public_white_card_test.dart","purpose":"Specialist public white-card rendering and Library provider branch contract","owner":"LIBRARY_PROVIDER_CONTENT","requiredForBuildable":true,"requiredForRunnable":true,"requiredForClonable":true,"requiredForMergeable":true},
+    {"testCode":"MS-LIB-TEST-002","path":"test/features/library/center_public_white_card_test.dart","purpose":"Center public white-card rendering and Library provider branch contract","owner":"LIBRARY_PROVIDER_CONTENT","requiredForBuildable":true,"requiredForRunnable":true,"requiredForClonable":true,"requiredForMergeable":true},
+    {"testCode":"MS-LIB-TEST-003","path":"test/shared/accessibility/speech/localized_speech_service_test.dart","purpose":"Connected Library headphone buttons use localization keys and shared speech action","owner":"SHARED_SPEECH_WITH_LIBRARY_CONSUMER","requiredForBuildable":true,"requiredForRunnable":true,"requiredForClonable":true,"requiredForMergeable":true},
+    {"testCode":"MS-LIB-TEST-004","path":"capsules/library/package/test/library_capsule_descriptor_test.dart","purpose":"Library package descriptor, routes, localization, signals, speech, and content counts","owner":"LIBRARY_CAPSULE_DESCRIPTOR","requiredForBuildable":true,"requiredForRunnable":true,"requiredForClonable":true,"requiredForMergeable":false},
+    {"testCode":"MS-LIB-TEST-005","path":"capsules/library/package/test/library_capsule_boundary_test.dart","purpose":"Library package boundary import protection","owner":"LIBRARY_CAPSULE_BOUNDARY","requiredForBuildable":true,"requiredForRunnable":true,"requiredForClonable":true,"requiredForMergeable":false},
+    {"testCode":"MS-LIB-TEST-006","path":"test/shared/capsule_runtime/library_capsule_test_port_test.dart","purpose":"Central Library test-port compatibility, isolation, mount, unmount, and boundary protection","owner":"LIBRARY_TEST_PORT","requiredForBuildable":true,"requiredForRunnable":true,"requiredForClonable":true,"requiredForMergeable":false}
+  ],
+  "counts": {
+    "tests": 6,
+    "requiredForBuildable": 6,
+    "requiredForRunnable": 6,
+    "requiredForClonable": 6,
+    "requiredForMergeable": 3,
+    "testCasesAdded": 26
+  }
+}

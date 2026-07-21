@@ -1,0 +1,53 @@
+﻿{
+    "buildable":  "PENDING_MANUAL_VERIFICATION",
+    "runnable":  "PENDING_MANUAL_VERIFICATION",
+    "clonable":  "PENDING_MANUAL_VERIFICATION",
+    "mergeable":  false,
+    "blueprintComplete":  true,
+    "runtimeCopied":  true,
+    "portsImplemented":  true,
+    "testPortImplemented":  true,
+    "compatibilityGatePassed":  "PENDING_MANUAL_VERIFICATION",
+    "checks":  {
+                   "allRuntimeFilesMapped":  true,
+                   "allRoutesMapped":  true,
+                   "allSignalsMapped":  true,
+                   "allAssetsMapped":  true,
+                   "allLocalizationMapped":  true,
+                   "allFirebaseMapped":  true,
+                   "allStorageMapped":  true,
+                   "allSpeechMapped":  true,
+                   "allTestsMapped":  true,
+                   "allCentralConnectionsMapped":  true,
+                   "unmappedConnectionsZero":  true,
+                   "crossSectionDependenciesZero":  false,
+                   "ownershipViolationsZero":  false,
+                   "activeAssetReferencesMissing":  1
+               },
+    "blockers":  [
+                     "missing_active_asset_reference: assets/branding/guides/supporters_account_selection_mobile_guide.png",
+                     "generation2_mobile_entry contains non-residential supporter/specialist/center branches; map only, do not split in 10B-0"
+                 ],
+    "materialized":  true,
+    "active":  false,
+    "assetsCopied":  true,
+    "platformMounted":  true,
+    "testMounted":  true,
+    "package":  {
+                    "path":  "capsules/residential/package",
+                    "mode":  "MATERIALIZED_UNMOUNTED",
+                    "runtimeFilesCopied":  31,
+                    "assetsCopied":  51,
+                    "centralAssetsContracted":  9,
+                    "routesDeclared":  14,
+                    "coreSignalsDeclared":  3,
+                    "localSignalsDeclared":  58,
+                    "residentialLocalizationKeysMapped":  61,
+                    "accessibilityLocalizationKeysMapped":  146,
+                    "speakersMapped":  48,
+                    "verificationPending":  true,
+                    "testPortId":  "MS-PORT-RES-TEST-01",
+                    "testRoute":  "/__capsule_test/residential",
+                    "schemaFingerprint":  "MS-CAPSULE-RES-R-1.07.2026|contract:1|routes:14|core:3|local:58|assets:60|l10n:238|speech:48|lines:7"
+                }
+}

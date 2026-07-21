@@ -1,0 +1,10 @@
+{
+  "hostAdapters": [
+    "RegistryHostAdapter",
+    "ManifestHostAdapter",
+    "CompatibilityHostAdapter",
+    "DiagnosticsHostAdapter"
+  ],
+  "dependsOnSectionPackages": false,
+  "readonly": true
+}

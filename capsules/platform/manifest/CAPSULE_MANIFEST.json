@@ -1,0 +1,26 @@
+{
+  "capsuleId": "MS-CAPSULE-PLATFORM-INFRASTRUCTURE",
+  "repositoryId": "MS-PLATFORM-DNA-V1-PRO",
+  "sectionId": "PLATFORM",
+  "mode": "PACKAGE_READY",
+  "packagePath": "capsules/platform/package",
+  "publicEntry": "package:mental_smile_platform_capsule/mental_smile_platform_capsule.dart",
+  "testPortId": "MS-PORT-PLATFORM-TEST-01",
+  "active": false,
+  "runtimeMirrors": false,
+  "sectionRuntimeCopied": false,
+  "firebase": false,
+  "dynamicCodeLoading": false,
+  "filesystemRuntimeScanning": false,
+  "schemaFingerprint": "MS-CAPSULE-PLATFORM-INFRASTRUCTURE|capsules:4|ports:1|lines:11|contracts:3|lifecycle:10|host:readonly|runtime:0",
+  "registries": [
+    "registries/CAPSULE_REGISTRY.json",
+    "ports/PORT_REGISTRY.json",
+    "canonical_lines/CANONICAL_LINE_REGISTRY.json"
+  ],
+  "verification": {
+    "buildable": "PENDING_MANUAL_VERIFICATION",
+    "testable": "PENDING_MANUAL_VERIFICATION",
+    "manualVerificationRequired": true
+  }
+}

@@ -1,0 +1,226 @@
+﻿[
+    {
+        "originalPath":  "lib/features/library/data/library_signal_metadata.dart",
+        "capsulePath":  "lib/src/runtime_mirror/features_library_data_library_signal_metadata.dart",
+        "owner":  "LIBRARY_SIGNALS",
+        "checksum":  "PENDING_MANUAL_VERIFICATION",
+        "copyState":  "CONTRACT_REWIRED",
+        "rewiringReason":  "Library test capsule forbids direct active runtime, production Firebase reads, and cross-capsule implementation imports."
+    },
+    {
+        "originalPath":  "lib/features/library/knowledge_cards/data/knowledge_card_repository.dart",
+        "capsulePath":  "lib/src/runtime_mirror/features_library_knowledge_cards_data_knowledge_card_repository.dart",
+        "owner":  "LIBRARY_CONTENT",
+        "checksum":  "PENDING_MANUAL_VERIFICATION",
+        "copyState":  "CONTRACT_REWIRED",
+        "rewiringReason":  "Library test capsule forbids direct active runtime, production Firebase reads, and cross-capsule implementation imports."
+    },
+    {
+        "originalPath":  "lib/features/library/knowledge_cards/domain/models/knowledge_card.dart",
+        "capsulePath":  "lib/src/runtime_mirror/features_library_knowledge_cards_domain_models_knowledge_card.dart",
+        "owner":  "LIBRARY_CONTENT",
+        "checksum":  "PENDING_MANUAL_VERIFICATION",
+        "copyState":  "CONTRACT_REWIRED",
+        "rewiringReason":  "Library test capsule forbids direct active runtime, production Firebase reads, and cross-capsule implementation imports."
+    },
+    {
+        "originalPath":  "lib/features/library/knowledge_cards/presentation/pages/knowledge_article_viewer_page.dart",
+        "capsulePath":  "lib/src/runtime_mirror/features_library_knowledge_cards_presentation_pages_knowledge_article_viewer_page.dart",
+        "owner":  "LIBRARY_ARTICLE",
+        "checksum":  "PENDING_MANUAL_VERIFICATION",
+        "copyState":  "CONTRACT_REWIRED",
+        "rewiringReason":  "Library test capsule forbids direct active runtime, production Firebase reads, and cross-capsule implementation imports."
+    },
+    {
+        "originalPath":  "lib/features/library/knowledge_cards/presentation/pages/knowledge_cards_page.dart",
+        "capsulePath":  "lib/src/runtime_mirror/features_library_knowledge_cards_presentation_pages_knowledge_cards_page.dart",
+        "owner":  "LIBRARY_CONTENT",
+        "checksum":  "PENDING_MANUAL_VERIFICATION",
+        "copyState":  "CONTRACT_REWIRED",
+        "rewiringReason":  "Library test capsule forbids direct active runtime, production Firebase reads, and cross-capsule implementation imports."
+    },
+    {
+        "originalPath":  "lib/features/library/knowledge_cards/presentation/widgets/knowledge_cards_rolling_carousel.dart",
+        "capsulePath":  "lib/src/runtime_mirror/features_library_knowledge_cards_presentation_widgets_knowledge_cards_rolling_carousel.dart",
+        "owner":  "LIBRARY_CONTENT",
+        "checksum":  "PENDING_MANUAL_VERIFICATION",
+        "copyState":  "CONTRACT_REWIRED",
+        "rewiringReason":  "Library test capsule forbids direct active runtime, production Firebase reads, and cross-capsule implementation imports."
+    },
+    {
+        "originalPath":  "lib/features/library/platform_core/library_section_adapter.dart",
+        "capsulePath":  "lib/src/runtime_mirror/features_library_platform_core_library_section_adapter.dart",
+        "owner":  "LIBRARY_PLATFORM_ADAPTER",
+        "checksum":  "PENDING_MANUAL_VERIFICATION",
+        "copyState":  "CONTRACT_REWIRED",
+        "rewiringReason":  "Library test capsule forbids direct active runtime, production Firebase reads, and cross-capsule implementation imports."
+    },
+    {
+        "originalPath":  "lib/features/library/presentation/pages/library_page.dart",
+        "capsulePath":  "lib/src/runtime_mirror/features_library_presentation_pages_library_page.dart",
+        "owner":  "LIBRARY",
+        "checksum":  "PENDING_MANUAL_VERIFICATION",
+        "copyState":  "CONTRACT_REWIRED",
+        "rewiringReason":  "Library test capsule forbids direct active runtime, production Firebase reads, and cross-capsule implementation imports."
+    },
+    {
+        "originalPath":  "lib/features/library/presentation/pages/library_provider_content_pages.dart",
+        "capsulePath":  "lib/src/runtime_mirror/features_library_presentation_pages_library_provider_content_pages.dart",
+        "owner":  "LIBRARY_PROVIDER_CONTENT",
+        "checksum":  "PENDING_MANUAL_VERIFICATION",
+        "copyState":  "CONTRACT_REWIRED",
+        "rewiringReason":  "Library test capsule forbids direct active runtime, production Firebase reads, and cross-capsule implementation imports."
+    },
+    {
+        "originalPath":  "lib/features/library/presentation/widgets/center_public_white_card.dart",
+        "capsulePath":  "lib/src/runtime_mirror/features_library_presentation_widgets_center_public_white_card.dart",
+        "owner":  "LIBRARY_PROVIDER_CONTENT",
+        "checksum":  "PENDING_MANUAL_VERIFICATION",
+        "copyState":  "CONTRACT_REWIRED",
+        "rewiringReason":  "Library test capsule forbids direct active runtime, production Firebase reads, and cross-capsule implementation imports."
+    },
+    {
+        "originalPath":  "lib/features/library/presentation/widgets/specialist_public_white_card.dart",
+        "capsulePath":  "lib/src/runtime_mirror/features_library_presentation_widgets_specialist_public_white_card.dart",
+        "owner":  "LIBRARY_PROVIDER_CONTENT",
+        "checksum":  "PENDING_MANUAL_VERIFICATION",
+        "copyState":  "CONTRACT_REWIRED",
+        "rewiringReason":  "Library test capsule forbids direct active runtime, production Firebase reads, and cross-capsule implementation imports."
+    },
+    {
+        "originalPath":  "lib/features/library/signals/library_aggregation_point.dart",
+        "capsulePath":  "lib/src/runtime_mirror/features_library_signals_library_aggregation_point.dart",
+        "owner":  "LIBRARY_SIGNALS",
+        "checksum":  "PENDING_MANUAL_VERIFICATION",
+        "copyState":  "CONTRACT_REWIRED",
+        "rewiringReason":  "Library test capsule forbids direct active runtime, production Firebase reads, and cross-capsule implementation imports."
+    },
+    {
+        "originalPath":  "lib/features/library/signals/library_archive_signal_event_writer.dart",
+        "capsulePath":  "lib/src/runtime_mirror/features_library_signals_library_archive_signal_event_writer.dart",
+        "owner":  "LIBRARY_LOCAL_SIGNALS",
+        "checksum":  "PENDING_MANUAL_VERIFICATION",
+        "copyState":  "CONTRACT_REWIRED",
+        "rewiringReason":  "Library test capsule forbids direct active runtime, production Firebase reads, and cross-capsule implementation imports."
+    },
+    {
+        "originalPath":  "lib/features/library/signals/library_archive_signal_package_builder.dart",
+        "capsulePath":  "lib/src/runtime_mirror/features_library_signals_library_archive_signal_package_builder.dart",
+        "owner":  "LIBRARY_SIGNALS",
+        "checksum":  "PENDING_MANUAL_VERIFICATION",
+        "copyState":  "CONTRACT_REWIRED",
+        "rewiringReason":  "Library test capsule forbids direct active runtime, production Firebase reads, and cross-capsule implementation imports."
+    },
+    {
+        "originalPath":  "lib/features/library/signals/library_signal_codes.dart",
+        "capsulePath":  "lib/src/runtime_mirror/features_library_signals_library_signal_codes.dart",
+        "owner":  "LIBRARY_SIGNALS",
+        "checksum":  "PENDING_MANUAL_VERIFICATION",
+        "copyState":  "CONTRACT_REWIRED",
+        "rewiringReason":  "Library test capsule forbids direct active runtime, production Firebase reads, and cross-capsule implementation imports."
+    },
+    {
+        "originalPath":  "lib/features/library/signals/library_signal_emitter.dart",
+        "capsulePath":  "lib/src/runtime_mirror/features_library_signals_library_signal_emitter.dart",
+        "owner":  "LIBRARY_SIGNALS",
+        "checksum":  "PENDING_MANUAL_VERIFICATION",
+        "copyState":  "CONTRACT_REWIRED",
+        "rewiringReason":  "Library test capsule forbids direct active runtime, production Firebase reads, and cross-capsule implementation imports."
+    },
+    {
+        "originalPath":  "lib/features/library/signals/library_signal_payload.dart",
+        "capsulePath":  "lib/src/runtime_mirror/features_library_signals_library_signal_payload.dart",
+        "owner":  "LIBRARY_SIGNALS",
+        "checksum":  "PENDING_MANUAL_VERIFICATION",
+        "copyState":  "CONTRACT_REWIRED",
+        "rewiringReason":  "Library test capsule forbids direct active runtime, production Firebase reads, and cross-capsule implementation imports."
+    },
+    {
+        "originalPath":  "lib/features/library/signals/library_signal_registry.dart",
+        "capsulePath":  "lib/src/runtime_mirror/features_library_signals_library_signal_registry.dart",
+        "owner":  "LIBRARY_SIGNALS",
+        "checksum":  "PENDING_MANUAL_VERIFICATION",
+        "copyState":  "CONTRACT_REWIRED",
+        "rewiringReason":  "Library test capsule forbids direct active runtime, production Firebase reads, and cross-capsule implementation imports."
+    },
+    {
+        "originalPath":  "lib/core/local_signals/local_section_signal_buffer.dart",
+        "capsulePath":  "lib/src/runtime_mirror/core_local_signals_local_section_signal_buffer.dart",
+        "owner":  "LIBRARY_LOCAL_SIGNALS_CENTRAL_IMPORT",
+        "checksum":  "PENDING_MANUAL_VERIFICATION",
+        "copyState":  "CONTRACT_REWIRED",
+        "rewiringReason":  "Library test capsule forbids direct active runtime, production Firebase reads, and cross-capsule implementation imports."
+    },
+    {
+        "originalPath":  "lib/core/local_signals/local_section_signal_record.dart",
+        "capsulePath":  "lib/src/runtime_mirror/core_local_signals_local_section_signal_record.dart",
+        "owner":  "LIBRARY_LOCAL_SIGNALS_CENTRAL_IMPORT",
+        "checksum":  "PENDING_MANUAL_VERIFICATION",
+        "copyState":  "CONTRACT_REWIRED",
+        "rewiringReason":  "Library test capsule forbids direct active runtime, production Firebase reads, and cross-capsule implementation imports."
+    },
+    {
+        "originalPath":  "lib/shared/provider_profiles/provider_profile_categories.dart",
+        "capsulePath":  "lib/src/runtime_mirror/shared_provider_profiles_provider_profile_categories.dart",
+        "owner":  "SHARED_PROVIDER_PROFILE_CONTRACT_CENTRAL_IMPORT",
+        "checksum":  "PENDING_MANUAL_VERIFICATION",
+        "copyState":  "CONTRACT_REWIRED",
+        "rewiringReason":  "Library test capsule forbids direct active runtime, production Firebase reads, and cross-capsule implementation imports."
+    },
+    {
+        "originalPath":  "lib/shared/provider_profiles/provider_public_profile.dart",
+        "capsulePath":  "lib/src/runtime_mirror/shared_provider_profiles_provider_public_profile.dart",
+        "owner":  "SHARED_PROVIDER_PROFILE_CONTRACT_CENTRAL_IMPORT",
+        "checksum":  "PENDING_MANUAL_VERIFICATION",
+        "copyState":  "CONTRACT_REWIRED",
+        "rewiringReason":  "Library test capsule forbids direct active runtime, production Firebase reads, and cross-capsule implementation imports."
+    },
+    {
+        "originalPath":  "lib/shared/accessibility/accessibility_guide_icon.dart",
+        "capsulePath":  "lib/src/runtime_mirror/shared_accessibility_accessibility_guide_icon.dart",
+        "owner":  "SHARED_SPEECH_ACCESSIBILITY_CENTRAL_IMPORT",
+        "checksum":  "PENDING_MANUAL_VERIFICATION",
+        "copyState":  "CONTRACT_REWIRED",
+        "rewiringReason":  "Library test capsule forbids direct active runtime, production Firebase reads, and cross-capsule implementation imports."
+    },
+    {
+        "originalPath":  "lib/shared/accessibility/speech/localized_speech_action.dart",
+        "capsulePath":  "lib/src/runtime_mirror/shared_accessibility_speech_localized_speech_action.dart",
+        "owner":  "SHARED_SPEECH_ACCESSIBILITY_CENTRAL_IMPORT",
+        "checksum":  "PENDING_MANUAL_VERIFICATION",
+        "copyState":  "CONTRACT_REWIRED",
+        "rewiringReason":  "Library test capsule forbids direct active runtime, production Firebase reads, and cross-capsule implementation imports."
+    },
+    {
+        "originalPath":  "lib/shared/accessibility/speech/localized_speech_request.dart",
+        "capsulePath":  "lib/src/runtime_mirror/shared_accessibility_speech_localized_speech_request.dart",
+        "owner":  "SHARED_SPEECH_ACCESSIBILITY_CENTRAL_IMPORT",
+        "checksum":  "PENDING_MANUAL_VERIFICATION",
+        "copyState":  "CONTRACT_REWIRED",
+        "rewiringReason":  "Library test capsule forbids direct active runtime, production Firebase reads, and cross-capsule implementation imports."
+    },
+    {
+        "originalPath":  "lib/shared/accessibility/speech/localized_speech_service.dart",
+        "capsulePath":  "lib/src/runtime_mirror/shared_accessibility_speech_localized_speech_service.dart",
+        "owner":  "SHARED_SPEECH_ACCESSIBILITY_CENTRAL_IMPORT",
+        "checksum":  "PENDING_MANUAL_VERIFICATION",
+        "copyState":  "CONTRACT_REWIRED",
+        "rewiringReason":  "Library test capsule forbids direct active runtime, production Firebase reads, and cross-capsule implementation imports."
+    },
+    {
+        "originalPath":  "lib/shared/links/safe_external_link_launcher.dart",
+        "capsulePath":  "lib/src/runtime_mirror/shared_links_safe_external_link_launcher.dart",
+        "owner":  "SHARED_EXTERNAL_LINK_CENTRAL_IMPORT",
+        "checksum":  "PENDING_MANUAL_VERIFICATION",
+        "copyState":  "CONTRACT_REWIRED",
+        "rewiringReason":  "Library test capsule forbids direct active runtime, production Firebase reads, and cross-capsule implementation imports."
+    },
+    {
+        "originalPath":  "lib/shared/utils/asset_path_utils.dart",
+        "capsulePath":  "lib/src/runtime_mirror/shared_utils_asset_path_utils.dart",
+        "owner":  "SHARED_ASSET_UTIL_CENTRAL_IMPORT",
+        "checksum":  "PENDING_MANUAL_VERIFICATION",
+        "copyState":  "CONTRACT_REWIRED",
+        "rewiringReason":  "Library test capsule forbids direct active runtime, production Firebase reads, and cross-capsule implementation imports."
+    }
+]

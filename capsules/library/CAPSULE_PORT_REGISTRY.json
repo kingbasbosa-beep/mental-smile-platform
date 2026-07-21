@@ -1,0 +1,72 @@
+{
+  "capsuleId": "MS-CAPSULE-LIB-BLUEPRINT",
+  "ports": [
+    {
+      "portId": "MS-PORT-LIB-ACTIVE-01",
+      "sectionId": "LIBRARY",
+      "mode": "ACTIVE",
+      "allowedLines": ["MS-LINE-LIFECYCLE-01","MS-LINE-ROUTE-01","MS-LINE-DATA-READ-01","MS-LINE-SIGNAL-01","MS-LINE-LOCALIZATION-01","MS-LINE-ASSET-01","MS-LINE-EXTERNAL-ACTION-01","MS-LINE-ERROR-01"],
+      "contractVersion": 1,
+      "writeIdentity": "library-active",
+      "localStateIdentity": "mental_smile_local_signals_library",
+      "activationState": "DESIGNED_NOT_IMPLEMENTED"
+    },
+    {
+      "portId": "MS-PORT-LIB-TEST-01",
+      "sectionId": "LIBRARY",
+      "mode": "TEST",
+      "allowedLines": ["MS-LINE-LIFECYCLE-01","MS-LINE-ROUTE-01","MS-LINE-DATA-READ-01","MS-LINE-SIGNAL-01","MS-LINE-LOCALIZATION-01","MS-LINE-ASSET-01","MS-LINE-EXTERNAL-ACTION-01","MS-LINE-ERROR-01"],
+      "contractVersion": 1,
+      "writeIdentity": "library-test",
+      "localStateIdentity": "mental_smile_local_signals_library_test",
+      "activationState": "MOUNTED_TEST",
+      "public": false,
+      "default": false,
+      "productionReads": false,
+      "productionWrites": false,
+      "productionSignals": false,
+      "productionStorage": false,
+      "isolatedLocalState": true,
+      "isolatedRouteNamespace": true,
+      "compatibilityRequired": true,
+      "mountState": "MOUNTED_TEST",
+      "activeState": "DESIGNED_NOT_IMPLEMENTED",
+      "routeNamespace": "/__capsule_test/library",
+      "localStatePrefix": "ms_capsule_lib_test_01_",
+      "schemaFingerprint": "MS-CAPSULE-LIB-BLUEPRINT|contract:1|runtime:28|routes:5|core:1|local:22|assets:32|l10n:14|speech:25:2:23|content:1:3:0|firebase:2|storage:0|lines:8"
+    }
+  ],
+  "canonicalLineMap": [
+    {"importCode":"MS-LIB-IMPORT-001","target":"lib/app/router/routes.dart","purpose":"central router route constants and test route mount","lineCode":"MS-LINE-ROUTE-01","requiredVersion":"current-repository-state","optional":false,"failureBehavior":"route unavailable"},
+    {"importCode":"MS-LIB-IMPORT-002","target":"package:cloud_firestore/cloud_firestore.dart","purpose":"published provider profile reads mirrored as read-only contract","lineCode":"MS-LINE-DATA-READ-01","requiredVersion":"pubspec current","optional":false,"failureBehavior":"provider content stream unavailable"},
+    {"importCode":"MS-LIB-IMPORT-003","target":"lib/core/local_signals/local_section_signal_buffer.dart","purpose":"24h Library local signal buffer contract","lineCode":"MS-LINE-SIGNAL-01","requiredVersion":"current-repository-state","optional":false,"failureBehavior":"local signal skipped"},
+    {"importCode":"MS-LIB-IMPORT-004","target":"lib/core/platform_core/platform_core.dart","purpose":"LibrarySectionAdapter socket contract","lineCode":"MS-LINE-LIFECYCLE-01","requiredVersion":"contractVersion 1","optional":false,"failureBehavior":"adapter unavailable"},
+    {"importCode":"MS-LIB-IMPORT-005","target":"lib/l10n/library/library_localizations.dart","purpose":"Library text and speech keys","lineCode":"MS-LINE-LOCALIZATION-01","requiredVersion":"current generated","optional":false,"failureBehavior":"localized text unavailable"},
+    {"importCode":"MS-LIB-IMPORT-006","target":"lib/shared/accessibility/accessibility_guide_icon.dart","purpose":"existing speaker/guide icon control","lineCode":"MS-LINE-EXTERNAL-ACTION-01","requiredVersion":"current-repository-state","optional":false,"failureBehavior":"speaker control unavailable"},
+    {"importCode":"MS-LIB-IMPORT-007","target":"lib/shared/accessibility/speech/localized_speech_action.dart","purpose":"current connected Library speech calls","lineCode":"MS-LINE-EXTERNAL-ACTION-01","requiredVersion":"current-repository-state","optional":false,"failureBehavior":"speech action unavailable"},
+    {"importCode":"MS-LIB-IMPORT-008","target":"lib/shared/accessibility/speech/localized_speech_request.dart","purpose":"speech request dependency","lineCode":"MS-LINE-EXTERNAL-ACTION-01","requiredVersion":"current-repository-state","optional":false,"failureBehavior":"speech request unavailable"},
+    {"importCode":"MS-LIB-IMPORT-009","target":"lib/shared/accessibility/speech/localized_speech_service.dart","purpose":"speech service dependency","lineCode":"MS-LINE-EXTERNAL-ACTION-01","requiredVersion":"current-repository-state","optional":false,"failureBehavior":"speech service unavailable"},
+    {"importCode":"MS-LIB-IMPORT-010","target":"lib/shared/provider_profiles/provider_profile_categories.dart","purpose":"provider branch registry and category assets","lineCode":"MS-LINE-DATA-READ-01","requiredVersion":"current-repository-state","optional":false,"failureBehavior":"provider branches unavailable"},
+    {"importCode":"MS-LIB-IMPORT-011","target":"lib/shared/provider_profiles/provider_public_profile.dart","purpose":"published provider projection filtering","lineCode":"MS-LINE-DATA-READ-01","requiredVersion":"current-repository-state","optional":false,"failureBehavior":"published profiles unavailable"},
+    {"importCode":"MS-LIB-IMPORT-012","target":"lib/shared/links/safe_external_link_launcher.dart","purpose":"safe article source URL launching","lineCode":"MS-LINE-EXTERNAL-ACTION-01","requiredVersion":"current-repository-state","optional":false,"failureBehavior":"external source link blocked"},
+    {"importCode":"MS-LIB-IMPORT-013","target":"lib/shared/utils/asset_path_utils.dart","purpose":"asset path normalization","lineCode":"MS-LINE-ASSET-01","requiredVersion":"current-repository-state","optional":false,"failureBehavior":"asset fallback path used"},
+    {"importCode":"MS-LIB-IMPORT-014","target":"package:flutter/services.dart","purpose":"AssetManifest/rootBundle content loading","lineCode":"MS-LINE-ASSET-01","requiredVersion":"Flutter SDK","optional":false,"failureBehavior":"content manifest unavailable"},
+    {"importCode":"MS-LIB-IMPORT-015","target":"package:flutter_markdown/flutter_markdown.dart","purpose":"knowledge article markdown rendering","lineCode":"MS-LINE-DATA-READ-01","requiredVersion":"pubspec current","optional":false,"failureBehavior":"article rendering unavailable"},
+    {"importCode":"MS-LIB-IMPORT-016","target":"package:markdown/markdown.dart","purpose":"article source link syntax extension","lineCode":"MS-LINE-DATA-READ-01","requiredVersion":"pubspec current","optional":false,"failureBehavior":"markdown extension unavailable"},
+    {"importCode":"MS-LIB-IMPORT-017","target":"Flutter Material/Foundation","purpose":"UI runtime and debug logging","lineCode":"MS-LINE-ERROR-01","requiredVersion":"Flutter SDK","optional":false,"failureBehavior":"UI unavailable"}
+  ],
+  "reservedLines": [
+    "MS-LINE-EXT-01 RESERVED_UNUSED",
+    "MS-LINE-EXT-02 RESERVED_UNUSED",
+    "MS-LINE-EXT-03 RESERVED_UNUSED"
+  ],
+  "mode": "PORT_MOUNTED",
+  "counts": {
+    "canonicalLinesUsed": 8,
+    "centralImports": 17,
+    "capsuleExports": 12,
+    "portsImplemented": 1,
+    "testPortImplemented": true,
+    "activePortImplemented": false
+  }
+}

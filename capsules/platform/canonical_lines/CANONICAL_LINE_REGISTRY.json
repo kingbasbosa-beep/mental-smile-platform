@@ -1,0 +1,24 @@
+{
+  "lines": [
+    "MS-LINE-IDENTITY-01",
+    "MS-LINE-REGISTRY-01",
+    "MS-LINE-MANIFEST-01",
+    "MS-LINE-CONTRACT-01",
+    "MS-LINE-COMPATIBILITY-01",
+    "MS-LINE-VALIDATION-01",
+    "MS-LINE-MOUNT-01",
+    "MS-LINE-LIFECYCLE-01",
+    "MS-LINE-PORT-01",
+    "MS-LINE-DIAGNOSTIC-01",
+    "MS-LINE-HEALTH-01"
+  ],
+  "reserved": [
+    "MS-LINE-PLATFORM-EXT-01",
+    "MS-LINE-PLATFORM-EXT-02",
+    "MS-LINE-PLATFORM-EXT-03"
+  ],
+  "counts": {
+    "used": 11,
+    "reserved": 3
+  }
+}

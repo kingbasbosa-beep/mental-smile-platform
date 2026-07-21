@@ -1,0 +1,38 @@
+{
+  "registryId": "MS-PLATFORM-CAPSULE-REGISTRY-01",
+  "repositoryId": "MS-PLATFORM-DNA-V1-PRO",
+  "capsules": [
+    {
+      "capsuleId": "MS-CAPSULE-PLATFORM-INFRASTRUCTURE",
+      "sectionId": "PLATFORM",
+      "type": "platform",
+      "state": "PACKAGE_READY",
+      "packagePath": "capsules/platform/package"
+    },
+    {
+      "capsuleId": "MS-CAPSULE-RES-R-1.07.2026",
+      "sectionId": "MS-SECTION-RESIDENTIAL",
+      "type": "residential",
+      "state": "MANUAL_VERIFICATION_PASSED",
+      "packagePath": "capsules/residential/package"
+    },
+    {
+      "capsuleId": "MS-CAPSULE-COM-BLUEPRINT",
+      "sectionId": "COMMERCIAL",
+      "type": "commercial",
+      "state": "MANUAL_VERIFICATION_PASSED",
+      "packagePath": "capsules/commercial/package"
+    },
+    {
+      "capsuleId": "MS-CAPSULE-LIB-BLUEPRINT",
+      "sectionId": "LIBRARY",
+      "type": "library",
+      "state": "MANUAL_VERIFICATION_PASSED",
+      "packagePath": "capsules/library/package"
+    }
+  ],
+  "counts": {
+    "capsules": 4,
+    "activeCapsules": 0
+  }
+}

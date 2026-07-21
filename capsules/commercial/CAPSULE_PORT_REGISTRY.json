@@ -1,0 +1,231 @@
+﻿{
+    "capsuleId":  "MS-CAPSULE-COM-BLUEPRINT",
+    "ports":  [
+                  {
+                      "portId":  "MS-PORT-COM-ACTIVE-01",
+                      "sectionId":  "COMMERCIAL",
+                      "mode":  "ACTIVE",
+                      "allowedLines":  [
+                                           "MS-LINE-LIFECYCLE-01",
+                                           "MS-LINE-ROUTE-01",
+                                           "MS-LINE-AUTH-01",
+                                           "MS-LINE-DATA-READ-01",
+                                           "MS-LINE-DATA-WRITE-01",
+                                           "MS-LINE-STORAGE-01",
+                                           "MS-LINE-SIGNAL-01",
+                                           "MS-LINE-LOCALIZATION-01",
+                                           "MS-LINE-ASSET-01",
+                                           "MS-LINE-EXTERNAL-ACTION-01",
+                                           "MS-LINE-ERROR-01"
+                                       ],
+                      "contractVersion":  1,
+                      "writeIdentity":  "commercial-active",
+                      "localStateIdentity":  "mental_smile_local_signals_commercial",
+                      "activationState":  "DESIGNED_NOT_IMPLEMENTED"
+                  },
+                  {
+                      "portId":  "MS-PORT-COM-TEST-01",
+                      "sectionId":  "COMMERCIAL",
+                      "mode":  "TEST",
+                      "allowedLines":  [
+                                           "MS-LINE-LIFECYCLE-01",
+                                           "MS-LINE-ROUTE-01",
+                                           "MS-LINE-AUTH-01",
+                                           "MS-LINE-DATA-READ-01",
+                                           "MS-LINE-DATA-WRITE-01",
+                                           "MS-LINE-STORAGE-01",
+                                           "MS-LINE-SIGNAL-01",
+                                           "MS-LINE-LOCALIZATION-01",
+                                           "MS-LINE-ASSET-01",
+                                           "MS-LINE-EXTERNAL-ACTION-01",
+                                           "MS-LINE-ERROR-01"
+                                       ],
+                      "contractVersion":  1,
+                      "writeIdentity":  "commercial-test",
+                      "localStateIdentity":  "mental_smile_local_signals_commercial_test",
+                      "activationState":  "MOUNTED_TEST",
+                      "public":  false,
+                      "default":  false,
+                      "productionWrites":  false,
+                      "productionSignals":  false,
+                      "productionStorage":  false,
+                      "productionAuthMutation":  false,
+                      "isolatedLocalState":  true,
+                      "isolatedRouteNamespace":  true,
+                      "compatibilityRequired":  true,
+                      "mountState":  "MOUNTED_TEST",
+                      "routeNamespace":  "/__capsule_test/commercial",
+                      "localStatePrefix":  "ms_capsule_com_test_01_",
+                      "schemaFingerprint":  "MS-CAPSULE-COM-BLUEPRINT|contract:1|routes:18|core:4|local:7|assets:39|l10n:47|speech:17:2:15|firebase:5|storage:2|lines:11"
+                  }
+              ],
+    "canonicalLineMap":  [
+                             {
+                                 "importCode":  "MS-COM-IMPORT-001",
+                                 "target":  "package:mental_smile_os/app/locale_provider.dart",
+                                 "purpose":  "central runtime dependency required by current Commercial runtime",
+                                 "lineCode":  "MS-LINE-LIFECYCLE-01",
+                                 "requiredVersion":  "current-repository-state",
+                                 "optional":  false,
+                                 "failureBehavior":  "current dependency behavior"
+                             },
+                             {
+                                 "importCode":  "MS-COM-IMPORT-002",
+                                 "target":  "package:mental_smile_os/app/router/routes.dart",
+                                 "purpose":  "central runtime dependency required by current Commercial runtime",
+                                 "lineCode":  "MS-LINE-ROUTE-01",
+                                 "requiredVersion":  "current-repository-state",
+                                 "optional":  false,
+                                 "failureBehavior":  "current dependency behavior"
+                             },
+                             {
+                                 "importCode":  "MS-COM-IMPORT-003",
+                                 "target":  "package:mental_smile_os/core/auth/account_access_service.dart",
+                                 "purpose":  "central runtime dependency required by current Commercial runtime",
+                                 "lineCode":  "MS-LINE-AUTH-01",
+                                 "requiredVersion":  "current-repository-state",
+                                 "optional":  false,
+                                 "failureBehavior":  "current dependency behavior"
+                             },
+                             {
+                                 "importCode":  "MS-COM-IMPORT-004",
+                                 "target":  "package:mental_smile_os/core/local_signals/local_section_signal_buffer.dart",
+                                 "purpose":  "central runtime dependency required by current Commercial runtime",
+                                 "lineCode":  "MS-LINE-SIGNAL-01",
+                                 "requiredVersion":  "current-repository-state",
+                                 "optional":  false,
+                                 "failureBehavior":  "current dependency behavior"
+                             },
+                             {
+                                 "importCode":  "MS-COM-IMPORT-005",
+                                 "target":  "package:mental_smile_os/core/platform_core/platform_core.dart",
+                                 "purpose":  "central runtime dependency required by current Commercial runtime",
+                                 "lineCode":  "MS-LINE-SIGNAL-01",
+                                 "requiredVersion":  "current-repository-state",
+                                 "optional":  false,
+                                 "failureBehavior":  "current dependency behavior"
+                             },
+                             {
+                                 "importCode":  "MS-COM-IMPORT-006",
+                                 "target":  "package:mental_smile_os/core/visibility/visibility_readiness.dart",
+                                 "purpose":  "central runtime dependency required by current Commercial runtime",
+                                 "lineCode":  "MS-LINE-LIFECYCLE-01",
+                                 "requiredVersion":  "current-repository-state",
+                                 "optional":  false,
+                                 "failureBehavior":  "current dependency behavior"
+                             },
+                             {
+                                 "importCode":  "MS-COM-IMPORT-007",
+                                 "target":  "package:mental_smile_os/l10n/commercial/commercial_localizations.dart",
+                                 "purpose":  "central runtime dependency required by current Commercial runtime",
+                                 "lineCode":  "MS-LINE-LOCALIZATION-01",
+                                 "requiredVersion":  "current-repository-state",
+                                 "optional":  false,
+                                 "failureBehavior":  "current dependency behavior"
+                             },
+                             {
+                                 "importCode":  "MS-COM-IMPORT-008",
+                                 "target":  "package:mental_smile_os/shared/accessibility/accessibility_guide_icon.dart",
+                                 "purpose":  "central runtime dependency required by current Commercial runtime",
+                                 "lineCode":  "MS-LINE-LIFECYCLE-01",
+                                 "requiredVersion":  "current-repository-state",
+                                 "optional":  false,
+                                 "failureBehavior":  "current dependency behavior"
+                             },
+                             {
+                                 "importCode":  "MS-COM-IMPORT-009",
+                                 "target":  "package:mental_smile_os/shared/accessibility/speech/localized_speech_action.dart",
+                                 "purpose":  "central runtime dependency required by current Commercial runtime",
+                                 "lineCode":  "MS-LINE-EXTERNAL-ACTION-01",
+                                 "requiredVersion":  "current-repository-state",
+                                 "optional":  false,
+                                 "failureBehavior":  "current dependency behavior"
+                             },
+                             {
+                                 "importCode":  "MS-COM-IMPORT-010",
+                                 "target":  "package:mental_smile_os/shared/branding/mental_smile_logo.dart",
+                                 "purpose":  "central runtime dependency required by current Commercial runtime",
+                                 "lineCode":  "MS-LINE-LIFECYCLE-01",
+                                 "requiredVersion":  "current-repository-state",
+                                 "optional":  false,
+                                 "failureBehavior":  "current dependency behavior"
+                             },
+                             {
+                                 "importCode":  "MS-COM-IMPORT-011",
+                                 "target":  "package:mental_smile_os/shared/contracts/role_names.dart",
+                                 "purpose":  "central runtime dependency required by current Commercial runtime",
+                                 "lineCode":  "MS-LINE-AUTH-01",
+                                 "requiredVersion":  "current-repository-state",
+                                 "optional":  false,
+                                 "failureBehavior":  "current dependency behavior"
+                             },
+                             {
+                                 "importCode":  "MS-COM-IMPORT-012",
+                                 "target":  "package:mental_smile_os/shared/generation2_mobile/generation2_mobile_room_scaffold.dart",
+                                 "purpose":  "central runtime dependency required by current Commercial runtime",
+                                 "lineCode":  "MS-LINE-LIFECYCLE-01",
+                                 "requiredVersion":  "current-repository-state",
+                                 "optional":  false,
+                                 "failureBehavior":  "current dependency behavior"
+                             },
+                             {
+                                 "importCode":  "MS-COM-IMPORT-013",
+                                 "target":  "package:mental_smile_os/shared/guides/daleel_assistant.dart",
+                                 "purpose":  "central runtime dependency required by current Commercial runtime",
+                                 "lineCode":  "MS-LINE-LIFECYCLE-01",
+                                 "requiredVersion":  "current-repository-state",
+                                 "optional":  false,
+                                 "failureBehavior":  "current dependency behavior"
+                             },
+                             {
+                                 "importCode":  "MS-COM-IMPORT-014",
+                                 "target":  "package:mental_smile_os/shared/links/safe_external_link_launcher.dart",
+                                 "purpose":  "central runtime dependency required by current Commercial runtime",
+                                 "lineCode":  "MS-LINE-EXTERNAL-ACTION-01",
+                                 "requiredVersion":  "current-repository-state",
+                                 "optional":  false,
+                                 "failureBehavior":  "current dependency behavior"
+                             },
+                             {
+                                 "importCode":  "MS-COM-IMPORT-015",
+                                 "target":  "package:mental_smile_os/shared/provider_profiles/provider_profile_categories.dart",
+                                 "purpose":  "central runtime dependency required by current Commercial runtime",
+                                 "lineCode":  "MS-LINE-DATA-READ-01",
+                                 "requiredVersion":  "current-repository-state",
+                                 "optional":  false,
+                                 "failureBehavior":  "current dependency behavior"
+                             },
+                             {
+                                 "importCode":  "MS-COM-IMPORT-016",
+                                 "target":  "package:mental_smile_os/shared/provider_profiles/provider_public_profile.dart",
+                                 "purpose":  "central runtime dependency required by current Commercial runtime",
+                                 "lineCode":  "MS-LINE-DATA-READ-01",
+                                 "requiredVersion":  "current-repository-state",
+                                 "optional":  false,
+                                 "failureBehavior":  "current dependency behavior"
+                             },
+                             {
+                                 "importCode":  "MS-COM-IMPORT-017",
+                                 "target":  "package:mental_smile_os/shared/wellbeing/shared_wellbeing_room_card.dart",
+                                 "purpose":  "central runtime dependency required by current Commercial runtime",
+                                 "lineCode":  "MS-LINE-LIFECYCLE-01",
+                                 "requiredVersion":  "current-repository-state",
+                                 "optional":  false,
+                                 "failureBehavior":  "current dependency behavior"
+                             }
+                         ],
+    "reservedLines":  [
+                          "MS-LINE-EXT-01 RESERVED_UNUSED",
+                          "MS-LINE-EXT-02 RESERVED_UNUSED",
+                          "MS-LINE-EXT-03 RESERVED_UNUSED"
+                      ],
+    "mode":  "PORT_MOUNTED",
+    "counts":  {
+                   "canonicalLinesUsed":  11,
+                   "centralImports":  17,
+                   "capsuleExports":  20,
+                   "portsImplemented":  1,
+                   "testPortImplemented":  true,
+                   "activePortImplemented":  false
+               }
+}

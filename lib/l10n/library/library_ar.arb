@@ -1,0 +1,17 @@
+{
+  "@@locale": "ar",
+  "libraryComingSoon": "قريبًا",
+  "libraryEducationalDisclaimer": "هذا المحتوى للتوعية ولا يغني عن استشارة مختص عند الحاجة.",
+  "libraryNoteArticles": "مقالات تثقيفية وداعمة ستتوفر تدريجيًا.",
+  "libraryNoteAudio": "صوتيات للتهدئة والدعم العام، وليست تدخلًا علاجيًا.",
+  "libraryNoteExercises": "تمارين دعم خفيفة فقط، وليست بروتوكولًا علاجيًا.",
+  "libraryNoteSaved": "ميزة الحفظ غير مفعلة الآن، ولا يتم تخزين أي عناصر في هذه المرحلة.",
+  "libraryNoteTools": "أدوات الدعم قيد التجهيز. الأدوات المهنية أو الحساسة تحتاج إشراف مختص.",
+  "libraryNoteVideos": "موارد تعليمية مرئية، وأي روابط خارجية مستقبلًا ستحتاج رصد سلامة.",
+  "libraryProviderCenters": "المراكز والجهات",
+  "libraryProviderContentTitle": "محتوى مقدمي الخدمات",
+  "libraryProviderSpecialists": "الأخصائيون",
+  "libraryTitle": "المكتبة",
+  "menuSpecialists": "الأخصائيون",
+  "menuCenters": "المراكز"
+}

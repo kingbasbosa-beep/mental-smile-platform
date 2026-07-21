@@ -1,40 +1,46 @@
 import 'package:flutter/material.dart';
 import 'package:mental_smile_os/features/residential/signals/residential_signal_codes.dart';
 import 'package:mental_smile_os/features/residential/signals/residential_signal_emitter.dart';
-import 'package:mental_smile_os/l10n/app_localizations.dart';
+import 'package:mental_smile_os/features/residential/speech/residential_speech_contract.dart';
+import 'package:mental_smile_os/l10n/accessibility/accessibility_localizations.dart';
 import 'package:mental_smile_os/shared/accessibility/accessibility_guide_icon.dart';
-import 'package:url_launcher/url_launcher.dart';
+import 'package:mental_smile_os/shared/links/safe_external_link_launcher.dart';
 
 class AccessibilityToolsPage extends StatelessWidget {
   const AccessibilityToolsPage({super.key});
 
   static const String _background =
-      'assets/branding/rooms/accessibility_room/cards/accessibility_links_papyrus_background.png';
+      'assets/accessibility/accessibility_tools/accessibility_tools_papyrus_background.png';
 
-  List<_ToolSection> _sections(AppLocalizations l10n) => [
+  List<_ToolSection> _sections(AccessibilityLocalizations l10n) => [
         _ToolSection(
+          titleKey: 'applicationAccessibilityToolsSectionWriting',
           title: l10n.applicationAccessibilityToolsSectionWriting,
           tools: <_AssistiveTool>[
             _AssistiveTool(
-              titleAr: 'شات جي بي تي',
+              titleKey: 'applicationAccessibilityToolsChatGptTitle',
+              titleAr: l10n.applicationAccessibilityToolsChatGptTitle,
               titleEn: 'ChatGPT',
               descriptionAr: l10n.applicationAccessibilityToolsChatGptDesc,
               url: 'https://chatgpt.com/',
             ),
             _AssistiveTool(
-              titleAr: 'جيميني',
+              titleKey: 'applicationAccessibilityToolsGeminiTitle',
+              titleAr: l10n.applicationAccessibilityToolsGeminiTitle,
               titleEn: 'Gemini',
               descriptionAr: l10n.applicationAccessibilityToolsGeminiDesc,
               url: 'https://gemini.google.com/',
             ),
             _AssistiveTool(
-              titleAr: 'كوبايلوت',
+              titleKey: 'applicationAccessibilityToolsCopilotTitle',
+              titleAr: l10n.applicationAccessibilityToolsCopilotTitle,
               titleEn: 'Copilot',
               descriptionAr: l10n.applicationAccessibilityToolsCopilotDesc,
               url: 'https://copilot.microsoft.com/',
             ),
             _AssistiveTool(
-              titleAr: 'الكتابة بالصوت',
+              titleKey: 'applicationAccessibilityToolsVoiceTypingTitle',
+              titleAr: l10n.applicationAccessibilityToolsVoiceTypingTitle,
               titleEn: 'Voice typing',
               descriptionAr: l10n.applicationAccessibilityToolsVoiceTypingDesc,
               url: 'https://support.google.com/docs/answer/4492226',
@@ -42,47 +48,59 @@ class AccessibilityToolsPage extends StatelessWidget {
           ],
         ),
         _ToolSection(
+          titleKey: 'applicationAccessibilityToolsSectionCommunication',
           title: l10n.applicationAccessibilityToolsSectionCommunication,
           tools: <_AssistiveTool>[
             _AssistiveTool(
-              titleAr: 'ترجمة جوجل',
+              titleKey: 'applicationAccessibilityToolsGoogleTranslateTitle',
+              titleAr: l10n.applicationAccessibilityToolsGoogleTranslateTitle,
               titleEn: 'Google Translate',
               descriptionAr:
                   l10n.applicationAccessibilityToolsGoogleTranslateDesc,
               url: 'https://translate.google.com/',
             ),
             _AssistiveTool(
-              titleAr: 'مترجم مايكروسوفت',
+              titleKey: 'applicationAccessibilityToolsMicrosoftTranslatorTitle',
+              titleAr:
+                  l10n.applicationAccessibilityToolsMicrosoftTranslatorTitle,
               titleEn: 'Microsoft Translator',
               descriptionAr:
                   l10n.applicationAccessibilityToolsMicrosoftTranslatorDesc,
               url: 'https://www.microsoft.com/translator/',
             ),
             _AssistiveTool(
-              titleAr: 'ديب إل',
+              titleKey: 'applicationAccessibilityToolsDeepLTitle',
+              titleAr: l10n.applicationAccessibilityToolsDeepLTitle,
               titleEn: 'DeepL',
               descriptionAr: l10n.applicationAccessibilityToolsDeepLDesc,
               url: 'https://www.deepl.com/translator',
             ),
             _AssistiveTool(
-              titleAr: 'محادثة مترجم مايكروسوفت',
+              titleKey:
+                  'applicationAccessibilityToolsMicrosoftTranslatorConversationTitle',
+              titleAr: l10n
+                  .applicationAccessibilityToolsMicrosoftTranslatorConversationTitle,
               titleEn: 'Microsoft Translator conversation mode',
-              descriptionAr: 'ترجمة محادثات مباشرة',
+              descriptionAr: l10n
+                  .applicationAccessibilityToolsMicrosoftTranslatorConversationDesc,
               url: 'https://www.microsoft.com/translator/business/live/',
             ),
           ],
         ),
         _ToolSection(
+          titleKey: 'applicationAccessibilityToolsSectionVisual',
           title: l10n.applicationAccessibilityToolsSectionVisual,
           tools: <_AssistiveTool>[
             _AssistiveTool(
-              titleAr: 'سيينج إيه آي',
+              titleKey: 'applicationAccessibilityToolsSeeingAITitle',
+              titleAr: l10n.applicationAccessibilityToolsSeeingAITitle,
               titleEn: 'Seeing AI',
               descriptionAr: l10n.applicationAccessibilityToolsSeeingAIDesc,
               url: 'https://www.microsoft.com/en-us/ai/seeing-ai',
             ),
             _AssistiveTool(
-              titleAr: 'لوك آوت من جوجل',
+              titleKey: 'applicationAccessibilityToolsLookoutTitle',
+              titleAr: l10n.applicationAccessibilityToolsLookoutTitle,
               titleEn: 'Lookout by Google',
               descriptionAr: l10n.applicationAccessibilityToolsLookoutDesc,
               url:
@@ -91,10 +109,12 @@ class AccessibilityToolsPage extends StatelessWidget {
           ],
         ),
         _ToolSection(
+          titleKey: 'applicationAccessibilityToolsSectionAudio',
           title: l10n.applicationAccessibilityToolsSectionAudio,
           tools: <_AssistiveTool>[
             _AssistiveTool(
-              titleAr: 'النسخ النصي المباشر',
+              titleKey: 'applicationAccessibilityToolsLiveTranscribeTitle',
+              titleAr: l10n.applicationAccessibilityToolsLiveTranscribeTitle,
               titleEn: 'Live Transcribe',
               descriptionAr:
                   l10n.applicationAccessibilityToolsLiveTranscribeDesc,
@@ -102,7 +122,8 @@ class AccessibilityToolsPage extends StatelessWidget {
                   'https://play.google.com/store/apps/details?id=com.google.audio.hearing.visualization.accessibility.scribe',
             ),
             _AssistiveTool(
-              titleAr: 'ترجمة يوتيوب النصية',
+              titleKey: 'applicationAccessibilityToolsYoutubeCaptionsTitle',
+              titleAr: l10n.applicationAccessibilityToolsYoutubeCaptionsTitle,
               titleEn: 'YouTube captions',
               descriptionAr:
                   l10n.applicationAccessibilityToolsYoutubeCaptionsDesc,
@@ -111,16 +132,19 @@ class AccessibilityToolsPage extends StatelessWidget {
           ],
         ),
         _ToolSection(
+          titleKey: 'applicationAccessibilityToolsSectionReading',
           title: l10n.applicationAccessibilityToolsSectionReading,
           tools: <_AssistiveTool>[
             _AssistiveTool(
-              titleAr: 'القراءة بصوت عالٍ',
+              titleKey: 'applicationAccessibilityToolsReadAloudTitle',
+              titleAr: l10n.applicationAccessibilityToolsReadAloudTitle,
               titleEn: 'Read Aloud',
               descriptionAr: l10n.applicationAccessibilityToolsReadAloudDesc,
               url: 'https://readaloud.app/',
             ),
             _AssistiveTool(
-              titleAr: 'القارئ الشامل',
+              titleKey: 'applicationAccessibilityToolsImmersiveReaderTitle',
+              titleAr: l10n.applicationAccessibilityToolsImmersiveReaderTitle,
               titleEn: 'Immersive Reader',
               descriptionAr:
                   l10n.applicationAccessibilityToolsImmersiveReaderDesc,
@@ -130,10 +154,12 @@ class AccessibilityToolsPage extends StatelessWidget {
           ],
         ),
         _ToolSection(
+          titleKey: 'applicationAccessibilityToolsSectionDaily',
           title: l10n.applicationAccessibilityToolsSectionDaily,
           tools: <_AssistiveTool>[
             _AssistiveTool(
-              titleAr: 'كن عيني',
+              titleKey: 'applicationAccessibilityToolsBeMyEyesTitle',
+              titleAr: l10n.applicationAccessibilityToolsBeMyEyesTitle,
               titleEn: 'Be My Eyes',
               descriptionAr: l10n.applicationAccessibilityToolsBeMyEyesDesc,
               url: 'https://www.bemyeyes.com/',
@@ -150,7 +176,7 @@ class AccessibilityToolsPage extends StatelessWidget {
       sourceWidget: 'AccessibilityToolsPage',
       action: 'view',
     );
-    final l10n = AppLocalizations.of(context)!;
+    final l10n = AccessibilityLocalizations.of(context);
     return Scaffold(
       backgroundColor: const Color(0xFF2B1B0D),
       body: SafeArea(
@@ -204,8 +230,13 @@ class AccessibilityToolsPage extends StatelessWidget {
                                 child: _SpeakableText(
                                   text:
                                       '🧰 ${l10n.applicationAccessibilityToolsCardTitle}',
-                                  onSpeak: () => _showSpeechPlaceholder(context,
-                                      l10n.applicationAccessibilityToolsCardTitle),
+                                  onSpeak: () => _speakLocalizedLabel(
+                                    context,
+                                    localizationKey:
+                                        'applicationAccessibilityToolsCardTitle',
+                                    localizedText: l10n
+                                        .applicationAccessibilityToolsCardTitle,
+                                  ),
                                   style: const TextStyle(
                                     color: Color(0xFF7A4A00),
                                     fontSize: 34,
@@ -217,8 +248,13 @@ class AccessibilityToolsPage extends StatelessWidget {
                               _SpeakableText(
                                 text:
                                     '💬 ${l10n.applicationAccessibilityToolsCardSubtitle}',
-                                onSpeak: () => _showSpeechPlaceholder(context,
-                                    l10n.applicationAccessibilityToolsCardSubtitle),
+                                onSpeak: () => _speakLocalizedLabel(
+                                  context,
+                                  localizationKey:
+                                      'applicationAccessibilityToolsCardSubtitle',
+                                  localizedText: l10n
+                                      .applicationAccessibilityToolsCardSubtitle,
+                                ),
                                 style: const TextStyle(
                                   color: Color(0xFF3A2A18),
                                   fontSize: 19,
@@ -227,7 +263,10 @@ class AccessibilityToolsPage extends StatelessWidget {
                               ),
                               const SizedBox(height: 24),
                               for (final section in _sections(l10n)) ...[
-                                _ToolSectionHeader(title: section.title),
+                                _ToolSectionHeader(
+                                  titleKey: section.titleKey,
+                                  title: section.title,
+                                ),
                                 const SizedBox(height: 8),
                                 for (final tool in section.tools)
                                   _ToolRow(tool: tool),
@@ -248,24 +287,35 @@ class AccessibilityToolsPage extends StatelessWidget {
     );
   }
 
-  void _showSpeechPlaceholder(BuildContext context, String label) {
+  Future<void> _speakLocalizedLabel(
+    BuildContext context, {
+    required String localizationKey,
+    required String localizedText,
+  }) {
     ResidentialSignalEmitter.emit(
       signalCode: ResidentialSignalCode.listenSupportPlay,
       sourceScreen: 'Accessibility Tools',
       sourceWidget: 'AccessibilityGuideIcon',
       action: 'request_audio_support',
     );
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(
-        content: Text(AppLocalizations.of(context)!.applicationAudioSoon),
+    return ResidentialSpeechGenerator.instance.speak(
+      context,
+      ResidentialSpeechNode(
+        sectionId: 'accessibility',
+        localizationKey: localizationKey,
+        localizedText: localizedText,
       ),
     );
   }
 }
 
 class _ToolSectionHeader extends StatelessWidget {
-  const _ToolSectionHeader({required this.title});
+  const _ToolSectionHeader({
+    required this.titleKey,
+    required this.title,
+  });
 
+  final String titleKey;
   final String title;
 
   @override
@@ -294,7 +344,11 @@ class _ToolSectionHeader extends StatelessWidget {
               const SizedBox(width: 8),
               AccessibilityGuideIcon(
                 size: 24,
-                onPressed: () => _showSpeechPlaceholder(context, title),
+                onPressed: () => _speakLocalizedLabel(
+                  context,
+                  localizationKey: titleKey,
+                  localizedText: title,
+                ),
               ),
             ],
           ),
@@ -308,16 +362,23 @@ class _ToolSectionHeader extends StatelessWidget {
     );
   }
 
-  void _showSpeechPlaceholder(BuildContext context, String label) {
+  Future<void> _speakLocalizedLabel(
+    BuildContext context, {
+    required String localizationKey,
+    required String localizedText,
+  }) {
     ResidentialSignalEmitter.emit(
       signalCode: ResidentialSignalCode.listenSupportPlay,
       sourceScreen: 'Accessibility Tools',
       sourceWidget: 'ToolSectionAudioIcon',
       action: 'request_audio_support',
     );
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(
-        content: Text(AppLocalizations.of(context)!.applicationAudioSoon),
+    return ResidentialSpeechGenerator.instance.speak(
+      context,
+      ResidentialSpeechNode(
+        sectionId: 'accessibility',
+        localizationKey: localizationKey,
+        localizedText: localizedText,
       ),
     );
   }
@@ -330,7 +391,7 @@ class _ToolRow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final l10n = AppLocalizations.of(context)!;
+    final l10n = AccessibilityLocalizations.of(context);
     return Semantics(
       button: true,
       label: '${tool.titleAr}. ${tool.descriptionAr}',
@@ -351,8 +412,11 @@ class _ToolRow extends StatelessWidget {
                 children: [
                   _SpeakableText(
                     text: '🛠️ ${tool.titleAr}',
-                    onSpeak: () =>
-                        _showSpeechPlaceholder(context, tool.titleAr),
+                    onSpeak: () => _speakLocalizedLabel(
+                      context,
+                      localizationKey: tool.titleKey,
+                      localizedText: tool.titleAr,
+                    ),
                     style: const TextStyle(
                       color: Color(0xFF3A2A18),
                       fontSize: 20,
@@ -386,7 +450,7 @@ class _ToolRow extends StatelessWidget {
                     mainAxisSize: MainAxisSize.min,
                     children: [
                       TextButton(
-                        onPressed: () => _openExternal(tool.url),
+                        onPressed: () => _openExternal(context, tool.url),
                         style: TextButton.styleFrom(
                           foregroundColor: const Color(0xFF1D5F63),
                           side: const BorderSide(color: Color(0x881D5F63)),
@@ -407,8 +471,11 @@ class _ToolRow extends StatelessWidget {
                       const SizedBox(width: 8),
                       AccessibilityGuideIcon(
                         size: 24,
-                        onPressed: () =>
-                            _showSpeechPlaceholder(context, tool.titleAr),
+                        onPressed: () => _speakLocalizedLabel(
+                          context,
+                          localizationKey: tool.titleKey,
+                          localizedText: tool.titleAr,
+                        ),
                       ),
                     ],
                   ),
@@ -421,30 +488,36 @@ class _ToolRow extends StatelessWidget {
     );
   }
 
-  void _showSpeechPlaceholder(BuildContext context, String label) {
+  Future<void> _speakLocalizedLabel(
+    BuildContext context, {
+    required String localizationKey,
+    required String localizedText,
+  }) {
     ResidentialSignalEmitter.emit(
       signalCode: ResidentialSignalCode.listenSupportPlay,
       sourceScreen: 'Accessibility Tools',
       sourceWidget: 'ToolRowAudioIcon',
       action: 'request_audio_support',
     );
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(
-        content: Text(AppLocalizations.of(context)!.applicationAudioSoon),
+    return ResidentialSpeechGenerator.instance.speak(
+      context,
+      ResidentialSpeechNode(
+        sectionId: 'accessibility',
+        localizationKey: localizationKey,
+        localizedText: localizedText,
       ),
     );
   }
 }
 
-Future<void> _openExternal(String url) async {
+Future<void> _openExternal(BuildContext context, String url) async {
   ResidentialSignalEmitter.emit(
     signalCode: ResidentialSignalCode.accessibilityToolOpen,
     sourceScreen: 'Accessibility Tools',
     sourceWidget: 'ToolRowOpenButton',
     action: 'open_external_tool',
   );
-  final uri = Uri.parse(url);
-  await launchUrl(uri, mode: LaunchMode.externalApplication);
+  await SafeExternalLinkLauncher.open(context, url);
 }
 
 class _SpeakableText extends StatelessWidget {
@@ -489,8 +562,9 @@ class _AccessibilityCardBackButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AccessibilityLocalizations.of(context);
     return IconButton(
-      tooltip: 'رجوع',
+      tooltip: l10n.applicationAccessibilityCommunityToolsBackToRoom,
       onPressed: onPressed,
       style: IconButton.styleFrom(
         backgroundColor: const Color(0xFF1B1007).withValues(alpha: 0.55),
@@ -510,22 +584,26 @@ class _AccessibilityCardBackButton extends StatelessWidget {
 
 class _ToolSection {
   const _ToolSection({
+    required this.titleKey,
     required this.title,
     required this.tools,
   });
 
+  final String titleKey;
   final String title;
   final List<_AssistiveTool> tools;
 }
 
 class _AssistiveTool {
   _AssistiveTool({
+    required this.titleKey,
     required this.titleAr,
     required this.titleEn,
     required this.descriptionAr,
     required this.url,
   });
 
+  final String titleKey;
   final String titleAr;
   final String titleEn;
   final String descriptionAr;

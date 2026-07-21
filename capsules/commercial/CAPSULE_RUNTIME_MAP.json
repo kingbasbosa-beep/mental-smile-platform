@@ -1,0 +1,3377 @@
+﻿{
+    "capsuleId":  "MS-CAPSULE-COM-BLUEPRINT",
+    "repositoryId":  "MS-PLATFORM-DNA-V1-PRO",
+    "sectionId":  "COMMERCIAL",
+    "mode":  "PORT_MOUNTED",
+    "runtimeFiles":  [
+                         {
+                             "fullPath":  "lib/core/local_signals/local_section_signal_buffer.dart",
+                             "owner":  "COMMERCIAL_LOCAL_SIGNALS_CENTRAL_IMPORT",
+                             "runtimeRole":  "signal_runtime",
+                             "publicSymbols":  [
+                                                   "LocalSectionSignalAppendResult",
+                                                   "LocalSectionSignalBuffer",
+                                                   "LocalSectionSignalStorage",
+                                                   "LocalSignalClock",
+                                                   "LocalSignalSanitizedContext",
+                                                   "SharedPreferencesLocalSectionSignalStorage"
+                                               ],
+                             "consumers":  [
+                                               "current runtime import graph"
+                                           ],
+                             "routeConsumers":  [
+
+                                                ],
+                             "signalConsumers":  [
+
+                                                 ],
+                             "assetConsumers":  [
+
+                                                ],
+                             "localizationConsumers":  [
+
+                                                       ],
+                             "firebaseConsumers":  [
+
+                                                   ],
+                             "storageConsumers":  [
+
+                                                  ],
+                             "tests":  [
+                                           "test/features/commercial/provider_profile_connection_test.dart",
+                                           "test/features/commercial/provider_profile_final_closure_test.dart"
+                                       ],
+                             "capsuleRequired":  true,
+                             "runtimeState":  "CENTRAL_IMPORT"
+                         },
+                         {
+                             "fullPath":  "lib/core/local_signals/local_section_signal_record.dart",
+                             "owner":  "COMMERCIAL_LOCAL_SIGNALS_CENTRAL_IMPORT",
+                             "runtimeRole":  "signal_runtime",
+                             "publicSymbols":  [
+                                                   "LocalSectionSignalRecord"
+                                               ],
+                             "consumers":  [
+                                               "current runtime import graph"
+                                           ],
+                             "routeConsumers":  [
+
+                                                ],
+                             "signalConsumers":  [
+
+                                                 ],
+                             "assetConsumers":  [
+
+                                                ],
+                             "localizationConsumers":  [
+
+                                                       ],
+                             "firebaseConsumers":  [
+
+                                                   ],
+                             "storageConsumers":  [
+
+                                                  ],
+                             "tests":  [
+                                           "test/features/commercial/provider_profile_connection_test.dart",
+                                           "test/features/commercial/provider_profile_final_closure_test.dart"
+                                       ],
+                             "capsuleRequired":  true,
+                             "runtimeState":  "CENTRAL_IMPORT"
+                         },
+                         {
+                             "fullPath":  "lib/features/commercial/application/commercial_auth_service.dart",
+                             "owner":  "COMMERCIAL_AUTH",
+                             "runtimeRole":  "auth_application_service",
+                             "publicSymbols":  [
+                                                   "CommercialAuthResult",
+                                                   "CommercialAuthService"
+                                               ],
+                             "consumers":  [
+                                               "current runtime import graph"
+                                           ],
+                             "routeConsumers":  [
+
+                                                ],
+                             "signalConsumers":  [
+
+                                                 ],
+                             "assetConsumers":  [
+
+                                                ],
+                             "localizationConsumers":  [
+
+                                                       ],
+                             "firebaseConsumers":  [
+
+                                                   ],
+                             "storageConsumers":  [
+
+                                                  ],
+                             "tests":  [
+                                           "test/features/commercial/provider_profile_connection_test.dart",
+                                           "test/features/commercial/provider_profile_final_closure_test.dart"
+                                       ],
+                             "capsuleRequired":  true,
+                             "runtimeState":  "ACTIVE_DIRECT"
+                         },
+                         {
+                             "fullPath":  "lib/features/commercial/data/provider_profile_repository.dart",
+                             "owner":  "PROVIDER_PROFILE",
+                             "runtimeRole":  "firebase_repository",
+                             "publicSymbols":  [
+                                                   "ProviderProfileRepository"
+                                               ],
+                             "consumers":  [
+                                               "current runtime import graph"
+                                           ],
+                             "routeConsumers":  [
+
+                                                ],
+                             "signalConsumers":  [
+
+                                                 ],
+                             "assetConsumers":  [
+
+                                                ],
+                             "localizationConsumers":  [
+
+                                                       ],
+                             "firebaseConsumers":  [
+
+                                                   ],
+                             "storageConsumers":  [
+
+                                                  ],
+                             "tests":  [
+                                           "test/features/commercial/provider_profile_connection_test.dart",
+                                           "test/features/commercial/provider_profile_final_closure_test.dart"
+                                       ],
+                             "capsuleRequired":  true,
+                             "runtimeState":  "DATA_REGISTRY"
+                         },
+                         {
+                             "fullPath":  "lib/features/commercial/domain/provider_profile_storage.dart",
+                             "owner":  "PROVIDER_PROFILE",
+                             "runtimeRole":  "domain_contract",
+                             "publicSymbols":  [
+                                                   "ProviderImageUpload",
+                                                   "ProviderImageValidation",
+                                                   "ProviderProfileStoragePaths"
+                                               ],
+                             "consumers":  [
+                                               "current runtime import graph"
+                                           ],
+                             "routeConsumers":  [
+
+                                                ],
+                             "signalConsumers":  [
+
+                                                 ],
+                             "assetConsumers":  [
+
+                                                ],
+                             "localizationConsumers":  [
+
+                                                       ],
+                             "firebaseConsumers":  [
+
+                                                   ],
+                             "storageConsumers":  [
+
+                                                  ],
+                             "tests":  [
+                                           "test/features/commercial/provider_profile_connection_test.dart",
+                                           "test/features/commercial/provider_profile_final_closure_test.dart"
+                                       ],
+                             "capsuleRequired":  true,
+                             "runtimeState":  "DATA_REGISTRY"
+                         },
+                         {
+                             "fullPath":  "lib/features/commercial/platform_core/commercial_runtime_signal_bridge.dart",
+                             "owner":  "COMMERCIAL",
+                             "runtimeRole":  "platform_core_section_adapter",
+                             "publicSymbols":  [
+                                                   "CommercialRuntimeSignalBridge"
+                                               ],
+                             "consumers":  [
+                                               "current runtime import graph"
+                                           ],
+                             "routeConsumers":  [
+
+                                                ],
+                             "signalConsumers":  [
+
+                                                 ],
+                             "assetConsumers":  [
+
+                                                ],
+                             "localizationConsumers":  [
+
+                                                       ],
+                             "firebaseConsumers":  [
+
+                                                   ],
+                             "storageConsumers":  [
+
+                                                  ],
+                             "tests":  [
+                                           "test/features/commercial/provider_profile_connection_test.dart",
+                                           "test/features/commercial/provider_profile_final_closure_test.dart"
+                                       ],
+                             "capsuleRequired":  true,
+                             "runtimeState":  "ACTIVE_DIRECT"
+                         },
+                         {
+                             "fullPath":  "lib/features/commercial/platform_core/commercial_section_adapter.dart",
+                             "owner":  "COMMERCIAL",
+                             "runtimeRole":  "platform_core_section_adapter",
+                             "publicSymbols":  [
+                                                   "CommercialSectionAdapter"
+                                               ],
+                             "consumers":  [
+                                               "current runtime import graph"
+                                           ],
+                             "routeConsumers":  [
+
+                                                ],
+                             "signalConsumers":  [
+
+                                                 ],
+                             "assetConsumers":  [
+
+                                                ],
+                             "localizationConsumers":  [
+
+                                                       ],
+                             "firebaseConsumers":  [
+
+                                                   ],
+                             "storageConsumers":  [
+
+                                                  ],
+                             "tests":  [
+                                           "test/features/commercial/provider_profile_connection_test.dart",
+                                           "test/features/commercial/provider_profile_final_closure_test.dart"
+                                       ],
+                             "capsuleRequired":  true,
+                             "runtimeState":  "ACTIVE_DIRECT"
+                         },
+                         {
+                             "fullPath":  "lib/features/commercial/presentation/pages/center_login_page.dart",
+                             "owner":  "CENTER",
+                             "runtimeRole":  "screen_route_destination",
+                             "publicSymbols":  [
+                                                   "_CenterLoginPageState",
+                                                   "CenterLoginPage"
+                                               ],
+                             "consumers":  [
+                                               "current runtime import graph"
+                                           ],
+                             "routeConsumers":  [
+
+                                                ],
+                             "signalConsumers":  [
+
+                                                 ],
+                             "assetConsumers":  [
+
+                                                ],
+                             "localizationConsumers":  [
+
+                                                       ],
+                             "firebaseConsumers":  [
+
+                                                   ],
+                             "storageConsumers":  [
+
+                                                  ],
+                             "tests":  [
+                                           "test/features/commercial/provider_profile_connection_test.dart",
+                                           "test/features/commercial/provider_profile_final_closure_test.dart"
+                                       ],
+                             "capsuleRequired":  true,
+                             "runtimeState":  "ROUTE_DESTINATION"
+                         },
+                         {
+                             "fullPath":  "lib/features/commercial/presentation/pages/center_professional_library_page.dart",
+                             "owner":  "CENTER",
+                             "runtimeRole":  "screen_route_destination",
+                             "publicSymbols":  [
+                                                   "_CategoryAccordion",
+                                                   "_CenterLibraryCategory",
+                                                   "_CenterLibraryLink",
+                                                   "_CenterProfessionalLibraryPageState",
+                                                   "_EmptySearchState",
+                                                   "_FilterRow",
+                                                   "_FooterNote",
+                                                   "_LibraryLinkRow",
+                                                   "_LibraryTitle",
+                                                   "_SearchField",
+                                                   "_TopBar",
+                                                   "CenterProfessionalLibraryPage"
+                                               ],
+                             "consumers":  [
+                                               "current runtime import graph"
+                                           ],
+                             "routeConsumers":  [
+
+                                                ],
+                             "signalConsumers":  [
+
+                                                 ],
+                             "assetConsumers":  [
+
+                                                ],
+                             "localizationConsumers":  [
+
+                                                       ],
+                             "firebaseConsumers":  [
+
+                                                   ],
+                             "storageConsumers":  [
+
+                                                  ],
+                             "tests":  [
+                                           "test/features/commercial/provider_profile_connection_test.dart",
+                                           "test/features/commercial/provider_profile_final_closure_test.dart"
+                                       ],
+                             "capsuleRequired":  true,
+                             "runtimeState":  "ROUTE_DESTINATION"
+                         },
+                         {
+                             "fullPath":  "lib/features/commercial/presentation/pages/center_professional_profile_clean_layout_page.dart",
+                             "owner":  "CENTER",
+                             "runtimeRole":  "screen_route_destination",
+                             "publicSymbols":  [
+                                                   "_CenterProfessionalProfileCleanLayoutPageState",
+                                                   "CenterProfessionalProfileCleanLayoutPage"
+                                               ],
+                             "consumers":  [
+                                               "current runtime import graph"
+                                           ],
+                             "routeConsumers":  [
+
+                                                ],
+                             "signalConsumers":  [
+
+                                                 ],
+                             "assetConsumers":  [
+
+                                                ],
+                             "localizationConsumers":  [
+
+                                                       ],
+                             "firebaseConsumers":  [
+
+                                                   ],
+                             "storageConsumers":  [
+
+                                                  ],
+                             "tests":  [
+                                           "test/features/commercial/provider_profile_connection_test.dart",
+                                           "test/features/commercial/provider_profile_final_closure_test.dart"
+                                       ],
+                             "capsuleRequired":  true,
+                             "runtimeState":  "ROUTE_DESTINATION"
+                         },
+                         {
+                             "fullPath":  "lib/features/commercial/presentation/pages/center_room_page.dart",
+                             "owner":  "CENTER",
+                             "runtimeRole":  "screen_route_destination",
+                             "publicSymbols":  [
+                                                   "_CenterAssistiveToolsCardFixed",
+                                                   "_CenterLibraryCardFixed",
+                                                   "_CenterProfileCard",
+                                                   "_CenterProfileCardFixed",
+                                                   "_FixedCenterRoomCard",
+                                                   "CenterRoomPage"
+                                               ],
+                             "consumers":  [
+                                               "current runtime import graph"
+                                           ],
+                             "routeConsumers":  [
+
+                                                ],
+                             "signalConsumers":  [
+
+                                                 ],
+                             "assetConsumers":  [
+
+                                                ],
+                             "localizationConsumers":  [
+
+                                                       ],
+                             "firebaseConsumers":  [
+
+                                                   ],
+                             "storageConsumers":  [
+
+                                                  ],
+                             "tests":  [
+                                           "test/features/commercial/provider_profile_connection_test.dart",
+                                           "test/features/commercial/provider_profile_final_closure_test.dart"
+                                       ],
+                             "capsuleRequired":  true,
+                             "runtimeState":  "ROUTE_DESTINATION"
+                         },
+                         {
+                             "fullPath":  "lib/features/commercial/presentation/pages/commercial_access_page.dart",
+                             "owner":  "COMMERCIAL",
+                             "runtimeRole":  "screen_route_destination",
+                             "publicSymbols":  [
+                                                   "_BackToSplashButton",
+                                                   "_BackToSplashButtonState",
+                                                   "_GoldAccessButton",
+                                                   "CommercialAccessPage"
+                                               ],
+                             "consumers":  [
+                                               "current runtime import graph"
+                                           ],
+                             "routeConsumers":  [
+
+                                                ],
+                             "signalConsumers":  [
+
+                                                 ],
+                             "assetConsumers":  [
+
+                                                ],
+                             "localizationConsumers":  [
+
+                                                       ],
+                             "firebaseConsumers":  [
+
+                                                   ],
+                             "storageConsumers":  [
+
+                                                  ],
+                             "tests":  [
+                                           "test/features/commercial/provider_profile_connection_test.dart",
+                                           "test/features/commercial/provider_profile_final_closure_test.dart"
+                                       ],
+                             "capsuleRequired":  true,
+                             "runtimeState":  "ROUTE_DESTINATION"
+                         },
+                         {
+                             "fullPath":  "lib/features/commercial/presentation/pages/commercial_public_accounts_page.dart",
+                             "owner":  "COMMERCIAL",
+                             "runtimeRole":  "screen_route_destination",
+                             "publicSymbols":  [
+                                                   "_AccountsSection",
+                                                   "_PageHeader",
+                                                   "_PublicAccountChip",
+                                                   "_PublicAccountLink",
+                                                   "_SectionTitle",
+                                                   "_TopBar",
+                                                   "CommercialPublicAccountsPage"
+                                               ],
+                             "consumers":  [
+                                               "current runtime import graph"
+                                           ],
+                             "routeConsumers":  [
+
+                                                ],
+                             "signalConsumers":  [
+
+                                                 ],
+                             "assetConsumers":  [
+
+                                                ],
+                             "localizationConsumers":  [
+
+                                                       ],
+                             "firebaseConsumers":  [
+
+                                                   ],
+                             "storageConsumers":  [
+
+                                                  ],
+                             "tests":  [
+                                           "test/features/commercial/provider_profile_connection_test.dart",
+                                           "test/features/commercial/provider_profile_final_closure_test.dart"
+                                       ],
+                             "capsuleRequired":  true,
+                             "runtimeState":  "ROUTE_DESTINATION"
+                         },
+                         {
+                             "fullPath":  "lib/features/commercial/presentation/pages/commercial_register_pages.dart",
+                             "owner":  "COMMERCIAL",
+                             "runtimeRole":  "screen_route_destination",
+                             "publicSymbols":  [
+                                                   "_CenterRegisterPageState",
+                                                   "_SpecialistRegisterPageState",
+                                                   "CenterRegisterPage",
+                                                   "SpecialistRegisterPage"
+                                               ],
+                             "consumers":  [
+                                               "current runtime import graph"
+                                           ],
+                             "routeConsumers":  [
+
+                                                ],
+                             "signalConsumers":  [
+
+                                                 ],
+                             "assetConsumers":  [
+
+                                                ],
+                             "localizationConsumers":  [
+
+                                                       ],
+                             "firebaseConsumers":  [
+
+                                                   ],
+                             "storageConsumers":  [
+
+                                                  ],
+                             "tests":  [
+                                           "test/features/commercial/provider_profile_connection_test.dart",
+                                           "test/features/commercial/provider_profile_final_closure_test.dart"
+                                       ],
+                             "capsuleRequired":  true,
+                             "runtimeState":  "ROUTE_DESTINATION"
+                         },
+                         {
+                             "fullPath":  "lib/features/commercial/presentation/pages/commercial_room_page.dart",
+                             "owner":  "COMMERCIAL",
+                             "runtimeRole":  "screen_route_destination",
+                             "publicSymbols":  [
+                                                   "_AssistiveToolsCardFixed",
+                                                   "_FixedSpecialistRoomCard",
+                                                   "_ProfessionalLibraryCardFixed",
+                                                   "_ProfessionalProfileCardFixed",
+                                                   "CommercialRoomPage"
+                                               ],
+                             "consumers":  [
+                                               "current runtime import graph"
+                                           ],
+                             "routeConsumers":  [
+
+                                                ],
+                             "signalConsumers":  [
+
+                                                 ],
+                             "assetConsumers":  [
+
+                                                ],
+                             "localizationConsumers":  [
+
+                                                       ],
+                             "firebaseConsumers":  [
+
+                                                   ],
+                             "storageConsumers":  [
+
+                                                  ],
+                             "tests":  [
+                                           "test/features/commercial/provider_profile_connection_test.dart",
+                                           "test/features/commercial/provider_profile_final_closure_test.dart"
+                                       ],
+                             "capsuleRequired":  true,
+                             "runtimeState":  "ROUTE_DESTINATION"
+                         },
+                         {
+                             "fullPath":  "lib/features/commercial/presentation/pages/commercial_shared_assistive_tools_page.dart",
+                             "owner":  "COMMERCIAL",
+                             "runtimeRole":  "screen_route_destination",
+                             "publicSymbols":  [
+                                                   "_AssistiveTool",
+                                                   "_AssistiveToolCategory",
+                                                   "_CommercialSharedAssistiveToolsPageState",
+                                                   "_Disclaimer",
+                                                   "_EmptySearchState",
+                                                   "_FilterRow",
+                                                   "_PageTitle",
+                                                   "_SearchField",
+                                                   "_ToolCategoryAccordion",
+                                                   "_ToolRow",
+                                                   "_TopBar",
+                                                   "CommercialSharedAssistiveToolsPage"
+                                               ],
+                             "consumers":  [
+                                               "current runtime import graph"
+                                           ],
+                             "routeConsumers":  [
+
+                                                ],
+                             "signalConsumers":  [
+
+                                                 ],
+                             "assetConsumers":  [
+
+                                                ],
+                             "localizationConsumers":  [
+
+                                                       ],
+                             "firebaseConsumers":  [
+
+                                                   ],
+                             "storageConsumers":  [
+
+                                                  ],
+                             "tests":  [
+                                           "test/features/commercial/provider_profile_connection_test.dart",
+                                           "test/features/commercial/provider_profile_final_closure_test.dart"
+                                       ],
+                             "capsuleRequired":  true,
+                             "runtimeState":  "ROUTE_DESTINATION"
+                         },
+                         {
+                             "fullPath":  "lib/features/commercial/presentation/pages/specialist_login_page.dart",
+                             "owner":  "SPECIALIST",
+                             "runtimeRole":  "screen_route_destination",
+                             "publicSymbols":  [
+                                                   "_CommercialLoginBackButton",
+                                                   "_CommercialLoginBackButtonState",
+                                                   "_LoginFieldSuffix",
+                                                   "_SpecialistLoginPageState",
+                                                   "CommercialGoldButton",
+                                                   "CommercialLoginField",
+                                                   "CommercialLoginScaffold",
+                                                   "SpecialistLoginPage"
+                                               ],
+                             "consumers":  [
+                                               "current runtime import graph"
+                                           ],
+                             "routeConsumers":  [
+
+                                                ],
+                             "signalConsumers":  [
+
+                                                 ],
+                             "assetConsumers":  [
+
+                                                ],
+                             "localizationConsumers":  [
+
+                                                       ],
+                             "firebaseConsumers":  [
+
+                                                   ],
+                             "storageConsumers":  [
+
+                                                  ],
+                             "tests":  [
+                                           "test/features/commercial/provider_profile_connection_test.dart",
+                                           "test/features/commercial/provider_profile_final_closure_test.dart"
+                                       ],
+                             "capsuleRequired":  true,
+                             "runtimeState":  "ROUTE_DESTINATION"
+                         },
+                         {
+                             "fullPath":  "lib/features/commercial/presentation/pages/specialist_professional_library_page.dart",
+                             "owner":  "SPECIALIST",
+                             "runtimeRole":  "screen_route_destination",
+                             "publicSymbols":  [
+                                                   "_CategoryAccordion",
+                                                   "_Disclaimer",
+                                                   "_EmptySearchState",
+                                                   "_FilterRow",
+                                                   "_LibraryCategory",
+                                                   "_LibraryLink",
+                                                   "_LibraryLinkRow",
+                                                   "_LibraryTitle",
+                                                   "_SearchField",
+                                                   "_SpecialistProfessionalLibraryPageState",
+                                                   "_TopBar",
+                                                   "SpecialistProfessionalLibraryPage"
+                                               ],
+                             "consumers":  [
+                                               "current runtime import graph"
+                                           ],
+                             "routeConsumers":  [
+
+                                                ],
+                             "signalConsumers":  [
+
+                                                 ],
+                             "assetConsumers":  [
+
+                                                ],
+                             "localizationConsumers":  [
+
+                                                       ],
+                             "firebaseConsumers":  [
+
+                                                   ],
+                             "storageConsumers":  [
+
+                                                  ],
+                             "tests":  [
+                                           "test/features/commercial/provider_profile_connection_test.dart",
+                                           "test/features/commercial/provider_profile_final_closure_test.dart"
+                                       ],
+                             "capsuleRequired":  true,
+                             "runtimeState":  "ROUTE_DESTINATION"
+                         },
+                         {
+                             "fullPath":  "lib/features/commercial/presentation/pages/specialist_professional_profile_clean_layout_page.dart",
+                             "owner":  "SPECIALIST",
+                             "runtimeRole":  "screen_route_destination",
+                             "publicSymbols":  [
+                                                   "_SpecialistProfessionalProfileCleanLayoutPageState",
+                                                   "SpecialistProfessionalProfileCleanLayoutPage"
+                                               ],
+                             "consumers":  [
+                                               "current runtime import graph"
+                                           ],
+                             "routeConsumers":  [
+
+                                                ],
+                             "signalConsumers":  [
+
+                                                 ],
+                             "assetConsumers":  [
+
+                                                ],
+                             "localizationConsumers":  [
+
+                                                       ],
+                             "firebaseConsumers":  [
+
+                                                   ],
+                             "storageConsumers":  [
+
+                                                  ],
+                             "tests":  [
+                                           "test/features/commercial/provider_profile_connection_test.dart",
+                                           "test/features/commercial/provider_profile_final_closure_test.dart"
+                                       ],
+                             "capsuleRequired":  true,
+                             "runtimeState":  "ROUTE_DESTINATION"
+                         },
+                         {
+                             "fullPath":  "lib/features/commercial/presentation/widgets/commercial_room_screen_image.dart",
+                             "owner":  "COMMERCIAL",
+                             "runtimeRole":  "commercial_widget_runtime",
+                             "publicSymbols":  [
+                                                   "_CommercialRoomScreenImageState",
+                                                   "_ComputerAppIcon",
+                                                   "_ComputerAppIconState",
+                                                   "_ComputerAppItem",
+                                                   "_RoomScreenGateway",
+                                                   "_RoomScreenGatewayV2",
+                                                   "_RoomScreenPhotoPlaceholder",
+                                                   "_ScreenControlButton",
+                                                   "CommercialRoomScreenImage",
+                                                   "CommercialRoomScreenPlacement",
+                                                   "ComputerAppsGrid"
+                                               ],
+                             "consumers":  [
+                                               "current runtime import graph"
+                                           ],
+                             "routeConsumers":  [
+
+                                                ],
+                             "signalConsumers":  [
+
+                                                 ],
+                             "assetConsumers":  [
+
+                                                ],
+                             "localizationConsumers":  [
+
+                                                       ],
+                             "firebaseConsumers":  [
+
+                                                   ],
+                             "storageConsumers":  [
+
+                                                  ],
+                             "tests":  [
+                                           "test/features/commercial/provider_profile_connection_test.dart",
+                                           "test/features/commercial/provider_profile_final_closure_test.dart"
+                                       ],
+                             "capsuleRequired":  true,
+                             "runtimeState":  "ACTIVE_DIRECT"
+                         },
+                         {
+                             "fullPath":  "lib/features/commercial/presentation/widgets/commercial_room_tv_apps.dart",
+                             "owner":  "COMMERCIAL",
+                             "runtimeRole":  "commercial_widget_runtime",
+                             "publicSymbols":  [
+                                                   "_TvAppItem",
+                                                   "_TvAppWidget",
+                                                   "_TvAppWidgetState",
+                                                   "CommercialRoomTvApps"
+                                               ],
+                             "consumers":  [
+                                               "current runtime import graph"
+                                           ],
+                             "routeConsumers":  [
+
+                                                ],
+                             "signalConsumers":  [
+
+                                                 ],
+                             "assetConsumers":  [
+
+                                                ],
+                             "localizationConsumers":  [
+
+                                                       ],
+                             "firebaseConsumers":  [
+
+                                                   ],
+                             "storageConsumers":  [
+
+                                                  ],
+                             "tests":  [
+                                           "test/features/commercial/provider_profile_connection_test.dart",
+                                           "test/features/commercial/provider_profile_final_closure_test.dart"
+                                       ],
+                             "capsuleRequired":  true,
+                             "runtimeState":  "ACTIVE_DIRECT"
+                         },
+                         {
+                             "fullPath":  "lib/features/commercial/presentation/widgets/commercial_room_utility_tools.dart",
+                             "owner":  "COMMERCIAL",
+                             "runtimeRole":  "commercial_widget_runtime",
+                             "publicSymbols":  [
+                                                   "_CommercialRoomUtilityToolsState",
+                                                   "_RoomAssetButton",
+                                                   "CommercialRoomUtilityTools"
+                                               ],
+                             "consumers":  [
+                                               "current runtime import graph"
+                                           ],
+                             "routeConsumers":  [
+
+                                                ],
+                             "signalConsumers":  [
+
+                                                 ],
+                             "assetConsumers":  [
+
+                                                ],
+                             "localizationConsumers":  [
+
+                                                       ],
+                             "firebaseConsumers":  [
+
+                                                   ],
+                             "storageConsumers":  [
+
+                                                  ],
+                             "tests":  [
+                                           "test/features/commercial/provider_profile_connection_test.dart",
+                                           "test/features/commercial/provider_profile_final_closure_test.dart"
+                                       ],
+                             "capsuleRequired":  true,
+                             "runtimeState":  "ACTIVE_DIRECT"
+                         },
+                         {
+                             "fullPath":  "lib/features/commercial/presentation/widgets/commercial_sub_page_background.dart",
+                             "owner":  "COMMERCIAL",
+                             "runtimeRole":  "commercial_widget_runtime",
+                             "publicSymbols":  [
+                                                   "CommercialSubPageBackground"
+                                               ],
+                             "consumers":  [
+                                               "current runtime import graph"
+                                           ],
+                             "routeConsumers":  [
+
+                                                ],
+                             "signalConsumers":  [
+
+                                                 ],
+                             "assetConsumers":  [
+
+                                                ],
+                             "localizationConsumers":  [
+
+                                                       ],
+                             "firebaseConsumers":  [
+
+                                                   ],
+                             "storageConsumers":  [
+
+                                                  ],
+                             "tests":  [
+                                           "test/features/commercial/provider_profile_connection_test.dart",
+                                           "test/features/commercial/provider_profile_final_closure_test.dart"
+                                       ],
+                             "capsuleRequired":  true,
+                             "runtimeState":  "ACTIVE_DIRECT"
+                         },
+                         {
+                             "fullPath":  "lib/features/commercial_v2_web/domain/commercial_v2_web_section.dart",
+                             "owner":  "COMMERCIAL_V2_WEB",
+                             "runtimeRole":  "domain_contract",
+                             "publicSymbols":  [
+                                                   "CommercialV2WebSection"
+                                               ],
+                             "consumers":  [
+                                               "current runtime import graph"
+                                           ],
+                             "routeConsumers":  [
+
+                                                ],
+                             "signalConsumers":  [
+
+                                                 ],
+                             "assetConsumers":  [
+
+                                                ],
+                             "localizationConsumers":  [
+
+                                                       ],
+                             "firebaseConsumers":  [
+
+                                                   ],
+                             "storageConsumers":  [
+
+                                                  ],
+                             "tests":  [
+                                           "test/features/commercial/provider_profile_connection_test.dart",
+                                           "test/features/commercial/provider_profile_final_closure_test.dart"
+                                       ],
+                             "capsuleRequired":  true,
+                             "runtimeState":  "DATA_REGISTRY"
+                         },
+                         {
+                             "fullPath":  "lib/features/commercial_v2_web/presentation/pages/commercial_v2_web_showcase_page.dart",
+                             "owner":  "COMMERCIAL_V2_WEB",
+                             "runtimeRole":  "screen_route_destination",
+                             "publicSymbols":  [
+                                                   "_CommercialV2WebShowcasePageState",
+                                                   "_FloatingHeroAction",
+                                                   "_FloatingHeroActionState",
+                                                   "_HeroFloatingActions",
+                                                   "_HeroSection",
+                                                   "_LandingCarouselControl",
+                                                   "_LandingCarouselControls",
+                                                   "_LandingCarouselControlState",
+                                                   "_LandingPresentationCard",
+                                                   "_LandingPresentationCardState",
+                                                   "_LandingPresentationCarousel",
+                                                   "_LandingPresentationCarouselState",
+                                                   "_LanguageSegment",
+                                                   "_LanguageSwitch",
+                                                   "_PlatformGuide",
+                                                   "_PlatformGuideCard",
+                                                   "_PlatformGuideCardState",
+                                                   "_PlatformGuidesCarousel",
+                                                   "_PlatformGuidesCarouselState",
+                                                   "_TrustBar",
+                                                   "_TrustItem",
+                                                   "_WebsiteCopy",
+                                                   "CommercialV2WebShowcasePage"
+                                               ],
+                             "consumers":  [
+                                               "current runtime import graph"
+                                           ],
+                             "routeConsumers":  [
+
+                                                ],
+                             "signalConsumers":  [
+
+                                                 ],
+                             "assetConsumers":  [
+
+                                                ],
+                             "localizationConsumers":  [
+
+                                                       ],
+                             "firebaseConsumers":  [
+
+                                                   ],
+                             "storageConsumers":  [
+
+                                                  ],
+                             "tests":  [
+                                           "test/features/commercial/provider_profile_connection_test.dart",
+                                           "test/features/commercial/provider_profile_final_closure_test.dart"
+                                       ],
+                             "capsuleRequired":  true,
+                             "runtimeState":  "ROUTE_DESTINATION"
+                         },
+                         {
+                             "fullPath":  "lib/features/commercial_v2_web/presentation/widgets/commercial_v2_web_accessibility_icon.dart",
+                             "owner":  "COMMERCIAL_V2_WEB",
+                             "runtimeRole":  "commercial_widget_runtime",
+                             "publicSymbols":  [
+                                                   "CommercialV2WebAccessibilityIcon"
+                                               ],
+                             "consumers":  [
+                                               "current runtime import graph"
+                                           ],
+                             "routeConsumers":  [
+
+                                                ],
+                             "signalConsumers":  [
+
+                                                 ],
+                             "assetConsumers":  [
+
+                                                ],
+                             "localizationConsumers":  [
+
+                                                       ],
+                             "firebaseConsumers":  [
+
+                                                   ],
+                             "storageConsumers":  [
+
+                                                  ],
+                             "tests":  [
+                                           "test/features/commercial/provider_profile_connection_test.dart",
+                                           "test/features/commercial/provider_profile_final_closure_test.dart"
+                                       ],
+                             "capsuleRequired":  true,
+                             "runtimeState":  "ACTIVE_DIRECT"
+                         },
+                         {
+                             "fullPath":  "lib/features/commercial_v2_web/presentation/widgets/commercial_v2_web_background.dart",
+                             "owner":  "COMMERCIAL_V2_WEB",
+                             "runtimeRole":  "commercial_widget_runtime",
+                             "publicSymbols":  [
+                                                   "CommercialV2WebBackground"
+                                               ],
+                             "consumers":  [
+                                               "current runtime import graph"
+                                           ],
+                             "routeConsumers":  [
+
+                                                ],
+                             "signalConsumers":  [
+
+                                                 ],
+                             "assetConsumers":  [
+
+                                                ],
+                             "localizationConsumers":  [
+
+                                                       ],
+                             "firebaseConsumers":  [
+
+                                                   ],
+                             "storageConsumers":  [
+
+                                                  ],
+                             "tests":  [
+                                           "test/features/commercial/provider_profile_connection_test.dart",
+                                           "test/features/commercial/provider_profile_final_closure_test.dart"
+                                       ],
+                             "capsuleRequired":  true,
+                             "runtimeState":  "ACTIVE_DIRECT"
+                         },
+                         {
+                             "fullPath":  "lib/features/commercial_v2_web/presentation_gallery/data/presentation_gallery_repository.dart",
+                             "owner":  "COMMERCIAL_V2_WEB",
+                             "runtimeRole":  "firebase_repository",
+                             "publicSymbols":  [
+                                                   "AssetPresentationGalleryRepository",
+                                                   "PresentationGalleryRepository"
+                                               ],
+                             "consumers":  [
+                                               "current runtime import graph"
+                                           ],
+                             "routeConsumers":  [
+
+                                                ],
+                             "signalConsumers":  [
+
+                                                 ],
+                             "assetConsumers":  [
+
+                                                ],
+                             "localizationConsumers":  [
+
+                                                       ],
+                             "firebaseConsumers":  [
+
+                                                   ],
+                             "storageConsumers":  [
+
+                                                  ],
+                             "tests":  [
+                                           "test/features/commercial/provider_profile_connection_test.dart",
+                                           "test/features/commercial/provider_profile_final_closure_test.dart"
+                                       ],
+                             "capsuleRequired":  true,
+                             "runtimeState":  "DATA_REGISTRY"
+                         },
+                         {
+                             "fullPath":  "lib/features/commercial_v2_web/presentation_gallery/domain/models/presentation_card.dart",
+                             "owner":  "COMMERCIAL_V2_WEB",
+                             "runtimeRole":  "domain_contract",
+                             "publicSymbols":  [
+                                                   "PresentationCard"
+                                               ],
+                             "consumers":  [
+                                               "current runtime import graph"
+                                           ],
+                             "routeConsumers":  [
+
+                                                ],
+                             "signalConsumers":  [
+
+                                                 ],
+                             "assetConsumers":  [
+
+                                                ],
+                             "localizationConsumers":  [
+
+                                                       ],
+                             "firebaseConsumers":  [
+
+                                                   ],
+                             "storageConsumers":  [
+
+                                                  ],
+                             "tests":  [
+                                           "test/features/commercial/provider_profile_connection_test.dart",
+                                           "test/features/commercial/provider_profile_final_closure_test.dart"
+                                       ],
+                             "capsuleRequired":  true,
+                             "runtimeState":  "DATA_REGISTRY"
+                         },
+                         {
+                             "fullPath":  "lib/features/commercial_v2_web/presentation_gallery/presentation/pages/presentation_viewer_page.dart",
+                             "owner":  "COMMERCIAL_V2_WEB",
+                             "runtimeRole":  "screen_route_destination",
+                             "publicSymbols":  [
+                                                   "_PageIndicator",
+                                                   "_PresentationViewerPageState",
+                                                   "_ViewerControl",
+                                                   "_ZoomablePresentationPage",
+                                                   "_ZoomablePresentationPageState",
+                                                   "PresentationViewerPage"
+                                               ],
+                             "consumers":  [
+                                               "current runtime import graph"
+                                           ],
+                             "routeConsumers":  [
+
+                                                ],
+                             "signalConsumers":  [
+
+                                                 ],
+                             "assetConsumers":  [
+
+                                                ],
+                             "localizationConsumers":  [
+
+                                                       ],
+                             "firebaseConsumers":  [
+
+                                                   ],
+                             "storageConsumers":  [
+
+                                                  ],
+                             "tests":  [
+                                           "test/features/commercial/provider_profile_connection_test.dart",
+                                           "test/features/commercial/provider_profile_final_closure_test.dart"
+                                       ],
+                             "capsuleRequired":  true,
+                             "runtimeState":  "ROUTE_DESTINATION"
+                         },
+                         {
+                             "fullPath":  "lib/features/commercial_v2_web/presentation_gallery/presentation/widgets/presentation_asset_image.dart",
+                             "owner":  "COMMERCIAL_V2_WEB",
+                             "runtimeRole":  "commercial_widget_runtime",
+                             "publicSymbols":  [
+                                                   "PresentationAssetImage"
+                                               ],
+                             "consumers":  [
+                                               "current runtime import graph"
+                                           ],
+                             "routeConsumers":  [
+
+                                                ],
+                             "signalConsumers":  [
+
+                                                 ],
+                             "assetConsumers":  [
+
+                                                ],
+                             "localizationConsumers":  [
+
+                                                       ],
+                             "firebaseConsumers":  [
+
+                                                   ],
+                             "storageConsumers":  [
+
+                                                  ],
+                             "tests":  [
+                                           "test/features/commercial/provider_profile_connection_test.dart",
+                                           "test/features/commercial/provider_profile_final_closure_test.dart"
+                                       ],
+                             "capsuleRequired":  true,
+                             "runtimeState":  "ACTIVE_DIRECT"
+                         },
+                         {
+                             "fullPath":  "lib/features/commercial_v2_web/signals/commercial_v2_aggregation_point.dart",
+                             "owner":  "COMMERCIAL_V2_WEB",
+                             "runtimeRole":  "signal_runtime",
+                             "publicSymbols":  [
+                                                   "CommercialV2AggregationPoint",
+                                                   "CommercialV2SignalDebugLog"
+                                               ],
+                             "consumers":  [
+                                               "current runtime import graph"
+                                           ],
+                             "routeConsumers":  [
+
+                                                ],
+                             "signalConsumers":  [
+
+                                                 ],
+                             "assetConsumers":  [
+
+                                                ],
+                             "localizationConsumers":  [
+
+                                                       ],
+                             "firebaseConsumers":  [
+
+                                                   ],
+                             "storageConsumers":  [
+
+                                                  ],
+                             "tests":  [
+                                           "test/features/commercial/provider_profile_connection_test.dart",
+                                           "test/features/commercial/provider_profile_final_closure_test.dart"
+                                       ],
+                             "capsuleRequired":  true,
+                             "runtimeState":  "ACTIVE_DIRECT"
+                         },
+                         {
+                             "fullPath":  "lib/features/commercial_v2_web/signals/commercial_v2_archive_signal_event_writer.dart",
+                             "owner":  "COMMERCIAL_V2_WEB",
+                             "runtimeRole":  "signal_runtime",
+                             "publicSymbols":  [
+                                                   "CommercialV2ArchiveSignalEventWriter",
+                                                   "CommercialV2ArchiveSignalWriteResult"
+                                               ],
+                             "consumers":  [
+                                               "current runtime import graph"
+                                           ],
+                             "routeConsumers":  [
+
+                                                ],
+                             "signalConsumers":  [
+
+                                                 ],
+                             "assetConsumers":  [
+
+                                                ],
+                             "localizationConsumers":  [
+
+                                                       ],
+                             "firebaseConsumers":  [
+
+                                                   ],
+                             "storageConsumers":  [
+
+                                                  ],
+                             "tests":  [
+                                           "test/features/commercial/provider_profile_connection_test.dart",
+                                           "test/features/commercial/provider_profile_final_closure_test.dart"
+                                       ],
+                             "capsuleRequired":  true,
+                             "runtimeState":  "ACTIVE_DIRECT"
+                         },
+                         {
+                             "fullPath":  "lib/features/commercial_v2_web/signals/commercial_v2_inbox_outbox_interfaces.dart",
+                             "owner":  "COMMERCIAL_V2_WEB",
+                             "runtimeRole":  "signal_runtime",
+                             "publicSymbols":  [
+                                                   "CommercialV2InboxPlugInterface",
+                                                   "CommercialV2OutboxPlugInterface",
+                                                   "CommercialV2PlugCodes"
+                                               ],
+                             "consumers":  [
+                                               "current runtime import graph"
+                                           ],
+                             "routeConsumers":  [
+
+                                                ],
+                             "signalConsumers":  [
+
+                                                 ],
+                             "assetConsumers":  [
+
+                                                ],
+                             "localizationConsumers":  [
+
+                                                       ],
+                             "firebaseConsumers":  [
+
+                                                   ],
+                             "storageConsumers":  [
+
+                                                  ],
+                             "tests":  [
+                                           "test/features/commercial/provider_profile_connection_test.dart",
+                                           "test/features/commercial/provider_profile_final_closure_test.dart"
+                                       ],
+                             "capsuleRequired":  true,
+                             "runtimeState":  "ACTIVE_DIRECT"
+                         },
+                         {
+                             "fullPath":  "lib/features/commercial_v2_web/signals/commercial_v2_signal_codes.dart",
+                             "owner":  "COMMERCIAL_V2_WEB",
+                             "runtimeRole":  "signal_runtime",
+                             "publicSymbols":  [
+                                                   "CommercialV2SignalCode",
+                                                   "CommercialV2SignalFamily"
+                                               ],
+                             "consumers":  [
+                                               "current runtime import graph"
+                                           ],
+                             "routeConsumers":  [
+
+                                                ],
+                             "signalConsumers":  [
+
+                                                 ],
+                             "assetConsumers":  [
+
+                                                ],
+                             "localizationConsumers":  [
+
+                                                       ],
+                             "firebaseConsumers":  [
+
+                                                   ],
+                             "storageConsumers":  [
+
+                                                  ],
+                             "tests":  [
+                                           "test/features/commercial/provider_profile_connection_test.dart",
+                                           "test/features/commercial/provider_profile_final_closure_test.dart"
+                                       ],
+                             "capsuleRequired":  true,
+                             "runtimeState":  "ACTIVE_DIRECT"
+                         },
+                         {
+                             "fullPath":  "lib/features/commercial_v2_web/signals/commercial_v2_signal_emitter.dart",
+                             "owner":  "COMMERCIAL_V2_WEB",
+                             "runtimeRole":  "signal_runtime",
+                             "publicSymbols":  [
+                                                   "CommercialV2SignalEmitter"
+                                               ],
+                             "consumers":  [
+                                               "current runtime import graph"
+                                           ],
+                             "routeConsumers":  [
+
+                                                ],
+                             "signalConsumers":  [
+
+                                                 ],
+                             "assetConsumers":  [
+
+                                                ],
+                             "localizationConsumers":  [
+
+                                                       ],
+                             "firebaseConsumers":  [
+
+                                                   ],
+                             "storageConsumers":  [
+
+                                                  ],
+                             "tests":  [
+                                           "test/features/commercial/provider_profile_connection_test.dart",
+                                           "test/features/commercial/provider_profile_final_closure_test.dart"
+                                       ],
+                             "capsuleRequired":  true,
+                             "runtimeState":  "ACTIVE_DIRECT"
+                         },
+                         {
+                             "fullPath":  "lib/features/commercial_v2_web/signals/commercial_v2_signal_payload.dart",
+                             "owner":  "COMMERCIAL_V2_WEB",
+                             "runtimeRole":  "signal_runtime",
+                             "publicSymbols":  [
+                                                   "CommercialV2AggregationDestination",
+                                                   "CommercialV2ArchiveMagnet",
+                                                   "CommercialV2SignalDefinition",
+                                                   "CommercialV2SignalPayload",
+                                                   "CommercialV2StrategicSummaryDestination"
+                                               ],
+                             "consumers":  [
+                                               "current runtime import graph"
+                                           ],
+                             "routeConsumers":  [
+
+                                                ],
+                             "signalConsumers":  [
+
+                                                 ],
+                             "assetConsumers":  [
+
+                                                ],
+                             "localizationConsumers":  [
+
+                                                       ],
+                             "firebaseConsumers":  [
+
+                                                   ],
+                             "storageConsumers":  [
+
+                                                  ],
+                             "tests":  [
+                                           "test/features/commercial/provider_profile_connection_test.dart",
+                                           "test/features/commercial/provider_profile_final_closure_test.dart"
+                                       ],
+                             "capsuleRequired":  true,
+                             "runtimeState":  "ACTIVE_DIRECT"
+                         },
+                         {
+                             "fullPath":  "lib/features/commercial_v2_web/signals/commercial_v2_signal_registry.dart",
+                             "owner":  "COMMERCIAL_V2_WEB",
+                             "runtimeRole":  "signal_runtime",
+                             "publicSymbols":  [
+                                                   "CommercialV2SignalRegistry"
+                                               ],
+                             "consumers":  [
+                                               "current runtime import graph"
+                                           ],
+                             "routeConsumers":  [
+
+                                                ],
+                             "signalConsumers":  [
+
+                                                 ],
+                             "assetConsumers":  [
+
+                                                ],
+                             "localizationConsumers":  [
+
+                                                       ],
+                             "firebaseConsumers":  [
+
+                                                   ],
+                             "storageConsumers":  [
+
+                                                  ],
+                             "tests":  [
+                                           "test/features/commercial/provider_profile_connection_test.dart",
+                                           "test/features/commercial/provider_profile_final_closure_test.dart"
+                                       ],
+                             "capsuleRequired":  true,
+                             "runtimeState":  "ACTIVE_DIRECT"
+                         },
+                         {
+                             "fullPath":  "lib/features/generation2_mobile_center_room/presentation/pages/generation2_mobile_center_room_page.dart",
+                             "owner":  "GENERATION2_CENTER",
+                             "runtimeRole":  "screen_route_destination",
+                             "publicSymbols":  [
+                                                   "Generation2MobileCenterRoomPage"
+                                               ],
+                             "consumers":  [
+                                               "current runtime import graph"
+                                           ],
+                             "routeConsumers":  [
+
+                                                ],
+                             "signalConsumers":  [
+
+                                                 ],
+                             "assetConsumers":  [
+
+                                                ],
+                             "localizationConsumers":  [
+
+                                                       ],
+                             "firebaseConsumers":  [
+
+                                                   ],
+                             "storageConsumers":  [
+
+                                                  ],
+                             "tests":  [
+                                           "test/features/commercial/provider_profile_connection_test.dart",
+                                           "test/features/commercial/provider_profile_final_closure_test.dart"
+                                       ],
+                             "capsuleRequired":  true,
+                             "runtimeState":  "ROUTE_DESTINATION"
+                         },
+                         {
+                             "fullPath":  "lib/features/generation2_mobile_specialist_room/presentation/pages/generation2_mobile_specialist_room_page.dart",
+                             "owner":  "GENERATION2_SPECIALIST",
+                             "runtimeRole":  "screen_route_destination",
+                             "publicSymbols":  [
+                                                   "Generation2MobileSpecialistRoomPage"
+                                               ],
+                             "consumers":  [
+                                               "current runtime import graph"
+                                           ],
+                             "routeConsumers":  [
+
+                                                ],
+                             "signalConsumers":  [
+
+                                                 ],
+                             "assetConsumers":  [
+
+                                                ],
+                             "localizationConsumers":  [
+
+                                                       ],
+                             "firebaseConsumers":  [
+
+                                                   ],
+                             "storageConsumers":  [
+
+                                                  ],
+                             "tests":  [
+                                           "test/features/commercial/provider_profile_connection_test.dart",
+                                           "test/features/commercial/provider_profile_final_closure_test.dart"
+                                       ],
+                             "capsuleRequired":  true,
+                             "runtimeState":  "ROUTE_DESTINATION"
+                         },
+                         {
+                             "fullPath":  "lib/shared/provider_profiles/provider_profile_categories.dart",
+                             "owner":  "PROVIDER_PROFILE_CENTRAL_IMPORT",
+                             "runtimeRole":  "runtime_dependency",
+                             "publicSymbols":  [
+                                                   "ProviderCategory",
+                                                   "ProviderProfileCategoryRegistry",
+                                                   "ProviderProfileType"
+                                               ],
+                             "consumers":  [
+                                               "current runtime import graph"
+                                           ],
+                             "routeConsumers":  [
+
+                                                ],
+                             "signalConsumers":  [
+
+                                                 ],
+                             "assetConsumers":  [
+
+                                                ],
+                             "localizationConsumers":  [
+
+                                                       ],
+                             "firebaseConsumers":  [
+
+                                                   ],
+                             "storageConsumers":  [
+
+                                                  ],
+                             "tests":  [
+                                           "test/features/commercial/provider_profile_connection_test.dart",
+                                           "test/features/commercial/provider_profile_final_closure_test.dart"
+                                       ],
+                             "capsuleRequired":  true,
+                             "runtimeState":  "CENTRAL_IMPORT"
+                         },
+                         {
+                             "fullPath":  "lib/shared/provider_profiles/provider_public_profile.dart",
+                             "owner":  "PROVIDER_PROFILE_CENTRAL_IMPORT",
+                             "runtimeRole":  "runtime_dependency",
+                             "publicSymbols":  [
+                                                   "ProviderPublicProfileProjection",
+                                                   "PublicProviderProfile"
+                                               ],
+                             "consumers":  [
+                                               "current runtime import graph"
+                                           ],
+                             "routeConsumers":  [
+
+                                                ],
+                             "signalConsumers":  [
+
+                                                 ],
+                             "assetConsumers":  [
+
+                                                ],
+                             "localizationConsumers":  [
+
+                                                       ],
+                             "firebaseConsumers":  [
+
+                                                   ],
+                             "storageConsumers":  [
+
+                                                  ],
+                             "tests":  [
+                                           "test/features/commercial/provider_profile_connection_test.dart",
+                                           "test/features/commercial/provider_profile_final_closure_test.dart"
+                                       ],
+                             "capsuleRequired":  true,
+                             "runtimeState":  "CENTRAL_IMPORT"
+                         }
+                     ],
+    "routes":  [
+                   {
+                       "routeCode":  "MS-COM-ROUTE-000",
+                       "routePath":  "/",
+                       "routeConstant":  "ROOT_DIRECT_NO_CONSTANT",
+                       "destinationFile":  "lib/features/commercial_v2_web/presentation/pages/commercial_v2_web_showcase_page.dart",
+                       "destinationClass":  "CommercialV2WebShowcasePage",
+                       "owner":  "COMMERCIAL_V2_WEB",
+                       "callers":  [
+                                       "lib/app/router/app_router.dart"
+                                   ],
+                       "initialEntry":  true,
+                       "externalEntry":  true,
+                       "centralRouterDependency":  "lib/app/router/app_router.dart",
+                       "canonicalLine":  "MS-LINE-ROUTE-01"
+                   },
+                   {
+                       "routeCode":  "MS-COM-ROUTE-001",
+                       "routePath":  "/commercial/access",
+                       "routeConstant":  "Routes.commercialAccess",
+                       "destinationFile":  "lib/features/commercial/presentation/pages/commercial_access_page.dart",
+                       "destinationClass":  "CommercialAccessPage",
+                       "owner":  "COMMERCIAL",
+                       "callers":  [
+                                       "lib/app/router/app_router.dart",
+                                       "lib/core/auth/presentation/pages/account_blocked_page.dart",
+                                       "lib/features/app_exit/presentation/pages/app_exit_social_links_page.dart",
+                                       "lib/features/commercial/presentation/pages/specialist_login_page.dart",
+                                       "lib/features/splash/presentation/pages/splash_page.dart"
+                                   ],
+                       "initialEntry":  true,
+                       "externalEntry":  true,
+                       "centralRouterDependency":  "lib/app/router/app_router.dart",
+                       "canonicalLine":  "MS-LINE-ROUTE-01"
+                   },
+                   {
+                       "routeCode":  "MS-COM-ROUTE-002",
+                       "routePath":  "/commercial/specialist/login",
+                       "routeConstant":  "Routes.commercialSpecialistLogin",
+                       "destinationFile":  "lib/features/commercial/presentation/pages/specialist_login_page.dart",
+                       "destinationClass":  "SpecialistLoginPage",
+                       "owner":  "SPECIALIST",
+                       "callers":  [
+                                       "lib/app/router/app_router.dart",
+                                       "lib/features/commercial/presentation/pages/commercial_access_page.dart",
+                                       "lib/features/commercial/presentation/pages/commercial_register_pages.dart",
+                                       "lib/features/generation2_mobile_entry/presentation/pages/generation2_mobile_selection_pages.dart"
+                                   ],
+                       "initialEntry":  false,
+                       "externalEntry":  false,
+                       "centralRouterDependency":  "lib/app/router/app_router.dart",
+                       "canonicalLine":  "MS-LINE-ROUTE-01"
+                   },
+                   {
+                       "routeCode":  "MS-COM-ROUTE-003",
+                       "routePath":  "/commercial/specialist/register",
+                       "routeConstant":  "Routes.commercialSpecialistRegister",
+                       "destinationFile":  "lib/features/commercial/presentation/pages/commercial_register_pages.dart",
+                       "destinationClass":  "SpecialistRegisterPage",
+                       "owner":  "SPECIALIST",
+                       "callers":  [
+                                       "lib/app/router/app_router.dart",
+                                       "lib/features/commercial/presentation/pages/specialist_login_page.dart"
+                                   ],
+                       "initialEntry":  false,
+                       "externalEntry":  false,
+                       "centralRouterDependency":  "lib/app/router/app_router.dart",
+                       "canonicalLine":  "MS-LINE-ROUTE-01"
+                   },
+                   {
+                       "routeCode":  "MS-COM-ROUTE-004",
+                       "routePath":  "/commercial/center/login",
+                       "routeConstant":  "Routes.commercialCenterLogin",
+                       "destinationFile":  "lib/features/commercial/presentation/pages/center_login_page.dart",
+                       "destinationClass":  "CenterLoginPage",
+                       "owner":  "CENTER",
+                       "callers":  [
+                                       "lib/app/router/app_router.dart",
+                                       "lib/features/commercial/presentation/pages/commercial_access_page.dart",
+                                       "lib/features/commercial/presentation/pages/commercial_register_pages.dart",
+                                       "lib/features/generation2_mobile_entry/presentation/pages/generation2_mobile_selection_pages.dart"
+                                   ],
+                       "initialEntry":  false,
+                       "externalEntry":  false,
+                       "centralRouterDependency":  "lib/app/router/app_router.dart",
+                       "canonicalLine":  "MS-LINE-ROUTE-01"
+                   },
+                   {
+                       "routeCode":  "MS-COM-ROUTE-005",
+                       "routePath":  "/commercial/center/register",
+                       "routeConstant":  "Routes.commercialCenterRegister",
+                       "destinationFile":  "lib/features/commercial/presentation/pages/commercial_register_pages.dart",
+                       "destinationClass":  "CenterRegisterPage",
+                       "owner":  "CENTER",
+                       "callers":  [
+                                       "lib/app/router/app_router.dart",
+                                       "lib/features/commercial/presentation/pages/center_login_page.dart"
+                                   ],
+                       "initialEntry":  false,
+                       "externalEntry":  false,
+                       "centralRouterDependency":  "lib/app/router/app_router.dart",
+                       "canonicalLine":  "MS-LINE-ROUTE-01"
+                   },
+                   {
+                       "routeCode":  "MS-COM-ROUTE-006",
+                       "routePath":  "/commercial/room",
+                       "routeConstant":  "Routes.commercialRoom",
+                       "destinationFile":  "lib/features/commercial/presentation/pages/commercial_room_page.dart",
+                       "destinationClass":  "CommercialRoomPage",
+                       "owner":  "SPECIALIST",
+                       "callers":  [
+                                       "lib/app/router/app_router.dart",
+                                       "lib/features/commercial/presentation/pages/commercial_register_pages.dart",
+                                       "lib/features/commercial/presentation/pages/commercial_room_page.dart",
+                                       "lib/features/commercial/presentation/pages/specialist_login_page.dart",
+                                       "lib/features/commercial/presentation/pages/specialist_professional_library_page.dart",
+                                       "lib/features/library/presentation/pages/library_page.dart",
+                                       "lib/features/library/presentation/pages/library_provider_content_pages.dart"
+                                   ],
+                       "initialEntry":  false,
+                       "externalEntry":  false,
+                       "centralRouterDependency":  "lib/app/router/app_router.dart",
+                       "canonicalLine":  "MS-LINE-ROUTE-01"
+                   },
+                   {
+                       "routeCode":  "MS-COM-ROUTE-007",
+                       "routePath":  "/commercial/specialist/professional-profile",
+                       "routeConstant":  "Routes.commercialSpecialistProfessionalProfile",
+                       "destinationFile":  "lib/features/commercial/presentation/pages/specialist_professional_profile_clean_layout_page.dart",
+                       "destinationClass":  "SpecialistProfessionalProfileCleanLayoutPage",
+                       "owner":  "SPECIALIST",
+                       "callers":  [
+                                       "lib/app/router/app_router.dart",
+                                       "lib/shared/generation2_mobile/generation2_mobile_room_scaffold.dart"
+                                   ],
+                       "initialEntry":  false,
+                       "externalEntry":  false,
+                       "centralRouterDependency":  "lib/app/router/app_router.dart",
+                       "canonicalLine":  "MS-LINE-ROUTE-01"
+                   },
+                   {
+                       "routeCode":  "MS-COM-ROUTE-008",
+                       "routePath":  "/commercial/specialist/professional-library",
+                       "routeConstant":  "Routes.commercialSpecialistProfessionalLibrary",
+                       "destinationFile":  "lib/features/commercial/presentation/pages/specialist_professional_library_page.dart",
+                       "destinationClass":  "SpecialistProfessionalLibraryPage",
+                       "owner":  "SPECIALIST",
+                       "callers":  [
+                                       "lib/app/router/app_router.dart",
+                                       "lib/shared/generation2_mobile/generation2_mobile_room_scaffold.dart"
+                                   ],
+                       "initialEntry":  false,
+                       "externalEntry":  false,
+                       "centralRouterDependency":  "lib/app/router/app_router.dart",
+                       "canonicalLine":  "MS-LINE-ROUTE-01"
+                   },
+                   {
+                       "routeCode":  "MS-COM-ROUTE-009",
+                       "routePath":  "/commercial/center/room",
+                       "routeConstant":  "Routes.commercialCenterRoom",
+                       "destinationFile":  "lib/features/commercial/presentation/pages/center_room_page.dart",
+                       "destinationClass":  "CenterRoomPage",
+                       "owner":  "CENTER",
+                       "callers":  [
+                                       "lib/app/router/app_router.dart",
+                                       "lib/features/commercial/presentation/pages/center_login_page.dart",
+                                       "lib/features/commercial/presentation/pages/center_professional_library_page.dart",
+                                       "lib/features/commercial/presentation/pages/center_room_page.dart",
+                                       "lib/features/commercial/presentation/pages/commercial_register_pages.dart",
+                                       "lib/features/library/presentation/pages/library_page.dart",
+                                       "lib/features/library/presentation/pages/library_provider_content_pages.dart"
+                                   ],
+                       "initialEntry":  false,
+                       "externalEntry":  false,
+                       "centralRouterDependency":  "lib/app/router/app_router.dart",
+                       "canonicalLine":  "MS-LINE-ROUTE-01"
+                   },
+                   {
+                       "routeCode":  "MS-COM-ROUTE-010",
+                       "routePath":  "/commercial/center/professional-profile",
+                       "routeConstant":  "Routes.commercialCenterProfessionalProfile",
+                       "destinationFile":  "lib/features/commercial/presentation/pages/center_professional_profile_clean_layout_page.dart",
+                       "destinationClass":  "CenterProfessionalProfileCleanLayoutPage",
+                       "owner":  "CENTER",
+                       "callers":  [
+                                       "lib/app/router/app_router.dart",
+                                       "lib/features/commercial/presentation/pages/center_room_page.dart",
+                                       "lib/shared/generation2_mobile/generation2_mobile_room_scaffold.dart"
+                                   ],
+                       "initialEntry":  false,
+                       "externalEntry":  false,
+                       "centralRouterDependency":  "lib/app/router/app_router.dart",
+                       "canonicalLine":  "MS-LINE-ROUTE-01"
+                   },
+                   {
+                       "routeCode":  "MS-COM-ROUTE-011",
+                       "routePath":  "/commercial/center/professional-library",
+                       "routeConstant":  "Routes.commercialCenterProfessionalLibrary",
+                       "destinationFile":  "lib/features/commercial/presentation/pages/center_professional_library_page.dart",
+                       "destinationClass":  "CenterProfessionalLibraryPage",
+                       "owner":  "CENTER",
+                       "callers":  [
+                                       "lib/app/router/app_router.dart",
+                                       "lib/features/commercial/presentation/pages/center_room_page.dart",
+                                       "lib/shared/generation2_mobile/generation2_mobile_room_scaffold.dart"
+                                   ],
+                       "initialEntry":  false,
+                       "externalEntry":  false,
+                       "centralRouterDependency":  "lib/app/router/app_router.dart",
+                       "canonicalLine":  "MS-LINE-ROUTE-01"
+                   },
+                   {
+                       "routeCode":  "MS-COM-ROUTE-012",
+                       "routePath":  "/commercial/tools/assistive",
+                       "routeConstant":  "Routes.commercialAssistiveTools",
+                       "destinationFile":  "lib/features/commercial/presentation/pages/commercial_shared_assistive_tools_page.dart",
+                       "destinationClass":  "CommercialSharedAssistiveToolsPage",
+                       "owner":  "COMMERCIAL",
+                       "callers":  [
+                                       "lib/app/router/app_router.dart",
+                                       "lib/features/commercial/presentation/pages/center_room_page.dart",
+                                       "lib/shared/generation2_mobile/generation2_mobile_room_scaffold.dart"
+                                   ],
+                       "initialEntry":  false,
+                       "externalEntry":  false,
+                       "centralRouterDependency":  "lib/app/router/app_router.dart",
+                       "canonicalLine":  "MS-LINE-ROUTE-01"
+                   },
+                   {
+                       "routeCode":  "MS-COM-ROUTE-013",
+                       "routePath":  "/commercial/public-accounts",
+                       "routeConstant":  "Routes.commercialPublicAccounts",
+                       "destinationFile":  "lib/features/commercial/presentation/pages/commercial_public_accounts_page.dart",
+                       "destinationClass":  "CommercialPublicAccountsPage",
+                       "owner":  "COMMERCIAL",
+                       "callers":  [
+                                       "lib/app/router/app_router.dart"
+                                   ],
+                       "initialEntry":  true,
+                       "externalEntry":  true,
+                       "centralRouterDependency":  "lib/app/router/app_router.dart",
+                       "canonicalLine":  "MS-LINE-ROUTE-01"
+                   },
+                   {
+                       "routeCode":  "MS-COM-ROUTE-014",
+                       "routePath":  "/commercial-v2/web",
+                       "routeConstant":  "Routes.commercialV2Web",
+                       "destinationFile":  "lib/features/commercial_v2_web/presentation/pages/commercial_v2_web_showcase_page.dart",
+                       "destinationClass":  "CommercialV2WebShowcasePage",
+                       "owner":  "COMMERCIAL_V2_WEB",
+                       "callers":  [
+                                       "lib/app/router/app_router.dart"
+                                   ],
+                       "initialEntry":  true,
+                       "externalEntry":  true,
+                       "centralRouterDependency":  "lib/app/router/app_router.dart",
+                       "canonicalLine":  "MS-LINE-ROUTE-01"
+                   },
+                   {
+                       "routeCode":  "MS-COM-ROUTE-015",
+                       "routePath":  "/landing-preview",
+                       "routeConstant":  "Routes.landingPreview",
+                       "destinationFile":  "lib/features/commercial_v2_web/presentation/pages/commercial_v2_web_showcase_page.dart",
+                       "destinationClass":  "CommercialV2WebShowcasePage",
+                       "owner":  "COMMERCIAL_V2_WEB",
+                       "callers":  [
+                                       "lib/app/router/app_router.dart"
+                                   ],
+                       "initialEntry":  true,
+                       "externalEntry":  true,
+                       "centralRouterDependency":  "lib/app/router/app_router.dart",
+                       "canonicalLine":  "MS-LINE-ROUTE-01"
+                   },
+                   {
+                       "routeCode":  "MS-COM-ROUTE-016",
+                       "routePath":  "/g2/mobile/specialist-room",
+                       "routeConstant":  "Routes.generation2MobileSpecialistRoom",
+                       "destinationFile":  "lib/features/generation2_mobile_specialist_room/presentation/pages/generation2_mobile_specialist_room_page.dart",
+                       "destinationClass":  "Generation2MobileSpecialistRoomPage",
+                       "owner":  "GENERATION2_SPECIALIST",
+                       "callers":  [
+                                       "lib/app/router/app_router.dart",
+                                       "lib/features/generation2_mobile_entry/presentation/pages/generation2_mobile_selection_pages.dart",
+                                       "lib/features/generation2_mobile_specialist_room/presentation/pages/generation2_mobile_specialist_room_page.dart",
+                                       "lib/features/library/presentation/pages/library_page.dart",
+                                       "lib/features/library/presentation/pages/library_provider_content_pages.dart"
+                                   ],
+                       "initialEntry":  false,
+                       "externalEntry":  false,
+                       "centralRouterDependency":  "lib/app/router/app_router.dart",
+                       "canonicalLine":  "MS-LINE-ROUTE-01"
+                   },
+                   {
+                       "routeCode":  "MS-COM-ROUTE-017",
+                       "routePath":  "/g2/mobile/center-room",
+                       "routeConstant":  "Routes.generation2MobileCenterRoom",
+                       "destinationFile":  "lib/features/generation2_mobile_center_room/presentation/pages/generation2_mobile_center_room_page.dart",
+                       "destinationClass":  "Generation2MobileCenterRoomPage",
+                       "owner":  "GENERATION2_CENTER",
+                       "callers":  [
+                                       "lib/app/router/app_router.dart",
+                                       "lib/features/generation2_mobile_center_room/presentation/pages/generation2_mobile_center_room_page.dart",
+                                       "lib/features/generation2_mobile_entry/presentation/pages/generation2_mobile_selection_pages.dart",
+                                       "lib/features/library/presentation/pages/library_page.dart",
+                                       "lib/features/library/presentation/pages/library_provider_content_pages.dart"
+                                   ],
+                       "initialEntry":  false,
+                       "externalEntry":  false,
+                       "centralRouterDependency":  "lib/app/router/app_router.dart",
+                       "canonicalLine":  "MS-LINE-ROUTE-01"
+                   }
+               ],
+    "signals":  [
+                    {
+                        "signalCode":  "sp010bt",
+                        "owner":  "COMMERCIAL",
+                        "emitter":  "lib/features/commercial/platform_core/commercial_runtime_signal_bridge.dart",
+                        "receiver":  "PlatformCoreSignalBridge",
+                        "persistence":  "PlatformCoreSignalBridge",
+                        "collectionOrBuffer":  "platform_core_signal_bridge",
+                        "ttl":  "platform_core_defined",
+                        "maximumRecords":  null,
+                        "piiAllowed":  false,
+                        "canonicalLine":  "MS-LINE-SIGNAL-01",
+                        "runtimeState":  "ACTIVE_DIRECT"
+                    },
+                    {
+                        "signalCode":  "ct010bt",
+                        "owner":  "COMMERCIAL",
+                        "emitter":  "lib/features/commercial/platform_core/commercial_runtime_signal_bridge.dart",
+                        "receiver":  "PlatformCoreSignalBridge",
+                        "persistence":  "PlatformCoreSignalBridge",
+                        "collectionOrBuffer":  "platform_core_signal_bridge",
+                        "ttl":  "platform_core_defined",
+                        "maximumRecords":  null,
+                        "piiAllowed":  false,
+                        "canonicalLine":  "MS-LINE-SIGNAL-01",
+                        "runtimeState":  "ACTIVE_DIRECT"
+                    },
+                    {
+                        "signalCode":  "sp014sb",
+                        "owner":  "COMMERCIAL",
+                        "emitter":  "lib/features/commercial/platform_core/commercial_runtime_signal_bridge.dart",
+                        "receiver":  "PlatformCoreSignalBridge",
+                        "persistence":  "PlatformCoreSignalBridge",
+                        "collectionOrBuffer":  "platform_core_signal_bridge",
+                        "ttl":  "platform_core_defined",
+                        "maximumRecords":  null,
+                        "piiAllowed":  false,
+                        "canonicalLine":  "MS-LINE-SIGNAL-01",
+                        "runtimeState":  "ACTIVE_DIRECT"
+                    },
+                    {
+                        "signalCode":  "ct014sb",
+                        "owner":  "COMMERCIAL",
+                        "emitter":  "lib/features/commercial/platform_core/commercial_runtime_signal_bridge.dart",
+                        "receiver":  "PlatformCoreSignalBridge",
+                        "persistence":  "PlatformCoreSignalBridge",
+                        "collectionOrBuffer":  "platform_core_signal_bridge",
+                        "ttl":  "platform_core_defined",
+                        "maximumRecords":  null,
+                        "piiAllowed":  false,
+                        "canonicalLine":  "MS-LINE-SIGNAL-01",
+                        "runtimeState":  "ACTIVE_DIRECT"
+                    }
+                ],
+    "localSignals":  [
+                         {
+                             "signalCode":  "CV2_SIG_OPEN_LIBRARY",
+                             "owner":  "COMMERCIAL_V2_WEB",
+                             "emitter":  "lib/features/commercial_v2_web/signals/commercial_v2_signal_emitter.dart",
+                             "receiver":  "lib/features/commercial_v2_web/signals/commercial_v2_archive_signal_event_writer.dart",
+                             "persistence":  "LocalSectionSignalBuffer",
+                             "collectionOrBuffer":  "mental_smile_local_signals_commercial",
+                             "ttl":  "24h",
+                             "maximumRecords":  200,
+                             "piiAllowed":  false,
+                             "canonicalLine":  "MS-LINE-SIGNAL-01",
+                             "runtimeState":  "ACTIVE_DIRECT"
+                         },
+                         {
+                             "signalCode":  "CV2_SIG_OPEN_SPECIALISTS",
+                             "owner":  "COMMERCIAL_V2_WEB",
+                             "emitter":  "lib/features/commercial_v2_web/signals/commercial_v2_signal_emitter.dart",
+                             "receiver":  "lib/features/commercial_v2_web/signals/commercial_v2_archive_signal_event_writer.dart",
+                             "persistence":  "LocalSectionSignalBuffer",
+                             "collectionOrBuffer":  "mental_smile_local_signals_commercial",
+                             "ttl":  "24h",
+                             "maximumRecords":  200,
+                             "piiAllowed":  false,
+                             "canonicalLine":  "MS-LINE-SIGNAL-01",
+                             "runtimeState":  "ACTIVE_INDIRECT_SKIPPED_BY_WRITER"
+                         },
+                         {
+                             "signalCode":  "CV2_SIG_OPEN_CENTERS",
+                             "owner":  "COMMERCIAL_V2_WEB",
+                             "emitter":  "lib/features/commercial_v2_web/signals/commercial_v2_signal_emitter.dart",
+                             "receiver":  "lib/features/commercial_v2_web/signals/commercial_v2_archive_signal_event_writer.dart",
+                             "persistence":  "LocalSectionSignalBuffer",
+                             "collectionOrBuffer":  "mental_smile_local_signals_commercial",
+                             "ttl":  "24h",
+                             "maximumRecords":  200,
+                             "piiAllowed":  false,
+                             "canonicalLine":  "MS-LINE-SIGNAL-01",
+                             "runtimeState":  "ACTIVE_INDIRECT_SKIPPED_BY_WRITER"
+                         },
+                         {
+                             "signalCode":  "CV2_SIG_BACK",
+                             "owner":  "COMMERCIAL_V2_WEB",
+                             "emitter":  "lib/features/commercial_v2_web/signals/commercial_v2_signal_emitter.dart",
+                             "receiver":  "lib/features/commercial_v2_web/signals/commercial_v2_archive_signal_event_writer.dart",
+                             "persistence":  "LocalSectionSignalBuffer",
+                             "collectionOrBuffer":  "mental_smile_local_signals_commercial",
+                             "ttl":  "24h",
+                             "maximumRecords":  200,
+                             "piiAllowed":  false,
+                             "canonicalLine":  "MS-LINE-SIGNAL-01",
+                             "runtimeState":  "ACTIVE_INDIRECT_SKIPPED_BY_WRITER"
+                         },
+                         {
+                             "signalCode":  "CV2_SIG_REGISTRATION_PACKAGE_READY",
+                             "owner":  "COMMERCIAL_V2_WEB",
+                             "emitter":  "lib/features/commercial_v2_web/signals/commercial_v2_signal_emitter.dart",
+                             "receiver":  "lib/features/commercial_v2_web/signals/commercial_v2_archive_signal_event_writer.dart",
+                             "persistence":  "LocalSectionSignalBuffer",
+                             "collectionOrBuffer":  "mental_smile_local_signals_commercial",
+                             "ttl":  "24h",
+                             "maximumRecords":  200,
+                             "piiAllowed":  false,
+                             "canonicalLine":  "MS-LINE-SIGNAL-01",
+                             "runtimeState":  "ACTIVE_INDIRECT_SKIPPED_BY_WRITER"
+                         },
+                         {
+                             "signalCode":  "CV2_SIG_PROFILE_GENERATION_READY",
+                             "owner":  "COMMERCIAL_V2_WEB",
+                             "emitter":  "lib/features/commercial_v2_web/signals/commercial_v2_signal_emitter.dart",
+                             "receiver":  "lib/features/commercial_v2_web/signals/commercial_v2_archive_signal_event_writer.dart",
+                             "persistence":  "LocalSectionSignalBuffer",
+                             "collectionOrBuffer":  "mental_smile_local_signals_commercial",
+                             "ttl":  "24h",
+                             "maximumRecords":  200,
+                             "piiAllowed":  false,
+                             "canonicalLine":  "MS-LINE-SIGNAL-01",
+                             "runtimeState":  "ACTIVE_INDIRECT_SKIPPED_BY_WRITER"
+                         },
+                         {
+                             "signalCode":  "CV2_SIG_PUBLISHING_PACKAGE_READY",
+                             "owner":  "COMMERCIAL_V2_WEB",
+                             "emitter":  "lib/features/commercial_v2_web/signals/commercial_v2_signal_emitter.dart",
+                             "receiver":  "lib/features/commercial_v2_web/signals/commercial_v2_archive_signal_event_writer.dart",
+                             "persistence":  "LocalSectionSignalBuffer",
+                             "collectionOrBuffer":  "mental_smile_local_signals_commercial",
+                             "ttl":  "24h",
+                             "maximumRecords":  200,
+                             "piiAllowed":  false,
+                             "canonicalLine":  "MS-LINE-SIGNAL-01",
+                             "runtimeState":  "ACTIVE_INDIRECT_SKIPPED_BY_WRITER"
+                         }
+                     ],
+    "firebase":  [
+                     {
+                         "code":  "MS-COM-FIREBASE-001",
+                         "service":  "FirebaseAuth",
+                         "collection":  null,
+                         "documentPath":  null,
+                         "operation":  "signIn/create/signOut/currentUser",
+                         "owner":  "COMMERCIAL_AUTH",
+                         "consumer":  "commercial_auth_service.dart and profile pages",
+                         "ruleMatch":  "firebase_auth",
+                         "indexRequired":  false,
+                         "portLine":  "MS-LINE-AUTH-01",
+                         "activeState":  "ACTIVE_DIRECT"
+                     },
+                     {
+                         "code":  "MS-COM-FIREBASE-002",
+                         "service":  "Firestore",
+                         "collection":  "clinicians",
+                         "documentPath":  "clinicians/{uid}/profile/current",
+                         "operation":  "read/write/query",
+                         "owner":  "SPECIALIST",
+                         "consumer":  "CommercialAuthService, ProviderProfileRepository",
+                         "ruleMatch":  "firestore.rules clinicians/profile",
+                         "indexRequired":  false,
+                         "portLine":  "MS-LINE-DATA-WRITE-01",
+                         "activeState":  "ACTIVE_DIRECT"
+                     },
+                     {
+                         "code":  "MS-COM-FIREBASE-003",
+                         "service":  "Firestore",
+                         "collection":  "centers",
+                         "documentPath":  "centers/{uid}/profile/current",
+                         "operation":  "read/write/query",
+                         "owner":  "CENTER",
+                         "consumer":  "CommercialAuthService, ProviderProfileRepository",
+                         "ruleMatch":  "firestore.rules centers/profile",
+                         "indexRequired":  false,
+                         "portLine":  "MS-LINE-DATA-WRITE-01",
+                         "activeState":  "ACTIVE_DIRECT"
+                     },
+                     {
+                         "code":  "MS-COM-FIREBASE-004",
+                         "service":  "Firestore",
+                         "collection":  "public_specialist_profiles",
+                         "documentPath":  "public_specialist_profiles/{uid}",
+                         "operation":  "write",
+                         "owner":  "PROVIDER_PROFILE",
+                         "consumer":  "ProviderProfileRepository",
+                         "ruleMatch":  "firestore.rules public_specialist_profiles",
+                         "indexRequired":  false,
+                         "portLine":  "MS-LINE-DATA-WRITE-01",
+                         "activeState":  "ACTIVE_DIRECT"
+                     },
+                     {
+                         "code":  "MS-COM-FIREBASE-005",
+                         "service":  "Firestore",
+                         "collection":  "public_center_profiles",
+                         "documentPath":  "public_center_profiles/{uid}",
+                         "operation":  "write",
+                         "owner":  "PROVIDER_PROFILE",
+                         "consumer":  "ProviderProfileRepository",
+                         "ruleMatch":  "firestore.rules public_center_profiles",
+                         "indexRequired":  false,
+                         "portLine":  "MS-LINE-DATA-WRITE-01",
+                         "activeState":  "ACTIVE_DIRECT"
+                     }
+                 ],
+    "storage":  [
+                    {
+                        "pathCode":  "MS-COM-STORAGE-001",
+                        "storagePath":  "clinicians/{uid}/official/profile_image",
+                        "owner":  "SPECIALIST",
+                        "consumer":  "ProviderProfileRepository.uploadSpecialistOfficialImage",
+                        "readWrite":  "write",
+                        "rule":  "isOfficialSpecialistImageUpload()",
+                        "contentTypeValidation":  "image/jpeg,image/png,image/webp",
+                        "sizeValidation":  "\u003c= 5 MB",
+                        "canonicalLine":  "MS-LINE-STORAGE-01",
+                        "runtimeState":  "ACTIVE_DIRECT"
+                    },
+                    {
+                        "pathCode":  "MS-COM-STORAGE-002",
+                        "storagePath":  "centers/{uid}/official/identity_image",
+                        "owner":  "CENTER",
+                        "consumer":  "ProviderProfileRepository.uploadCenterIdentityImage",
+                        "readWrite":  "write",
+                        "rule":  "isOfficialCenterImageUpload()",
+                        "contentTypeValidation":  "image/jpeg,image/png,image/webp",
+                        "sizeValidation":  "\u003c= 5 MB",
+                        "canonicalLine":  "MS-LINE-STORAGE-01",
+                        "runtimeState":  "ACTIVE_DIRECT"
+                    }
+                ],
+    "localization":  [
+                         {
+                             "localizationCode":  "MS-COM-L10N-001",
+                             "owner":  "COMMERCIAL",
+                             "arbArabic":  "lib/l10n/commercial/commercial_ar.arb",
+                             "arbEnglish":  "lib/l10n/commercial/commercial_en.arb",
+                             "generatedClass":  "CommercialLocalizations",
+                             "generatedFiles":  [
+
+                                                ],
+                             "keyCount":  42,
+                             "activeConsumerCount":  17,
+                             "speechKeyCount":  38,
+                             "crossOwnerUsage":  "section_owned",
+                             "canonicalLine":  "MS-LINE-LOCALIZATION-01"
+                         },
+                         {
+                             "localizationCode":  "MS-COM-L10N-002",
+                             "owner":  "SHARED_CENTRAL_IMPORT_VIA_SPEECH_ACTION",
+                             "arbArabic":  "lib/l10n/shared/shared_ar.arb",
+                             "arbEnglish":  "lib/l10n/shared/shared_en.arb",
+                             "generatedClass":  "SharedLocalizations",
+                             "generatedFiles":  [
+
+                                                ],
+                             "keyCount":  5,
+                             "activeConsumerCount":  0,
+                             "speechKeyCount":  38,
+                             "crossOwnerUsage":  "central_import_only",
+                             "canonicalLine":  "MS-LINE-LOCALIZATION-01"
+                         }
+                     ],
+    "assets":  [
+                   {
+                       "assetCode":  "MS-COM-ASSET-001",
+                       "path":  "assets/backgrounds/commercial_background_dark.webp",
+                       "owner":  "CENTRAL_IMPORTED",
+                       "consumers":  [
+                                         "lib/features/commercial/presentation/widgets/commercial_sub_page_background.dart"
+                                     ],
+                       "responsiveFamily":  null,
+                       "desktopVariant":  null,
+                       "tabletVariant":  null,
+                       "mobileVariant":  null,
+                       "registered":  true,
+                       "required":  true,
+                       "capsuleOwned":  false,
+                       "centralImported":  true,
+                       "canonicalLine":  "MS-LINE-ASSET-01"
+                   },
+                   {
+                       "assetCode":  "MS-COM-ASSET-002",
+                       "path":  "assets/branding/guides/center_desktop_login_guide.png",
+                       "owner":  "CENTRAL_IMPORTED",
+                       "consumers":  [
+                                         "lib/features/commercial/presentation/pages/center_login_page.dart"
+                                     ],
+                       "responsiveFamily":  "assets/branding/guides/center_{breakpoint}_login_guide.png",
+                       "desktopVariant":  "assets/branding/guides/center_desktop_login_guide.png",
+                       "tabletVariant":  null,
+                       "mobileVariant":  null,
+                       "registered":  true,
+                       "required":  true,
+                       "capsuleOwned":  false,
+                       "centralImported":  true,
+                       "canonicalLine":  "MS-LINE-ASSET-01"
+                   },
+                   {
+                       "assetCode":  "MS-COM-ASSET-003",
+                       "path":  "assets/branding/guides/center_friend_mobile_guide.png",
+                       "owner":  "CENTRAL_IMPORTED",
+                       "consumers":  [
+                                         "lib/features/generation2_mobile_center_room/presentation/pages/generation2_mobile_center_room_page.dart"
+                                     ],
+                       "responsiveFamily":  "assets/branding/guides/center_friend_{breakpoint}_guide.png",
+                       "desktopVariant":  null,
+                       "tabletVariant":  null,
+                       "mobileVariant":  "assets/branding/guides/center_friend_mobile_guide.png",
+                       "registered":  true,
+                       "required":  true,
+                       "capsuleOwned":  false,
+                       "centralImported":  true,
+                       "canonicalLine":  "MS-LINE-ASSET-01"
+                   },
+                   {
+                       "assetCode":  "MS-COM-ASSET-004",
+                       "path":  "assets/branding/guides/center_room_mobile_guide.png",
+                       "owner":  "CENTRAL_IMPORTED",
+                       "consumers":  [
+                                         "lib/features/commercial/presentation/pages/center_room_page.dart"
+                                     ],
+                       "responsiveFamily":  "assets/branding/guides/center_room_{breakpoint}_guide.png",
+                       "desktopVariant":  null,
+                       "tabletVariant":  null,
+                       "mobileVariant":  "assets/branding/guides/center_room_mobile_guide.png",
+                       "registered":  true,
+                       "required":  true,
+                       "capsuleOwned":  false,
+                       "centralImported":  true,
+                       "canonicalLine":  "MS-LINE-ASSET-01"
+                   },
+                   {
+                       "assetCode":  "MS-COM-ASSET-005",
+                       "path":  "assets/branding/guides/commercial_desktop_login.png",
+                       "owner":  "CENTRAL_IMPORTED",
+                       "consumers":  [
+                                         "lib/features/commercial/presentation/pages/commercial_access_page.dart"
+                                     ],
+                       "responsiveFamily":  "assets/branding/guides/commercial_{breakpoint}_login.png",
+                       "desktopVariant":  "assets/branding/guides/commercial_desktop_login.png",
+                       "tabletVariant":  null,
+                       "mobileVariant":  null,
+                       "registered":  true,
+                       "required":  true,
+                       "capsuleOwned":  false,
+                       "centralImported":  true,
+                       "canonicalLine":  "MS-LINE-ASSET-01"
+                   },
+                   {
+                       "assetCode":  "MS-COM-ASSET-006",
+                       "path":  "assets/branding/guides/specialist_desktop_login_guide.png",
+                       "owner":  "CENTRAL_IMPORTED",
+                       "consumers":  [
+                                         "lib/features/commercial/presentation/pages/specialist_login_page.dart"
+                                     ],
+                       "responsiveFamily":  "assets/branding/guides/specialist_{breakpoint}_login_guide.png",
+                       "desktopVariant":  "assets/branding/guides/specialist_desktop_login_guide.png",
+                       "tabletVariant":  null,
+                       "mobileVariant":  null,
+                       "registered":  true,
+                       "required":  true,
+                       "capsuleOwned":  false,
+                       "centralImported":  true,
+                       "canonicalLine":  "MS-LINE-ASSET-01"
+                   },
+                   {
+                       "assetCode":  "MS-COM-ASSET-007",
+                       "path":  "assets/branding/guides/specialist_room_mobile_guide.png",
+                       "owner":  "CENTRAL_IMPORTED",
+                       "consumers":  [
+                                         "lib/features/commercial/presentation/pages/commercial_room_page.dart"
+                                     ],
+                       "responsiveFamily":  "assets/branding/guides/specialist_room_{breakpoint}_guide.png",
+                       "desktopVariant":  null,
+                       "tabletVariant":  null,
+                       "mobileVariant":  "assets/branding/guides/specialist_room_mobile_guide.png",
+                       "registered":  true,
+                       "required":  true,
+                       "capsuleOwned":  false,
+                       "centralImported":  true,
+                       "canonicalLine":  "MS-LINE-ASSET-01"
+                   },
+                   {
+                       "assetCode":  "MS-COM-ASSET-008",
+                       "path":  "assets/branding/logo_primary.png",
+                       "owner":  "CENTRAL_IMPORTED",
+                       "consumers":  [
+                                         "lib/features/commercial/presentation/pages/commercial_access_page.dart",
+                                         "lib/features/commercial/presentation/pages/specialist_login_page.dart"
+                                     ],
+                       "responsiveFamily":  null,
+                       "desktopVariant":  null,
+                       "tabletVariant":  null,
+                       "mobileVariant":  null,
+                       "registered":  true,
+                       "required":  true,
+                       "capsuleOwned":  false,
+                       "centralImported":  true,
+                       "canonicalLine":  "MS-LINE-ASSET-01"
+                   },
+                   {
+                       "assetCode":  "MS-COM-ASSET-009",
+                       "path":  "assets/branding/logo_transparent.png",
+                       "owner":  "CENTRAL_IMPORTED",
+                       "consumers":  [
+                                         "lib/features/commercial/presentation/pages/commercial_public_accounts_page.dart"
+                                     ],
+                       "responsiveFamily":  null,
+                       "desktopVariant":  null,
+                       "tabletVariant":  null,
+                       "mobileVariant":  null,
+                       "registered":  true,
+                       "required":  true,
+                       "capsuleOwned":  false,
+                       "centralImported":  true,
+                       "canonicalLine":  "MS-LINE-ASSET-01"
+                   },
+                   {
+                       "assetCode":  "MS-COM-ASSET-010",
+                       "path":  "assets/branding/rooms/client_room/client_room_background_desktop.png",
+                       "owner":  "CENTRAL_IMPORTED",
+                       "consumers":  [
+                                         "lib/features/commercial/presentation/pages/center_room_page.dart",
+                                         "lib/features/commercial/presentation/pages/commercial_room_page.dart"
+                                     ],
+                       "responsiveFamily":  "assets/branding/rooms/client_room/client_room_background_{breakpoint}.png",
+                       "desktopVariant":  "assets/branding/rooms/client_room/client_room_background_desktop.png",
+                       "tabletVariant":  null,
+                       "mobileVariant":  null,
+                       "registered":  true,
+                       "required":  true,
+                       "capsuleOwned":  false,
+                       "centralImported":  true,
+                       "canonicalLine":  "MS-LINE-ASSET-01"
+                   },
+                   {
+                       "assetCode":  "MS-COM-ASSET-011",
+                       "path":  "assets/branding/rooms/client_room/client_room_background_mobile.png",
+                       "owner":  "CENTRAL_IMPORTED",
+                       "consumers":  [
+                                         "lib/features/commercial/presentation/pages/center_room_page.dart",
+                                         "lib/features/commercial/presentation/pages/commercial_room_page.dart"
+                                     ],
+                       "responsiveFamily":  "assets/branding/rooms/client_room/client_room_background_{breakpoint}.png",
+                       "desktopVariant":  null,
+                       "tabletVariant":  null,
+                       "mobileVariant":  "assets/branding/rooms/client_room/client_room_background_mobile.png",
+                       "registered":  true,
+                       "required":  true,
+                       "capsuleOwned":  false,
+                       "centralImported":  true,
+                       "canonicalLine":  "MS-LINE-ASSET-01"
+                   },
+                   {
+                       "assetCode":  "MS-COM-ASSET-012",
+                       "path":  "assets/branding/rooms/client_room/client_room_background_tablet.png",
+                       "owner":  "CENTRAL_IMPORTED",
+                       "consumers":  [
+                                         "lib/features/commercial/presentation/pages/center_room_page.dart",
+                                         "lib/features/commercial/presentation/pages/commercial_room_page.dart"
+                                     ],
+                       "responsiveFamily":  "assets/branding/rooms/client_room/client_room_background_{breakpoint}.png",
+                       "desktopVariant":  null,
+                       "tabletVariant":  "assets/branding/rooms/client_room/client_room_background_tablet.png",
+                       "mobileVariant":  null,
+                       "registered":  true,
+                       "required":  true,
+                       "capsuleOwned":  false,
+                       "centralImported":  true,
+                       "canonicalLine":  "MS-LINE-ASSET-01"
+                   },
+                   {
+                       "assetCode":  "MS-COM-ASSET-013",
+                       "path":  "assets/branding/web/website_hero_top_v2.png",
+                       "owner":  "COMMERCIAL_V2_WEB",
+                       "consumers":  [
+                                         "lib/features/commercial_v2_web/presentation/pages/commercial_v2_web_showcase_page.dart"
+                                     ],
+                       "responsiveFamily":  null,
+                       "desktopVariant":  null,
+                       "tabletVariant":  null,
+                       "mobileVariant":  null,
+                       "registered":  true,
+                       "required":  true,
+                       "capsuleOwned":  true,
+                       "centralImported":  false,
+                       "canonicalLine":  "MS-LINE-ASSET-01"
+                   },
+                   {
+                       "assetCode":  "MS-COM-ASSET-014",
+                       "path":  "assets/commercial/center_category_cards/addiction_treatment_center_background.png",
+                       "owner":  "COMMERCIAL",
+                       "consumers":  [
+                                         "lib/shared/provider_profiles/provider_profile_categories.dart"
+                                     ],
+                       "responsiveFamily":  null,
+                       "desktopVariant":  null,
+                       "tabletVariant":  null,
+                       "mobileVariant":  null,
+                       "registered":  true,
+                       "required":  true,
+                       "capsuleOwned":  true,
+                       "centralImported":  false,
+                       "canonicalLine":  "MS-LINE-ASSET-01"
+                   },
+                   {
+                       "assetCode":  "MS-COM-ASSET-015",
+                       "path":  "assets/commercial/center_category_cards/clinic_center_background.png",
+                       "owner":  "COMMERCIAL",
+                       "consumers":  [
+                                         "lib/shared/provider_profiles/provider_profile_categories.dart"
+                                     ],
+                       "responsiveFamily":  null,
+                       "desktopVariant":  null,
+                       "tabletVariant":  null,
+                       "mobileVariant":  null,
+                       "registered":  true,
+                       "required":  true,
+                       "capsuleOwned":  true,
+                       "centralImported":  false,
+                       "canonicalLine":  "MS-LINE-ASSET-01"
+                   },
+                   {
+                       "assetCode":  "MS-COM-ASSET-016",
+                       "path":  "assets/commercial/center_category_cards/community_center_background.png",
+                       "owner":  "COMMERCIAL",
+                       "consumers":  [
+                                         "lib/shared/provider_profiles/provider_profile_categories.dart"
+                                     ],
+                       "responsiveFamily":  null,
+                       "desktopVariant":  null,
+                       "tabletVariant":  null,
+                       "mobileVariant":  null,
+                       "registered":  true,
+                       "required":  true,
+                       "capsuleOwned":  true,
+                       "centralImported":  false,
+                       "canonicalLine":  "MS-LINE-ASSET-01"
+                   },
+                   {
+                       "assetCode":  "MS-COM-ASSET-017",
+                       "path":  "assets/commercial/center_category_cards/consulting_center_background.png",
+                       "owner":  "COMMERCIAL",
+                       "consumers":  [
+                                         "lib/shared/provider_profiles/provider_profile_categories.dart"
+                                     ],
+                       "responsiveFamily":  null,
+                       "desktopVariant":  null,
+                       "tabletVariant":  null,
+                       "mobileVariant":  null,
+                       "registered":  true,
+                       "required":  true,
+                       "capsuleOwned":  true,
+                       "centralImported":  false,
+                       "canonicalLine":  "MS-LINE-ASSET-01"
+                   },
+                   {
+                       "assetCode":  "MS-COM-ASSET-018",
+                       "path":  "assets/commercial/center_category_cards/mental_health_center_background.png",
+                       "owner":  "COMMERCIAL",
+                       "consumers":  [
+                                         "lib/shared/provider_profiles/provider_profile_categories.dart"
+                                     ],
+                       "responsiveFamily":  null,
+                       "desktopVariant":  null,
+                       "tabletVariant":  null,
+                       "mobileVariant":  null,
+                       "registered":  true,
+                       "required":  true,
+                       "capsuleOwned":  true,
+                       "centralImported":  false,
+                       "canonicalLine":  "MS-LINE-ASSET-01"
+                   },
+                   {
+                       "assetCode":  "MS-COM-ASSET-019",
+                       "path":  "assets/commercial/center_category_cards/rehabilitation_center_background.png",
+                       "owner":  "COMMERCIAL",
+                       "consumers":  [
+                                         "lib/shared/provider_profiles/provider_profile_categories.dart"
+                                     ],
+                       "responsiveFamily":  null,
+                       "desktopVariant":  null,
+                       "tabletVariant":  null,
+                       "mobileVariant":  null,
+                       "registered":  true,
+                       "required":  true,
+                       "capsuleOwned":  true,
+                       "centralImported":  false,
+                       "canonicalLine":  "MS-LINE-ASSET-01"
+                   },
+                   {
+                       "assetCode":  "MS-COM-ASSET-020",
+                       "path":  "assets/commercial/commercial_room_utility_tools/commercial_room_exit_button.png",
+                       "owner":  "COMMERCIAL",
+                       "consumers":  [
+                                         "lib/features/commercial/presentation/widgets/commercial_room_utility_tools.dart"
+                                     ],
+                       "responsiveFamily":  null,
+                       "desktopVariant":  null,
+                       "tabletVariant":  null,
+                       "mobileVariant":  null,
+                       "registered":  true,
+                       "required":  true,
+                       "capsuleOwned":  true,
+                       "centralImported":  false,
+                       "canonicalLine":  "MS-LINE-ASSET-01"
+                   },
+                   {
+                       "assetCode":  "MS-COM-ASSET-021",
+                       "path":  "assets/commercial/commercial_room_utility_tools/commercial_room_note_feather_button.png",
+                       "owner":  "COMMERCIAL",
+                       "consumers":  [
+                                         "lib/features/commercial/presentation/widgets/commercial_room_utility_tools.dart"
+                                     ],
+                       "responsiveFamily":  null,
+                       "desktopVariant":  null,
+                       "tabletVariant":  null,
+                       "mobileVariant":  null,
+                       "registered":  true,
+                       "required":  true,
+                       "capsuleOwned":  true,
+                       "centralImported":  false,
+                       "canonicalLine":  "MS-LINE-ASSET-01"
+                   },
+                   {
+                       "assetCode":  "MS-COM-ASSET-022",
+                       "path":  "assets/commercial/generation2_mobile_specialist_room/specialist_friend_mobile_guide.png",
+                       "owner":  "COMMERCIAL",
+                       "consumers":  [
+                                         "lib/features/generation2_mobile_specialist_room/presentation/pages/generation2_mobile_specialist_room_page.dart"
+                                     ],
+                       "responsiveFamily":  "assets/commercial/generation2_{breakpoint}_specialist_room/specialist_friend_{breakpoint}_guide.png",
+                       "desktopVariant":  null,
+                       "tabletVariant":  null,
+                       "mobileVariant":  "assets/commercial/generation2_mobile_specialist_room/specialist_friend_mobile_guide.png",
+                       "registered":  true,
+                       "required":  true,
+                       "capsuleOwned":  true,
+                       "centralImported":  false,
+                       "canonicalLine":  "MS-LINE-ASSET-01"
+                   },
+                   {
+                       "assetCode":  "MS-COM-ASSET-023",
+                       "path":  "assets/commercial/specialist_category_cards/addiction_behavior_specialist_background.png",
+                       "owner":  "COMMERCIAL",
+                       "consumers":  [
+                                         "lib/shared/provider_profiles/provider_profile_categories.dart"
+                                     ],
+                       "responsiveFamily":  null,
+                       "desktopVariant":  null,
+                       "tabletVariant":  null,
+                       "mobileVariant":  null,
+                       "registered":  true,
+                       "required":  true,
+                       "capsuleOwned":  true,
+                       "centralImported":  false,
+                       "canonicalLine":  "MS-LINE-ASSET-01"
+                   },
+                   {
+                       "assetCode":  "MS-COM-ASSET-024",
+                       "path":  "assets/commercial/specialist_category_cards/addiction_recovery_specialist_background.png",
+                       "owner":  "COMMERCIAL",
+                       "consumers":  [
+                                         "lib/shared/provider_profiles/provider_profile_categories.dart"
+                                     ],
+                       "responsiveFamily":  null,
+                       "desktopVariant":  null,
+                       "tabletVariant":  null,
+                       "mobileVariant":  null,
+                       "registered":  true,
+                       "required":  true,
+                       "capsuleOwned":  true,
+                       "centralImported":  false,
+                       "canonicalLine":  "MS-LINE-ASSET-01"
+                   },
+                   {
+                       "assetCode":  "MS-COM-ASSET-025",
+                       "path":  "assets/commercial/specialist_category_cards/behavior_autism_specialist_background.png",
+                       "owner":  "COMMERCIAL",
+                       "consumers":  [
+                                         "lib/shared/provider_profiles/provider_profile_categories.dart"
+                                     ],
+                       "responsiveFamily":  null,
+                       "desktopVariant":  null,
+                       "tabletVariant":  null,
+                       "mobileVariant":  null,
+                       "registered":  true,
+                       "required":  true,
+                       "capsuleOwned":  true,
+                       "centralImported":  false,
+                       "canonicalLine":  "MS-LINE-ASSET-01"
+                   },
+                   {
+                       "assetCode":  "MS-COM-ASSET-026",
+                       "path":  "assets/commercial/specialist_category_cards/clinical_specialist_background.png",
+                       "owner":  "COMMERCIAL",
+                       "consumers":  [
+                                         "lib/shared/provider_profiles/provider_profile_categories.dart"
+                                     ],
+                       "responsiveFamily":  null,
+                       "desktopVariant":  null,
+                       "tabletVariant":  null,
+                       "mobileVariant":  null,
+                       "registered":  true,
+                       "required":  true,
+                       "capsuleOwned":  true,
+                       "centralImported":  false,
+                       "canonicalLine":  "MS-LINE-ASSET-01"
+                   },
+                   {
+                       "assetCode":  "MS-COM-ASSET-027",
+                       "path":  "assets/commercial/specialist_category_cards/coaching_specialist_background.png",
+                       "owner":  "COMMERCIAL",
+                       "consumers":  [
+                                         "lib/shared/provider_profiles/provider_profile_categories.dart"
+                                     ],
+                       "responsiveFamily":  null,
+                       "desktopVariant":  null,
+                       "tabletVariant":  null,
+                       "mobileVariant":  null,
+                       "registered":  true,
+                       "required":  true,
+                       "capsuleOwned":  true,
+                       "centralImported":  false,
+                       "canonicalLine":  "MS-LINE-ASSET-01"
+                   },
+                   {
+                       "assetCode":  "MS-COM-ASSET-028",
+                       "path":  "assets/commercial/specialist_category_cards/family_counseling_specialist_background.png",
+                       "owner":  "COMMERCIAL",
+                       "consumers":  [
+                                         "lib/shared/provider_profiles/provider_profile_categories.dart"
+                                     ],
+                       "responsiveFamily":  null,
+                       "desktopVariant":  null,
+                       "tabletVariant":  null,
+                       "mobileVariant":  null,
+                       "registered":  true,
+                       "required":  true,
+                       "capsuleOwned":  true,
+                       "centralImported":  false,
+                       "canonicalLine":  "MS-LINE-ASSET-01"
+                   },
+                   {
+                       "assetCode":  "MS-COM-ASSET-029",
+                       "path":  "assets/commercial/specialist_category_cards/psychologist_specialist_background.png",
+                       "owner":  "COMMERCIAL",
+                       "consumers":  [
+                                         "lib/shared/provider_profiles/provider_profile_categories.dart"
+                                     ],
+                       "responsiveFamily":  null,
+                       "desktopVariant":  null,
+                       "tabletVariant":  null,
+                       "mobileVariant":  null,
+                       "registered":  true,
+                       "required":  true,
+                       "capsuleOwned":  true,
+                       "centralImported":  false,
+                       "canonicalLine":  "MS-LINE-ASSET-01"
+                   },
+                   {
+                       "assetCode":  "MS-COM-ASSET-030",
+                       "path":  "assets/commercial/specialist_category_cards/social_worker_specialist_background.png",
+                       "owner":  "COMMERCIAL",
+                       "consumers":  [
+                                         "lib/shared/provider_profiles/provider_profile_categories.dart"
+                                     ],
+                       "responsiveFamily":  null,
+                       "desktopVariant":  null,
+                       "tabletVariant":  null,
+                       "mobileVariant":  null,
+                       "registered":  true,
+                       "required":  true,
+                       "capsuleOwned":  true,
+                       "centralImported":  false,
+                       "canonicalLine":  "MS-LINE-ASSET-01"
+                   },
+                   {
+                       "assetCode":  "MS-COM-ASSET-031",
+                       "path":  "assets/commercial/specialist_category_cards/speech_specialist_background.png",
+                       "owner":  "COMMERCIAL",
+                       "consumers":  [
+                                         "lib/shared/provider_profiles/provider_profile_categories.dart"
+                                     ],
+                       "responsiveFamily":  null,
+                       "desktopVariant":  null,
+                       "tabletVariant":  null,
+                       "mobileVariant":  null,
+                       "registered":  true,
+                       "required":  true,
+                       "capsuleOwned":  true,
+                       "centralImported":  false,
+                       "canonicalLine":  "MS-LINE-ASSET-01"
+                   },
+                   {
+                       "assetCode":  "MS-COM-ASSET-032",
+                       "path":  "assets/commercial/specialist_category_cards/support_supervisor_specialist_background.png",
+                       "owner":  "COMMERCIAL",
+                       "consumers":  [
+                                         "lib/shared/provider_profiles/provider_profile_categories.dart"
+                                     ],
+                       "responsiveFamily":  null,
+                       "desktopVariant":  null,
+                       "tabletVariant":  null,
+                       "mobileVariant":  null,
+                       "registered":  true,
+                       "required":  true,
+                       "capsuleOwned":  true,
+                       "centralImported":  false,
+                       "canonicalLine":  "MS-LINE-ASSET-01"
+                   },
+                   {
+                       "assetCode":  "MS-COM-ASSET-033",
+                       "path":  "assets/icons/centers.png",
+                       "owner":  "CENTRAL_IMPORTED",
+                       "consumers":  [
+                                         "lib/features/commercial/presentation/widgets/commercial_room_screen_image.dart",
+                                         "lib/features/commercial/presentation/widgets/commercial_room_tv_apps.dart"
+                                     ],
+                       "responsiveFamily":  null,
+                       "desktopVariant":  null,
+                       "tabletVariant":  null,
+                       "mobileVariant":  null,
+                       "registered":  true,
+                       "required":  true,
+                       "capsuleOwned":  false,
+                       "centralImported":  true,
+                       "canonicalLine":  "MS-LINE-ASSET-01"
+                   },
+                   {
+                       "assetCode":  "MS-COM-ASSET-034",
+                       "path":  "assets/icons/library.png",
+                       "owner":  "CENTRAL_IMPORTED",
+                       "consumers":  [
+                                         "lib/features/commercial/presentation/widgets/commercial_room_screen_image.dart",
+                                         "lib/features/commercial/presentation/widgets/commercial_room_tv_apps.dart"
+                                     ],
+                       "responsiveFamily":  null,
+                       "desktopVariant":  null,
+                       "tabletVariant":  null,
+                       "mobileVariant":  null,
+                       "registered":  true,
+                       "required":  true,
+                       "capsuleOwned":  false,
+                       "centralImported":  true,
+                       "canonicalLine":  "MS-LINE-ASSET-01"
+                   },
+                   {
+                       "assetCode":  "MS-COM-ASSET-035",
+                       "path":  "assets/icons/specialists.png",
+                       "owner":  "CENTRAL_IMPORTED",
+                       "consumers":  [
+                                         "lib/features/commercial/presentation/widgets/commercial_room_screen_image.dart",
+                                         "lib/features/commercial/presentation/widgets/commercial_room_tv_apps.dart"
+                                     ],
+                       "responsiveFamily":  null,
+                       "desktopVariant":  null,
+                       "tabletVariant":  null,
+                       "mobileVariant":  null,
+                       "registered":  true,
+                       "required":  true,
+                       "capsuleOwned":  false,
+                       "centralImported":  true,
+                       "canonicalLine":  "MS-LINE-ASSET-01"
+                   },
+                   {
+                       "assetCode":  "MS-COM-ASSET-036",
+                       "path":  "assets/library/platform_guides/platform_guide_content_access.webp.png",
+                       "owner":  "COMMERCIAL_V2_WEB",
+                       "consumers":  [
+                                         "lib/features/commercial_v2_web/presentation/pages/commercial_v2_web_showcase_page.dart"
+                                     ],
+                       "responsiveFamily":  null,
+                       "desktopVariant":  null,
+                       "tabletVariant":  null,
+                       "mobileVariant":  null,
+                       "registered":  true,
+                       "required":  true,
+                       "capsuleOwned":  true,
+                       "centralImported":  false,
+                       "canonicalLine":  "MS-LINE-ASSET-01"
+                   },
+                   {
+                       "assetCode":  "MS-COM-ASSET-037",
+                       "path":  "assets/library/platform_guides/platform_guide_desktop.webp.png",
+                       "owner":  "COMMERCIAL_V2_WEB",
+                       "consumers":  [
+                                         "lib/features/commercial_v2_web/presentation/pages/commercial_v2_web_showcase_page.dart"
+                                     ],
+                       "responsiveFamily":  "assets/library/platform_guides/platform_guide_{breakpoint}.webp.png",
+                       "desktopVariant":  "assets/library/platform_guides/platform_guide_desktop.webp.png",
+                       "tabletVariant":  null,
+                       "mobileVariant":  null,
+                       "registered":  true,
+                       "required":  true,
+                       "capsuleOwned":  true,
+                       "centralImported":  false,
+                       "canonicalLine":  "MS-LINE-ASSET-01"
+                   },
+                   {
+                       "assetCode":  "MS-COM-ASSET-038",
+                       "path":  "assets/library/platform_guides/platform_guide_mobile.webp.png",
+                       "owner":  "COMMERCIAL_V2_WEB",
+                       "consumers":  [
+                                         "lib/features/commercial_v2_web/presentation/pages/commercial_v2_web_showcase_page.dart"
+                                     ],
+                       "responsiveFamily":  "assets/library/platform_guides/platform_guide_{breakpoint}.webp.png",
+                       "desktopVariant":  null,
+                       "tabletVariant":  null,
+                       "mobileVariant":  "assets/library/platform_guides/platform_guide_mobile.webp.png",
+                       "registered":  true,
+                       "required":  true,
+                       "capsuleOwned":  true,
+                       "centralImported":  false,
+                       "canonicalLine":  "MS-LINE-ASSET-01"
+                   },
+                   {
+                       "assetCode":  "MS-COM-ASSET-039",
+                       "path":  "assets/presentations",
+                       "owner":  "COMMERCIAL_V2_WEB",
+                       "consumers":  [
+                                         "lib/features/commercial_v2_web/presentation_gallery/data/presentation_gallery_repository.dart"
+                                     ],
+                       "responsiveFamily":  null,
+                       "desktopVariant":  null,
+                       "tabletVariant":  null,
+                       "mobileVariant":  null,
+                       "registered":  true,
+                       "required":  true,
+                       "capsuleOwned":  true,
+                       "centralImported":  false,
+                       "canonicalLine":  "MS-LINE-ASSET-01"
+                   }
+               ],
+    "speech":  [
+                   {
+                       "speechCode":  "MS-COM-SPEECH-001",
+                       "state":  "CURRENT_SHARED_WIRING",
+                       "path":  "commercial_room_utility_tools.dart",
+                       "existingSpeakerControls":  2,
+                       "connectedControls":  1,
+                       "unconnectedControls":  1,
+                       "canonicalLine":  "MS-LINE-EXTERNAL-ACTION-01"
+                   },
+                   {
+                       "speechCode":  "MS-COM-SPEECH-002",
+                       "state":  "CURRENT_SHARED_WIRING",
+                       "path":  "commercial_public_accounts_page.dart",
+                       "existingSpeakerControls":  3,
+                       "connectedControls":  1,
+                       "unconnectedControls":  2,
+                       "canonicalLine":  "MS-LINE-EXTERNAL-ACTION-01"
+                   },
+                   {
+                       "speechCode":  "MS-COM-SPEECH-003",
+                       "state":  "COMMERCIAL_GENERATOR_PENDING",
+                       "path":  null,
+                       "existingSpeakerControls":  0,
+                       "connectedControls":  0,
+                       "unconnectedControls":  0,
+                       "canonicalLine":  "MS-LINE-EXTERNAL-ACTION-01"
+                   }
+               ],
+    "tests":  [
+                  {
+                      "testCode":  "MS-COM-TEST-001",
+                      "path":  "test/features/commercial/provider_profile_connection_test.dart",
+                      "purpose":  "Commercial provider profile contract",
+                      "owner":  "COMMERCIAL",
+                      "requiredForBuildable":  true,
+                      "requiredForRunnable":  true,
+                      "requiredForClonable":  true,
+                      "requiredForMergeable":  true
+                  },
+                  {
+                      "testCode":  "MS-COM-TEST-002",
+                      "path":  "test/features/commercial/provider_profile_final_closure_test.dart",
+                      "purpose":  "Commercial provider profile contract",
+                      "owner":  "COMMERCIAL",
+                      "requiredForBuildable":  true,
+                      "requiredForRunnable":  true,
+                      "requiredForClonable":  true,
+                      "requiredForMergeable":  true
+                  }
+              ],
+    "ports":  [
+                  {
+                      "portId":  "MS-PORT-COM-ACTIVE-01",
+                      "sectionId":  "COMMERCIAL",
+                      "mode":  "ACTIVE",
+                      "allowedLines":  [
+                                           "MS-LINE-LIFECYCLE-01",
+                                           "MS-LINE-ROUTE-01",
+                                           "MS-LINE-AUTH-01",
+                                           "MS-LINE-DATA-READ-01",
+                                           "MS-LINE-DATA-WRITE-01",
+                                           "MS-LINE-STORAGE-01",
+                                           "MS-LINE-SIGNAL-01",
+                                           "MS-LINE-LOCALIZATION-01",
+                                           "MS-LINE-ASSET-01",
+                                           "MS-LINE-EXTERNAL-ACTION-01",
+                                           "MS-LINE-ERROR-01"
+                                       ],
+                      "contractVersion":  1,
+                      "writeIdentity":  "commercial-active",
+                      "localStateIdentity":  "mental_smile_local_signals_commercial",
+                      "activationState":  "DESIGNED_NOT_IMPLEMENTED"
+                  },
+                  {
+                      "portId":  "MS-PORT-COM-TEST-01",
+                      "sectionId":  "COMMERCIAL",
+                      "mode":  "TEST",
+                      "allowedLines":  [
+                                           "MS-LINE-LIFECYCLE-01",
+                                           "MS-LINE-ROUTE-01",
+                                           "MS-LINE-AUTH-01",
+                                           "MS-LINE-DATA-READ-01",
+                                           "MS-LINE-DATA-WRITE-01",
+                                           "MS-LINE-STORAGE-01",
+                                           "MS-LINE-SIGNAL-01",
+                                           "MS-LINE-LOCALIZATION-01",
+                                           "MS-LINE-ASSET-01",
+                                           "MS-LINE-EXTERNAL-ACTION-01",
+                                           "MS-LINE-ERROR-01"
+                                       ],
+                      "contractVersion":  1,
+                      "writeIdentity":  "commercial-test",
+                      "localStateIdentity":  "mental_smile_local_signals_commercial_test",
+                      "activationState":  "DESIGNED_NOT_IMPLEMENTED"
+                  }
+              ],
+    "imports":  [
+                    {
+                        "importCode":  "MS-COM-IMPORT-001",
+                        "target":  "package:mental_smile_os/app/locale_provider.dart",
+                        "purpose":  "central runtime dependency required by current Commercial runtime",
+                        "lineCode":  "MS-LINE-LIFECYCLE-01",
+                        "requiredVersion":  "current-repository-state",
+                        "optional":  false,
+                        "failureBehavior":  "current dependency behavior"
+                    },
+                    {
+                        "importCode":  "MS-COM-IMPORT-002",
+                        "target":  "package:mental_smile_os/app/router/routes.dart",
+                        "purpose":  "central runtime dependency required by current Commercial runtime",
+                        "lineCode":  "MS-LINE-ROUTE-01",
+                        "requiredVersion":  "current-repository-state",
+                        "optional":  false,
+                        "failureBehavior":  "current dependency behavior"
+                    },
+                    {
+                        "importCode":  "MS-COM-IMPORT-003",
+                        "target":  "package:mental_smile_os/core/auth/account_access_service.dart",
+                        "purpose":  "central runtime dependency required by current Commercial runtime",
+                        "lineCode":  "MS-LINE-AUTH-01",
+                        "requiredVersion":  "current-repository-state",
+                        "optional":  false,
+                        "failureBehavior":  "current dependency behavior"
+                    },
+                    {
+                        "importCode":  "MS-COM-IMPORT-004",
+                        "target":  "package:mental_smile_os/core/local_signals/local_section_signal_buffer.dart",
+                        "purpose":  "central runtime dependency required by current Commercial runtime",
+                        "lineCode":  "MS-LINE-SIGNAL-01",
+                        "requiredVersion":  "current-repository-state",
+                        "optional":  false,
+                        "failureBehavior":  "current dependency behavior"
+                    },
+                    {
+                        "importCode":  "MS-COM-IMPORT-005",
+                        "target":  "package:mental_smile_os/core/platform_core/platform_core.dart",
+                        "purpose":  "central runtime dependency required by current Commercial runtime",
+                        "lineCode":  "MS-LINE-SIGNAL-01",
+                        "requiredVersion":  "current-repository-state",
+                        "optional":  false,
+                        "failureBehavior":  "current dependency behavior"
+                    },
+                    {
+                        "importCode":  "MS-COM-IMPORT-006",
+                        "target":  "package:mental_smile_os/core/visibility/visibility_readiness.dart",
+                        "purpose":  "central runtime dependency required by current Commercial runtime",
+                        "lineCode":  "MS-LINE-LIFECYCLE-01",
+                        "requiredVersion":  "current-repository-state",
+                        "optional":  false,
+                        "failureBehavior":  "current dependency behavior"
+                    },
+                    {
+                        "importCode":  "MS-COM-IMPORT-007",
+                        "target":  "package:mental_smile_os/l10n/commercial/commercial_localizations.dart",
+                        "purpose":  "central runtime dependency required by current Commercial runtime",
+                        "lineCode":  "MS-LINE-LOCALIZATION-01",
+                        "requiredVersion":  "current-repository-state",
+                        "optional":  false,
+                        "failureBehavior":  "current dependency behavior"
+                    },
+                    {
+                        "importCode":  "MS-COM-IMPORT-008",
+                        "target":  "package:mental_smile_os/shared/accessibility/accessibility_guide_icon.dart",
+                        "purpose":  "central runtime dependency required by current Commercial runtime",
+                        "lineCode":  "MS-LINE-LIFECYCLE-01",
+                        "requiredVersion":  "current-repository-state",
+                        "optional":  false,
+                        "failureBehavior":  "current dependency behavior"
+                    },
+                    {
+                        "importCode":  "MS-COM-IMPORT-009",
+                        "target":  "package:mental_smile_os/shared/accessibility/speech/localized_speech_action.dart",
+                        "purpose":  "central runtime dependency required by current Commercial runtime",
+                        "lineCode":  "MS-LINE-EXTERNAL-ACTION-01",
+                        "requiredVersion":  "current-repository-state",
+                        "optional":  false,
+                        "failureBehavior":  "current dependency behavior"
+                    },
+                    {
+                        "importCode":  "MS-COM-IMPORT-010",
+                        "target":  "package:mental_smile_os/shared/branding/mental_smile_logo.dart",
+                        "purpose":  "central runtime dependency required by current Commercial runtime",
+                        "lineCode":  "MS-LINE-LIFECYCLE-01",
+                        "requiredVersion":  "current-repository-state",
+                        "optional":  false,
+                        "failureBehavior":  "current dependency behavior"
+                    },
+                    {
+                        "importCode":  "MS-COM-IMPORT-011",
+                        "target":  "package:mental_smile_os/shared/contracts/role_names.dart",
+                        "purpose":  "central runtime dependency required by current Commercial runtime",
+                        "lineCode":  "MS-LINE-AUTH-01",
+                        "requiredVersion":  "current-repository-state",
+                        "optional":  false,
+                        "failureBehavior":  "current dependency behavior"
+                    },
+                    {
+                        "importCode":  "MS-COM-IMPORT-012",
+                        "target":  "package:mental_smile_os/shared/generation2_mobile/generation2_mobile_room_scaffold.dart",
+                        "purpose":  "central runtime dependency required by current Commercial runtime",
+                        "lineCode":  "MS-LINE-LIFECYCLE-01",
+                        "requiredVersion":  "current-repository-state",
+                        "optional":  false,
+                        "failureBehavior":  "current dependency behavior"
+                    },
+                    {
+                        "importCode":  "MS-COM-IMPORT-013",
+                        "target":  "package:mental_smile_os/shared/guides/daleel_assistant.dart",
+                        "purpose":  "central runtime dependency required by current Commercial runtime",
+                        "lineCode":  "MS-LINE-LIFECYCLE-01",
+                        "requiredVersion":  "current-repository-state",
+                        "optional":  false,
+                        "failureBehavior":  "current dependency behavior"
+                    },
+                    {
+                        "importCode":  "MS-COM-IMPORT-014",
+                        "target":  "package:mental_smile_os/shared/links/safe_external_link_launcher.dart",
+                        "purpose":  "central runtime dependency required by current Commercial runtime",
+                        "lineCode":  "MS-LINE-EXTERNAL-ACTION-01",
+                        "requiredVersion":  "current-repository-state",
+                        "optional":  false,
+                        "failureBehavior":  "current dependency behavior"
+                    },
+                    {
+                        "importCode":  "MS-COM-IMPORT-015",
+                        "target":  "package:mental_smile_os/shared/provider_profiles/provider_profile_categories.dart",
+                        "purpose":  "central runtime dependency required by current Commercial runtime",
+                        "lineCode":  "MS-LINE-DATA-READ-01",
+                        "requiredVersion":  "current-repository-state",
+                        "optional":  false,
+                        "failureBehavior":  "current dependency behavior"
+                    },
+                    {
+                        "importCode":  "MS-COM-IMPORT-016",
+                        "target":  "package:mental_smile_os/shared/provider_profiles/provider_public_profile.dart",
+                        "purpose":  "central runtime dependency required by current Commercial runtime",
+                        "lineCode":  "MS-LINE-DATA-READ-01",
+                        "requiredVersion":  "current-repository-state",
+                        "optional":  false,
+                        "failureBehavior":  "current dependency behavior"
+                    },
+                    {
+                        "importCode":  "MS-COM-IMPORT-017",
+                        "target":  "package:mental_smile_os/shared/wellbeing/shared_wellbeing_room_card.dart",
+                        "purpose":  "central runtime dependency required by current Commercial runtime",
+                        "lineCode":  "MS-LINE-LIFECYCLE-01",
+                        "requiredVersion":  "current-repository-state",
+                        "optional":  false,
+                        "failureBehavior":  "current dependency behavior"
+                    }
+                ],
+    "exports":  [
+                    {
+                        "exportCode":  "MS-COM-EXPORT-001",
+                        "symbol":  "ROOT_DIRECT_NO_CONSTANT",
+                        "owner":  "COMMERCIAL_V2_WEB",
+                        "consumer":  "lib/app/router/app_router.dart",
+                        "lineCode":  "MS-LINE-ROUTE-01",
+                        "version":  "current",
+                        "activationRequired":  true
+                    },
+                    {
+                        "exportCode":  "MS-COM-EXPORT-002",
+                        "symbol":  "Routes.commercialAccess",
+                        "owner":  "COMMERCIAL",
+                        "consumer":  "lib/app/router/app_router.dart",
+                        "lineCode":  "MS-LINE-ROUTE-01",
+                        "version":  "current",
+                        "activationRequired":  true
+                    },
+                    {
+                        "exportCode":  "MS-COM-EXPORT-003",
+                        "symbol":  "Routes.commercialSpecialistLogin",
+                        "owner":  "SPECIALIST",
+                        "consumer":  "lib/app/router/app_router.dart",
+                        "lineCode":  "MS-LINE-ROUTE-01",
+                        "version":  "current",
+                        "activationRequired":  true
+                    },
+                    {
+                        "exportCode":  "MS-COM-EXPORT-004",
+                        "symbol":  "Routes.commercialSpecialistRegister",
+                        "owner":  "SPECIALIST",
+                        "consumer":  "lib/app/router/app_router.dart",
+                        "lineCode":  "MS-LINE-ROUTE-01",
+                        "version":  "current",
+                        "activationRequired":  true
+                    },
+                    {
+                        "exportCode":  "MS-COM-EXPORT-005",
+                        "symbol":  "Routes.commercialCenterLogin",
+                        "owner":  "CENTER",
+                        "consumer":  "lib/app/router/app_router.dart",
+                        "lineCode":  "MS-LINE-ROUTE-01",
+                        "version":  "current",
+                        "activationRequired":  true
+                    },
+                    {
+                        "exportCode":  "MS-COM-EXPORT-006",
+                        "symbol":  "Routes.commercialCenterRegister",
+                        "owner":  "CENTER",
+                        "consumer":  "lib/app/router/app_router.dart",
+                        "lineCode":  "MS-LINE-ROUTE-01",
+                        "version":  "current",
+                        "activationRequired":  true
+                    },
+                    {
+                        "exportCode":  "MS-COM-EXPORT-007",
+                        "symbol":  "Routes.commercialRoom",
+                        "owner":  "SPECIALIST",
+                        "consumer":  "lib/app/router/app_router.dart",
+                        "lineCode":  "MS-LINE-ROUTE-01",
+                        "version":  "current",
+                        "activationRequired":  true
+                    },
+                    {
+                        "exportCode":  "MS-COM-EXPORT-008",
+                        "symbol":  "Routes.commercialSpecialistProfessionalProfile",
+                        "owner":  "SPECIALIST",
+                        "consumer":  "lib/app/router/app_router.dart",
+                        "lineCode":  "MS-LINE-ROUTE-01",
+                        "version":  "current",
+                        "activationRequired":  true
+                    },
+                    {
+                        "exportCode":  "MS-COM-EXPORT-009",
+                        "symbol":  "Routes.commercialSpecialistProfessionalLibrary",
+                        "owner":  "SPECIALIST",
+                        "consumer":  "lib/app/router/app_router.dart",
+                        "lineCode":  "MS-LINE-ROUTE-01",
+                        "version":  "current",
+                        "activationRequired":  true
+                    },
+                    {
+                        "exportCode":  "MS-COM-EXPORT-010",
+                        "symbol":  "Routes.commercialCenterRoom",
+                        "owner":  "CENTER",
+                        "consumer":  "lib/app/router/app_router.dart",
+                        "lineCode":  "MS-LINE-ROUTE-01",
+                        "version":  "current",
+                        "activationRequired":  true
+                    },
+                    {
+                        "exportCode":  "MS-COM-EXPORT-011",
+                        "symbol":  "Routes.commercialCenterProfessionalProfile",
+                        "owner":  "CENTER",
+                        "consumer":  "lib/app/router/app_router.dart",
+                        "lineCode":  "MS-LINE-ROUTE-01",
+                        "version":  "current",
+                        "activationRequired":  true
+                    },
+                    {
+                        "exportCode":  "MS-COM-EXPORT-012",
+                        "symbol":  "Routes.commercialCenterProfessionalLibrary",
+                        "owner":  "CENTER",
+                        "consumer":  "lib/app/router/app_router.dart",
+                        "lineCode":  "MS-LINE-ROUTE-01",
+                        "version":  "current",
+                        "activationRequired":  true
+                    },
+                    {
+                        "exportCode":  "MS-COM-EXPORT-013",
+                        "symbol":  "Routes.commercialAssistiveTools",
+                        "owner":  "COMMERCIAL",
+                        "consumer":  "lib/app/router/app_router.dart",
+                        "lineCode":  "MS-LINE-ROUTE-01",
+                        "version":  "current",
+                        "activationRequired":  true
+                    },
+                    {
+                        "exportCode":  "MS-COM-EXPORT-014",
+                        "symbol":  "Routes.commercialPublicAccounts",
+                        "owner":  "COMMERCIAL",
+                        "consumer":  "lib/app/router/app_router.dart",
+                        "lineCode":  "MS-LINE-ROUTE-01",
+                        "version":  "current",
+                        "activationRequired":  true
+                    },
+                    {
+                        "exportCode":  "MS-COM-EXPORT-015",
+                        "symbol":  "Routes.commercialV2Web",
+                        "owner":  "COMMERCIAL_V2_WEB",
+                        "consumer":  "lib/app/router/app_router.dart",
+                        "lineCode":  "MS-LINE-ROUTE-01",
+                        "version":  "current",
+                        "activationRequired":  true
+                    },
+                    {
+                        "exportCode":  "MS-COM-EXPORT-016",
+                        "symbol":  "Routes.landingPreview",
+                        "owner":  "COMMERCIAL_V2_WEB",
+                        "consumer":  "lib/app/router/app_router.dart",
+                        "lineCode":  "MS-LINE-ROUTE-01",
+                        "version":  "current",
+                        "activationRequired":  true
+                    },
+                    {
+                        "exportCode":  "MS-COM-EXPORT-017",
+                        "symbol":  "Routes.generation2MobileSpecialistRoom",
+                        "owner":  "GENERATION2_SPECIALIST",
+                        "consumer":  "lib/app/router/app_router.dart",
+                        "lineCode":  "MS-LINE-ROUTE-01",
+                        "version":  "current",
+                        "activationRequired":  true
+                    },
+                    {
+                        "exportCode":  "MS-COM-EXPORT-018",
+                        "symbol":  "Routes.generation2MobileCenterRoom",
+                        "owner":  "GENERATION2_CENTER",
+                        "consumer":  "lib/app/router/app_router.dart",
+                        "lineCode":  "MS-LINE-ROUTE-01",
+                        "version":  "current",
+                        "activationRequired":  true
+                    },
+                    {
+                        "exportCode":  "MS-COM-EXPORT-SIGNAL-001",
+                        "symbol":  "CommercialRuntimeSignalBridge",
+                        "owner":  "COMMERCIAL",
+                        "consumer":  "CommercialAuthService",
+                        "lineCode":  "MS-LINE-SIGNAL-01",
+                        "version":  "current",
+                        "activationRequired":  true
+                    },
+                    {
+                        "exportCode":  "MS-COM-EXPORT-PROFILE-001",
+                        "symbol":  "ProviderProfileRepository",
+                        "owner":  "PROVIDER_PROFILE",
+                        "consumer":  "profile pages",
+                        "lineCode":  "MS-LINE-DATA-WRITE-01",
+                        "version":  "current",
+                        "activationRequired":  true
+                    }
+                ],
+    "dependencies":  [
+                         "flutter",
+                         "firebase_auth",
+                         "cloud_firestore",
+                         "firebase_storage",
+                         "shared_preferences",
+                         "url_launcher",
+                         "flutter_tts",
+                         "image_picker"
+                     ],
+    "forbiddenDependencies":  [
+                                  "Residential",
+                                  "Library content",
+                                  "booking/payment/ranking/recommendation",
+                                  "admin queues",
+                                  "monitoring",
+                                  "Commercial speech generator creation during blueprint"
+                              ],
+    "validation":  {
+                       "buildable":  "PENDING_MANUAL_VERIFICATION",
+                       "runnable":  "PENDING_MANUAL_VERIFICATION",
+                       "clonable":  "PENDING_MANUAL_VERIFICATION",
+                       "mergeable":  false,
+                       "blueprintComplete":  true,
+                       "runtimeCopied":  true,
+                       "portsImplemented":  true,
+                       "compatibilityGatePassed":  "PENDING_MANUAL_VERIFICATION",
+                       "checks":  {
+                                      "allRuntimeFilesMapped":  true,
+                                      "allRoutesMapped":  true,
+                                      "allSignalsMapped":  true,
+                                      "allAssetsMapped":  true,
+                                      "allLocalizationMapped":  true,
+                                      "allFirebaseMapped":  true,
+                                      "allStorageMapped":  true,
+                                      "allSpeechMapped":  true,
+                                      "allTestsMapped":  true,
+                                      "allCentralConnectionsMapped":  true,
+                                      "unmappedConnectionsZero":  true,
+                                      "crossSectionDependenciesZero":  false,
+                                      "ownershipViolationsZero":  false,
+                                      "forbiddenFeaturesAbsent":  true,
+                                      "legacyCommercialResidueAbsent":  true
+                                  },
+                       "blockers":  [
+                                        "commercial_speech_generator_pending",
+                                        "commercial_v2_local_signal_writer_accepts_only_CV2_SIG_OPEN_LIBRARY"
+                                    ],
+                       "testPortImplemented":  true,
+                       "platformMounted":  true,
+                       "testMounted":  true,
+                       "active":  false,
+                       "speechComplete":  false,
+                       "speechState":  "PARTIAL_TEST_ONLY"
+                   },
+    "counts":  {
+                   "runtimeFiles":  42,
+                   "dartFiles":  42,
+                   "routes":  18,
+                   "routeConstants":  17,
+                   "routerCases":  17,
+                   "coreSignals":  4,
+                   "localSignals":  7,
+                   "tests":  5,
+                   "assets":  39,
+                   "responsiveAssetFamilies":  9,
+                   "localizationOwners":  2,
+                   "localizationKeys":  47,
+                   "speechControls":  17,
+                   "connectedSpeechControls":  2,
+                   "unconnectedSpeechControls":  15,
+                   "firebaseCollections":  4,
+                   "storagePaths":  2,
+                   "canonicalLinesUsed":  11,
+                   "centralImports":  17,
+                   "capsuleExports":  20,
+                   "blockers":  2,
+                   "runtimeCopied":  42,
+                   "assetsCopied":  24,
+                   "centralAssetsContracted":  15,
+                   "testCasesAdded":  30
+               }
+}

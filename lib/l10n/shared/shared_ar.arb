@@ -1,0 +1,8 @@
+﻿{
+    "@@locale":  "ar",
+    "applicationAccessibilityListenSupport":  "Ø§Ø³ØªÙ…Ø§Ø¹ Ø£Ùˆ Ø¯Ø¹Ù… ØµÙˆØªÙŠ",
+    "applicationLinkOpenFailed":  "ØªØ¹Ø°Ø± ÙØªØ­ Ù‡Ø°Ø§ Ø§Ù„Ø±Ø§Ø¨Ø·. Ø­Ø§ÙˆÙ„ Ù…Ø±Ø© Ø£Ø®Ø±Ù‰.",
+    "applicationSpeechUnavailable":  "ØªØ¹Ø°Ø± ØªØ´ØºÙŠÙ„ Ø§Ù„Ù‚Ø±Ø§Ø¡Ø© Ø§Ù„ØµÙˆØªÙŠØ© Ø¹Ù„Ù‰ Ù‡Ø°Ø§ Ø§Ù„Ø¬Ù‡Ø§Ø².",
+    "applicationSpeechTooltip":  "Ø§Ø³ØªÙ…Ø¹",
+    "applicationSpeechSemanticLabel":  "ØªØ´ØºÙŠÙ„ Ø§Ù„Ù‚Ø±Ø§Ø¡Ø© Ø§Ù„ØµÙˆØªÙŠØ©"
+}

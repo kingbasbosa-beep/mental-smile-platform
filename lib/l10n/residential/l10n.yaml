@@ -1,0 +1,5 @@
+arb-dir: .
+template-arb-file: residential_ar.arb
+output-localization-file: residential_localizations.dart
+output-class: ResidentialLocalizations
+nullable-getter: false

@@ -1,12 +1,5 @@
 rules_version = '2';
 
-// MASTER CORE role doctrine:
-// Firestore authorization depends on custom claims, not UI role documents.
-// AccountAccessService and role documents are app-side UI/UX gates only.
-// Opening a screen in the app does not guarantee Firestore read/write access.
-// Server SDK tooling is a privileged ops layer.
-// QA bot writes are privileged ops behavior, not client/app behavior.
-// Do not broaden rules to hide a custom-claims mismatch.
 service cloud.firestore {
   match /databases/{database}/documents {
     function signedIn() {
@@ -27,22 +20,6 @@ service cloud.firestore {
 
     function isOwner() {
       return hasRole('owner');
-    }
-
-    function isMonitoringOperator() {
-      return hasRole('monitoring_operator');
-    }
-
-    function isRegistrySteward() {
-      return hasRole('registry_steward');
-    }
-
-    function isDeclarationReviewer() {
-      return hasRole('declaration_reviewer');
-    }
-
-    function isSupportObserver() {
-      return hasRole('support_observer');
     }
 
     function protectedAccountFields() {
@@ -206,83 +183,286 @@ service cloud.firestore {
           .hasOnly(centerSelfRegistrationFields());
     }
 
+    function specialistPrivateProfileFields() {
+      return [
+        'ownerUid',
+        'profileType',
+        'status',
+        'fullName',
+        'specialty',
+        'specialtyLabel',
+        'otherSpecialties',
+        'shortBio',
+        'email',
+        'phone',
+        'showEmailPublicly',
+        'showPhonePublicly',
+        'profileImageUrl',
+        'createdAt',
+        'updatedAt',
+        'source'
+      ];
+    }
+
+    function specialistProfileWriteValid(clinicianId, profileId) {
+      return ownDoc(clinicianId)
+        && profileId == 'current'
+        && request.resource.data.keys().hasOnly(specialistPrivateProfileFields())
+        && request.resource.data.keys().hasAll(specialistPrivateProfileFields())
+        && request.resource.data.ownerUid == uid()
+        && request.resource.data.profileType == 'specialist'
+        && request.resource.data.status == 'published'
+        && request.resource.data.fullName is string
+        && request.resource.data.specialty is string
+        && request.resource.data.specialtyLabel is string
+        && request.resource.data.otherSpecialties is string
+        && request.resource.data.otherSpecialties.size() <= 160
+        && request.resource.data.shortBio is string
+        && request.resource.data.shortBio.size() <= 300
+        && request.resource.data.email is string
+        && request.resource.data.phone is string
+        && request.resource.data.showEmailPublicly is bool
+        && request.resource.data.showPhonePublicly is bool
+        && request.resource.data.profileImageUrl is string
+        && request.resource.data.createdAt is timestamp
+        && request.resource.data.updatedAt == request.time
+        && request.resource.data.source == 'specialist_professional_profile_clean_layout_v1';
+    }
+
+    function centerPrivateProfileFields() {
+      return [
+        'ownerUid',
+        'profileType',
+        'status',
+        'centerName',
+        'category',
+        'categoryLabel',
+        'otherServices',
+        'shortBio',
+        'email',
+        'phone',
+        'showEmailPublicly',
+        'showPhonePublicly',
+        'identityImageUrl',
+        'createdAt',
+        'updatedAt',
+        'source'
+      ];
+    }
+
+    function centerProfileWriteValid(centerId, profileId) {
+      return ownDoc(centerId)
+        && profileId == 'current'
+        && request.resource.data.keys().hasOnly(centerPrivateProfileFields())
+        && request.resource.data.keys().hasAll(centerPrivateProfileFields())
+        && request.resource.data.ownerUid == uid()
+        && request.resource.data.profileType == 'center'
+        && request.resource.data.status == 'published'
+        && request.resource.data.centerName is string
+        && request.resource.data.category is string
+        && request.resource.data.categoryLabel is string
+        && request.resource.data.otherServices is string
+        && request.resource.data.otherServices.size() <= 160
+        && request.resource.data.shortBio is string
+        && request.resource.data.shortBio.size() <= 300
+        && request.resource.data.email is string
+        && request.resource.data.phone is string
+        && request.resource.data.showEmailPublicly is bool
+        && request.resource.data.showPhonePublicly is bool
+        && request.resource.data.identityImageUrl is string
+        && request.resource.data.createdAt is timestamp
+        && request.resource.data.updatedAt == request.time
+        && request.resource.data.source == 'center_professional_profile_clean_layout_v1';
+    }
+
+    function publicSpecialistProfileFields() {
+      return [
+        'providerId',
+        'profileType',
+        'displayName',
+        'categoryId',
+        'categoryLabel',
+        'librarySectionId',
+        'otherSpecialties',
+        'shortBio',
+        'imageUrl',
+        'email',
+        'phone',
+        'showEmailPublicly',
+        'showPhonePublicly',
+        'status',
+        'updatedAt'
+      ];
+    }
+
+    function publicCenterProfileFields() {
+      return [
+        'providerId',
+        'profileType',
+        'displayName',
+        'categoryId',
+        'categoryLabel',
+        'librarySectionId',
+        'otherServices',
+        'shortBio',
+        'imageUrl',
+        'email',
+        'phone',
+        'showEmailPublicly',
+        'showPhonePublicly',
+        'status',
+        'updatedAt'
+      ];
+    }
+
+    function publicSpecialistProfileRequiredFields() {
+      return [
+        'providerId',
+        'profileType',
+        'displayName',
+        'categoryId',
+        'categoryLabel',
+        'librarySectionId',
+        'imageUrl',
+        'showEmailPublicly',
+        'showPhonePublicly',
+        'status',
+        'updatedAt'
+      ];
+    }
+
+    function publicCenterProfileRequiredFields() {
+      return [
+        'providerId',
+        'profileType',
+        'displayName',
+        'categoryId',
+        'categoryLabel',
+        'librarySectionId',
+        'imageUrl',
+        'showEmailPublicly',
+        'showPhonePublicly',
+        'status',
+        'updatedAt'
+      ];
+    }
+
+    function publicSpecialistProfileWriteValid(profileId) {
+      return ownDoc(profileId)
+        && request.resource.data.keys().hasOnly(publicSpecialistProfileFields())
+        && request.resource.data.keys().hasAll(publicSpecialistProfileRequiredFields())
+        && request.resource.data.providerId == uid()
+        && request.resource.data.profileType == 'specialist'
+        && request.resource.data.status == 'published'
+        && request.resource.data.displayName is string
+        && request.resource.data.categoryId is string
+        && request.resource.data.categoryLabel is string
+        && request.resource.data.librarySectionId is string
+        && (!request.resource.data.keys().hasAny(['otherSpecialties'])
+          || (request.resource.data.otherSpecialties is string
+            && request.resource.data.otherSpecialties.size() <= 160))
+        && (!request.resource.data.keys().hasAny(['shortBio'])
+          || (request.resource.data.shortBio is string
+            && request.resource.data.shortBio.size() <= 300))
+        && request.resource.data.imageUrl is string
+        && request.resource.data.showEmailPublicly is bool
+        && request.resource.data.showPhonePublicly is bool
+        && (request.resource.data.showEmailPublicly == true
+          || !request.resource.data.keys().hasAny(['email']))
+        && (request.resource.data.showPhonePublicly == true
+          || !request.resource.data.keys().hasAny(['phone']))
+        && (!request.resource.data.keys().hasAny(['email'])
+          || (request.resource.data.showEmailPublicly == true
+            && request.resource.data.email is string))
+        && (!request.resource.data.keys().hasAny(['phone'])
+          || (request.resource.data.showPhonePublicly == true
+            && request.resource.data.phone is string))
+        && request.resource.data.updatedAt == request.time;
+    }
+
+    function publicCenterProfileWriteValid(profileId) {
+      return ownDoc(profileId)
+        && request.resource.data.keys().hasOnly(publicCenterProfileFields())
+        && request.resource.data.keys().hasAll(publicCenterProfileRequiredFields())
+        && request.resource.data.providerId == uid()
+        && request.resource.data.profileType == 'center'
+        && request.resource.data.status == 'published'
+        && request.resource.data.displayName is string
+        && request.resource.data.categoryId is string
+        && request.resource.data.categoryLabel is string
+        && request.resource.data.librarySectionId is string
+        && request.resource.data.imageUrl is string
+        && request.resource.data.showEmailPublicly is bool
+        && request.resource.data.showPhonePublicly is bool
+        && (!request.resource.data.keys().hasAny(['otherServices'])
+          || (request.resource.data.otherServices is string
+            && request.resource.data.otherServices.size() <= 160))
+        && (!request.resource.data.keys().hasAny(['shortBio'])
+          || (request.resource.data.shortBio is string
+            && request.resource.data.shortBio.size() <= 300))
+        && (request.resource.data.showEmailPublicly == true
+          || !request.resource.data.keys().hasAny(['email']))
+        && (request.resource.data.showPhonePublicly == true
+          || !request.resource.data.keys().hasAny(['phone']))
+        && (!request.resource.data.keys().hasAny(['email'])
+          || (request.resource.data.showEmailPublicly == true
+            && request.resource.data.email is string))
+        && (!request.resource.data.keys().hasAny(['phone'])
+          || (request.resource.data.showPhonePublicly == true
+            && request.resource.data.phone is string))
+        && request.resource.data.updatedAt == request.time;
+    }
+
     match /clinicians/{clinicianId} {
-      allow read: if isDeclarationReviewer()
-        || (signedIn() && clinicianId == uid())
-        || visibilityReady();
+      allow read: if (signedIn() && clinicianId == uid()) || visibilityReady();
       allow create: if clinicianCreateValid(clinicianId);
       allow update: if clinicianSelfUpdateValid(clinicianId);
       allow delete: if false;
     }
 
     match /clinicians/{clinicianId}/profile/{profileId} {
-      allow read: if isDeclarationReviewer() || ownDoc(clinicianId);
-      allow create, update: if ownDoc(clinicianId)
-        && profileId == 'current'
-        && request.resource.data.ownerUid == uid()
-        && request.resource.data.profileType == 'specialist'
-        && request.resource.data.status in ['draft', 'published'];
+      allow read: if ownDoc(clinicianId);
+      allow create, update: if specialistProfileWriteValid(clinicianId, profileId);
       allow delete: if false;
     }
 
     match /centers/{centerId} {
-      allow read: if isDeclarationReviewer()
-        || (signedIn() && centerId == uid())
-        || visibilityReady();
+      allow read: if (signedIn() && centerId == uid()) || visibilityReady();
       allow create: if centerCreateValid(centerId);
       allow update: if centerSelfUpdateValid(centerId);
       allow delete: if false;
     }
 
     match /centers/{centerId}/profile/{profileId} {
-      allow read: if isDeclarationReviewer() || ownDoc(centerId);
-      allow create, update: if ownDoc(centerId)
-        && profileId == 'current'
-        && request.resource.data.ownerUid == uid()
-        && request.resource.data.profileType == 'center'
-        && request.resource.data.status in ['draft', 'published'];
+      allow read: if ownDoc(centerId);
+      allow create, update: if centerProfileWriteValid(centerId, profileId);
       allow delete: if false;
     }
 
-    match /clinician_profile_change_requests/{requestId} {
-      allow read: if isDeclarationReviewer();
-      allow create: if false;
-      allow update: if false;
+    match /public_specialist_profiles/{profileId} {
+      allow get, list: if resource.data.status == 'published';
+      allow create, update: if publicSpecialistProfileWriteValid(profileId);
       allow delete: if false;
     }
 
-    match /center_profile_change_requests/{requestId} {
-      allow read: if isDeclarationReviewer();
-      allow create: if false;
-      allow update: if false;
-      allow delete: if false;
-    }
-
-    match /support_requests/{requestId} {
-      allow get, list: if isSupportObserver()
-        || (signedIn() && resource.data.createdByUid == uid());
-      allow create: if signedIn()
-        && request.resource.data.createdByUid == uid()
-        && request.resource.data.status == 'new'
-        && request.resource.data.source == 'structured_support';
-      allow update: if false;
+    match /public_center_profiles/{profileId} {
+      allow get, list: if resource.data.status == 'published';
+      allow create, update: if publicCenterProfileWriteValid(profileId);
       allow delete: if false;
     }
 
     match /system_domains/{docId} {
-      allow read: if isOwner() || isRegistrySteward();
+      allow read: if isOwner();
       allow write: if false;
       allow delete: if false;
     }
 
     match /signal_events/{signalId} {
-      allow get: if signedIn() && (resource.data.actorId == uid() || isOwner() || isMonitoringOperator() || isSupportObserver());
+      allow get: if signedIn() && (resource.data.actorId == uid() || isOwner());
       allow list: if signedIn()
         && (
           resource.data.actorId == uid()
           || isOwner()
-          || isMonitoringOperator()
-          || isSupportObserver()
         );
       allow create: if ((
             signedIn()
@@ -313,7 +493,7 @@ service cloud.firestore {
       allow update, delete: if false;
     }
 
-    function coreTestSignalEventAllowedKeys() {
+    function coreSignalEventAllowedKeys() {
       return [
         'signalId',
         'code',
@@ -331,7 +511,7 @@ service cloud.firestore {
 
     function coreTestSignalEventCreateValid(signalId) {
       return signedIn()
-        && request.resource.data.keys().hasOnly(coreTestSignalEventAllowedKeys())
+        && request.resource.data.keys().hasOnly(coreSignalEventAllowedKeys())
         && request.resource.data.signalId == signalId
         && isNonEmptyString(request.resource.data.signalId)
         && isNonEmptyString(request.resource.data.code)
@@ -346,15 +526,9 @@ service cloud.firestore {
         && request.resource.data.context is map;
     }
 
-    match /core_test_signal_events/{signalId} {
-      allow read: if false;
-      allow create: if coreTestSignalEventCreateValid(signalId);
-      allow update, delete: if false;
-    }
-
     function coreProductionSignalEventCreateValid(signalId, family) {
       return signedIn()
-        && request.resource.data.keys().hasOnly(coreTestSignalEventAllowedKeys())
+        && request.resource.data.keys().hasOnly(coreSignalEventAllowedKeys())
         && request.resource.data.signalId == signalId
         && isNonEmptyString(request.resource.data.signalId)
         && isNonEmptyString(request.resource.data.code)
@@ -367,6 +541,12 @@ service cloud.firestore {
         && request.resource.data.schemaVersion == 1
         && request.resource.data.createdAt == request.time
         && request.resource.data.context is map;
+    }
+
+    match /core_test_signal_events/{signalId} {
+      allow read: if false;
+      allow create: if coreTestSignalEventCreateValid(signalId);
+      allow update, delete: if false;
     }
 
     match /core_login_signals/{signalId} {
@@ -568,7 +748,7 @@ service cloud.firestore {
     }
 
     match /archive_signal_events/{eventId} {
-      allow read: if isOwner() || isMonitoringOperator();
+      allow read: if isOwner();
       allow create: if firstControlledArchiveSignalValid(eventId)
         || firstResidentialToolArchiveSignalValid(eventId)
         || firstLibraryHomeSignalValid(eventId)

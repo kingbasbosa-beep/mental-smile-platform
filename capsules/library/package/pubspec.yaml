@@ -1,0 +1,32 @@
+name: mental_smile_library_capsule
+description: Mental Smile Library Capsule test-port package.
+version: 0.1.0
+publish_to: none
+
+environment:
+  sdk: ^3.8.0
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+  flutter_markdown: ^0.7.4
+  markdown: ^7.2.2
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^5.0.0
+
+flutter:
+  generate: false
+  uses-material-design: true
+  assets:
+    - assets/branding/web/library/backgrounds/desktop/
+    - assets/branding/web/library/backgrounds/mobile/
+    - assets/branding/web/library/backgrounds/tablet/
+    - assets/c6_library/categories/
+    - assets/images/library/know_your_right/cards/
+    - assets/library/category_cards/
+    - assets/content/library/know_your_right/

@@ -27,6 +27,7 @@ class _CenterLoginPageState extends State<CenterLoginPage> {
 
   @override
   Widget build(BuildContext context) {
+    final successRoute = _successRoute(Routes.commercialCenterRoom);
     return CommercialLoginScaffold(
       title: 'دخول المركز',
       fields: [
@@ -58,8 +59,10 @@ class _CenterLoginPageState extends State<CenterLoginPage> {
       onPrimaryPressed: _loading ? null : _login,
       secondaryLabel: 'Register',
       showBackButton: true,
-      onSecondaryPressed: () =>
-          Navigator.of(context).pushNamed(Routes.commercialCenterRegister),
+      onSecondaryPressed: () => Navigator.of(context).pushNamed(
+        Routes.commercialCenterRegister,
+        arguments: <String, Object>{'successRoute': successRoute},
+      ),
       daleelAssistant: const DaleelAssistant(
         guideAssetPath: 'assets/branding/guides/center_desktop_login_guide.png',
         surveyTitle: 'رأيك يهمنا',
@@ -94,9 +97,17 @@ class _CenterLoginPageState extends State<CenterLoginPage> {
     }
 
     Navigator.of(context).pushNamedAndRemoveUntil(
-      Routes.commercialCenterRoom,
+      _successRoute(Routes.commercialCenterRoom),
       (route) => false,
     );
+  }
+
+  String _successRoute(String fallback) {
+    final args = ModalRoute.of(context)?.settings.arguments;
+    if (args is Map && args['successRoute'] is String) {
+      return args['successRoute'] as String;
+    }
+    return fallback;
   }
 
   void _showMessage(String message) {

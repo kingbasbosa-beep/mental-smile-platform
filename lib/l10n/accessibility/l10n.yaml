@@ -1,0 +1,5 @@
+arb-dir: .
+template-arb-file: accessibility_ar.arb
+output-localization-file: accessibility_localizations.dart
+output-class: AccessibilityLocalizations
+nullable-getter: false

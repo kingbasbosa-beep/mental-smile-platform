@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mental_smile_os/app/router/routes.dart';
-import 'package:mental_smile_os/features/generation2_mobile_client_room/presentation/pages/generation2_mobile_client_room_page.dart';
+import 'package:mental_smile_os/l10n/commercial/commercial_localizations.dart';
+import 'package:mental_smile_os/shared/generation2_mobile/generation2_mobile_room_scaffold.dart';
 import 'package:mental_smile_os/shared/guides/daleel_assistant.dart';
 
 class Generation2MobileCenterRoomPage extends StatelessWidget {
@@ -15,10 +16,48 @@ class Generation2MobileCenterRoomPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Generation2MobileRoomScaffold(
+    final l10n = CommercialLocalizations.of(context);
+    return Generation2MobileRoomScaffold(
       cardTitles: Generation2MobileCenterRoomPage.centerCardTitles,
+      speech: Generation2MobileSpeechContract(
+        exit: Generation2MobileSpeechNode(
+          sectionId: 'commercial',
+          localizationKey: 'commercialRoomExitRoomTooltip',
+          localizedText: l10n.commercialRoomExitRoomTooltip,
+          tooltip: l10n.commercialRoomExitRoomTooltip,
+          semanticLabel: l10n.commercialRoomExitRoomTooltip,
+        ),
+        logo: Generation2MobileSpeechNode(
+          sectionId: 'commercial',
+          localizationKey: 'commercialGeneration2MobileRoomLogo',
+          localizedText: l10n.commercialGeneration2MobileRoomLogo,
+          tooltip: l10n.commercialGeneration2MobileRoomLogo,
+          semanticLabel: l10n.commercialGeneration2MobileRoomLogo,
+        ),
+        image: Generation2MobileSpeechNode(
+          sectionId: 'commercial',
+          localizationKey: 'commercialGeneration2MobileRoomImage',
+          localizedText: l10n.commercialGeneration2MobileRoomImage,
+          tooltip: l10n.commercialGeneration2MobileRoomImage,
+          semanticLabel: l10n.commercialGeneration2MobileRoomImage,
+        ),
+        message: Generation2MobileSpeechNode(
+          sectionId: 'commercial',
+          localizationKey: 'commercialGeneration2MobileRoomMessage',
+          localizedText: l10n.commercialGeneration2MobileRoomMessage,
+          tooltip: l10n.commercialGeneration2MobileRoomMessage,
+          semanticLabel: l10n.commercialGeneration2MobileRoomMessage,
+        ),
+        carousel: Generation2MobileSpeechNode(
+          sectionId: 'commercial',
+          localizationKey: 'commercialGeneration2MobileRoomCards',
+          localizedText: l10n.commercialGeneration2MobileRoomCards,
+          tooltip: l10n.commercialGeneration2MobileRoomCards,
+          semanticLabel: l10n.commercialGeneration2MobileRoomCards,
+        ),
+      ),
       returnRoute: Routes.generation2MobileCenterRoom,
-      daleelAssistant: DaleelAssistant(
+      daleelAssistant: const DaleelAssistant(
         guideAssetPath: 'assets/branding/guides/center_friend_mobile_guide.png',
         surveyTitle: 'رأيك يهمنا',
         surveyIntro:

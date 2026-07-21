@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:mental_smile_os/app/router/routes.dart';
 import 'package:mental_smile_os/shared/guides/daleel_assistant.dart';
-import 'package:mental_smile_os/l10n/app_localizations.dart';
 import 'package:mental_smile_os/features/commercial/presentation/widgets/commercial_room_screen_image.dart';
 import 'package:mental_smile_os/features/commercial/presentation/widgets/commercial_room_tv_apps.dart';
 import 'package:mental_smile_os/features/commercial/presentation/widgets/commercial_room_utility_tools.dart';
+import 'package:mental_smile_os/l10n/commercial/commercial_localizations.dart';
 import 'package:mental_smile_os/shared/accessibility/accessibility_guide_icon.dart';
 import 'package:mental_smile_os/shared/wellbeing/shared_wellbeing_room_card.dart';
 
@@ -20,7 +20,7 @@ class CommercialRoomPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final l10n = AppLocalizations.of(context)!;
+    final l10n = CommercialLocalizations.of(context);
     return Scaffold(
       body: LayoutBuilder(
         builder: (context, constraints) {
@@ -179,7 +179,7 @@ class _ProfessionalProfileCardFixed extends StatelessWidget {
   const _ProfessionalProfileCardFixed(
       {required this.l10n, required this.isCompact});
 
-  final AppLocalizations l10n;
+  final CommercialLocalizations l10n;
   final bool isCompact;
 
   @override
@@ -198,7 +198,7 @@ class _ProfessionalLibraryCardFixed extends StatelessWidget {
   const _ProfessionalLibraryCardFixed(
       {required this.l10n, required this.isCompact});
 
-  final AppLocalizations l10n;
+  final CommercialLocalizations l10n;
   final bool isCompact;
 
   @override
@@ -216,7 +216,7 @@ class _ProfessionalLibraryCardFixed extends StatelessWidget {
 class _AssistiveToolsCardFixed extends StatelessWidget {
   const _AssistiveToolsCardFixed({required this.l10n, required this.isCompact});
 
-  final AppLocalizations l10n;
+  final CommercialLocalizations l10n;
   final bool isCompact;
 
   @override

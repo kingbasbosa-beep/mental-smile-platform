@@ -27,6 +27,7 @@ class _SpecialistLoginPageState extends State<SpecialistLoginPage> {
 
   @override
   Widget build(BuildContext context) {
+    final successRoute = _successRoute(Routes.commercialRoom);
     return CommercialLoginScaffold(
       title: 'دخول الأخصائي',
       fields: [
@@ -58,8 +59,10 @@ class _SpecialistLoginPageState extends State<SpecialistLoginPage> {
       onPrimaryPressed: _loading ? null : _login,
       secondaryLabel: 'Register',
       showBackButton: true,
-      onSecondaryPressed: () =>
-          Navigator.of(context).pushNamed(Routes.commercialSpecialistRegister),
+      onSecondaryPressed: () => Navigator.of(context).pushNamed(
+        Routes.commercialSpecialistRegister,
+        arguments: <String, Object>{'successRoute': successRoute},
+      ),
       daleelAssistant: const DaleelAssistant(
         guideAssetPath:
             'assets/branding/guides/specialist_desktop_login_guide.png',
@@ -95,9 +98,17 @@ class _SpecialistLoginPageState extends State<SpecialistLoginPage> {
     }
 
     Navigator.of(context).pushNamedAndRemoveUntil(
-      Routes.commercialRoom,
+      _successRoute(Routes.commercialRoom),
       (route) => false,
     );
+  }
+
+  String _successRoute(String fallback) {
+    final args = ModalRoute.of(context)?.settings.arguments;
+    if (args is Map && args['successRoute'] is String) {
+      return args['successRoute'] as String;
+    }
+    return fallback;
   }
 
   void _showMessage(String message) {

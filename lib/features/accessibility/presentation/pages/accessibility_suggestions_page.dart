@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:mental_smile_os/features/residential/signals/residential_signal_codes.dart';
 import 'package:mental_smile_os/features/residential/signals/residential_signal_emitter.dart';
-import 'package:mental_smile_os/l10n/app_localizations.dart';
+import 'package:mental_smile_os/features/residential/speech/residential_speech_contract.dart';
+import 'package:mental_smile_os/l10n/accessibility/accessibility_localizations.dart';
+import 'package:mental_smile_os/l10n/residential/residential_localizations.dart';
 import 'package:mental_smile_os/shared/accessibility/accessibility_guide_icon.dart';
-import 'package:url_launcher/url_launcher.dart';
+import 'package:mental_smile_os/shared/links/safe_external_link_launcher.dart';
 
 class AccessibilitySuggestionsPage extends StatefulWidget {
   const AccessibilitySuggestionsPage({super.key});
@@ -16,7 +18,7 @@ class AccessibilitySuggestionsPage extends StatefulWidget {
 class _AccessibilitySuggestionsPageState
     extends State<AccessibilitySuggestionsPage> {
   static const String _background =
-      'assets/branding/rooms/accessibility_room/cards/accessibility_suggestions_papyrus_background.png';
+      'assets/accessibility/accessibility_suggestions/accessibility_suggestions_papyrus_background.png';
   static const String _adminWhatsAppNumber = '201014116531';
 
   final TextEditingController _toolNameController = TextEditingController();
@@ -42,21 +44,28 @@ class _AccessibilitySuggestionsPageState
     super.dispose();
   }
 
-  void _showSpeechPlaceholder(BuildContext context, String label) {
+  Future<void> _speakLocalizedLabel(
+    BuildContext context, {
+    required String localizationKey,
+    required String localizedText,
+  }) {
     ResidentialSignalEmitter.emit(
       signalCode: ResidentialSignalCode.listenSupportPlay,
       sourceScreen: 'Accessibility Suggestions',
       sourceWidget: 'AccessibilityGuideIcon',
       action: 'request_audio_support',
     );
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(
-        content: Text(AppLocalizations.of(context)!.applicationAudioSoon),
+    return ResidentialSpeechGenerator.instance.speak(
+      context,
+      ResidentialSpeechNode(
+        sectionId: 'accessibility',
+        localizationKey: localizationKey,
+        localizedText: localizedText,
       ),
     );
   }
 
-  Future<void> _submitSuggestion(AppLocalizations l10n) async {
+  Future<void> _submitSuggestion(AccessibilityLocalizations l10n) async {
     final toolName = _toolNameController.text.trim();
     final reason = _reasonController.text.trim();
     final link = _linkController.text.trim();
@@ -90,7 +99,8 @@ class _AccessibilitySuggestionsPageState
       <String, String>{'text': message},
     );
 
-    await launchUrl(uri, mode: LaunchMode.externalApplication);
+    final opened = await SafeExternalLinkLauncher.openUri(context, uri);
+    if (!opened) return;
     ResidentialSignalEmitter.emit(
       signalCode: ResidentialSignalCode.suggestionSubmit,
       sourceScreen: 'Accessibility Suggestions',
@@ -126,7 +136,8 @@ class _AccessibilitySuggestionsPageState
         actions: [
           TextButton(
             onPressed: () => Navigator.of(context).pop(),
-            child: Text(l10n.applicationClientDialogOk),
+            child: Text(
+                ResidentialLocalizations.of(context).applicationClientDialogOk),
           ),
         ],
       ),
@@ -135,7 +146,7 @@ class _AccessibilitySuggestionsPageState
 
   @override
   Widget build(BuildContext context) {
-    final l10n = AppLocalizations.of(context)!;
+    final l10n = AccessibilityLocalizations.of(context);
     return Scaffold(
       backgroundColor: const Color(0xFF2B1B0D),
       body: SafeArea(
@@ -199,8 +210,13 @@ class _AccessibilitySuggestionsPageState
                                 child: _SpeakableText(
                                   text:
                                       '💡 ${l10n.applicationAccessibilitySuggestionsCardTitle}',
-                                  onSpeak: () => _showSpeechPlaceholder(context,
-                                      l10n.applicationAccessibilitySuggestionsCardTitle),
+                                  onSpeak: () => _speakLocalizedLabel(
+                                    context,
+                                    localizationKey:
+                                        'applicationAccessibilitySuggestionsCardTitle',
+                                    localizedText: l10n
+                                        .applicationAccessibilitySuggestionsCardTitle,
+                                  ),
                                   style: const TextStyle(
                                     color: Color(0xFF7A4A00),
                                     fontSize: 34,
@@ -212,8 +228,13 @@ class _AccessibilitySuggestionsPageState
                               _SpeakableText(
                                 text:
                                     '🛠️ ${l10n.applicationAccessibilitySuggestionsCardSubtitle}',
-                                onSpeak: () => _showSpeechPlaceholder(context,
-                                    l10n.applicationAccessibilitySuggestionsCardSubtitle),
+                                onSpeak: () => _speakLocalizedLabel(
+                                  context,
+                                  localizationKey:
+                                      'applicationAccessibilitySuggestionsCardSubtitle',
+                                  localizedText: l10n
+                                      .applicationAccessibilitySuggestionsCardSubtitle,
+                                ),
                                 style: const TextStyle(
                                   color: Color(0xFF3A2A18),
                                   fontSize: 19,
@@ -228,8 +249,13 @@ class _AccessibilitySuggestionsPageState
                                     .applicationAccessibilitySuggestionsLabelName,
                                 hint: l10n
                                     .applicationAccessibilitySuggestionsHintName,
-                                onSpeak: () => _showSpeechPlaceholder(context,
-                                    l10n.applicationAccessibilitySuggestionsLabelName),
+                                onSpeak: () => _speakLocalizedLabel(
+                                  context,
+                                  localizationKey:
+                                      'applicationAccessibilitySuggestionsLabelName',
+                                  localizedText: l10n
+                                      .applicationAccessibilitySuggestionsLabelName,
+                                ),
                               ),
                               const SizedBox(height: 14),
                               _SuggestionField(
@@ -240,8 +266,13 @@ class _AccessibilitySuggestionsPageState
                                 hint: l10n
                                     .applicationAccessibilitySuggestionsHintReason,
                                 maxLines: 5,
-                                onSpeak: () => _showSpeechPlaceholder(context,
-                                    l10n.applicationAccessibilitySuggestionsLabelReason),
+                                onSpeak: () => _speakLocalizedLabel(
+                                  context,
+                                  localizationKey:
+                                      'applicationAccessibilitySuggestionsLabelReason',
+                                  localizedText: l10n
+                                      .applicationAccessibilitySuggestionsLabelReason,
+                                ),
                               ),
                               const SizedBox(height: 14),
                               _SuggestionField(
@@ -251,8 +282,13 @@ class _AccessibilitySuggestionsPageState
                                     .applicationAccessibilitySuggestionsLabelLink,
                                 hint: l10n
                                     .applicationAccessibilitySuggestionsHintLink,
-                                onSpeak: () => _showSpeechPlaceholder(context,
-                                    l10n.applicationAccessibilitySuggestionsLabelLink),
+                                onSpeak: () => _speakLocalizedLabel(
+                                  context,
+                                  localizationKey:
+                                      'applicationAccessibilitySuggestionsLabelLink',
+                                  localizedText: l10n
+                                      .applicationAccessibilitySuggestionsLabelLink,
+                                ),
                               ),
                               const SizedBox(height: 22),
                               Row(
@@ -289,9 +325,13 @@ class _AccessibilitySuggestionsPageState
                                   const SizedBox(width: 8),
                                   AccessibilityGuideIcon(
                                     size: 24,
-                                    onPressed: () => _showSpeechPlaceholder(
-                                        context,
-                                        l10n.applicationAccessibilitySuggestionsSubmitButton),
+                                    onPressed: () => _speakLocalizedLabel(
+                                      context,
+                                      localizationKey:
+                                          'applicationAccessibilitySuggestionsSubmitButton',
+                                      localizedText: l10n
+                                          .applicationAccessibilitySuggestionsSubmitButton,
+                                    ),
                                   ),
                                 ],
                               ),
@@ -353,8 +393,9 @@ class _AccessibilityCardBackButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AccessibilityLocalizations.of(context);
     return IconButton(
-      tooltip: 'رجوع',
+      tooltip: l10n.applicationAccessibilityCommunityToolsBackToRoom,
       onPressed: onPressed,
       style: IconButton.styleFrom(
         backgroundColor: const Color(0xFF1B1007).withValues(alpha: 0.55),

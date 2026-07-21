@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:mental_smile_os/app/router/routes.dart';
 import 'package:mental_smile_os/features/residential/signals/residential_signal_codes.dart';
 import 'package:mental_smile_os/features/residential/signals/residential_signal_emitter.dart';
-import 'package:mental_smile_os/l10n/app_localizations.dart';
+import 'package:mental_smile_os/features/residential/speech/residential_speech_contract.dart';
+import 'package:mental_smile_os/l10n/residential/residential_localizations.dart';
+import 'package:mental_smile_os/l10n/shared/shared_localizations.dart';
 import 'package:mental_smile_os/shared/accessibility/accessibility_guide_icon.dart';
 
 class ResidentialExitSocialPortalPage extends StatelessWidget {
@@ -130,7 +132,7 @@ class _PortalMessage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final l10n = AppLocalizations.of(context)!;
+    final l10n = ResidentialLocalizations.of(context);
 
     return Column(
       mainAxisSize: MainAxisSize.min,
@@ -161,7 +163,15 @@ class _PortalMessage extends StatelessWidget {
                 ),
               ),
               const SizedBox(width: 8),
-              const AccessibilityGuideIcon(size: 22, tooltipIconSize: 96),
+              AccessibilityGuideIcon(
+                size: 22,
+                tooltipIconSize: 96,
+                onPressed: () => _speakResidentialText(
+                  context,
+                  localizationKey: 'applicationExitJourneyTitle',
+                  localizedText: l10n.applicationExitJourneyTitle,
+                ),
+              ),
             ],
           ),
         ),
@@ -196,12 +206,13 @@ class _ExitButtonState extends State<_ExitButton> {
 
   @override
   Widget build(BuildContext context) {
-    final l10n = AppLocalizations.of(context)!;
+    final l10n = ResidentialLocalizations.of(context);
 
     return Semantics(
       button: true,
       label: l10n.applicationExitButton,
-      hint: l10n.applicationAccessibilityListenSupport,
+      hint:
+          SharedLocalizations.of(context).applicationAccessibilityListenSupport,
       child: MouseRegion(
         cursor: SystemMouseCursors.click,
         onEnter: (_) => setState(() => _hovered = true),
@@ -247,7 +258,15 @@ class _ExitButtonState extends State<_ExitButton> {
                   ),
                 ),
                 const SizedBox(width: 10),
-                const AccessibilityGuideIcon(size: 22, tooltipIconSize: 96),
+                AccessibilityGuideIcon(
+                  size: 22,
+                  tooltipIconSize: 96,
+                  onPressed: () => _speakResidentialText(
+                    context,
+                    localizationKey: 'applicationExitButton',
+                    localizedText: l10n.applicationExitButton,
+                  ),
+                ),
               ],
             ),
           ),
@@ -255,4 +274,25 @@ class _ExitButtonState extends State<_ExitButton> {
       ),
     );
   }
+}
+
+Future<void> _speakResidentialText(
+  BuildContext context, {
+  required String localizationKey,
+  required String localizedText,
+}) {
+  ResidentialSignalEmitter.emit(
+    signalCode: ResidentialSignalCode.listenSupportPlay,
+    sourceScreen: 'Residential Exit Portal',
+    sourceWidget: 'AccessibilityGuideIcon',
+    action: 'request_audio_support',
+  );
+  return ResidentialSpeechGenerator.instance.speak(
+    context,
+    ResidentialSpeechNode(
+      sectionId: 'residential',
+      localizationKey: localizationKey,
+      localizedText: localizedText,
+    ),
+  );
 }

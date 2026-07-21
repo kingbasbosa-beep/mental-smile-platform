@@ -1,0 +1,11 @@
+{
+  "name": "Mental Smile Platform Capsule",
+  "short_name": "Platform Capsule",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#ffffff",
+  "description": "Mental Smile Platform Capsule example",
+  "orientation": "portrait-primary",
+  "prefer_related_applications": false
+}

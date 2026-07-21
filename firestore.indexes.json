@@ -4,8 +4,14 @@
       "collectionGroup": "signal_events",
       "queryScope": "COLLECTION",
       "fields": [
-        { "fieldPath": "actorId", "order": "ASCENDING" },
-        { "fieldPath": "timestamp", "order": "DESCENDING" }
+        {
+          "fieldPath": "actorId",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "timestamp",
+          "order": "DESCENDING"
+        }
       ]
     }
   ],

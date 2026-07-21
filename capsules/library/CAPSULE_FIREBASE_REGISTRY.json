@@ -1,0 +1,14 @@
+{
+  "capsuleId": "MS-CAPSULE-LIB-BLUEPRINT",
+  "firebase": [
+    {"code":"MS-LIB-FIREBASE-001","service":"Cloud Firestore","collection":"public_specialist_profiles","documentPath":"public_specialist_profiles/*","operation":"read snapshots where status == published","owner":"LIBRARY_PROVIDER_CONTENT","consumer":"lib/features/library/presentation/pages/library_provider_content_pages.dart:527","ruleMatch":"firestore.rules public specialist profile read path","indexRequired":"not verified in blueprint","portLine":"MS-LINE-DATA-READ-01","activeState":"ACTIVE_DIRECT"},
+    {"code":"MS-LIB-FIREBASE-002","service":"Cloud Firestore","collection":"public_center_profiles","documentPath":"public_center_profiles/*","operation":"read snapshots where status == published","owner":"LIBRARY_PROVIDER_CONTENT","consumer":"lib/features/library/presentation/pages/library_provider_content_pages.dart:527","ruleMatch":"firestore.rules public center profile read path","indexRequired":"not verified in blueprint","portLine":"MS-LINE-DATA-READ-01","activeState":"ACTIVE_DIRECT"}
+  ],
+  "storage": [],
+  "counts": {
+    "firebaseUsages": 2,
+    "firebaseCollections": 2,
+    "storageUsages": 0,
+    "storagePaths": 0
+  }
+}

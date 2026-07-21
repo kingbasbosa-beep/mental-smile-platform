@@ -1,0 +1,12 @@
+{
+  "diagnosticsId": "MS-PLATFORM-DIAGNOSTICS-01",
+  "readonly": true,
+  "controlsRuntime": false,
+  "firebaseReads": false,
+  "firebaseWrites": false,
+  "snapshots": [
+    "DiagnosticSnapshot",
+    "HealthSnapshot",
+    "RegistrySnapshot"
+  ]
+}

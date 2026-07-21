@@ -1,7 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:mental_smile_os/app/router/routes.dart';
-import 'package:mental_smile_os/l10n/app_localizations.dart';
+import 'package:mental_smile_os/l10n/app/app_section_localizations.dart';
 import 'package:mental_smile_os/shared/ui_kit/app_design_system.dart';
 
 class AccountBlockedPage extends StatelessWidget {
@@ -11,7 +11,7 @@ class AccountBlockedPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final l10n = AppLocalizations.of(context)!;
+    final l10n = AppSectionLocalizations.of(context);
     final isArabic =
         Localizations.localeOf(context).languageCode.toLowerCase() == 'ar';
     final trimmedReason = (reason ?? '').trim();

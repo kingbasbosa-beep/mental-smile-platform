@@ -1,0 +1,33 @@
+{
+  "capsuleId": "MS-CAPSULE-LIB-BLUEPRINT",
+  "runtimeMap": "CAPSULE_RUNTIME_MAP.json",
+  "routes": "CAPSULE_ROUTE_REGISTRY.json",
+  "signals": "CAPSULE_SIGNAL_REGISTRY.json",
+  "ports": "CAPSULE_PORT_REGISTRY.json",
+  "firebase": "CAPSULE_FIREBASE_REGISTRY.json",
+  "assets": "CAPSULE_ASSET_REGISTRY.json",
+  "localization": "CAPSULE_LOCALIZATION_REGISTRY.json",
+  "tests": "CAPSULE_TEST_REGISTRY.json",
+  "validation": "CAPSULE_VALIDATION.json",
+  "packagePath": "capsules/library/package",
+  "publicEntry": "package:mental_smile_library_capsule/mental_smile_library_capsule.dart",
+  "testPortId": "MS-PORT-LIB-TEST-01",
+  "activePortId": "MS-PORT-LIB-ACTIVE-01",
+  "testRoute": "/__capsule_test/library",
+  "schemaFingerprint": "MS-CAPSULE-LIB-BLUEPRINT|contract:1|runtime:28|routes:5|core:1|local:22|assets:32|l10n:14|speech:25:2:23|content:1:3:0|firebase:2|storage:0|lines:8",
+  "materialized": true,
+  "platformMounted": true,
+  "testMounted": true,
+  "active": false,
+  "mergeable": false,
+  "speechComplete": false,
+  "speechState": "PARTIAL_TEST_ONLY",
+  "runtimeContentState": "MIRRORED",
+  "editorialSourceState": "MIRRORED",
+  "verification": {
+    "compatibilityGatePassed": "PENDING_MANUAL_VERIFICATION",
+    "buildable": "PENDING_MANUAL_VERIFICATION",
+    "runnable": "PENDING_MANUAL_VERIFICATION",
+    "clonable": "PENDING_MANUAL_VERIFICATION"
+  }
+}

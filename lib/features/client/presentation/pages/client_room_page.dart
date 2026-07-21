@@ -7,10 +7,12 @@ import 'package:mental_smile_os/app/router/routes.dart';
 import 'package:mental_smile_os/core/platform_core/platform_core.dart';
 import 'package:mental_smile_os/features/residential/signals/residential_signal_codes.dart';
 import 'package:mental_smile_os/features/residential/signals/residential_signal_emitter.dart';
-import 'package:mental_smile_os/l10n/app_localizations.dart';
+import 'package:mental_smile_os/features/residential/speech/residential_speech_contract.dart';
+import 'package:mental_smile_os/l10n/accessibility/accessibility_localizations.dart';
+import 'package:mental_smile_os/l10n/residential/residential_localizations.dart';
 import 'package:mental_smile_os/shared/accessibility/accessibility_guide_icon.dart';
 import 'package:mental_smile_os/shared/guides/daleel_assistant.dart';
-import 'package:url_launcher/url_launcher.dart';
+import 'package:mental_smile_os/shared/links/safe_external_link_launcher.dart';
 
 class ClientRoomPage extends StatefulWidget {
   const ClientRoomPage({super.key});
@@ -36,166 +38,262 @@ class _ClientRoomPageState extends State<ClientRoomPage> {
   static const String _photoButton =
       'assets/branding/rooms/client_room/accessibility_room_photo_upload_button.png';
   static const String _noteFeatherButton =
-      'assets/branding/rooms/accessibility_room/cards/accessibility_note_feather_button.png';
+      'assets/client/client_room/cards/accessibility_note_feather_button.png';
   static const String _checkinCardIcon =
-      'assets/branding/rooms/accessibility_room/cards/accessibility_checkin_card_icon.png';
+      'assets/client/client_room/cards/accessibility_checkin_card_icon.png';
   static const String _communityToolsCardIcon =
-      'assets/branding/rooms/accessibility_room/cards/accessibility_community_tools_card_icon.png';
+      'assets/client/client_room/cards/accessibility_community_tools_card_icon.png';
   static const String _suggestionsCardIcon =
-      'assets/branding/rooms/accessibility_room/cards/accessibility_suggestions_card_icon.png';
+      'assets/client/client_room/cards/accessibility_suggestions_card_icon.png';
   static const String _personalToolsCardIcon =
-      'assets/branding/rooms/accessibility_room/cards/accessibility_tools_card_icon.png';
+      'assets/client/client_room/cards/accessibility_tools_card_icon.png';
   static const String _personalLinksCardIcon =
-      'assets/branding/rooms/accessibility_room/cards/accessibility_links_card_icon.png';
+      'assets/client/client_room/cards/accessibility_links_card_icon.png';
   static const String _youtubeUrl = 'https://www.youtube.com/@MentalSmileOs';
 
-  List<String> _notebookMessages(AppLocalizations l10n) => [
-        l10n.applicationClientNotebookMessage1,
-        l10n.applicationClientNotebookMessage2,
-        l10n.applicationClientNotebookMessage3,
-        l10n.applicationClientNotebookMessage4,
-        l10n.applicationClientNotebookMessage5,
+  List<_ResidentialNotebookMessage> _notebookMessages(
+          ResidentialLocalizations l10n) =>
+      [
+        _ResidentialNotebookMessage(
+          key: 'applicationClientNotebookMessage1',
+          text: l10n.applicationClientNotebookMessage1,
+        ),
+        _ResidentialNotebookMessage(
+          key: 'applicationClientNotebookMessage2',
+          text: l10n.applicationClientNotebookMessage2,
+        ),
+        _ResidentialNotebookMessage(
+          key: 'applicationClientNotebookMessage3',
+          text: l10n.applicationClientNotebookMessage3,
+        ),
+        _ResidentialNotebookMessage(
+          key: 'applicationClientNotebookMessage4',
+          text: l10n.applicationClientNotebookMessage4,
+        ),
+        _ResidentialNotebookMessage(
+          key: 'applicationClientNotebookMessage5',
+          text: l10n.applicationClientNotebookMessage5,
+        ),
       ];
 
-  List<_QuickAccessLinkCategory> _linkCategories(AppLocalizations l10n) => [
+  List<_QuickAccessLinkCategory> _linkCategories(
+          ResidentialLocalizations l10n) =>
+      [
         _QuickAccessLinkCategory(
+          titleKey: 'applicationClientLinkCategorySafety',
           title: l10n.applicationClientLinkCategorySafety,
           titleEn: 'Safety & Complaint Guidance',
-          visualMarker: '🛡️',
-          links: const <_QuickAccessExternalLink>[],
+          visualMarker: 'Ã°Å¸â€ºÂ¡Ã¯Â¸Â',
+          links: <_QuickAccessExternalLink>[],
           isSafetyGuidance: true,
         ),
         _QuickAccessLinkCategory(
+          titleKey: 'applicationClientLinkCategorySupport',
           title: l10n.applicationClientLinkCategorySupport,
-          visualMarker: '🏥',
-          links: const <_QuickAccessExternalLink>[
+          visualMarker: 'Ã°Å¸ÂÂ¥',
+          links: <_QuickAccessExternalLink>[
             _QuickAccessExternalLink(
-              title: 'وزارة الصحة والسكان',
-              description: 'الخدمات الصحية الرسمية',
+              speechKey: 'applicationClientQuickLinkHealthMinistry',
+              speechText: l10n.applicationClientQuickLinkHealthMinistry,
+              title:
+                  'Ã™Ë†Ã˜Â²Ã˜Â§Ã˜Â±Ã˜Â© Ã˜Â§Ã™â€žÃ˜ÂµÃ˜Â­Ã˜Â© Ã™Ë†Ã˜Â§Ã™â€žÃ˜Â³Ã™Æ’Ã˜Â§Ã™â€ ',
+              description:
+                  'Ã˜Â§Ã™â€žÃ˜Â®Ã˜Â¯Ã™â€¦Ã˜Â§Ã˜Âª Ã˜Â§Ã™â€žÃ˜ÂµÃ˜Â­Ã™Å Ã˜Â© Ã˜Â§Ã™â€žÃ˜Â±Ã˜Â³Ã™â€¦Ã™Å Ã˜Â©',
               url: 'https://www.mohp.gov.eg/',
             ),
             _QuickAccessExternalLink(
-              title: 'الأمانة العامة للصحة النفسية',
-              description: 'دعم الصحة النفسية وعلاج الإدمان',
+              speechKey: 'applicationClientQuickLinkMentalHealthSecretariat',
+              speechText:
+                  l10n.applicationClientQuickLinkMentalHealthSecretariat,
+              title:
+                  'Ã˜Â§Ã™â€žÃ˜Â£Ã™â€¦Ã˜Â§Ã™â€ Ã˜Â© Ã˜Â§Ã™â€žÃ˜Â¹Ã˜Â§Ã™â€¦Ã˜Â© Ã™â€žÃ™â€žÃ˜ÂµÃ˜Â­Ã˜Â© Ã˜Â§Ã™â€žÃ™â€ Ã™ÂÃ˜Â³Ã™Å Ã˜Â©',
+              description:
+                  'Ã˜Â¯Ã˜Â¹Ã™â€¦ Ã˜Â§Ã™â€žÃ˜ÂµÃ˜Â­Ã˜Â© Ã˜Â§Ã™â€žÃ™â€ Ã™ÂÃ˜Â³Ã™Å Ã˜Â© Ã™Ë†Ã˜Â¹Ã™â€žÃ˜Â§Ã˜Â¬ Ã˜Â§Ã™â€žÃ˜Â¥Ã˜Â¯Ã™â€¦Ã˜Â§Ã™â€ ',
               url: 'https://mentalhealth.mohp.gov.eg/',
             ),
             _QuickAccessExternalLink(
-              title: 'دليل العلاج الحر',
-              description: 'البحث عن دعم وعلاج',
+              speechKey: 'applicationClientQuickLinkTherapyRoute',
+              speechText: l10n.applicationClientQuickLinkTherapyRoute,
+              title:
+                  'Ã˜Â¯Ã™â€žÃ™Å Ã™â€ž Ã˜Â§Ã™â€žÃ˜Â¹Ã™â€žÃ˜Â§Ã˜Â¬ Ã˜Â§Ã™â€žÃ˜Â­Ã˜Â±',
+              description:
+                  'Ã˜Â§Ã™â€žÃ˜Â¨Ã˜Â­Ã˜Â« Ã˜Â¹Ã™â€  Ã˜Â¯Ã˜Â¹Ã™â€¦ Ã™Ë†Ã˜Â¹Ã™â€žÃ˜Â§Ã˜Â¬',
               url: 'https://www.therapyroute.com/',
             ),
             _QuickAccessExternalLink(
-              title: 'الشكاوى الحكومية',
-              description: 'بوابة الشكاوى الحكومية الموحدة',
+              speechKey: 'applicationClientQuickLinkGovernmentComplaints',
+              speechText: l10n.applicationClientQuickLinkGovernmentComplaints,
+              title:
+                  'Ã˜Â§Ã™â€žÃ˜Â´Ã™Æ’Ã˜Â§Ã™Ë†Ã™â€° Ã˜Â§Ã™â€žÃ˜Â­Ã™Æ’Ã™Ë†Ã™â€¦Ã™Å Ã˜Â©',
+              description:
+                  'Ã˜Â¨Ã™Ë†Ã˜Â§Ã˜Â¨Ã˜Â© Ã˜Â§Ã™â€žÃ˜Â´Ã™Æ’Ã˜Â§Ã™Ë†Ã™â€° Ã˜Â§Ã™â€žÃ˜Â­Ã™Æ’Ã™Ë†Ã™â€¦Ã™Å Ã˜Â© Ã˜Â§Ã™â€žÃ™â€¦Ã™Ë†Ã˜Â­Ã˜Â¯Ã˜Â©',
               url: 'https://www.shakwa.eg/',
             ),
             _QuickAccessExternalLink(
-              title: 'التأمين الصحي',
-              description: 'خدمات الهيئة العامة للتأمين الصحي',
+              speechKey: 'applicationClientQuickLinkHealthInsurance',
+              speechText: l10n.applicationClientQuickLinkHealthInsurance,
+              title: 'Ã˜Â§Ã™â€žÃ˜ÂªÃ˜Â£Ã™â€¦Ã™Å Ã™â€  Ã˜Â§Ã™â€žÃ˜ÂµÃ˜Â­Ã™Å ',
+              description:
+                  'Ã˜Â®Ã˜Â¯Ã™â€¦Ã˜Â§Ã˜Âª Ã˜Â§Ã™â€žÃ™â€¡Ã™Å Ã˜Â¦Ã˜Â© Ã˜Â§Ã™â€žÃ˜Â¹Ã˜Â§Ã™â€¦Ã˜Â© Ã™â€žÃ™â€žÃ˜ÂªÃ˜Â£Ã™â€¦Ã™Å Ã™â€  Ã˜Â§Ã™â€žÃ˜ÂµÃ˜Â­Ã™Å ',
               url: 'https://www.hio.gov.eg/',
             ),
           ],
         ),
         _QuickAccessLinkCategory(
+          titleKey: 'applicationClientLinkCategoryFamily',
           title: l10n.applicationClientLinkCategoryFamily,
-          visualMarker: '👨‍👩‍👧‍👦',
-          links: const <_QuickAccessExternalLink>[
+          visualMarker:
+              'Ã°Å¸â€˜Â¨Ã¢â‚¬ÂÃ°Å¸â€˜Â©Ã¢â‚¬ÂÃ°Å¸â€˜Â§Ã¢â‚¬ÂÃ°Å¸â€˜Â¦',
+          links: <_QuickAccessExternalLink>[
             _QuickAccessExternalLink(
-              title: 'الإرشاد الأسري',
-              description: 'موارد للعلاقات والأسرة',
+              speechKey: 'applicationClientQuickLinkFamilyGuidance',
+              speechText: l10n.applicationClientQuickLinkFamilyGuidance,
+              title: 'Ã˜Â§Ã™â€žÃ˜Â¥Ã˜Â±Ã˜Â´Ã˜Â§Ã˜Â¯ Ã˜Â§Ã™â€žÃ˜Â£Ã˜Â³Ã˜Â±Ã™Å ',
+              description:
+                  'Ã™â€¦Ã™Ë†Ã˜Â§Ã˜Â±Ã˜Â¯ Ã™â€žÃ™â€žÃ˜Â¹Ã™â€žÃ˜Â§Ã™â€šÃ˜Â§Ã˜Âª Ã™Ë†Ã˜Â§Ã™â€žÃ˜Â£Ã˜Â³Ã˜Â±Ã˜Â©',
               url: 'https://www.unicef.org/parenting/ar',
             ),
             _QuickAccessExternalLink(
-              title: 'دعم الوالدين',
-              description: 'نصائح عملية للوالدين',
+              speechKey: 'applicationClientQuickLinkParentSupport',
+              speechText: l10n.applicationClientQuickLinkParentSupport,
+              title: 'Ã˜Â¯Ã˜Â¹Ã™â€¦ Ã˜Â§Ã™â€žÃ™Ë†Ã˜Â§Ã™â€žÃ˜Â¯Ã™Å Ã™â€ ',
+              description:
+                  'Ã™â€ Ã˜ÂµÃ˜Â§Ã˜Â¦Ã˜Â­ Ã˜Â¹Ã™â€¦Ã™â€žÃ™Å Ã˜Â© Ã™â€žÃ™â€žÃ™Ë†Ã˜Â§Ã™â€žÃ˜Â¯Ã™Å Ã™â€ ',
               url: 'https://www.unicef.org/parenting/ar',
             ),
             _QuickAccessExternalLink(
-              title: 'حماية الطفل',
-              description: 'المجلس القومي للطفولة والأمومة',
+              speechKey: 'applicationClientQuickLinkChildProtection',
+              speechText: l10n.applicationClientQuickLinkChildProtection,
+              title: 'Ã˜Â­Ã™â€¦Ã˜Â§Ã™Å Ã˜Â© Ã˜Â§Ã™â€žÃ˜Â·Ã™ÂÃ™â€ž',
+              description:
+                  'Ã˜Â§Ã™â€žÃ™â€¦Ã˜Â¬Ã™â€žÃ˜Â³ Ã˜Â§Ã™â€žÃ™â€šÃ™Ë†Ã™â€¦Ã™Å  Ã™â€žÃ™â€žÃ˜Â·Ã™ÂÃ™Ë†Ã™â€žÃ˜Â© Ã™Ë†Ã˜Â§Ã™â€žÃ˜Â£Ã™â€¦Ã™Ë†Ã™â€¦Ã˜Â©',
               url: 'https://www.nccm.gov.eg/',
             ),
           ],
         ),
         _QuickAccessLinkCategory(
+          titleKey: 'applicationClientLinkCategoryRecovery',
           title: l10n.applicationClientLinkCategoryRecovery,
-          visualMarker: '🌱',
-          links: const <_QuickAccessExternalLink>[
+          visualMarker: 'Ã°Å¸Å’Â±',
+          links: <_QuickAccessExternalLink>[
             _QuickAccessExternalLink(
+              speechKey: 'applicationClientQuickLinkNa',
+              speechText: l10n.applicationClientQuickLinkNa,
               title: 'NA',
-              description: 'زمالة المدمنين المجهولين',
+              description:
+                  'Ã˜Â²Ã™â€¦Ã˜Â§Ã™â€žÃ˜Â© Ã˜Â§Ã™â€žÃ™â€¦Ã˜Â¯Ã™â€¦Ã™â€ Ã™Å Ã™â€  Ã˜Â§Ã™â€žÃ™â€¦Ã˜Â¬Ã™â€¡Ã™Ë†Ã™â€žÃ™Å Ã™â€ ',
               url: 'https://www.na.org/',
             ),
             _QuickAccessExternalLink(
+              speechKey: 'applicationClientQuickLinkAa',
+              speechText: l10n.applicationClientQuickLinkAa,
               title: 'AA',
-              description: 'زمالة مدمني الكحول المجهولين',
+              description:
+                  'Ã˜Â²Ã™â€¦Ã˜Â§Ã™â€žÃ˜Â© Ã™â€¦Ã˜Â¯Ã™â€¦Ã™â€ Ã™Å  Ã˜Â§Ã™â€žÃ™Æ’Ã˜Â­Ã™Ë†Ã™â€ž Ã˜Â§Ã™â€žÃ™â€¦Ã˜Â¬Ã™â€¡Ã™Ë†Ã™â€žÃ™Å Ã™â€ ',
               url: 'https://www.aa.org/',
             ),
             _QuickAccessExternalLink(
+              speechKey: 'applicationClientQuickLinkAlAnon',
+              speechText: l10n.applicationClientQuickLinkAlAnon,
               title: 'Al-Anon',
-              description: 'دعم أسر وأصدقاء مدمني الكحول',
+              description:
+                  'Ã˜Â¯Ã˜Â¹Ã™â€¦ Ã˜Â£Ã˜Â³Ã˜Â± Ã™Ë†Ã˜Â£Ã˜ÂµÃ˜Â¯Ã™â€šÃ˜Â§Ã˜Â¡ Ã™â€¦Ã˜Â¯Ã™â€¦Ã™â€ Ã™Å  Ã˜Â§Ã™â€žÃ™Æ’Ã˜Â­Ã™Ë†Ã™â€ž',
               url: 'https://al-anon.org/',
             ),
             _QuickAccessExternalLink(
+              speechKey: 'applicationClientQuickLinkNarAnon',
+              speechText: l10n.applicationClientQuickLinkNarAnon,
               title: 'Nar-Anon',
-              description: 'دعم أسر وأصدقاء المتعافين',
+              description:
+                  'Ã˜Â¯Ã˜Â¹Ã™â€¦ Ã˜Â£Ã˜Â³Ã˜Â± Ã™Ë†Ã˜Â£Ã˜ÂµÃ˜Â¯Ã™â€šÃ˜Â§Ã˜Â¡ Ã˜Â§Ã™â€žÃ™â€¦Ã˜ÂªÃ˜Â¹Ã˜Â§Ã™ÂÃ™Å Ã™â€ ',
               url: 'https://www.nar-anon.org/',
             ),
             _QuickAccessExternalLink(
-              title: 'مواد التعافي',
-              description: 'معلومات ومصادر للدعم',
+              speechKey: 'applicationClientQuickLinkRecoveryMaterials',
+              speechText: l10n.applicationClientQuickLinkRecoveryMaterials,
+              title: 'Ã™â€¦Ã™Ë†Ã˜Â§Ã˜Â¯ Ã˜Â§Ã™â€žÃ˜ÂªÃ˜Â¹Ã˜Â§Ã™ÂÃ™Å ',
+              description:
+                  'Ã™â€¦Ã˜Â¹Ã™â€žÃ™Ë†Ã™â€¦Ã˜Â§Ã˜Âª Ã™Ë†Ã™â€¦Ã˜ÂµÃ˜Â§Ã˜Â¯Ã˜Â± Ã™â€žÃ™â€žÃ˜Â¯Ã˜Â¹Ã™â€¦',
               url: 'https://www.samhsa.gov/find-support',
             ),
           ],
         ),
         _QuickAccessLinkCategory(
+          titleKey: 'applicationClientLinkCategoryLearning',
           title: l10n.applicationClientLinkCategoryLearning,
-          visualMarker: '📚',
-          links: const <_QuickAccessExternalLink>[
+          visualMarker: 'Ã°Å¸â€œÅ¡',
+          links: <_QuickAccessExternalLink>[
             _QuickAccessExternalLink(
-              title: 'مهارات الحياة',
-              description: 'تعلم عربي مفتوح',
+              speechKey: 'applicationClientQuickLinkLifeSkills',
+              speechText: l10n.applicationClientQuickLinkLifeSkills,
+              title: 'Ã™â€¦Ã™â€¡Ã˜Â§Ã˜Â±Ã˜Â§Ã˜Âª Ã˜Â§Ã™â€žÃ˜Â­Ã™Å Ã˜Â§Ã˜Â©',
+              description:
+                  'Ã˜ÂªÃ˜Â¹Ã™â€žÃ™â€¦ Ã˜Â¹Ã˜Â±Ã˜Â¨Ã™Å  Ã™â€¦Ã™ÂÃ˜ÂªÃ™Ë†Ã˜Â­',
               url: 'https://www.edraak.org/',
             ),
             _QuickAccessExternalLink(
-              title: 'إدارة الوقت',
-              description: 'دورات ومهارات عملية',
+              speechKey: 'applicationClientQuickLinkTimeManagement',
+              speechText: l10n.applicationClientQuickLinkTimeManagement,
+              title: 'Ã˜Â¥Ã˜Â¯Ã˜Â§Ã˜Â±Ã˜Â© Ã˜Â§Ã™â€žÃ™Ë†Ã™â€šÃ˜Âª',
+              description:
+                  'Ã˜Â¯Ã™Ë†Ã˜Â±Ã˜Â§Ã˜Âª Ã™Ë†Ã™â€¦Ã™â€¡Ã˜Â§Ã˜Â±Ã˜Â§Ã˜Âª Ã˜Â¹Ã™â€¦Ã™â€žÃ™Å Ã˜Â©',
               url: 'https://www.edraak.org/',
             ),
             _QuickAccessExternalLink(
-              title: 'العادات',
-              description: 'تعلم وتطوير ذاتي',
+              speechKey: 'applicationClientQuickLinkHabits',
+              speechText: l10n.applicationClientQuickLinkHabits,
+              title: 'Ã˜Â§Ã™â€žÃ˜Â¹Ã˜Â§Ã˜Â¯Ã˜Â§Ã˜Âª',
+              description:
+                  'Ã˜ÂªÃ˜Â¹Ã™â€žÃ™â€¦ Ã™Ë†Ã˜ÂªÃ˜Â·Ã™Ë†Ã™Å Ã˜Â± Ã˜Â°Ã˜Â§Ã˜ÂªÃ™Å ',
               url: 'https://www.khanacademy.org/',
             ),
             _QuickAccessExternalLink(
-              title: 'التعلم',
-              description: 'منصة مهارة تك',
+              speechKey: 'applicationClientQuickLinkLearning',
+              speechText: l10n.applicationClientQuickLinkLearning,
+              title: 'Ã˜Â§Ã™â€žÃ˜ÂªÃ˜Â¹Ã™â€žÃ™â€¦',
+              description: 'Ã™â€¦Ã™â€ Ã˜ÂµÃ˜Â© Ã™â€¦Ã™â€¡Ã˜Â§Ã˜Â±Ã˜Â© Ã˜ÂªÃ™Æ’',
               url: 'https://maharatech.gov.eg/',
             ),
           ],
         ),
         _QuickAccessLinkCategory(
+          titleKey: 'applicationClientLinkCategoryAccessibility',
           title: l10n.applicationClientLinkCategoryAccessibility,
-          visualMarker: '♿',
-          links: const <_QuickAccessExternalLink>[
+          visualMarker: 'Ã¢â„¢Â¿',
+          links: <_QuickAccessExternalLink>[
             _QuickAccessExternalLink(
-              title: 'دعم الأشخاص ذوي الإعاقة',
-              description: 'المجلس القومي للأشخاص ذوي الإعاقة',
+              speechKey: 'applicationClientQuickLinkDisabilitySupport',
+              speechText: l10n.applicationClientQuickLinkDisabilitySupport,
+              title:
+                  'Ã˜Â¯Ã˜Â¹Ã™â€¦ Ã˜Â§Ã™â€žÃ˜Â£Ã˜Â´Ã˜Â®Ã˜Â§Ã˜Âµ Ã˜Â°Ã™Ë†Ã™Å  Ã˜Â§Ã™â€žÃ˜Â¥Ã˜Â¹Ã˜Â§Ã™â€šÃ˜Â©',
+              description:
+                  'Ã˜Â§Ã™â€žÃ™â€¦Ã˜Â¬Ã™â€žÃ˜Â³ Ã˜Â§Ã™â€žÃ™â€šÃ™Ë†Ã™â€¦Ã™Å  Ã™â€žÃ™â€žÃ˜Â£Ã˜Â´Ã˜Â®Ã˜Â§Ã˜Âµ Ã˜Â°Ã™Ë†Ã™Å  Ã˜Â§Ã™â€žÃ˜Â¥Ã˜Â¹Ã˜Â§Ã™â€šÃ˜Â©',
               url: 'https://www.ncpd.gov.eg/',
             ),
             _QuickAccessExternalLink(
-              title: 'جمعيات الصم والمكفوفين',
-              description: 'دليل الوصول والموارد',
+              speechKey: 'applicationClientQuickLinkDeafBlindAssociations',
+              speechText: l10n.applicationClientQuickLinkDeafBlindAssociations,
+              title:
+                  'Ã˜Â¬Ã™â€¦Ã˜Â¹Ã™Å Ã˜Â§Ã˜Âª Ã˜Â§Ã™â€žÃ˜ÂµÃ™â€¦ Ã™Ë†Ã˜Â§Ã™â€žÃ™â€¦Ã™Æ’Ã™ÂÃ™Ë†Ã™ÂÃ™Å Ã™â€ ',
+              description:
+                  'Ã˜Â¯Ã™â€žÃ™Å Ã™â€ž Ã˜Â§Ã™â€žÃ™Ë†Ã˜ÂµÃ™Ë†Ã™â€ž Ã™Ë†Ã˜Â§Ã™â€žÃ™â€¦Ã™Ë†Ã˜Â§Ã˜Â±Ã˜Â¯',
               url: 'https://www.w3.org/WAI/',
             ),
             _QuickAccessExternalLink(
-              title: 'قارئ الشاشة NVDA',
-              description: 'قارئ شاشة مجاني',
+              speechKey: 'applicationClientQuickLinkNvda',
+              speechText: l10n.applicationClientQuickLinkNvda,
+              title: 'Ã™â€šÃ˜Â§Ã˜Â±Ã˜Â¦ Ã˜Â§Ã™â€žÃ˜Â´Ã˜Â§Ã˜Â´Ã˜Â© NVDA',
+              description:
+                  'Ã™â€šÃ˜Â§Ã˜Â±Ã˜Â¦ Ã˜Â´Ã˜Â§Ã˜Â´Ã˜Â© Ã™â€¦Ã˜Â¬Ã˜Â§Ã™â€ Ã™Å ',
               url: 'https://www.nvaccess.org/',
             ),
             _QuickAccessExternalLink(
-              title: 'تحويل النص إلى صوت',
-              description: 'أداة القراءة بصوت عالٍ',
+              speechKey: 'applicationClientQuickLinkTextToSpeech',
+              speechText: l10n.applicationClientQuickLinkTextToSpeech,
+              title:
+                  'Ã˜ÂªÃ˜Â­Ã™Ë†Ã™Å Ã™â€ž Ã˜Â§Ã™â€žÃ™â€ Ã˜Âµ Ã˜Â¥Ã™â€žÃ™â€° Ã˜ÂµÃ™Ë†Ã˜Âª',
+              description:
+                  'Ã˜Â£Ã˜Â¯Ã˜Â§Ã˜Â© Ã˜Â§Ã™â€žÃ™â€šÃ˜Â±Ã˜Â§Ã˜Â¡Ã˜Â© Ã˜Â¨Ã˜ÂµÃ™Ë†Ã˜Âª Ã˜Â¹Ã˜Â§Ã™â€žÃ™Â',
               url: 'https://www.microsoft.com/edge/features/read-aloud',
             ),
           ],
@@ -219,7 +317,7 @@ class _ClientRoomPageState extends State<ClientRoomPage> {
 
   @override
   Widget build(BuildContext context) {
-    final l10n = AppLocalizations.of(context)!;
+    final l10n = ResidentialLocalizations.of(context);
     return Scaffold(
       body: LayoutBuilder(
         builder: (context, constraints) {
@@ -249,46 +347,61 @@ class _ClientRoomPageState extends State<ClientRoomPage> {
                   assetPath: _checkinCardIcon,
                   placement: _checkinCardPlacement(constraints),
                   semanticLabel:
-                      '${l10n.applicationClientCheckInTitle}، ${l10n.applicationClientCheckInSubtitle}',
+                      '${l10n.applicationClientCheckInTitle}Ã˜Å’ ${l10n.applicationClientCheckInSubtitle}',
                   onPressed: _openCheckin,
-                  onSpeak: () => _showSpeechPlaceholder(
-                      l10n.applicationClientCheckInTitle),
+                  onSpeak: () => _speakLocalizedLabel(
+                    sectionId: 'residential',
+                    localizationKey: 'applicationClientCheckInTitle',
+                    localizedText: l10n.applicationClientCheckInTitle,
+                  ),
                 ),
                 _QuickAccessWallCard(
                   assetPath: _communityToolsCardIcon,
                   placement: _communityToolsCardPlacement(constraints),
                   semanticLabel:
-                      '${l10n.applicationClientCommunityToolsTitle}، ${l10n.applicationAccessibilityCommunityToolsComingSoon}',
+                      '${l10n.applicationClientCommunityToolsTitle}Ã˜Å’ ${AccessibilityLocalizations.of(context).applicationAccessibilityCommunityToolsComingSoon}',
                   onPressed: _openCommunityTools,
-                  onSpeak: () => _showSpeechPlaceholder(
-                      l10n.applicationClientCommunityToolsTitle),
+                  onSpeak: () => _speakLocalizedLabel(
+                    sectionId: 'residential',
+                    localizationKey: 'applicationClientCommunityToolsTitle',
+                    localizedText: l10n.applicationClientCommunityToolsTitle,
+                  ),
                 ),
                 _QuickAccessWallCard(
                   assetPath: _suggestionsCardIcon,
                   placement: _suggestionsCardPlacement(constraints),
                   semanticLabel:
-                      '${l10n.applicationClientSuggestionTitle}، ${l10n.applicationClientSuggestionSubtitle}',
+                      '${l10n.applicationClientSuggestionTitle}Ã˜Å’ ${l10n.applicationClientSuggestionSubtitle}',
                   onPressed: _openSuggestions,
-                  onSpeak: () => _showSpeechPlaceholder(
-                      l10n.applicationClientSuggestionTitle),
+                  onSpeak: () => _speakLocalizedLabel(
+                    sectionId: 'residential',
+                    localizationKey: 'applicationClientSuggestionTitle',
+                    localizedText: l10n.applicationClientSuggestionTitle,
+                  ),
                 ),
                 _QuickAccessWallCard(
                   assetPath: _personalToolsCardIcon,
                   placement: _personalToolsCardPlacement(constraints),
                   semanticLabel:
-                      '${l10n.applicationClientToolsTitle}، ${l10n.applicationClientToolsSubtitle}',
+                      '${l10n.applicationClientToolsTitle}Ã˜Å’ ${l10n.applicationClientToolsSubtitle}',
                   onPressed: () => _showPersonalToolsDialog(l10n),
-                  onSpeak: () =>
-                      _showSpeechPlaceholder(l10n.applicationClientToolsTitle),
+                  onSpeak: () => _speakLocalizedLabel(
+                    sectionId: 'residential',
+                    localizationKey: 'applicationClientToolsTitle',
+                    localizedText: l10n.applicationClientToolsTitle,
+                  ),
                 ),
                 _QuickAccessWallCard(
                   assetPath: _personalLinksCardIcon,
                   placement: _personalLinksCardPlacement(constraints),
                   semanticLabel:
-                      '${l10n.applicationClientLinksTitle}، ${l10n.applicationClientLinksSubtitle}',
+                      '${l10n.applicationClientLinksTitle}Ã˜Å’ ${l10n.applicationClientLinksSubtitle}',
                   onPressed: () => _openLinksDirectory(l10n),
-                  onSpeak: () =>
-                      _showSpeechPlaceholder(l10n.applicationClientLinksTitle),
+                  onSpeak: () => _speakLocalizedLabel(
+                    sectionId: 'residential',
+                    localizationKey: 'applicationClientLinksTitle',
+                    localizedText: l10n.applicationClientLinksTitle,
+                  ),
                 ),
                 _RoomHoverImageButton(
                   assetPath: _noteFeatherButton,
@@ -297,8 +410,11 @@ class _ClientRoomPageState extends State<ClientRoomPage> {
                   tooltip: l10n.applicationClientFeatherNotebook,
                   imageSize: _featherToolImageSize(constraints),
                   onPressed: () => _openMotivationalSentenceSelector(l10n),
-                  onSpeak: () => _showSpeechPlaceholder(
-                      l10n.applicationClientFeatherNotebook),
+                  onSpeak: () => _speakLocalizedLabel(
+                    sectionId: 'residential',
+                    localizationKey: 'applicationClientFeatherNotebook',
+                    localizedText: l10n.applicationClientFeatherNotebook,
+                  ),
                 ),
                 _RoomImageButton(
                   assetPath: _youtubeButton,
@@ -306,8 +422,11 @@ class _ClientRoomPageState extends State<ClientRoomPage> {
                   tooltip: l10n.applicationClientYoutube,
                   semanticLabel: l10n.applicationClientYoutube,
                   onPressed: _openYoutube,
-                  onSpeak: () =>
-                      _showSpeechPlaceholder(l10n.applicationClientYoutube),
+                  onSpeak: () => _speakLocalizedLabel(
+                    sectionId: 'residential',
+                    localizationKey: 'applicationClientYoutube',
+                    localizedText: l10n.applicationClientYoutube,
+                  ),
                 ),
                 _RoomImageButton(
                   assetPath: _photoButton,
@@ -315,8 +434,11 @@ class _ClientRoomPageState extends State<ClientRoomPage> {
                   tooltip: l10n.applicationClientTemporaryPhoto,
                   semanticLabel: l10n.applicationClientTemporaryPhoto,
                   onPressed: _pickTemporaryPhoto,
-                  onSpeak: () => _showSpeechPlaceholder(
-                      l10n.applicationClientTemporaryPhoto),
+                  onSpeak: () => _speakLocalizedLabel(
+                    sectionId: 'residential',
+                    localizationKey: 'applicationClientTemporaryPhoto',
+                    localizedText: l10n.applicationClientTemporaryPhoto,
+                  ),
                 ),
                 _RoomImageButton(
                   assetPath: _exitCup,
@@ -325,8 +447,11 @@ class _ClientRoomPageState extends State<ClientRoomPage> {
                   semanticLabel: l10n.applicationClientExitRoom,
                   onPressed: _exitRoom,
                   useAccessibilityGuideIcon: true,
-                  onSpeak: () =>
-                      _showSpeechPlaceholder(l10n.applicationClientExitRoom),
+                  onSpeak: () => _speakLocalizedLabel(
+                    sectionId: 'residential',
+                    localizationKey: 'applicationClientExitRoom',
+                    localizedText: l10n.applicationClientExitRoom,
+                  ),
                 ),
                 if (showDaleel)
                   const Positioned(
@@ -334,8 +459,9 @@ class _ClientRoomPageState extends State<ClientRoomPage> {
                     left: 24,
                     child: DaleelAssistant(
                       guideAssetPath:
-                          'assets/branding/guides/client_room_desktop_guide.png',
-                      surveyTitle: 'الاستبيان - غرفة صديقي العميل',
+                          'assets/client/client_room/client_room_desktop_guide.png',
+                      surveyTitle:
+                          'Ã˜Â§Ã™â€žÃ˜Â§Ã˜Â³Ã˜ÂªÃ˜Â¨Ã™Å Ã˜Â§Ã™â€  - Ã˜ÂºÃ˜Â±Ã™ÂÃ˜Â© Ã˜ÂµÃ˜Â¯Ã™Å Ã™â€šÃ™Å  Ã˜Â§Ã™â€žÃ˜Â¹Ã™â€¦Ã™Å Ã™â€ž',
                       sections: DaleelAssistantSurvey.clientRoomSections,
                     ),
                   ),
@@ -490,7 +616,8 @@ class _ClientRoomPageState extends State<ClientRoomPage> {
     );
   }
 
-  Future<void> _openMotivationalSentenceSelector(AppLocalizations l10n) async {
+  Future<void> _openMotivationalSentenceSelector(
+      ResidentialLocalizations l10n) async {
     ResidentialSignalEmitter.emit(
       signalCode: ResidentialSignalCode.notebookOpen,
       sourceScreen: 'Client Room',
@@ -550,21 +677,31 @@ class _ClientRoomPageState extends State<ClientRoomPage> {
     Navigator.of(context).pushNamed(Routes.accessibilitySuggestions);
   }
 
-  void _showSpeechPlaceholder(String label) {
+  Future<void> _speakLocalizedLabel({
+    String sectionId = 'residential',
+    required String localizationKey,
+    required String localizedText,
+  }) {
+    if (localizedText.trim().isEmpty) {
+      return Future<void>.value();
+    }
     ResidentialSignalEmitter.emit(
       signalCode: ResidentialSignalCode.listenSupportPlay,
       sourceScreen: 'Client Room',
       sourceWidget: 'AccessibilityGuideIcon',
       action: 'request_audio_support',
     );
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(
-        content: Text(AppLocalizations.of(context)!.applicationAudioSoon),
+    return ResidentialSpeechGenerator.instance.speak(
+      context,
+      ResidentialSpeechNode(
+        sectionId: sectionId,
+        localizationKey: localizationKey,
+        localizedText: localizedText,
       ),
     );
   }
 
-  void _showPersonalToolsDialog(AppLocalizations l10n) {
+  void _showPersonalToolsDialog(ResidentialLocalizations l10n) {
     ResidentialSignalEmitter.emit(
       signalCode: ResidentialSignalCode.localToolsOpen,
       sourceScreen: 'Client Room',
@@ -573,14 +710,14 @@ class _ClientRoomPageState extends State<ClientRoomPage> {
     );
     _showLocalInformationDialog(
       l10n: l10n,
-      visualMarker: '🧰',
+      visualMarker: 'Ã°Å¸Â§Â°',
       title: l10n.applicationClientToolsTitle,
       message:
-          'هذه المساحة مخصصة لأدواتك الشخصية. لا توجد وجهة معتمدة لها بعد.',
+          'Ã™â€¡Ã˜Â°Ã™â€¡ Ã˜Â§Ã™â€žÃ™â€¦Ã˜Â³Ã˜Â§Ã˜Â­Ã˜Â© Ã™â€¦Ã˜Â®Ã˜ÂµÃ˜ÂµÃ˜Â© Ã™â€žÃ˜Â£Ã˜Â¯Ã™Ë†Ã˜Â§Ã˜ÂªÃ™Æ’ Ã˜Â§Ã™â€žÃ˜Â´Ã˜Â®Ã˜ÂµÃ™Å Ã˜Â©. Ã™â€žÃ˜Â§ Ã˜ÂªÃ™Ë†Ã˜Â¬Ã˜Â¯ Ã™Ë†Ã˜Â¬Ã™â€¡Ã˜Â© Ã™â€¦Ã˜Â¹Ã˜ÂªÃ™â€¦Ã˜Â¯Ã˜Â© Ã™â€žÃ™â€¡Ã˜Â§ Ã˜Â¨Ã˜Â¹Ã˜Â¯.',
     );
   }
 
-  Future<void> _openLinksDirectory(AppLocalizations l10n) {
+  Future<void> _openLinksDirectory(ResidentialLocalizations l10n) {
     ResidentialSignalEmitter.emit(
       signalCode: ResidentialSignalCode.linksDirectoryOpen,
       sourceScreen: 'Client Room',
@@ -594,10 +731,12 @@ class _ClientRoomPageState extends State<ClientRoomPage> {
         child: AlertDialog(
           backgroundColor: const Color(0xFFFFF1D0),
           title: _DialogSpeakableTitle(
-            visualMarker: '🔗',
+            visualMarker: 'Ã°Å¸â€â€”',
             title: l10n.applicationClientLinksTitle,
-            onSpeak: () =>
-                _showSpeechPlaceholder(l10n.applicationClientLinksTitle),
+            onSpeak: () => _speakLocalizedLabel(
+              localizationKey: 'applicationClientLinksTitle',
+              localizedText: l10n.applicationClientLinksTitle,
+            ),
           ),
           content: ConstrainedBox(
             constraints: const BoxConstraints(maxWidth: 560),
@@ -655,8 +794,10 @@ class _ClientRoomPageState extends State<ClientRoomPage> {
                               AccessibilityGuideIcon(
                                 size: 22,
                                 tooltipIconSize: 96,
-                                onPressed: () =>
-                                    _showSpeechPlaceholder(category.title),
+                                onPressed: () => _speakLocalizedLabel(
+                                  localizationKey: category.titleKey,
+                                  localizedText: category.title,
+                                ),
                               ),
                             ],
                           ),
@@ -673,7 +814,7 @@ class _ClientRoomPageState extends State<ClientRoomPage> {
   }
 
   Future<void> _openLinkCategory(
-      _QuickAccessLinkCategory category, AppLocalizations l10n) async {
+      _QuickAccessLinkCategory category, ResidentialLocalizations l10n) async {
     ResidentialSignalEmitter.emit(
       signalCode: category.isSafetyGuidance
           ? ResidentialSignalCode.safetyGuidanceOpen
@@ -696,7 +837,10 @@ class _ClientRoomPageState extends State<ClientRoomPage> {
           title: _DialogSpeakableTitle(
             visualMarker: category.visualMarker,
             title: category.title,
-            onSpeak: () => _showSpeechPlaceholder(category.title),
+            onSpeak: () => _speakLocalizedLabel(
+              localizationKey: category.titleKey,
+              localizedText: category.title,
+            ),
           ),
           content: ConstrainedBox(
             constraints: const BoxConstraints(maxWidth: 620),
@@ -709,7 +853,10 @@ class _ClientRoomPageState extends State<ClientRoomPage> {
                       l10n: l10n,
                       link: link,
                       onOpen: () => _openExternalLink(link),
-                      onSpeak: () => _showSpeechPlaceholder(link.title),
+                      onSpeak: () => _speakLocalizedLabel(
+                        localizationKey: link.speechKey,
+                        localizedText: link.speechText,
+                      ),
                     ),
                 ],
               ),
@@ -735,11 +882,10 @@ class _ClientRoomPageState extends State<ClientRoomPage> {
       sourceWidget: 'ExternalLinkRow',
       action: 'open_external_link',
     );
-    final uri = Uri.parse(link.url);
-    await launchUrl(uri, mode: LaunchMode.externalApplication);
+    await SafeExternalLinkLauncher.open(context, link.url);
   }
 
-  Future<void> _openSafetyGuidanceDialog(AppLocalizations l10n) {
+  Future<void> _openSafetyGuidanceDialog(ResidentialLocalizations l10n) {
     ResidentialSignalEmitter.emit(
       signalCode: ResidentialSignalCode.supportOpen,
       sourceScreen: 'Client Room',
@@ -749,46 +895,51 @@ class _ClientRoomPageState extends State<ClientRoomPage> {
     final sections = <_SafetyGuidanceSectionData>[
       _SafetyGuidanceSectionData(
         icon: Icons.verified_user_outlined,
+        titleKey: 'applicationClientLinkSubSectionSafety',
         titleAr: l10n.applicationClientLinkSubSectionSafety,
         titleEn: 'Before contacting a provider',
         bodyAr:
-            'تحقق من الهوية والترخيص وبيانات المركز، واحتفظ بأي اتفاق مكتوب.',
+            'Ã˜ÂªÃ˜Â­Ã™â€šÃ™â€š Ã™â€¦Ã™â€  Ã˜Â§Ã™â€žÃ™â€¡Ã™Ë†Ã™Å Ã˜Â© Ã™Ë†Ã˜Â§Ã™â€žÃ˜ÂªÃ˜Â±Ã˜Â®Ã™Å Ã˜Âµ Ã™Ë†Ã˜Â¨Ã™Å Ã˜Â§Ã™â€ Ã˜Â§Ã˜Âª Ã˜Â§Ã™â€žÃ™â€¦Ã˜Â±Ã™Æ’Ã˜Â²Ã˜Å’ Ã™Ë†Ã˜Â§Ã˜Â­Ã˜ÂªÃ™ÂÃ˜Â¸ Ã˜Â¨Ã˜Â£Ã™Å  Ã˜Â§Ã˜ÂªÃ™ÂÃ˜Â§Ã™â€š Ã™â€¦Ã™Æ’Ã˜ÂªÃ™Ë†Ã˜Â¨.',
         bodyEn:
             'Check identity, license, center details, and keep agreements written.',
       ),
       _SafetyGuidanceSectionData(
         icon: Icons.shield_outlined,
+        titleKey: 'applicationClientLinkSubSectionSafetyRules',
         titleAr: l10n.applicationClientLinkSubSectionSafetyRules,
         titleEn: 'Safety rules',
         bodyAr:
-            'لا تشارك كلمات المرور أو البيانات المالية أو المستندات الحساسة في قنوات عامة.',
+            'Ã™â€žÃ˜Â§ Ã˜ÂªÃ˜Â´Ã˜Â§Ã˜Â±Ã™Æ’ Ã™Æ’Ã™â€žÃ™â€¦Ã˜Â§Ã˜Âª Ã˜Â§Ã™â€žÃ™â€¦Ã˜Â±Ã™Ë†Ã˜Â± Ã˜Â£Ã™Ë† Ã˜Â§Ã™â€žÃ˜Â¨Ã™Å Ã˜Â§Ã™â€ Ã˜Â§Ã˜Âª Ã˜Â§Ã™â€žÃ™â€¦Ã˜Â§Ã™â€žÃ™Å Ã˜Â© Ã˜Â£Ã™Ë† Ã˜Â§Ã™â€žÃ™â€¦Ã˜Â³Ã˜ÂªÃ™â€ Ã˜Â¯Ã˜Â§Ã˜Âª Ã˜Â§Ã™â€žÃ˜Â­Ã˜Â³Ã˜Â§Ã˜Â³Ã˜Â© Ã™ÂÃ™Å  Ã™â€šÃ™â€ Ã™Ë†Ã˜Â§Ã˜Âª Ã˜Â¹Ã˜Â§Ã™â€¦Ã˜Â©.',
         bodyEn:
             'Do not share passwords, financial data, or sensitive documents in public channels.',
       ),
       _SafetyGuidanceSectionData(
         icon: Icons.support_agent_rounded,
+        titleKey: 'applicationClientLinkSubSectionPlatformContact',
         titleAr: l10n.applicationClientLinkSubSectionPlatformContact,
         titleEn: 'When to contact the platform',
         bodyAr:
-            'تواصل معنا عند وجود إساءة، انتحال، معلومات مضللة، أو سوء استخدام للمنصة.',
+            'Ã˜ÂªÃ™Ë†Ã˜Â§Ã˜ÂµÃ™â€ž Ã™â€¦Ã˜Â¹Ã™â€ Ã˜Â§ Ã˜Â¹Ã™â€ Ã˜Â¯ Ã™Ë†Ã˜Â¬Ã™Ë†Ã˜Â¯ Ã˜Â¥Ã˜Â³Ã˜Â§Ã˜Â¡Ã˜Â©Ã˜Å’ Ã˜Â§Ã™â€ Ã˜ÂªÃ˜Â­Ã˜Â§Ã™â€žÃ˜Å’ Ã™â€¦Ã˜Â¹Ã™â€žÃ™Ë†Ã™â€¦Ã˜Â§Ã˜Âª Ã™â€¦Ã˜Â¶Ã™â€žÃ™â€žÃ˜Â©Ã˜Å’ Ã˜Â£Ã™Ë† Ã˜Â³Ã™Ë†Ã˜Â¡ Ã˜Â§Ã˜Â³Ã˜ÂªÃ˜Â®Ã˜Â¯Ã˜Â§Ã™â€¦ Ã™â€žÃ™â€žÃ™â€¦Ã™â€ Ã˜ÂµÃ˜Â©.',
         bodyEn:
             'Contact us for abuse, impersonation, misleading information, or platform misuse.',
       ),
       _SafetyGuidanceSectionData(
         icon: Icons.account_balance_outlined,
+        titleKey: 'applicationClientLinkSubSectionOfficialAuthorities',
         titleAr: l10n.applicationClientLinkSubSectionOfficialAuthorities,
         titleEn: 'When to contact official authorities',
         bodyAr:
-            'في التهديد أو الاحتيال أو العنف أو الخطر الطبي أو القانوني تواصل مع الجهات الرسمية فورًا.',
+            'Ã™ÂÃ™Å  Ã˜Â§Ã™â€žÃ˜ÂªÃ™â€¡Ã˜Â¯Ã™Å Ã˜Â¯ Ã˜Â£Ã™Ë† Ã˜Â§Ã™â€žÃ˜Â§Ã˜Â­Ã˜ÂªÃ™Å Ã˜Â§Ã™â€ž Ã˜Â£Ã™Ë† Ã˜Â§Ã™â€žÃ˜Â¹Ã™â€ Ã™Â Ã˜Â£Ã™Ë† Ã˜Â§Ã™â€žÃ˜Â®Ã˜Â·Ã˜Â± Ã˜Â§Ã™â€žÃ˜Â·Ã˜Â¨Ã™Å  Ã˜Â£Ã™Ë† Ã˜Â§Ã™â€žÃ™â€šÃ˜Â§Ã™â€ Ã™Ë†Ã™â€ Ã™Å  Ã˜ÂªÃ™Ë†Ã˜Â§Ã˜ÂµÃ™â€ž Ã™â€¦Ã˜Â¹ Ã˜Â§Ã™â€žÃ˜Â¬Ã™â€¡Ã˜Â§Ã˜Âª Ã˜Â§Ã™â€žÃ˜Â±Ã˜Â³Ã™â€¦Ã™Å Ã˜Â© Ã™ÂÃ™Ë†Ã˜Â±Ã™â€¹Ã˜Â§.',
         bodyEn:
             'For threats, fraud, violence, or medical/legal danger, contact official authorities immediately.',
       ),
       _SafetyGuidanceSectionData(
         icon: Icons.info_outline_rounded,
+        titleKey: 'applicationClientLinkSubSectionNotice',
         titleAr: l10n.applicationClientLinkSubSectionNotice,
         titleEn: 'Important notice',
         bodyAr:
-            'Mental Smile للدعم والمعرفة والاكتشاف فقط، وليست جهة علاج أو طوارئ أو سلطة قانونية.',
+            'Mental Smile Ã™â€žÃ™â€žÃ˜Â¯Ã˜Â¹Ã™â€¦ Ã™Ë†Ã˜Â§Ã™â€žÃ™â€¦Ã˜Â¹Ã˜Â±Ã™ÂÃ˜Â© Ã™Ë†Ã˜Â§Ã™â€žÃ˜Â§Ã™Æ’Ã˜ÂªÃ˜Â´Ã˜Â§Ã™Â Ã™ÂÃ™â€šÃ˜Â·Ã˜Å’ Ã™Ë†Ã™â€žÃ™Å Ã˜Â³Ã˜Âª Ã˜Â¬Ã™â€¡Ã˜Â© Ã˜Â¹Ã™â€žÃ˜Â§Ã˜Â¬ Ã˜Â£Ã™Ë† Ã˜Â·Ã™Ë†Ã˜Â§Ã˜Â±Ã˜Â¦ Ã˜Â£Ã™Ë† Ã˜Â³Ã™â€žÃ˜Â·Ã˜Â© Ã™â€šÃ˜Â§Ã™â€ Ã™Ë†Ã™â€ Ã™Å Ã˜Â©.',
         bodyEn:
             'Mental Smile supports knowledge and discovery only. It is not therapy, emergency, or legal authority.',
       ),
@@ -801,10 +952,12 @@ class _ClientRoomPageState extends State<ClientRoomPage> {
         child: AlertDialog(
           backgroundColor: const Color(0xFFFFF1D0),
           title: _DialogSpeakableTitle(
-            visualMarker: '🛡️',
+            visualMarker: 'Ã°Å¸â€ºÂ¡Ã¯Â¸Â',
             title: l10n.applicationClientLinkCategorySafety,
-            onSpeak: () => _showSpeechPlaceholder(
-                l10n.applicationClientLinkCategorySafety),
+            onSpeak: () => _speakLocalizedLabel(
+              localizationKey: 'applicationClientLinkCategorySafety',
+              localizedText: l10n.applicationClientLinkCategorySafety,
+            ),
           ),
           content: ConstrainedBox(
             constraints: const BoxConstraints(maxWidth: 660),
@@ -825,7 +978,10 @@ class _ClientRoomPageState extends State<ClientRoomPage> {
                   for (final section in sections)
                     _SafetyGuidanceSection(
                       data: section,
-                      onSpeak: () => _showSpeechPlaceholder(section.titleAr),
+                      onSpeak: () => _speakLocalizedLabel(
+                        localizationKey: section.titleKey,
+                        localizedText: section.titleAr,
+                      ),
                     ),
                 ],
               ),
@@ -845,7 +1001,7 @@ class _ClientRoomPageState extends State<ClientRoomPage> {
   }
 
   Future<void> _showLocalInformationDialog({
-    required AppLocalizations l10n,
+    required ResidentialLocalizations l10n,
     required String visualMarker,
     required String title,
     required String message,
@@ -878,7 +1034,10 @@ class _ClientRoomPageState extends State<ClientRoomPage> {
               AccessibilityGuideIcon(
                 size: 22,
                 tooltipIconSize: 96,
-                onPressed: () => _showSpeechPlaceholder(title),
+                onPressed: () => _speakLocalizedLabel(
+                  localizationKey: 'applicationClientToolsTitle',
+                  localizedText: title,
+                ),
               ),
             ],
           ),
@@ -906,7 +1065,7 @@ class _ClientRoomPageState extends State<ClientRoomPage> {
   }
 
   Widget _buildMotivationalSentenceSelector(
-      BuildContext context, AppLocalizations l10n) {
+      BuildContext context, ResidentialLocalizations l10n) {
     return Directionality(
       textDirection: TextDirection.rtl,
       child: AlertDialog(
@@ -937,8 +1096,12 @@ class _ClientRoomPageState extends State<ClientRoomPage> {
                 const SizedBox(height: 14),
                 for (final message in _notebookMessages(l10n))
                   _MessageDialogOption(
-                    text: message,
-                    onPressed: () => Navigator.of(context).pop(message),
+                    text: message.text,
+                    onPressed: () => Navigator.of(context).pop(message.text),
+                    onSpeak: () => _speakLocalizedLabel(
+                      localizationKey: message.key,
+                      localizedText: message.text,
+                    ),
                   ),
               ],
             ),
@@ -955,8 +1118,7 @@ class _ClientRoomPageState extends State<ClientRoomPage> {
       sourceWidget: 'YouTubeButton',
       action: 'open_external_youtube',
     );
-    final uri = Uri.parse(_youtubeUrl);
-    await launchUrl(uri, mode: LaunchMode.externalApplication);
+    await SafeExternalLinkLauncher.open(context, _youtubeUrl);
   }
 
   Future<void> _pickTemporaryPhoto() async {
@@ -1013,6 +1175,16 @@ class _RoomPlacement {
   final double height;
   final double? left;
   final double? top;
+}
+
+class _ResidentialNotebookMessage {
+  const _ResidentialNotebookMessage({
+    required this.key,
+    required this.text,
+  });
+
+  final String key;
+  final String text;
 }
 
 class _MonitorPhoto extends StatelessWidget {
@@ -1086,10 +1258,12 @@ class _MessageDialogOption extends StatelessWidget {
   const _MessageDialogOption({
     required this.text,
     required this.onPressed,
+    required this.onSpeak,
   });
 
   final String text;
   final VoidCallback onPressed;
+  final VoidCallback onSpeak;
 
   @override
   Widget build(BuildContext context) {
@@ -1108,7 +1282,7 @@ class _MessageDialogOption extends StatelessWidget {
             mainAxisSize: MainAxisSize.min,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const Text('🌿', style: TextStyle(fontSize: 16)),
+              const Text('Ã°Å¸Å’Â¿', style: TextStyle(fontSize: 16)),
               const SizedBox(width: 6),
               Flexible(
                 child: Text(
@@ -1122,7 +1296,11 @@ class _MessageDialogOption extends StatelessWidget {
                 ),
               ),
               const SizedBox(width: 6),
-              const AccessibilityGuideIcon(size: 20, tooltipIconSize: 96),
+              AccessibilityGuideIcon(
+                size: 20,
+                tooltipIconSize: 96,
+                onPressed: onSpeak,
+              ),
             ],
           ),
         ),
@@ -1348,6 +1526,7 @@ class _QuickAccessWallCard extends StatelessWidget {
 
 class _QuickAccessLinkCategory {
   const _QuickAccessLinkCategory({
+    required this.titleKey,
     required this.title,
     required this.visualMarker,
     required this.links,
@@ -1355,6 +1534,7 @@ class _QuickAccessLinkCategory {
     this.isSafetyGuidance = false,
   });
 
+  final String titleKey;
   final String title;
   final String? titleEn;
   final String visualMarker;
@@ -1364,11 +1544,15 @@ class _QuickAccessLinkCategory {
 
 class _QuickAccessExternalLink {
   const _QuickAccessExternalLink({
+    required this.speechKey,
+    required this.speechText,
     required this.title,
     required this.description,
     required this.url,
   });
 
+  final String speechKey;
+  final String speechText;
   final String title;
   final String description;
   final String url;
@@ -1377,6 +1561,7 @@ class _QuickAccessExternalLink {
 class _SafetyGuidanceSectionData {
   const _SafetyGuidanceSectionData({
     required this.icon,
+    required this.titleKey,
     required this.titleAr,
     required this.titleEn,
     required this.bodyAr,
@@ -1384,6 +1569,7 @@ class _SafetyGuidanceSectionData {
   });
 
   final IconData icon;
+  final String titleKey;
   final String titleAr;
   final String titleEn;
   final String bodyAr;
@@ -1501,7 +1687,7 @@ class _ExternalLinkRow extends StatelessWidget {
     required this.onSpeak,
   });
 
-  final AppLocalizations l10n;
+  final ResidentialLocalizations l10n;
   final _QuickAccessExternalLink link;
   final VoidCallback onOpen;
   final VoidCallback onSpeak;

@@ -1,8 +1,0 @@
-﻿# ARCHIVE_CAPSULE_SUGGESTIONS_V1
-
-No automatic improvements were implemented.
-
-Potential future Owner decisions are recorded in 98_OWNER_DECISIONS/CAPSULE_DISCOVERED_IMPROVEMENTS_V1.md.
-
-FINAL STATUS: ARCHIVE_CAPSULE_SUGGESTIONS_CREATED
-

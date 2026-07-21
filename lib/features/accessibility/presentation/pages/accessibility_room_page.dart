@@ -8,10 +8,12 @@ import 'package:mental_smile_os/app/router/routes.dart';
 import 'package:mental_smile_os/core/platform_core/platform_core.dart';
 import 'package:mental_smile_os/features/residential/signals/residential_signal_codes.dart';
 import 'package:mental_smile_os/features/residential/signals/residential_signal_emitter.dart';
-import 'package:mental_smile_os/l10n/app_localizations.dart';
+import 'package:mental_smile_os/features/residential/speech/residential_speech_contract.dart';
+import 'package:mental_smile_os/l10n/accessibility/accessibility_localizations.dart';
+import 'package:mental_smile_os/l10n/residential/residential_localizations.dart';
 import 'package:mental_smile_os/shared/accessibility/accessibility_guide_icon.dart';
 import 'package:mental_smile_os/shared/guides/daleel_assistant.dart';
-import 'package:url_launcher/url_launcher.dart';
+import 'package:mental_smile_os/shared/links/safe_external_link_launcher.dart';
 
 class AccessibilityRoomPage extends StatefulWidget {
   const AccessibilityRoomPage({super.key});
@@ -50,12 +52,29 @@ class _AccessibilityRoomPageState extends State<AccessibilityRoomPage> {
       'assets/branding/rooms/accessibility_room/cards/accessibility_checkin_card_icon.png';
   static const String _youtubeUrl = 'https://www.youtube.com/@MentalSmileOs';
 
-  List<String> _notebookMessages(AppLocalizations l10n) => [
-        l10n.applicationClientNotebookMessage1,
-        l10n.applicationClientNotebookMessage2,
-        l10n.applicationClientNotebookMessage3,
-        l10n.applicationClientNotebookMessage4,
-        l10n.applicationClientNotebookMessage5,
+  List<_ResidentialNotebookMessage> _notebookMessages(
+          ResidentialLocalizations l10n) =>
+      [
+        _ResidentialNotebookMessage(
+          key: 'applicationClientNotebookMessage1',
+          text: l10n.applicationClientNotebookMessage1,
+        ),
+        _ResidentialNotebookMessage(
+          key: 'applicationClientNotebookMessage2',
+          text: l10n.applicationClientNotebookMessage2,
+        ),
+        _ResidentialNotebookMessage(
+          key: 'applicationClientNotebookMessage3',
+          text: l10n.applicationClientNotebookMessage3,
+        ),
+        _ResidentialNotebookMessage(
+          key: 'applicationClientNotebookMessage4',
+          text: l10n.applicationClientNotebookMessage4,
+        ),
+        _ResidentialNotebookMessage(
+          key: 'applicationClientNotebookMessage5',
+          text: l10n.applicationClientNotebookMessage5,
+        ),
       ];
 
   Uint8List? _selectedPhotoBytes;
@@ -75,7 +94,8 @@ class _AccessibilityRoomPageState extends State<AccessibilityRoomPage> {
 
   @override
   Widget build(BuildContext context) {
-    final l10n = AppLocalizations.of(context)!;
+    final accessibilityL10n = AccessibilityLocalizations.of(context);
+    final residentialL10n = ResidentialLocalizations.of(context);
     return Scaffold(
       body: LayoutBuilder(
         builder: (context, constraints) {
@@ -102,31 +122,31 @@ class _AccessibilityRoomPageState extends State<AccessibilityRoomPage> {
                     message: _selectedNotebookMessage!,
                   ),
                 _AccessibilityLinksCard(
-                  l10n: l10n,
+                  l10n: accessibilityL10n,
                   assetPath: _linksCardIcon,
                   placement: _linksCardPlacement(constraints),
                   onPressed: _openImportantLinks,
                 ),
                 _AccessibilityToolsCard(
-                  l10n: l10n,
+                  l10n: accessibilityL10n,
                   assetPath: _toolsCardIcon,
                   placement: _toolsCardPlacement(constraints),
                   onPressed: _openAssistiveTools,
                 ),
                 _AccessibilitySuggestionsCard(
-                  l10n: l10n,
+                  l10n: accessibilityL10n,
                   assetPath: _suggestionsCardIcon,
                   placement: _suggestionsCardPlacement(constraints),
                   onPressed: _openSuggestions,
                 ),
                 _AccessibilityCommunityToolsCard(
-                  l10n: l10n,
+                  l10n: residentialL10n,
                   assetPath: _communityToolsCardIcon,
                   placement: _communityToolsCardPlacement(constraints),
                   onPressed: _openCommunityTools,
                 ),
                 _AccessibilityCheckinCard(
-                  l10n: l10n,
+                  l10n: residentialL10n,
                   assetPath: _checkinCardIcon,
                   placement: _checkinCardPlacement(constraints),
                   onPressed: _openCheckin,
@@ -134,29 +154,57 @@ class _AccessibilityRoomPageState extends State<AccessibilityRoomPage> {
                 _RoomImageButton(
                   assetPath: _youtubeButton,
                   placement: _youtubePlacement(constraints),
-                  semanticLabel: l10n.applicationClientYoutube,
+                  semanticLabel: residentialL10n.applicationClientYoutube,
                   onPressed: _openYoutube,
+                  onSpeak: () => _speakLocalizedLabel(
+                    context,
+                    sectionId: 'residential',
+                    localizationKey: 'applicationClientYoutube',
+                    localizedText: residentialL10n.applicationClientYoutube,
+                  ),
                 ),
                 _RoomImageButton(
                   assetPath: _photoButton,
                   placement: _photoButtonPlacement(monitor),
-                  semanticLabel: l10n.applicationClientTemporaryPhoto,
+                  semanticLabel:
+                      residentialL10n.applicationClientTemporaryPhoto,
                   onPressed: _pickTemporaryPhoto,
+                  onSpeak: () => _speakLocalizedLabel(
+                    context,
+                    sectionId: 'residential',
+                    localizationKey: 'applicationClientTemporaryPhoto',
+                    localizedText:
+                        residentialL10n.applicationClientTemporaryPhoto,
+                  ),
                 ),
                 _RoomImageButton(
                   assetPath: _exitCup,
                   placement: _cupPlacement(constraints),
-                  semanticLabel: l10n.applicationClientExitRoom,
+                  semanticLabel: residentialL10n.applicationClientExitRoom,
                   showAccessibilityGuideIcon: true,
                   onPressed: _exitRoom,
+                  onSpeak: () => _speakLocalizedLabel(
+                    context,
+                    sectionId: 'residential',
+                    localizationKey: 'applicationClientExitRoom',
+                    localizedText: residentialL10n.applicationClientExitRoom,
+                  ),
                 ),
                 _RoomHoverImageButton(
                   assetPath: _noteFeatherButton,
                   placement: _noteFeatherPlacement(constraints),
-                  tooltip: l10n.applicationClientFeatherNotebook,
-                  semanticLabel: l10n.applicationClientFeatherNotebook,
+                  tooltip: residentialL10n.applicationClientFeatherNotebook,
+                  semanticLabel:
+                      residentialL10n.applicationClientFeatherNotebook,
                   imageSize: _noteFeatherImageSize(constraints),
-                  onPressed: () => _openMessageOfDayDialog(l10n),
+                  onPressed: () => _openMessageOfDayDialog(residentialL10n),
+                  onSpeak: () => _speakLocalizedLabel(
+                    context,
+                    sectionId: 'residential',
+                    localizationKey: 'applicationClientFeatherNotebook',
+                    localizedText:
+                        residentialL10n.applicationClientFeatherNotebook,
+                  ),
                 ),
                 if (showDaleel)
                   const Positioned(
@@ -164,7 +212,7 @@ class _AccessibilityRoomPageState extends State<AccessibilityRoomPage> {
                     left: 24,
                     child: DaleelAssistant(
                       guideAssetPath:
-                          'assets/branding/guides/client_room_desktop_guide.png',
+                          'assets/accessibility/accessibility_room/accessibility_room_desktop_guide.png',
                       surveyTitle: 'الاستبيان - غرفة صديقي المميز',
                       sections: DaleelAssistantSurvey.accessibilityRoomSections,
                     ),
@@ -378,7 +426,7 @@ class _AccessibilityRoomPageState extends State<AccessibilityRoomPage> {
     );
   }
 
-  Future<void> _openMessageOfDayDialog(AppLocalizations l10n) async {
+  Future<void> _openMessageOfDayDialog(ResidentialLocalizations l10n) async {
     ResidentialSignalEmitter.emit(
       signalCode: ResidentialSignalCode.messageOfDayOpen,
       sourceScreen: 'Accessibility Room',
@@ -402,7 +450,11 @@ class _AccessibilityRoomPageState extends State<AccessibilityRoomPage> {
     );
   }
 
-  Widget _buildMessageOfDayDialog(BuildContext context, AppLocalizations l10n) {
+  Widget _buildMessageOfDayDialog(
+    BuildContext context,
+    ResidentialLocalizations l10n,
+  ) {
+    final accessibilityL10n = AccessibilityLocalizations.of(context);
     return Directionality(
       textDirection: TextDirection.rtl,
       child: AlertDialog(
@@ -422,8 +474,12 @@ class _AccessibilityRoomPageState extends State<AccessibilityRoomPage> {
               ),
             ),
             AccessibilityGuideIcon(
-              onPressed: () => _showSpeechPlaceholder(
-                  context, l10n.applicationClientFeatherNotebook),
+              onPressed: () => _speakLocalizedLabel(
+                context,
+                sectionId: 'residential',
+                localizationKey: 'applicationClientFeatherNotebook',
+                localizedText: l10n.applicationClientFeatherNotebook,
+              ),
             ),
           ],
         ),
@@ -434,7 +490,7 @@ class _AccessibilityRoomPageState extends State<AccessibilityRoomPage> {
               mainAxisSize: MainAxisSize.min,
               children: [
                 Text(
-                  l10n.applicationAccessibilityDialogSelectMessage,
+                  accessibilityL10n.applicationAccessibilityDialogSelectMessage,
                   textAlign: TextAlign.center,
                   style: const TextStyle(
                     color: Color(0xFF3A2A18),
@@ -444,20 +500,26 @@ class _AccessibilityRoomPageState extends State<AccessibilityRoomPage> {
                 ),
                 const SizedBox(height: 14),
                 _MessageDialogOption(
-                  text: l10n.applicationAccessibilityDialogRandomMessage,
+                  text: accessibilityL10n
+                      .applicationAccessibilityDialogRandomMessage,
                   onPressed: () {
                     final messages = _notebookMessages(l10n);
                     final randomMessage =
-                        messages[Random().nextInt(messages.length)];
+                        messages[Random().nextInt(messages.length)].text;
                     Navigator.of(context).pop(randomMessage);
                   },
                 ),
                 const SizedBox(height: 8),
                 for (final message in _notebookMessages(l10n))
                   _MessageDialogOption(
-                    text: message,
-                    onPressed: () => Navigator.of(context).pop(message),
-                    onSpeak: () => _showSpeechPlaceholder(context, message),
+                    text: message.text,
+                    onPressed: () => Navigator.of(context).pop(message.text),
+                    onSpeak: () => _speakLocalizedLabel(
+                      context,
+                      sectionId: 'residential',
+                      localizationKey: message.key,
+                      localizedText: message.text,
+                    ),
                   ),
               ],
             ),
@@ -474,8 +536,7 @@ class _AccessibilityRoomPageState extends State<AccessibilityRoomPage> {
       sourceWidget: 'YouTubeButton',
       action: 'open_external_youtube',
     );
-    final uri = Uri.parse(_youtubeUrl);
-    await launchUrl(uri, mode: LaunchMode.externalApplication);
+    await SafeExternalLinkLauncher.open(context, _youtubeUrl);
   }
 
   Future<void> _pickTemporaryPhoto() async {
@@ -519,19 +580,37 @@ class _AccessibilityRoomPageState extends State<AccessibilityRoomPage> {
     );
   }
 
-  void _showSpeechPlaceholder(BuildContext context, String label) {
+  Future<void> _speakLocalizedLabel(
+    BuildContext context, {
+    String sectionId = 'accessibility',
+    required String localizationKey,
+    required String localizedText,
+  }) {
     ResidentialSignalEmitter.emit(
       signalCode: ResidentialSignalCode.listenSupportPlay,
       sourceScreen: 'Accessibility Room',
       sourceWidget: 'AccessibilityGuideIcon',
       action: 'request_audio_support',
     );
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(
-        content: Text(AppLocalizations.of(context)!.applicationAudioSoon),
+    return ResidentialSpeechGenerator.instance.speak(
+      context,
+      ResidentialSpeechNode(
+        sectionId: sectionId,
+        localizationKey: localizationKey,
+        localizedText: localizedText,
       ),
     );
   }
+}
+
+class _ResidentialNotebookMessage {
+  const _ResidentialNotebookMessage({
+    required this.key,
+    required this.text,
+  });
+
+  final String key;
+  final String text;
 }
 
 class _RoomPlacement {
@@ -676,6 +755,7 @@ class _RoomImageButton extends StatelessWidget {
     required this.placement,
     required this.semanticLabel,
     required this.onPressed,
+    required this.onSpeak,
     this.showAccessibilityGuideIcon = true,
   });
 
@@ -683,6 +763,7 @@ class _RoomImageButton extends StatelessWidget {
   final _RoomPlacement placement;
   final String semanticLabel;
   final VoidCallback onPressed;
+  final VoidCallback onSpeak;
   final bool showAccessibilityGuideIcon;
 
   @override
@@ -707,10 +788,10 @@ class _RoomImageButton extends StatelessWidget {
               ),
             ),
             if (showAccessibilityGuideIcon)
-              const Positioned(
+              Positioned(
                 right: 0,
                 top: 0,
-                child: AccessibilityGuideIcon(),
+                child: AccessibilityGuideIcon(onPressed: onSpeak),
               ),
           ],
         ),
@@ -727,6 +808,7 @@ class _RoomHoverImageButton extends StatefulWidget {
     required this.semanticLabel,
     required this.imageSize,
     required this.onPressed,
+    required this.onSpeak,
   });
 
   final String assetPath;
@@ -735,6 +817,7 @@ class _RoomHoverImageButton extends StatefulWidget {
   final String semanticLabel;
   final double imageSize;
   final VoidCallback onPressed;
+  final VoidCallback onSpeak;
 
   @override
   State<_RoomHoverImageButton> createState() => _RoomHoverImageButtonState();
@@ -795,10 +878,10 @@ class _RoomHoverImageButtonState extends State<_RoomHoverImageButton> {
                 ),
               ),
             ),
-            const Positioned(
+            Positioned(
               right: 0,
               top: 0,
-              child: AccessibilityGuideIcon(),
+              child: AccessibilityGuideIcon(onPressed: widget.onSpeak),
             ),
           ],
         ),
@@ -815,18 +898,10 @@ class _AccessibilityLinksCard extends StatelessWidget {
     required this.onPressed,
   });
 
-  final AppLocalizations l10n;
+  final AccessibilityLocalizations l10n;
   final String assetPath;
   final _RoomPlacement placement;
   final VoidCallback onPressed;
-
-  void _showSpeechPlaceholder(BuildContext context) {
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(
-        content: Text(AppLocalizations.of(context)!.applicationAudioSoon),
-      ),
-    );
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -857,7 +932,15 @@ class _AccessibilityLinksCard extends StatelessWidget {
                 top: 0,
                 child: AccessibilityGuideIcon(
                   size: 24,
-                  onPressed: () => _showSpeechPlaceholder(context),
+                  onPressed: () => ResidentialSpeechGenerator.instance.speak(
+                    context,
+                    ResidentialSpeechNode(
+                      sectionId: 'accessibility',
+                      localizationKey: 'applicationAccessibilityLinksCardTitle',
+                      localizedText:
+                          l10n.applicationAccessibilityLinksCardTitle,
+                    ),
+                  ),
                 ),
               ),
             ],
@@ -876,18 +959,10 @@ class _AccessibilityToolsCard extends StatelessWidget {
     required this.onPressed,
   });
 
-  final AppLocalizations l10n;
+  final AccessibilityLocalizations l10n;
   final String assetPath;
   final _RoomPlacement placement;
   final VoidCallback onPressed;
-
-  void _showSpeechPlaceholder(BuildContext context) {
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(
-        content: Text(AppLocalizations.of(context)!.applicationAudioSoon),
-      ),
-    );
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -918,7 +993,15 @@ class _AccessibilityToolsCard extends StatelessWidget {
                 top: 0,
                 child: AccessibilityGuideIcon(
                   size: 24,
-                  onPressed: () => _showSpeechPlaceholder(context),
+                  onPressed: () => ResidentialSpeechGenerator.instance.speak(
+                    context,
+                    ResidentialSpeechNode(
+                      sectionId: 'accessibility',
+                      localizationKey: 'applicationAccessibilityToolsCardTitle',
+                      localizedText:
+                          l10n.applicationAccessibilityToolsCardTitle,
+                    ),
+                  ),
                 ),
               ),
             ],
@@ -937,18 +1020,10 @@ class _AccessibilitySuggestionsCard extends StatelessWidget {
     required this.onPressed,
   });
 
-  final AppLocalizations l10n;
+  final AccessibilityLocalizations l10n;
   final String assetPath;
   final _RoomPlacement placement;
   final VoidCallback onPressed;
-
-  void _showSpeechPlaceholder(BuildContext context) {
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(
-        content: Text(AppLocalizations.of(context)!.applicationAudioSoon),
-      ),
-    );
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -979,7 +1054,16 @@ class _AccessibilitySuggestionsCard extends StatelessWidget {
                 top: 0,
                 child: AccessibilityGuideIcon(
                   size: 24,
-                  onPressed: () => _showSpeechPlaceholder(context),
+                  onPressed: () => ResidentialSpeechGenerator.instance.speak(
+                    context,
+                    ResidentialSpeechNode(
+                      sectionId: 'accessibility',
+                      localizationKey:
+                          'applicationAccessibilitySuggestionsCardTitle',
+                      localizedText:
+                          l10n.applicationAccessibilitySuggestionsCardTitle,
+                    ),
+                  ),
                 ),
               ),
             ],
@@ -998,18 +1082,10 @@ class _AccessibilityCommunityToolsCard extends StatelessWidget {
     required this.onPressed,
   });
 
-  final AppLocalizations l10n;
+  final ResidentialLocalizations l10n;
   final String assetPath;
   final _RoomPlacement placement;
   final VoidCallback onPressed;
-
-  void _showSpeechPlaceholder(BuildContext context) {
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(
-        content: Text(AppLocalizations.of(context)!.applicationAudioSoon),
-      ),
-    );
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -1040,7 +1116,14 @@ class _AccessibilityCommunityToolsCard extends StatelessWidget {
                 top: 0,
                 child: AccessibilityGuideIcon(
                   size: 24,
-                  onPressed: () => _showSpeechPlaceholder(context),
+                  onPressed: () => ResidentialSpeechGenerator.instance.speak(
+                    context,
+                    ResidentialSpeechNode(
+                      sectionId: 'residential',
+                      localizationKey: 'applicationClientCommunityToolsTitle',
+                      localizedText: l10n.applicationClientCommunityToolsTitle,
+                    ),
+                  ),
                 ),
               ),
             ],
@@ -1059,18 +1142,10 @@ class _AccessibilityCheckinCard extends StatelessWidget {
     required this.onPressed,
   });
 
-  final AppLocalizations l10n;
+  final ResidentialLocalizations l10n;
   final String assetPath;
   final _RoomPlacement placement;
   final VoidCallback onPressed;
-
-  void _showSpeechPlaceholder(BuildContext context) {
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(
-        content: Text(AppLocalizations.of(context)!.applicationAudioSoon),
-      ),
-    );
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -1101,7 +1176,14 @@ class _AccessibilityCheckinCard extends StatelessWidget {
                 top: 0,
                 child: AccessibilityGuideIcon(
                   size: 24,
-                  onPressed: () => _showSpeechPlaceholder(context),
+                  onPressed: () => ResidentialSpeechGenerator.instance.speak(
+                    context,
+                    ResidentialSpeechNode(
+                      sectionId: 'residential',
+                      localizationKey: 'applicationClientCheckInTitle',
+                      localizedText: l10n.applicationClientCheckInTitle,
+                    ),
+                  ),
                 ),
               ),
             ],

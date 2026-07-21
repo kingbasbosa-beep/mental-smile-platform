@@ -1,0 +1,1095 @@
+﻿{
+    "capsuleId":  "MS-CAPSULE-RES-R-1.07.2026",
+    "mode":  "BLUEPRINT",
+    "assets":  [
+                   {
+                       "assetCode":  "MS-RES-ASSET-001",
+                       "path":  "assets/accessibility/accessibility_checkin/accessibility_checkin_papyrus_background.png",
+                       "owner":  "ACCESSIBILITY",
+                       "consumers":  [
+                                         "lib/features/accessibility/presentation/pages/accessibility_checkin_page.dart"
+                                     ],
+                       "responsiveFamily":  null,
+                       "desktopVariant":  null,
+                       "tabletVariant":  null,
+                       "mobileVariant":  null,
+                       "registered":  true,
+                       "required":  true,
+                       "capsuleOwned":  true,
+                       "centralImported":  false,
+                       "canonicalLine":  "MS-LINE-ASSET-01",
+                       "runtimeState":  "ACTIVE_DIRECT"
+                   },
+                   {
+                       "assetCode":  "MS-RES-ASSET-002",
+                       "path":  "assets/accessibility/accessibility_community_tools/accessibility_community_tools_papyrus_background.png",
+                       "owner":  "ACCESSIBILITY",
+                       "consumers":  [
+                                         "lib/features/accessibility/presentation/pages/accessibility_community_tools_page.dart"
+                                     ],
+                       "responsiveFamily":  null,
+                       "desktopVariant":  null,
+                       "tabletVariant":  null,
+                       "mobileVariant":  null,
+                       "registered":  true,
+                       "required":  true,
+                       "capsuleOwned":  true,
+                       "centralImported":  false,
+                       "canonicalLine":  "MS-LINE-ASSET-01",
+                       "runtimeState":  "ACTIVE_DIRECT"
+                   },
+                   {
+                       "assetCode":  "MS-RES-ASSET-003",
+                       "path":  "assets/accessibility/accessibility_links/accessibility_links_papyrus_background.png",
+                       "owner":  "ACCESSIBILITY",
+                       "consumers":  [
+                                         "lib/features/accessibility/presentation/pages/accessibility_links_page.dart"
+                                     ],
+                       "responsiveFamily":  null,
+                       "desktopVariant":  null,
+                       "tabletVariant":  null,
+                       "mobileVariant":  null,
+                       "registered":  true,
+                       "required":  true,
+                       "capsuleOwned":  true,
+                       "centralImported":  false,
+                       "canonicalLine":  "MS-LINE-ASSET-01",
+                       "runtimeState":  "ACTIVE_DIRECT"
+                   },
+                   {
+                       "assetCode":  "MS-RES-ASSET-004",
+                       "path":  "assets/accessibility/accessibility_message_of_day/accessibility_message_of_day_papyrus_background.png",
+                       "owner":  "ACCESSIBILITY",
+                       "consumers":  [
+                                         "lib/features/accessibility/presentation/pages/accessibility_message_of_day_page.dart"
+                                     ],
+                       "responsiveFamily":  null,
+                       "desktopVariant":  null,
+                       "tabletVariant":  null,
+                       "mobileVariant":  null,
+                       "registered":  true,
+                       "required":  true,
+                       "capsuleOwned":  true,
+                       "centralImported":  false,
+                       "canonicalLine":  "MS-LINE-ASSET-01",
+                       "runtimeState":  "ACTIVE_DIRECT"
+                   },
+                   {
+                       "assetCode":  "MS-RES-ASSET-005",
+                       "path":  "assets/accessibility/accessibility_room/accessibility_room_desktop_guide.png",
+                       "owner":  "ACCESSIBILITY",
+                       "consumers":  [
+                                         "lib/features/accessibility/presentation/pages/accessibility_room_page.dart"
+                                     ],
+                       "responsiveFamily":  "assets/accessibility/accessibility_room/accessibility_room_{breakpoint}_guide.png",
+                       "desktopVariant":  "assets/accessibility/accessibility_room/accessibility_room_desktop_guide.png",
+                       "tabletVariant":  null,
+                       "mobileVariant":  null,
+                       "registered":  true,
+                       "required":  true,
+                       "capsuleOwned":  true,
+                       "centralImported":  false,
+                       "canonicalLine":  "MS-LINE-ASSET-01",
+                       "runtimeState":  "ACTIVE_DIRECT"
+                   },
+                   {
+                       "assetCode":  "MS-RES-ASSET-006",
+                       "path":  "assets/accessibility/accessibility_suggestions/accessibility_suggestions_papyrus_background.png",
+                       "owner":  "ACCESSIBILITY",
+                       "consumers":  [
+                                         "lib/features/accessibility/presentation/pages/accessibility_suggestions_page.dart"
+                                     ],
+                       "responsiveFamily":  null,
+                       "desktopVariant":  null,
+                       "tabletVariant":  null,
+                       "mobileVariant":  null,
+                       "registered":  true,
+                       "required":  true,
+                       "capsuleOwned":  true,
+                       "centralImported":  false,
+                       "canonicalLine":  "MS-LINE-ASSET-01",
+                       "runtimeState":  "ACTIVE_DIRECT"
+                   },
+                   {
+                       "assetCode":  "MS-RES-ASSET-007",
+                       "path":  "assets/accessibility/accessibility_tools/accessibility_tools_papyrus_background.png",
+                       "owner":  "ACCESSIBILITY",
+                       "consumers":  [
+                                         "lib/features/accessibility/presentation/pages/accessibility_tools_page.dart"
+                                     ],
+                       "responsiveFamily":  null,
+                       "desktopVariant":  null,
+                       "tabletVariant":  null,
+                       "mobileVariant":  null,
+                       "registered":  true,
+                       "required":  true,
+                       "capsuleOwned":  true,
+                       "centralImported":  false,
+                       "canonicalLine":  "MS-LINE-ASSET-01",
+                       "runtimeState":  "ACTIVE_DIRECT"
+                   },
+                   {
+                       "assetCode":  "MS-RES-ASSET-008",
+                       "path":  "assets/app/generation2_mobile_login_selection/background_mobile.webp",
+                       "owner":  "CENTRAL_IMPORTED",
+                       "consumers":  [
+                                         "lib/features/generation2_mobile_entry/presentation/pages/generation2_mobile_login_selection_page.dart"
+                                     ],
+                       "responsiveFamily":  "assets/app/generation2_{breakpoint}_login_selection/background_{breakpoint}.webp",
+                       "desktopVariant":  null,
+                       "tabletVariant":  null,
+                       "mobileVariant":  "assets/app/generation2_mobile_login_selection/background_mobile.webp",
+                       "registered":  true,
+                       "required":  true,
+                       "capsuleOwned":  false,
+                       "centralImported":  true,
+                       "canonicalLine":  "MS-LINE-ASSET-01",
+                       "runtimeState":  "ACTIVE_DIRECT"
+                   },
+                   {
+                       "assetCode":  "MS-RES-ASSET-009",
+                       "path":  "assets/app/generation2_mobile_login_selection/background_tablet.webp",
+                       "owner":  "CENTRAL_IMPORTED",
+                       "consumers":  [
+                                         "lib/features/generation2_mobile_entry/presentation/pages/generation2_mobile_login_selection_page.dart"
+                                     ],
+                       "responsiveFamily":  "assets/app/generation2_{breakpoint}_login_selection/background_{breakpoint}.webp",
+                       "desktopVariant":  null,
+                       "tabletVariant":  "assets/app/generation2_mobile_login_selection/background_tablet.webp",
+                       "mobileVariant":  "assets/app/generation2_mobile_login_selection/background_tablet.webp",
+                       "registered":  true,
+                       "required":  true,
+                       "capsuleOwned":  false,
+                       "centralImported":  true,
+                       "canonicalLine":  "MS-LINE-ASSET-01",
+                       "runtimeState":  "ACTIVE_DIRECT"
+                   },
+                   {
+                       "assetCode":  "MS-RES-ASSET-010",
+                       "path":  "assets/app/generation2_mobile_supporters_selection/background_mobile.webp",
+                       "owner":  "CENTRAL_IMPORTED",
+                       "consumers":  [
+                                         "lib/features/generation2_mobile_entry/presentation/pages/generation2_mobile_selection_pages.dart"
+                                     ],
+                       "responsiveFamily":  "assets/app/generation2_{breakpoint}_supporters_selection/background_{breakpoint}.webp",
+                       "desktopVariant":  null,
+                       "tabletVariant":  null,
+                       "mobileVariant":  "assets/app/generation2_mobile_supporters_selection/background_mobile.webp",
+                       "registered":  true,
+                       "required":  true,
+                       "capsuleOwned":  false,
+                       "centralImported":  true,
+                       "canonicalLine":  "MS-LINE-ASSET-01",
+                       "runtimeState":  "ACTIVE_DIRECT"
+                   },
+                   {
+                       "assetCode":  "MS-RES-ASSET-011",
+                       "path":  "assets/backgrounds/residential_exit_social_portal.webp.png",
+                       "owner":  "RESIDENTIAL_EXIT",
+                       "consumers":  [
+                                         "lib/features/residential/presentation/pages/residential_exit_social_portal_page.dart"
+                                     ],
+                       "responsiveFamily":  null,
+                       "desktopVariant":  null,
+                       "tabletVariant":  null,
+                       "mobileVariant":  null,
+                       "registered":  true,
+                       "required":  true,
+                       "capsuleOwned":  true,
+                       "centralImported":  false,
+                       "canonicalLine":  "MS-LINE-ASSET-01",
+                       "runtimeState":  "ACTIVE_DIRECT"
+                   },
+                   {
+                       "assetCode":  "MS-RES-ASSET-012",
+                       "path":  "assets/branding/guides/client_friend_mobile_guide.png",
+                       "owner":  "CENTRAL_IMPORTED",
+                       "consumers":  [
+                                         "lib/features/generation2_mobile_client_room/presentation/pages/generation2_mobile_friend_client_room_page.dart"
+                                     ],
+                       "responsiveFamily":  "assets/branding/guides/client_friend_{breakpoint}_guide.png",
+                       "desktopVariant":  null,
+                       "tabletVariant":  null,
+                       "mobileVariant":  "assets/branding/guides/client_friend_mobile_guide.png",
+                       "registered":  true,
+                       "required":  true,
+                       "capsuleOwned":  false,
+                       "centralImported":  true,
+                       "canonicalLine":  "MS-LINE-ASSET-01",
+                       "runtimeState":  "ACTIVE_DIRECT"
+                   },
+                   {
+                       "assetCode":  "MS-RES-ASSET-013",
+                       "path":  "assets/branding/guides/mobile_login_selection_guide.png",
+                       "owner":  "CENTRAL_IMPORTED",
+                       "consumers":  [
+                                         "lib/features/generation2_mobile_entry/presentation/pages/generation2_mobile_login_selection_page.dart"
+                                     ],
+                       "responsiveFamily":  "assets/branding/guides/{breakpoint}_login_selection_guide.png",
+                       "desktopVariant":  null,
+                       "tabletVariant":  null,
+                       "mobileVariant":  "assets/branding/guides/mobile_login_selection_guide.png",
+                       "registered":  true,
+                       "required":  true,
+                       "capsuleOwned":  false,
+                       "centralImported":  true,
+                       "canonicalLine":  "MS-LINE-ASSET-01",
+                       "runtimeState":  "ACTIVE_DIRECT"
+                   },
+                   {
+                       "assetCode":  "MS-RES-ASSET-014",
+                       "path":  "assets/branding/guides/supporters_account_selection_mobile_guide.png",
+                       "owner":  "CENTRAL_IMPORTED",
+                       "consumers":  [
+                                         "lib/features/generation2_mobile_entry/presentation/pages/generation2_mobile_selection_pages.dart"
+                                     ],
+                       "responsiveFamily":  "assets/branding/guides/supporters_account_selection_{breakpoint}_guide.png",
+                       "desktopVariant":  null,
+                       "tabletVariant":  null,
+                       "mobileVariant":  "assets/branding/guides/supporters_account_selection_mobile_guide.png",
+                       "registered":  false,
+                       "required":  true,
+                       "capsuleOwned":  false,
+                       "centralImported":  true,
+                       "canonicalLine":  "MS-LINE-ASSET-01",
+                       "runtimeState":  "BLOCKER_MISSING_ASSET"
+                   },
+                   {
+                       "assetCode":  "MS-RES-ASSET-015",
+                       "path":  "assets/branding/guides/welcome_screen_guide.png",
+                       "owner":  "CENTRAL_IMPORTED",
+                       "consumers":  [
+                                         "lib/features/splash/presentation/pages/splash_page.dart"
+                                     ],
+                       "responsiveFamily":  null,
+                       "desktopVariant":  null,
+                       "tabletVariant":  null,
+                       "mobileVariant":  null,
+                       "registered":  true,
+                       "required":  true,
+                       "capsuleOwned":  false,
+                       "centralImported":  true,
+                       "canonicalLine":  "MS-LINE-ASSET-01",
+                       "runtimeState":  "ACTIVE_DIRECT"
+                   },
+                   {
+                       "assetCode":  "MS-RES-ASSET-016",
+                       "path":  "assets/branding/language/en_gold.png",
+                       "owner":  "CENTRAL_IMPORTED",
+                       "consumers":  [
+                                         "lib/features/splash/presentation/pages/splash_page.dart"
+                                     ],
+                       "responsiveFamily":  null,
+                       "desktopVariant":  null,
+                       "tabletVariant":  null,
+                       "mobileVariant":  null,
+                       "registered":  true,
+                       "required":  true,
+                       "capsuleOwned":  false,
+                       "centralImported":  true,
+                       "canonicalLine":  "MS-LINE-ASSET-01",
+                       "runtimeState":  "ACTIVE_DIRECT"
+                   },
+                   {
+                       "assetCode":  "MS-RES-ASSET-017",
+                       "path":  "assets/branding/logo_primary.png",
+                       "owner":  "CENTRAL_IMPORTED",
+                       "consumers":  [
+                                         "lib/shared/generation2_mobile/generation2_mobile_room_scaffold.dart"
+                                     ],
+                       "responsiveFamily":  null,
+                       "desktopVariant":  null,
+                       "tabletVariant":  null,
+                       "mobileVariant":  null,
+                       "registered":  true,
+                       "required":  true,
+                       "capsuleOwned":  false,
+                       "centralImported":  true,
+                       "canonicalLine":  "MS-LINE-ASSET-01",
+                       "runtimeState":  "ACTIVE_DIRECT"
+                   },
+                   {
+                       "assetCode":  "MS-RES-ASSET-018",
+                       "path":  "assets/branding/rooms/accessibility_room/accessibility_room_exit_button.png",
+                       "owner":  "ACCESSIBILITY",
+                       "consumers":  [
+                                         "lib/features/accessibility/presentation/pages/accessibility_room_page.dart"
+                                     ],
+                       "responsiveFamily":  null,
+                       "desktopVariant":  null,
+                       "tabletVariant":  null,
+                       "mobileVariant":  null,
+                       "registered":  true,
+                       "required":  true,
+                       "capsuleOwned":  true,
+                       "centralImported":  false,
+                       "canonicalLine":  "MS-LINE-ASSET-01",
+                       "runtimeState":  "ACTIVE_DIRECT"
+                   },
+                   {
+                       "assetCode":  "MS-RES-ASSET-019",
+                       "path":  "assets/branding/rooms/accessibility_room/accessibility_room_photo_upload_button.png",
+                       "owner":  "ACCESSIBILITY",
+                       "consumers":  [
+                                         "lib/features/accessibility/presentation/pages/accessibility_room_page.dart"
+                                     ],
+                       "responsiveFamily":  null,
+                       "desktopVariant":  null,
+                       "tabletVariant":  null,
+                       "mobileVariant":  null,
+                       "registered":  true,
+                       "required":  true,
+                       "capsuleOwned":  true,
+                       "centralImported":  false,
+                       "canonicalLine":  "MS-LINE-ASSET-01",
+                       "runtimeState":  "ACTIVE_DIRECT"
+                   },
+                   {
+                       "assetCode":  "MS-RES-ASSET-020",
+                       "path":  "assets/branding/rooms/accessibility_room/accessibility_room_youtube_button.png",
+                       "owner":  "ACCESSIBILITY",
+                       "consumers":  [
+                                         "lib/features/accessibility/presentation/pages/accessibility_room_page.dart"
+                                     ],
+                       "responsiveFamily":  null,
+                       "desktopVariant":  null,
+                       "tabletVariant":  null,
+                       "mobileVariant":  null,
+                       "registered":  true,
+                       "required":  true,
+                       "capsuleOwned":  true,
+                       "centralImported":  false,
+                       "canonicalLine":  "MS-LINE-ASSET-01",
+                       "runtimeState":  "ACTIVE_DIRECT"
+                   },
+                   {
+                       "assetCode":  "MS-RES-ASSET-021",
+                       "path":  "assets/branding/rooms/accessibility_room/cards/accessibility_checkin_card_icon.png",
+                       "owner":  "ACCESSIBILITY",
+                       "consumers":  [
+                                         "lib/features/accessibility/presentation/pages/accessibility_room_page.dart"
+                                     ],
+                       "responsiveFamily":  null,
+                       "desktopVariant":  null,
+                       "tabletVariant":  null,
+                       "mobileVariant":  null,
+                       "registered":  true,
+                       "required":  true,
+                       "capsuleOwned":  true,
+                       "centralImported":  false,
+                       "canonicalLine":  "MS-LINE-ASSET-01",
+                       "runtimeState":  "ACTIVE_DIRECT"
+                   },
+                   {
+                       "assetCode":  "MS-RES-ASSET-022",
+                       "path":  "assets/branding/rooms/accessibility_room/cards/accessibility_community_tools_card_icon.png",
+                       "owner":  "ACCESSIBILITY",
+                       "consumers":  [
+                                         "lib/features/accessibility/presentation/pages/accessibility_room_page.dart"
+                                     ],
+                       "responsiveFamily":  null,
+                       "desktopVariant":  null,
+                       "tabletVariant":  null,
+                       "mobileVariant":  null,
+                       "registered":  true,
+                       "required":  true,
+                       "capsuleOwned":  true,
+                       "centralImported":  false,
+                       "canonicalLine":  "MS-LINE-ASSET-01",
+                       "runtimeState":  "ACTIVE_DIRECT"
+                   },
+                   {
+                       "assetCode":  "MS-RES-ASSET-023",
+                       "path":  "assets/branding/rooms/accessibility_room/cards/accessibility_links_card_icon.png",
+                       "owner":  "ACCESSIBILITY",
+                       "consumers":  [
+                                         "lib/features/accessibility/presentation/pages/accessibility_room_page.dart"
+                                     ],
+                       "responsiveFamily":  null,
+                       "desktopVariant":  null,
+                       "tabletVariant":  null,
+                       "mobileVariant":  null,
+                       "registered":  true,
+                       "required":  true,
+                       "capsuleOwned":  true,
+                       "centralImported":  false,
+                       "canonicalLine":  "MS-LINE-ASSET-01",
+                       "runtimeState":  "ACTIVE_DIRECT"
+                   },
+                   {
+                       "assetCode":  "MS-RES-ASSET-024",
+                       "path":  "assets/branding/rooms/accessibility_room/cards/accessibility_note_feather_button.png",
+                       "owner":  "ACCESSIBILITY",
+                       "consumers":  [
+                                         "lib/features/accessibility/presentation/pages/accessibility_room_page.dart"
+                                     ],
+                       "responsiveFamily":  null,
+                       "desktopVariant":  null,
+                       "tabletVariant":  null,
+                       "mobileVariant":  null,
+                       "registered":  true,
+                       "required":  true,
+                       "capsuleOwned":  true,
+                       "centralImported":  false,
+                       "canonicalLine":  "MS-LINE-ASSET-01",
+                       "runtimeState":  "ACTIVE_DIRECT"
+                   },
+                   {
+                       "assetCode":  "MS-RES-ASSET-025",
+                       "path":  "assets/branding/rooms/accessibility_room/cards/accessibility_suggestions_card_icon.png",
+                       "owner":  "ACCESSIBILITY",
+                       "consumers":  [
+                                         "lib/features/accessibility/presentation/pages/accessibility_room_page.dart"
+                                     ],
+                       "responsiveFamily":  null,
+                       "desktopVariant":  null,
+                       "tabletVariant":  null,
+                       "mobileVariant":  null,
+                       "registered":  true,
+                       "required":  true,
+                       "capsuleOwned":  true,
+                       "centralImported":  false,
+                       "canonicalLine":  "MS-LINE-ASSET-01",
+                       "runtimeState":  "ACTIVE_DIRECT"
+                   },
+                   {
+                       "assetCode":  "MS-RES-ASSET-026",
+                       "path":  "assets/branding/rooms/accessibility_room/cards/accessibility_tools_card_icon.png",
+                       "owner":  "ACCESSIBILITY",
+                       "consumers":  [
+                                         "lib/features/accessibility/presentation/pages/accessibility_room_page.dart"
+                                     ],
+                       "responsiveFamily":  null,
+                       "desktopVariant":  null,
+                       "tabletVariant":  null,
+                       "mobileVariant":  null,
+                       "registered":  true,
+                       "required":  true,
+                       "capsuleOwned":  true,
+                       "centralImported":  false,
+                       "canonicalLine":  "MS-LINE-ASSET-01",
+                       "runtimeState":  "ACTIVE_DIRECT"
+                   },
+                   {
+                       "assetCode":  "MS-RES-ASSET-027",
+                       "path":  "assets/branding/rooms/accessibility_room/client_room_background_desktop.png",
+                       "owner":  "ACCESSIBILITY",
+                       "consumers":  [
+                                         "lib/features/accessibility/presentation/pages/accessibility_room_page.dart"
+                                     ],
+                       "responsiveFamily":  "assets/branding/rooms/accessibility_room/client_room_background_{breakpoint}.png",
+                       "desktopVariant":  "assets/branding/rooms/accessibility_room/client_room_background_desktop.png",
+                       "tabletVariant":  null,
+                       "mobileVariant":  null,
+                       "registered":  true,
+                       "required":  true,
+                       "capsuleOwned":  true,
+                       "centralImported":  false,
+                       "canonicalLine":  "MS-LINE-ASSET-01",
+                       "runtimeState":  "ACTIVE_DIRECT"
+                   },
+                   {
+                       "assetCode":  "MS-RES-ASSET-028",
+                       "path":  "assets/branding/rooms/accessibility_room/client_room_background_mobile.png",
+                       "owner":  "ACCESSIBILITY",
+                       "consumers":  [
+                                         "lib/features/accessibility/presentation/pages/accessibility_room_page.dart"
+                                     ],
+                       "responsiveFamily":  "assets/branding/rooms/accessibility_room/client_room_background_{breakpoint}.png",
+                       "desktopVariant":  null,
+                       "tabletVariant":  null,
+                       "mobileVariant":  "assets/branding/rooms/accessibility_room/client_room_background_mobile.png",
+                       "registered":  true,
+                       "required":  true,
+                       "capsuleOwned":  true,
+                       "centralImported":  false,
+                       "canonicalLine":  "MS-LINE-ASSET-01",
+                       "runtimeState":  "ACTIVE_DIRECT"
+                   },
+                   {
+                       "assetCode":  "MS-RES-ASSET-029",
+                       "path":  "assets/branding/rooms/accessibility_room/client_room_background_tablet.png",
+                       "owner":  "ACCESSIBILITY",
+                       "consumers":  [
+                                         "lib/features/accessibility/presentation/pages/accessibility_room_page.dart"
+                                     ],
+                       "responsiveFamily":  "assets/branding/rooms/accessibility_room/client_room_background_{breakpoint}.png",
+                       "desktopVariant":  null,
+                       "tabletVariant":  "assets/branding/rooms/accessibility_room/client_room_background_tablet.png",
+                       "mobileVariant":  null,
+                       "registered":  true,
+                       "required":  true,
+                       "capsuleOwned":  true,
+                       "centralImported":  false,
+                       "canonicalLine":  "MS-LINE-ASSET-01",
+                       "runtimeState":  "ACTIVE_DIRECT"
+                   },
+                   {
+                       "assetCode":  "MS-RES-ASSET-030",
+                       "path":  "assets/branding/rooms/client_room/accessibility_room_exit_button.png",
+                       "owner":  "CLIENT",
+                       "consumers":  [
+                                         "lib/features/client/presentation/pages/client_room_page.dart"
+                                     ],
+                       "responsiveFamily":  null,
+                       "desktopVariant":  null,
+                       "tabletVariant":  null,
+                       "mobileVariant":  null,
+                       "registered":  true,
+                       "required":  true,
+                       "capsuleOwned":  true,
+                       "centralImported":  false,
+                       "canonicalLine":  "MS-LINE-ASSET-01",
+                       "runtimeState":  "ACTIVE_DIRECT"
+                   },
+                   {
+                       "assetCode":  "MS-RES-ASSET-031",
+                       "path":  "assets/branding/rooms/client_room/accessibility_room_photo_upload_button.png",
+                       "owner":  "CLIENT",
+                       "consumers":  [
+                                         "lib/features/client/presentation/pages/client_room_page.dart"
+                                     ],
+                       "responsiveFamily":  null,
+                       "desktopVariant":  null,
+                       "tabletVariant":  null,
+                       "mobileVariant":  null,
+                       "registered":  true,
+                       "required":  true,
+                       "capsuleOwned":  true,
+                       "centralImported":  false,
+                       "canonicalLine":  "MS-LINE-ASSET-01",
+                       "runtimeState":  "ACTIVE_DIRECT"
+                   },
+                   {
+                       "assetCode":  "MS-RES-ASSET-032",
+                       "path":  "assets/branding/rooms/client_room/accessibility_room_youtube_button.png",
+                       "owner":  "CLIENT",
+                       "consumers":  [
+                                         "lib/features/client/presentation/pages/client_room_page.dart"
+                                     ],
+                       "responsiveFamily":  null,
+                       "desktopVariant":  null,
+                       "tabletVariant":  null,
+                       "mobileVariant":  null,
+                       "registered":  true,
+                       "required":  true,
+                       "capsuleOwned":  true,
+                       "centralImported":  false,
+                       "canonicalLine":  "MS-LINE-ASSET-01",
+                       "runtimeState":  "ACTIVE_DIRECT"
+                   },
+                   {
+                       "assetCode":  "MS-RES-ASSET-033",
+                       "path":  "assets/branding/rooms/client_room/client_room_background_desktop.png",
+                       "owner":  "CLIENT",
+                       "consumers":  [
+                                         "lib/features/client/presentation/pages/client_room_page.dart"
+                                     ],
+                       "responsiveFamily":  "assets/branding/rooms/client_room/client_room_background_{breakpoint}.png",
+                       "desktopVariant":  "assets/branding/rooms/client_room/client_room_background_desktop.png",
+                       "tabletVariant":  null,
+                       "mobileVariant":  null,
+                       "registered":  true,
+                       "required":  true,
+                       "capsuleOwned":  true,
+                       "centralImported":  false,
+                       "canonicalLine":  "MS-LINE-ASSET-01",
+                       "runtimeState":  "ACTIVE_DIRECT"
+                   },
+                   {
+                       "assetCode":  "MS-RES-ASSET-034",
+                       "path":  "assets/branding/rooms/client_room/client_room_background_mobile.png",
+                       "owner":  "CLIENT",
+                       "consumers":  [
+                                         "lib/features/client/presentation/pages/client_room_page.dart"
+                                     ],
+                       "responsiveFamily":  "assets/branding/rooms/client_room/client_room_background_{breakpoint}.png",
+                       "desktopVariant":  null,
+                       "tabletVariant":  null,
+                       "mobileVariant":  "assets/branding/rooms/client_room/client_room_background_mobile.png",
+                       "registered":  true,
+                       "required":  true,
+                       "capsuleOwned":  true,
+                       "centralImported":  false,
+                       "canonicalLine":  "MS-LINE-ASSET-01",
+                       "runtimeState":  "ACTIVE_DIRECT"
+                   },
+                   {
+                       "assetCode":  "MS-RES-ASSET-035",
+                       "path":  "assets/branding/rooms/client_room/client_room_background_tablet.png",
+                       "owner":  "CLIENT",
+                       "consumers":  [
+                                         "lib/features/client/presentation/pages/client_room_page.dart"
+                                     ],
+                       "responsiveFamily":  "assets/branding/rooms/client_room/client_room_background_{breakpoint}.png",
+                       "desktopVariant":  null,
+                       "tabletVariant":  "assets/branding/rooms/client_room/client_room_background_tablet.png",
+                       "mobileVariant":  null,
+                       "registered":  true,
+                       "required":  true,
+                       "capsuleOwned":  true,
+                       "centralImported":  false,
+                       "canonicalLine":  "MS-LINE-ASSET-01",
+                       "runtimeState":  "ACTIVE_DIRECT"
+                   },
+                   {
+                       "assetCode":  "MS-RES-ASSET-036",
+                       "path":  "assets/branding/splash/splash_mobile_v1.jpg",
+                       "owner":  "GENERATION2_ENTRY",
+                       "consumers":  [
+                                         "lib/features/splash/presentation/pages/splash_page.dart"
+                                     ],
+                       "responsiveFamily":  "assets/branding/splash/splash_{breakpoint}_v1.jpg",
+                       "desktopVariant":  null,
+                       "tabletVariant":  null,
+                       "mobileVariant":  "assets/branding/splash/splash_mobile_v1.jpg",
+                       "registered":  true,
+                       "required":  true,
+                       "capsuleOwned":  true,
+                       "centralImported":  false,
+                       "canonicalLine":  "MS-LINE-ASSET-01",
+                       "runtimeState":  "ACTIVE_DIRECT"
+                   },
+                   {
+                       "assetCode":  "MS-RES-ASSET-037",
+                       "path":  "assets/branding/splash/splash_tablet_v1.jpg",
+                       "owner":  "GENERATION2_ENTRY",
+                       "consumers":  [
+                                         "lib/features/splash/presentation/pages/splash_page.dart"
+                                     ],
+                       "responsiveFamily":  "assets/branding/splash/splash_{breakpoint}_v1.jpg",
+                       "desktopVariant":  null,
+                       "tabletVariant":  "assets/branding/splash/splash_tablet_v1.jpg",
+                       "mobileVariant":  null,
+                       "registered":  true,
+                       "required":  true,
+                       "capsuleOwned":  true,
+                       "centralImported":  false,
+                       "canonicalLine":  "MS-LINE-ASSET-01",
+                       "runtimeState":  "ACTIVE_DIRECT"
+                   },
+                   {
+                       "assetCode":  "MS-RES-ASSET-038",
+                       "path":  "assets/branding/splash/splash_web_v1.jpg",
+                       "owner":  "GENERATION2_ENTRY",
+                       "consumers":  [
+                                         "lib/features/splash/presentation/pages/splash_page.dart"
+                                     ],
+                       "responsiveFamily":  null,
+                       "desktopVariant":  null,
+                       "tabletVariant":  null,
+                       "mobileVariant":  null,
+                       "registered":  true,
+                       "required":  true,
+                       "capsuleOwned":  true,
+                       "centralImported":  false,
+                       "canonicalLine":  "MS-LINE-ASSET-01",
+                       "runtimeState":  "ACTIVE_DIRECT"
+                   },
+                   {
+                       "assetCode":  "MS-RES-ASSET-039",
+                       "path":  "assets/client/client_room/cards/accessibility_checkin_card_icon.png",
+                       "owner":  "CLIENT",
+                       "consumers":  [
+                                         "lib/features/client/presentation/pages/client_room_page.dart"
+                                     ],
+                       "responsiveFamily":  null,
+                       "desktopVariant":  null,
+                       "tabletVariant":  null,
+                       "mobileVariant":  null,
+                       "registered":  true,
+                       "required":  true,
+                       "capsuleOwned":  true,
+                       "centralImported":  false,
+                       "canonicalLine":  "MS-LINE-ASSET-01",
+                       "runtimeState":  "ACTIVE_DIRECT"
+                   },
+                   {
+                       "assetCode":  "MS-RES-ASSET-040",
+                       "path":  "assets/client/client_room/cards/accessibility_community_tools_card_icon.png",
+                       "owner":  "CLIENT",
+                       "consumers":  [
+                                         "lib/features/client/presentation/pages/client_room_page.dart"
+                                     ],
+                       "responsiveFamily":  null,
+                       "desktopVariant":  null,
+                       "tabletVariant":  null,
+                       "mobileVariant":  null,
+                       "registered":  true,
+                       "required":  true,
+                       "capsuleOwned":  true,
+                       "centralImported":  false,
+                       "canonicalLine":  "MS-LINE-ASSET-01",
+                       "runtimeState":  "ACTIVE_DIRECT"
+                   },
+                   {
+                       "assetCode":  "MS-RES-ASSET-041",
+                       "path":  "assets/client/client_room/cards/accessibility_links_card_icon.png",
+                       "owner":  "CLIENT",
+                       "consumers":  [
+                                         "lib/features/client/presentation/pages/client_room_page.dart"
+                                     ],
+                       "responsiveFamily":  null,
+                       "desktopVariant":  null,
+                       "tabletVariant":  null,
+                       "mobileVariant":  null,
+                       "registered":  true,
+                       "required":  true,
+                       "capsuleOwned":  true,
+                       "centralImported":  false,
+                       "canonicalLine":  "MS-LINE-ASSET-01",
+                       "runtimeState":  "ACTIVE_DIRECT"
+                   },
+                   {
+                       "assetCode":  "MS-RES-ASSET-042",
+                       "path":  "assets/client/client_room/cards/accessibility_note_feather_button.png",
+                       "owner":  "CLIENT",
+                       "consumers":  [
+                                         "lib/features/client/presentation/pages/client_room_page.dart"
+                                     ],
+                       "responsiveFamily":  null,
+                       "desktopVariant":  null,
+                       "tabletVariant":  null,
+                       "mobileVariant":  null,
+                       "registered":  true,
+                       "required":  true,
+                       "capsuleOwned":  true,
+                       "centralImported":  false,
+                       "canonicalLine":  "MS-LINE-ASSET-01",
+                       "runtimeState":  "ACTIVE_DIRECT"
+                   },
+                   {
+                       "assetCode":  "MS-RES-ASSET-043",
+                       "path":  "assets/client/client_room/cards/accessibility_suggestions_card_icon.png",
+                       "owner":  "CLIENT",
+                       "consumers":  [
+                                         "lib/features/client/presentation/pages/client_room_page.dart"
+                                     ],
+                       "responsiveFamily":  null,
+                       "desktopVariant":  null,
+                       "tabletVariant":  null,
+                       "mobileVariant":  null,
+                       "registered":  true,
+                       "required":  true,
+                       "capsuleOwned":  true,
+                       "centralImported":  false,
+                       "canonicalLine":  "MS-LINE-ASSET-01",
+                       "runtimeState":  "ACTIVE_DIRECT"
+                   },
+                   {
+                       "assetCode":  "MS-RES-ASSET-044",
+                       "path":  "assets/client/client_room/cards/accessibility_tools_card_icon.png",
+                       "owner":  "CLIENT",
+                       "consumers":  [
+                                         "lib/features/client/presentation/pages/client_room_page.dart"
+                                     ],
+                       "responsiveFamily":  null,
+                       "desktopVariant":  null,
+                       "tabletVariant":  null,
+                       "mobileVariant":  null,
+                       "registered":  true,
+                       "required":  true,
+                       "capsuleOwned":  true,
+                       "centralImported":  false,
+                       "canonicalLine":  "MS-LINE-ASSET-01",
+                       "runtimeState":  "ACTIVE_DIRECT"
+                   },
+                   {
+                       "assetCode":  "MS-RES-ASSET-045",
+                       "path":  "assets/client/client_room/client_room_desktop_guide.png",
+                       "owner":  "CLIENT",
+                       "consumers":  [
+                                         "lib/features/client/presentation/pages/client_room_page.dart"
+                                     ],
+                       "responsiveFamily":  "assets/client/client_room/client_room_{breakpoint}_guide.png",
+                       "desktopVariant":  "assets/client/client_room/client_room_desktop_guide.png",
+                       "tabletVariant":  null,
+                       "mobileVariant":  null,
+                       "registered":  true,
+                       "required":  true,
+                       "capsuleOwned":  true,
+                       "centralImported":  false,
+                       "canonicalLine":  "MS-LINE-ASSET-01",
+                       "runtimeState":  "ACTIVE_DIRECT"
+                   },
+                   {
+                       "assetCode":  "MS-RES-ASSET-046",
+                       "path":  "assets/client/generation2_mobile_client_room/specialist_friend_mobile_guide.png",
+                       "owner":  "CLIENT",
+                       "consumers":  [
+                                         "lib/features/generation2_mobile_client_room/presentation/pages/generation2_mobile_client_room_page.dart"
+                                     ],
+                       "responsiveFamily":  "assets/client/generation2_{breakpoint}_client_room/specialist_friend_{breakpoint}_guide.png",
+                       "desktopVariant":  null,
+                       "tabletVariant":  null,
+                       "mobileVariant":  "assets/client/generation2_mobile_client_room/specialist_friend_mobile_guide.png",
+                       "registered":  true,
+                       "required":  true,
+                       "capsuleOwned":  true,
+                       "centralImported":  false,
+                       "canonicalLine":  "MS-LINE-ASSET-01",
+                       "runtimeState":  "ACTIVE_DIRECT"
+                   },
+                   {
+                       "assetCode":  "MS-RES-ASSET-047",
+                       "path":  "assets/client/generation2_mobile_client_selection/background_mobile.webp",
+                       "owner":  "CLIENT",
+                       "consumers":  [
+                                         "lib/features/generation2_mobile_entry/presentation/pages/generation2_mobile_selection_pages.dart"
+                                     ],
+                       "responsiveFamily":  "assets/client/generation2_{breakpoint}_client_selection/background_{breakpoint}.webp",
+                       "desktopVariant":  null,
+                       "tabletVariant":  null,
+                       "mobileVariant":  "assets/client/generation2_mobile_client_selection/background_mobile.webp",
+                       "registered":  true,
+                       "required":  true,
+                       "capsuleOwned":  true,
+                       "centralImported":  false,
+                       "canonicalLine":  "MS-LINE-ASSET-01",
+                       "runtimeState":  "ACTIVE_DIRECT"
+                   },
+                   {
+                       "assetCode":  "MS-RES-ASSET-048",
+                       "path":  "assets/client/generation2_mobile_client_selection/client_account_selection_mobile_guide.png",
+                       "owner":  "CLIENT",
+                       "consumers":  [
+                                         "lib/features/generation2_mobile_entry/presentation/pages/generation2_mobile_selection_pages.dart"
+                                     ],
+                       "responsiveFamily":  "assets/client/generation2_{breakpoint}_client_selection/client_account_selection_{breakpoint}_guide.png",
+                       "desktopVariant":  null,
+                       "tabletVariant":  null,
+                       "mobileVariant":  "assets/client/generation2_mobile_client_selection/client_account_selection_mobile_guide.png",
+                       "registered":  true,
+                       "required":  true,
+                       "capsuleOwned":  true,
+                       "centralImported":  false,
+                       "canonicalLine":  "MS-LINE-ASSET-01",
+                       "runtimeState":  "ACTIVE_DIRECT"
+                   },
+                   {
+                       "assetCode":  "MS-RES-ASSET-049",
+                       "path":  "assets/images/mobile/client_room/background_mobile.webp",
+                       "owner":  "CLIENT",
+                       "consumers":  [
+                                         "lib/shared/generation2_mobile/generation2_mobile_room_scaffold.dart"
+                                     ],
+                       "responsiveFamily":  "assets/images/{breakpoint}/client_room/background_{breakpoint}.webp",
+                       "desktopVariant":  null,
+                       "tabletVariant":  null,
+                       "mobileVariant":  "assets/images/mobile/client_room/background_mobile.webp",
+                       "registered":  true,
+                       "required":  true,
+                       "capsuleOwned":  true,
+                       "centralImported":  false,
+                       "canonicalLine":  "MS-LINE-ASSET-01",
+                       "runtimeState":  "ACTIVE_DIRECT"
+                   },
+                   {
+                       "assetCode":  "MS-RES-ASSET-050",
+                       "path":  "assets/images/mobile/client_room/background_tablet.webp",
+                       "owner":  "CLIENT",
+                       "consumers":  [
+                                         "lib/shared/generation2_mobile/generation2_mobile_room_scaffold.dart"
+                                     ],
+                       "responsiveFamily":  "assets/images/{breakpoint}/client_room/background_{breakpoint}.webp",
+                       "desktopVariant":  null,
+                       "tabletVariant":  "assets/images/mobile/client_room/background_tablet.webp",
+                       "mobileVariant":  "assets/images/mobile/client_room/background_tablet.webp",
+                       "registered":  true,
+                       "required":  true,
+                       "capsuleOwned":  true,
+                       "centralImported":  false,
+                       "canonicalLine":  "MS-LINE-ASSET-01",
+                       "runtimeState":  "ACTIVE_DIRECT"
+                   },
+                   {
+                       "assetCode":  "MS-RES-ASSET-051",
+                       "path":  "assets/images/mobile/client_room/client_cards_strip.webp",
+                       "owner":  "CLIENT",
+                       "consumers":  [
+                                         "lib/shared/generation2_mobile/generation2_mobile_room_scaffold.dart"
+                                     ],
+                       "responsiveFamily":  "assets/images/{breakpoint}/client_room/client_cards_strip.webp",
+                       "desktopVariant":  null,
+                       "tabletVariant":  null,
+                       "mobileVariant":  "assets/images/mobile/client_room/client_cards_strip.webp",
+                       "registered":  true,
+                       "required":  true,
+                       "capsuleOwned":  true,
+                       "centralImported":  false,
+                       "canonicalLine":  "MS-LINE-ASSET-01",
+                       "runtimeState":  "ACTIVE_DIRECT"
+                   },
+                   {
+                       "assetCode":  "MS-RES-ASSET-052",
+                       "path":  "assets/images/mobile/client_room/frame_client_image.webp",
+                       "owner":  "CLIENT",
+                       "consumers":  [
+                                         "lib/shared/generation2_mobile/generation2_mobile_room_scaffold.dart"
+                                     ],
+                       "responsiveFamily":  "assets/images/{breakpoint}/client_room/frame_client_image.webp",
+                       "desktopVariant":  null,
+                       "tabletVariant":  null,
+                       "mobileVariant":  "assets/images/mobile/client_room/frame_client_image.webp",
+                       "registered":  true,
+                       "required":  true,
+                       "capsuleOwned":  true,
+                       "centralImported":  false,
+                       "canonicalLine":  "MS-LINE-ASSET-01",
+                       "runtimeState":  "ACTIVE_DIRECT"
+                   },
+                   {
+                       "assetCode":  "MS-RES-ASSET-053",
+                       "path":  "assets/images/mobile/splash/background_mobile.webp.png",
+                       "owner":  "GENERATION2_ENTRY",
+                       "consumers":  [
+                                         "lib/features/generation2_mobile_entry/presentation/pages/generation2_splash_page.dart"
+                                     ],
+                       "responsiveFamily":  "assets/images/{breakpoint}/splash/background_{breakpoint}.webp.png",
+                       "desktopVariant":  null,
+                       "tabletVariant":  null,
+                       "mobileVariant":  "assets/images/mobile/splash/background_mobile.webp.png",
+                       "registered":  true,
+                       "required":  true,
+                       "capsuleOwned":  true,
+                       "centralImported":  false,
+                       "canonicalLine":  "MS-LINE-ASSET-01",
+                       "runtimeState":  "ACTIVE_DIRECT"
+                   },
+                   {
+                       "assetCode":  "MS-RES-ASSET-054",
+                       "path":  "assets/images/mobile/splash/background_tablet.webp.png",
+                       "owner":  "GENERATION2_ENTRY",
+                       "consumers":  [
+                                         "lib/features/generation2_mobile_entry/presentation/pages/generation2_splash_page.dart"
+                                     ],
+                       "responsiveFamily":  "assets/images/{breakpoint}/splash/background_{breakpoint}.webp.png",
+                       "desktopVariant":  null,
+                       "tabletVariant":  "assets/images/mobile/splash/background_tablet.webp.png",
+                       "mobileVariant":  "assets/images/mobile/splash/background_tablet.webp.png",
+                       "registered":  true,
+                       "required":  true,
+                       "capsuleOwned":  true,
+                       "centralImported":  false,
+                       "canonicalLine":  "MS-LINE-ASSET-01",
+                       "runtimeState":  "ACTIVE_DIRECT"
+                   },
+                   {
+                       "assetCode":  "MS-RES-ASSET-055",
+                       "path":  "assets/images/mobile/splash/btn_desktop.webp.png",
+                       "owner":  "GENERATION2_ENTRY",
+                       "consumers":  [
+                                         "lib/features/generation2_mobile_entry/presentation/pages/generation2_splash_page.dart"
+                                     ],
+                       "responsiveFamily":  "assets/images/{breakpoint}/splash/btn_{breakpoint}.webp.png",
+                       "desktopVariant":  "assets/images/mobile/splash/btn_desktop.webp.png",
+                       "tabletVariant":  null,
+                       "mobileVariant":  "assets/images/mobile/splash/btn_desktop.webp.png",
+                       "registered":  true,
+                       "required":  true,
+                       "capsuleOwned":  true,
+                       "centralImported":  false,
+                       "canonicalLine":  "MS-LINE-ASSET-01",
+                       "runtimeState":  "ACTIVE_DIRECT"
+                   },
+                   {
+                       "assetCode":  "MS-RES-ASSET-056",
+                       "path":  "assets/images/mobile/splash/btn_friend.webp",
+                       "owner":  "GENERATION2_ENTRY",
+                       "consumers":  [
+                                         "lib/features/generation2_mobile_entry/presentation/pages/generation2_mobile_login_selection_page.dart"
+                                     ],
+                       "responsiveFamily":  "assets/images/{breakpoint}/splash/btn_friend.webp",
+                       "desktopVariant":  null,
+                       "tabletVariant":  null,
+                       "mobileVariant":  "assets/images/mobile/splash/btn_friend.webp",
+                       "registered":  true,
+                       "required":  true,
+                       "capsuleOwned":  true,
+                       "centralImported":  false,
+                       "canonicalLine":  "MS-LINE-ASSET-01",
+                       "runtimeState":  "ACTIVE_DIRECT"
+                   },
+                   {
+                       "assetCode":  "MS-RES-ASSET-057",
+                       "path":  "assets/images/mobile/splash/btn_language.webp",
+                       "owner":  "GENERATION2_ENTRY",
+                       "consumers":  [
+                                         "lib/features/generation2_mobile_entry/presentation/pages/generation2_mobile_login_selection_page.dart",
+                                         "lib/features/generation2_mobile_entry/presentation/pages/generation2_splash_page.dart"
+                                     ],
+                       "responsiveFamily":  "assets/images/{breakpoint}/splash/btn_language.webp",
+                       "desktopVariant":  null,
+                       "tabletVariant":  null,
+                       "mobileVariant":  "assets/images/mobile/splash/btn_language.webp",
+                       "registered":  true,
+                       "required":  true,
+                       "capsuleOwned":  true,
+                       "centralImported":  false,
+                       "canonicalLine":  "MS-LINE-ASSET-01",
+                       "runtimeState":  "ACTIVE_DIRECT"
+                   },
+                   {
+                       "assetCode":  "MS-RES-ASSET-058",
+                       "path":  "assets/images/mobile/splash/btn_language.webp.png",
+                       "owner":  "GENERATION2_ENTRY",
+                       "consumers":  [
+                                         "lib/features/generation2_mobile_entry/presentation/pages/generation2_splash_page.dart"
+                                     ],
+                       "responsiveFamily":  "assets/images/{breakpoint}/splash/btn_language.webp.png",
+                       "desktopVariant":  null,
+                       "tabletVariant":  null,
+                       "mobileVariant":  "assets/images/mobile/splash/btn_language.webp.png",
+                       "registered":  true,
+                       "required":  true,
+                       "capsuleOwned":  true,
+                       "centralImported":  false,
+                       "canonicalLine":  "MS-LINE-ASSET-01",
+                       "runtimeState":  "ACTIVE_DIRECT"
+                   },
+                   {
+                       "assetCode":  "MS-RES-ASSET-059",
+                       "path":  "assets/images/mobile/splash/btn_mobile.webp.png",
+                       "owner":  "GENERATION2_ENTRY",
+                       "consumers":  [
+                                         "lib/features/generation2_mobile_entry/presentation/pages/generation2_splash_page.dart",
+                                         "lib/features/splash/presentation/pages/splash_page.dart"
+                                     ],
+                       "responsiveFamily":  "assets/images/{breakpoint}/splash/btn_{breakpoint}.webp.png",
+                       "desktopVariant":  null,
+                       "tabletVariant":  null,
+                       "mobileVariant":  "assets/images/mobile/splash/btn_mobile.webp.png",
+                       "registered":  true,
+                       "required":  true,
+                       "capsuleOwned":  true,
+                       "centralImported":  false,
+                       "canonicalLine":  "MS-LINE-ASSET-01",
+                       "runtimeState":  "ACTIVE_DIRECT"
+                   },
+                   {
+                       "assetCode":  "MS-RES-ASSET-060",
+                       "path":  "assets/images/mobile/splash/btn_supporter.webp",
+                       "owner":  "GENERATION2_ENTRY",
+                       "consumers":  [
+                                         "lib/features/generation2_mobile_entry/presentation/pages/generation2_mobile_login_selection_page.dart"
+                                     ],
+                       "responsiveFamily":  "assets/images/{breakpoint}/splash/btn_supporter.webp",
+                       "desktopVariant":  null,
+                       "tabletVariant":  null,
+                       "mobileVariant":  "assets/images/mobile/splash/btn_supporter.webp",
+                       "registered":  true,
+                       "required":  true,
+                       "capsuleOwned":  true,
+                       "centralImported":  false,
+                       "canonicalLine":  "MS-LINE-ASSET-01",
+                       "runtimeState":  "ACTIVE_DIRECT"
+                   }
+               ],
+    "counts":  {
+                   "assets":  60,
+                   "missingActiveReferences":  1,
+                   "responsiveAssetFamilies":  22,
+                   "capsuleOwned":  51,
+                   "centralImported":  9
+               }
+}

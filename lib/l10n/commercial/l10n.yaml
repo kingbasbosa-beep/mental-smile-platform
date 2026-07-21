@@ -1,0 +1,5 @@
+arb-dir: .
+template-arb-file: commercial_ar.arb
+output-localization-file: commercial_localizations.dart
+output-class: CommercialLocalizations
+nullable-getter: false

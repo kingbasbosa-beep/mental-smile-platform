@@ -1,0 +1,28 @@
+{
+  "capsuleId": "MS-CAPSULE-PLATFORM-INFRASTRUCTURE",
+  "runtimeFiles": [],
+  "runtimeMirrors": [],
+  "sectionRuntimeCopied": false,
+  "assets": [],
+  "localization": [],
+  "firebase": [],
+  "routes": [],
+  "responsibilities": [
+    "Capsule Identity",
+    "Capsule Registry",
+    "Capsule Discovery",
+    "Capsule Manifest",
+    "Capsule Contracts",
+    "Compatibility Engine",
+    "Compatibility Gate",
+    "Validation Engine",
+    "Mount Manager",
+    "Lifecycle Manager",
+    "Canonical Line Registry",
+    "Port Registry",
+    "Host Adapters",
+    "Diagnostics",
+    "Health Snapshot",
+    "Failure Codes"
+  ]
+}

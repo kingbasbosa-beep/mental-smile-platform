@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:mental_smile_os/app/router/routes.dart';
 import 'package:mental_smile_os/features/commercial/presentation/widgets/commercial_sub_page_background.dart';
-import 'package:url_launcher/url_launcher.dart';
+import 'package:mental_smile_os/shared/links/safe_external_link_launcher.dart';
 
 class CenterProfessionalLibraryPage extends StatefulWidget {
   const CenterProfessionalLibraryPage({super.key});
@@ -534,7 +534,7 @@ class _LibraryLinkRow extends StatelessWidget {
               ),
               IconButton(
                 tooltip: 'فتح الرابط',
-                onPressed: () => _openExternal(link.url),
+                onPressed: () => _openExternal(context, link.url),
                 icon: const Icon(Icons.open_in_new, color: Color(0xFFFFE29A)),
               ),
             ],
@@ -544,8 +544,8 @@ class _LibraryLinkRow extends StatelessWidget {
     );
   }
 
-  Future<void> _openExternal(String url) async {
-    await launchUrl(Uri.parse(url), mode: LaunchMode.externalApplication);
+  Future<void> _openExternal(BuildContext context, String url) async {
+    await SafeExternalLinkLauncher.open(context, url);
   }
 }
 

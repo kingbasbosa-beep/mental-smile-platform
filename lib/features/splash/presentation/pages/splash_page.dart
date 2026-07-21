@@ -3,11 +3,13 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:mental_smile_os/app/locale_provider.dart';
 import 'package:mental_smile_os/app/router/routes.dart';
 import 'package:mental_smile_os/core/storage/locale_storage.dart';
-import 'package:mental_smile_os/l10n/app_localizations.dart';
+import 'package:mental_smile_os/l10n/app/app_section_localizations.dart';
+import 'package:mental_smile_os/l10n/shared/shared_localizations.dart';
 import 'package:mental_smile_os/features/residential/signals/residential_signal_codes.dart';
 import 'package:mental_smile_os/features/residential/signals/residential_signal_emitter.dart';
+import 'package:mental_smile_os/features/residential/speech/residential_speech_contract.dart';
 import 'package:mental_smile_os/shared/accessibility/accessibility_guide_icon.dart';
-import 'package:url_launcher/url_launcher.dart';
+import 'package:mental_smile_os/shared/links/safe_external_link_launcher.dart';
 
 class SplashPage extends ConsumerStatefulWidget {
   const SplashPage({super.key});
@@ -66,20 +68,31 @@ class _SplashPageState extends ConsumerState<SplashPage> {
       sourceWidget: 'OfficialWebsiteButton',
       action: 'open_external',
     );
-    final opened = await launchUrl(
-      Uri.parse(_officialWebsiteUrl),
-      mode: LaunchMode.externalApplication,
+    final opened = await SafeExternalLinkLauncher.open(
+      context,
+      _officialWebsiteUrl,
     );
-    if (!opened && mounted) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          content: Text(
-            AppLocalizations.of(context)!
-                .applicationSplashOfficialWebsiteOpenFailed,
-          ),
-        ),
-      );
-    }
+    if (!opened) return;
+  }
+
+  Future<void> _speakAppText({
+    required String localizationKey,
+    required String localizedText,
+  }) {
+    ResidentialSignalEmitter.emit(
+      signalCode: ResidentialSignalCode.listenSupportPlay,
+      sourceScreen: 'Splash',
+      sourceWidget: 'AccessibilityGuideIcon',
+      action: 'request_audio_support',
+    );
+    return ResidentialSpeechGenerator.instance.speak(
+      context,
+      ResidentialSpeechNode(
+        sectionId: 'app',
+        localizationKey: localizationKey,
+        localizedText: localizedText,
+      ),
+    );
   }
 
   @override
@@ -94,7 +107,7 @@ class _SplashPageState extends ConsumerState<SplashPage> {
     final topActionRight = isMobile ? 24.0 : 96.0;
     final mobileShortcutRight =
         topActionRight + languageIconSize + (isMobile ? 50.0 : 70.0);
-    final l10n = AppLocalizations.of(context)!;
+    final l10n = AppSectionLocalizations.of(context);
 
     return Directionality(
       textDirection: isArabic ? TextDirection.rtl : TextDirection.ltr,
@@ -118,7 +131,14 @@ class _SplashPageState extends ConsumerState<SplashPage> {
               child: Row(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  const AccessibilityGuideIcon(size: 20, tooltipIconSize: 96),
+                  AccessibilityGuideIcon(
+                    size: 20,
+                    tooltipIconSize: 96,
+                    onPressed: () => _speakAppText(
+                      localizationKey: 'applicationSplashLanguageSwitch',
+                      localizedText: l10n.applicationSplashLanguageSwitch,
+                    ),
+                  ),
                   const SizedBox(width: 6),
                   Tooltip(
                     message: isArabic ? 'English' : 'Arabic',
@@ -186,6 +206,11 @@ class _SplashPageState extends ConsumerState<SplashPage> {
               right: mobileShortcutRight,
               child: _SplashMobileShortcut(
                 imageSize: languageIconSize,
+                label: l10n.applicationSplashMobileShortcut,
+                onSpeak: () => _speakAppText(
+                  localizationKey: 'applicationSplashMobileShortcut',
+                  localizedText: l10n.applicationSplashMobileShortcut,
+                ),
                 onTap: () {
                   Navigator.of(context).pushNamed(
                     Routes.generation2MobileLoginSelection,
@@ -213,8 +238,12 @@ class _SplashPageState extends ConsumerState<SplashPage> {
                   crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
                     _SplashPrimaryAction(
-                      label: 'صديقي العميل',
+                      label: l10n.applicationSplashClientFriend,
                       icon: Icons.flash_on_rounded,
+                      onSpeak: () => _speakAppText(
+                        localizationKey: 'applicationSplashClientFriend',
+                        localizedText: l10n.applicationSplashClientFriend,
+                      ),
                       onTap: () {
                         ResidentialSignalEmitter.emit(
                           signalCode: ResidentialSignalCode.quickAccessTap,
@@ -229,8 +258,13 @@ class _SplashPageState extends ConsumerState<SplashPage> {
                     ),
                     const SizedBox(height: 10),
                     _SplashPrimaryAction(
-                      label: '♿ صديقي المميز',
+                      label: l10n.applicationSplashAccessibilityFriend,
                       icon: Icons.accessibility_new_rounded,
+                      onSpeak: () => _speakAppText(
+                        localizationKey: 'applicationSplashAccessibilityFriend',
+                        localizedText:
+                            l10n.applicationSplashAccessibilityFriend,
+                      ),
                       onTap: () {
                         ResidentialSignalEmitter.emit(
                           signalCode:
@@ -246,8 +280,12 @@ class _SplashPageState extends ConsumerState<SplashPage> {
                     ),
                     const SizedBox(height: 10),
                     _SplashSecondaryAction(
-                      label: 'دخول الأخصائيين والمراكز',
+                      label: l10n.applicationSplashCommercialAccess,
                       icon: Icons.business_center_outlined,
+                      onSpeak: () => _speakAppText(
+                        localizationKey: 'applicationSplashCommercialAccess',
+                        localizedText: l10n.applicationSplashCommercialAccess,
+                      ),
                       onPressed: () {
                         ResidentialSignalEmitter.emit(
                           signalCode: ResidentialSignalCode.commercialAccessTap,
@@ -265,6 +303,10 @@ class _SplashPageState extends ConsumerState<SplashPage> {
                       label: l10n.applicationSplashOfficialWebsite,
                       icon: Icons.public_rounded,
                       publicWeb: true,
+                      onSpeak: () => _speakAppText(
+                        localizationKey: 'applicationSplashOfficialWebsite',
+                        localizedText: l10n.applicationSplashOfficialWebsite,
+                      ),
                       onPressed: _openOfficialWebsite,
                     ),
                   ],
@@ -301,11 +343,12 @@ class DaleelAssistant extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppSectionLocalizations.of(context);
     return Semantics(
       button: true,
-      label: 'دليلك',
+      label: l10n.applicationSplashDaleelTitle,
       child: Tooltip(
-        message: 'دليلك',
+        message: l10n.applicationSplashDaleelTitle,
         child: InkWell(
           borderRadius: BorderRadius.circular(999),
           onTap: () => _openDaleel(context),
@@ -325,18 +368,18 @@ class DaleelAssistant extends StatelessWidget {
                 ),
               ],
             ),
-            child: const Row(
+            child: Row(
               mainAxisSize: MainAxisSize.min,
               children: [
-                Icon(
+                const Icon(
                   Icons.explore_outlined,
                   color: Color(0xFFFFE8A3),
                   size: 18,
                 ),
-                SizedBox(width: 7),
+                const SizedBox(width: 7),
                 Text(
-                  'دليلك',
-                  style: TextStyle(
+                  l10n.applicationSplashDaleelTitle,
+                  style: const TextStyle(
                     color: Color(0xFFFFE8A3),
                     fontSize: 15,
                     fontWeight: FontWeight.w900,
@@ -421,7 +464,7 @@ class _DaleelHomeSheet extends StatelessWidget {
                     ),
                     SizedBox(width: 8),
                     Text(
-                      'دليلك',
+                      'Ø¯Ù„ÙŠÙ„Ùƒ',
                       style: TextStyle(
                         color: Color(0xFFFFE8A3),
                         fontSize: 22,
@@ -434,15 +477,15 @@ class _DaleelHomeSheet extends StatelessWidget {
                 const SizedBox(height: 16),
                 _DaleelChoiceButton(
                   icon: Icons.menu_book_outlined,
-                  title: 'دليل الصفحة',
-                  buttonLabel: 'فتح دليل الصفحة',
+                  title: 'Ø¯Ù„ÙŠÙ„ Ø§Ù„ØµÙØ­Ø©',
+                  buttonLabel: 'ÙØªØ­ Ø¯Ù„ÙŠÙ„ Ø§Ù„ØµÙØ­Ø©',
                   onPressed: () => _openGuide(context),
                 ),
                 const SizedBox(height: 12),
                 _DaleelChoiceButton(
                   icon: Icons.rate_review_outlined,
-                  title: 'رأيك يهمنا',
-                  buttonLabel: 'فتح الاستبيان',
+                  title: 'Ø±Ø£ÙŠÙƒ ÙŠÙ‡Ù…Ù†Ø§',
+                  buttonLabel: 'ÙØªØ­ Ø§Ù„Ø§Ø³ØªØ¨ÙŠØ§Ù†',
                   onPressed: () => _openSurvey(context),
                 ),
               ],
@@ -545,7 +588,7 @@ class _DaleelGuideDialog extends StatelessWidget {
                   children: [
                     const Expanded(
                       child: Text(
-                        'دليل الصفحة الترحيبية',
+                        'Ø¯Ù„ÙŠÙ„ Ø§Ù„ØµÙØ­Ø© Ø§Ù„ØªØ±Ø­ÙŠØ¨ÙŠØ©',
                         style: TextStyle(
                           color: Color(0xFFFFE8A3),
                           fontSize: 18,
@@ -580,7 +623,7 @@ class _DaleelGuideDialog extends StatelessWidget {
                           return Padding(
                             padding: const EdgeInsets.all(28),
                             child: Text(
-                              'لم يتم العثور على صورة الدليل في:\n$guideAssetPath',
+                              'Ù„Ù… ÙŠØªÙ… Ø§Ù„Ø¹Ø«ÙˆØ± Ø¹Ù„Ù‰ ØµÙˆØ±Ø© Ø§Ù„Ø¯Ù„ÙŠÙ„ ÙÙŠ:\n$guideAssetPath',
                               textAlign: TextAlign.center,
                               style: const TextStyle(
                                 color: Color(0xFFFFE8A3),
@@ -613,36 +656,60 @@ class _DaleelSurveySheet extends StatefulWidget {
 class _DaleelSurveySheetState extends State<_DaleelSurveySheet> {
   static const List<_DaleelSurveySectionData> _sections = [
     _DaleelSurveySectionData(
-      title: 'صديقي العميل',
-      questions: ['وضوح الاسم', 'شكل الزر', 'سرعة الاستجابة'],
-    ),
-    _DaleelSurveySectionData(
-      title: 'صديقي المميز',
-      questions: ['وضوح الاسم', 'شكل الزر', 'سرعة الاستجابة'],
-    ),
-    _DaleelSurveySectionData(
-      title: 'دخول الأخصائيين والمراكز',
-      questions: ['وضوح الاسم', 'شكل الزر', 'سرعة الاستجابة'],
-    ),
-    _DaleelSurveySectionData(
-      title: 'الموقع الرسمي',
-      questions: ['وضوح الاسم', 'شكل الزر', 'سرعة الاستجابة'],
-    ),
-    _DaleelSurveySectionData(
-      title: 'تغيير اللغة',
-      questions: ['وضوح الوظيفة', 'شكل الزر', 'سرعة الاستجابة'],
-    ),
-    _DaleelSurveySectionData(
-      title: 'العودة للنسخة المخصصة للموبايل',
-      questions: ['وضوح الوظيفة', 'شكل الزر', 'سرعة الاستجابة'],
-    ),
-    _DaleelSurveySectionData(
-      title: 'الشاشة بشكل عام',
+      title: 'ØµØ¯ÙŠÙ‚ÙŠ Ø§Ù„Ø¹Ù…ÙŠÙ„',
       questions: [
-        'الألوان والهوية',
-        'وضوح الصفحة',
-        'سهولة الاستخدام',
-        'سرعة الصفحة',
+        'ÙˆØ¶ÙˆØ­ Ø§Ù„Ø§Ø³Ù…',
+        'Ø´ÙƒÙ„ Ø§Ù„Ø²Ø±',
+        'Ø³Ø±Ø¹Ø© Ø§Ù„Ø§Ø³ØªØ¬Ø§Ø¨Ø©'
+      ],
+    ),
+    _DaleelSurveySectionData(
+      title: 'ØµØ¯ÙŠÙ‚ÙŠ Ø§Ù„Ù…Ù…ÙŠØ²',
+      questions: [
+        'ÙˆØ¶ÙˆØ­ Ø§Ù„Ø§Ø³Ù…',
+        'Ø´ÙƒÙ„ Ø§Ù„Ø²Ø±',
+        'Ø³Ø±Ø¹Ø© Ø§Ù„Ø§Ø³ØªØ¬Ø§Ø¨Ø©'
+      ],
+    ),
+    _DaleelSurveySectionData(
+      title: 'Ø¯Ø®ÙˆÙ„ Ø§Ù„Ø£Ø®ØµØ§Ø¦ÙŠÙŠÙ† ÙˆØ§Ù„Ù…Ø±Ø§ÙƒØ²',
+      questions: [
+        'ÙˆØ¶ÙˆØ­ Ø§Ù„Ø§Ø³Ù…',
+        'Ø´ÙƒÙ„ Ø§Ù„Ø²Ø±',
+        'Ø³Ø±Ø¹Ø© Ø§Ù„Ø§Ø³ØªØ¬Ø§Ø¨Ø©'
+      ],
+    ),
+    _DaleelSurveySectionData(
+      title: 'Ø§Ù„Ù…ÙˆÙ‚Ø¹ Ø§Ù„Ø±Ø³Ù…ÙŠ',
+      questions: [
+        'ÙˆØ¶ÙˆØ­ Ø§Ù„Ø§Ø³Ù…',
+        'Ø´ÙƒÙ„ Ø§Ù„Ø²Ø±',
+        'Ø³Ø±Ø¹Ø© Ø§Ù„Ø§Ø³ØªØ¬Ø§Ø¨Ø©'
+      ],
+    ),
+    _DaleelSurveySectionData(
+      title: 'ØªØºÙŠÙŠØ± Ø§Ù„Ù„ØºØ©',
+      questions: [
+        'ÙˆØ¶ÙˆØ­ Ø§Ù„ÙˆØ¸ÙŠÙØ©',
+        'Ø´ÙƒÙ„ Ø§Ù„Ø²Ø±',
+        'Ø³Ø±Ø¹Ø© Ø§Ù„Ø§Ø³ØªØ¬Ø§Ø¨Ø©'
+      ],
+    ),
+    _DaleelSurveySectionData(
+      title: 'Ø§Ù„Ø¹ÙˆØ¯Ø© Ù„Ù„Ù†Ø³Ø®Ø© Ø§Ù„Ù…Ø®ØµØµØ© Ù„Ù„Ù…ÙˆØ¨Ø§ÙŠÙ„',
+      questions: [
+        'ÙˆØ¶ÙˆØ­ Ø§Ù„ÙˆØ¸ÙŠÙØ©',
+        'Ø´ÙƒÙ„ Ø§Ù„Ø²Ø±',
+        'Ø³Ø±Ø¹Ø© Ø§Ù„Ø§Ø³ØªØ¬Ø§Ø¨Ø©'
+      ],
+    ),
+    _DaleelSurveySectionData(
+      title: 'Ø§Ù„Ø´Ø§Ø´Ø© Ø¨Ø´ÙƒÙ„ Ø¹Ø§Ù…',
+      questions: [
+        'Ø§Ù„Ø£Ù„ÙˆØ§Ù† ÙˆØ§Ù„Ù‡ÙˆÙŠØ©',
+        'ÙˆØ¶ÙˆØ­ Ø§Ù„ØµÙØ­Ø©',
+        'Ø³Ù‡ÙˆÙ„Ø© Ø§Ù„Ø§Ø³ØªØ®Ø¯Ø§Ù…',
+        'Ø³Ø±Ø¹Ø© Ø§Ù„ØµÙØ­Ø©',
       ],
     ),
   ];
@@ -664,7 +731,8 @@ class _DaleelSurveySheetState extends State<_DaleelSurveySheet> {
     );
     ScaffoldMessenger.of(context).showSnackBar(
       const SnackBar(
-        content: Text('تم تسجيل رأيك محليًا مؤقتًا.'),
+        content: Text(
+            'ØªÙ… Ø§Ø³ØªÙ‚Ø¨Ø§Ù„ Ø±Ø£ÙŠÙƒ Ø¯Ø§Ø®Ù„ Ù‡Ø°Ù‡ Ø§Ù„Ø¬Ù„Ø³Ø© ÙÙ‚Ø·.'),
       ),
     );
     Navigator.of(context).pop();
@@ -696,7 +764,7 @@ class _DaleelSurveySheetState extends State<_DaleelSurveySheet> {
                   children: [
                     const Expanded(
                       child: Text(
-                        'رأيك في الشاشة الترحيبية',
+                        'Ø±Ø£ÙŠÙƒ ÙÙŠ Ø§Ù„Ø´Ø§Ø´Ø© Ø§Ù„ØªØ±Ø­ÙŠØ¨ÙŠØ©',
                         style: TextStyle(
                           color: Color(0xFFFFE8A3),
                           fontSize: 20,
@@ -738,9 +806,9 @@ class _DaleelSurveySheetState extends State<_DaleelSurveySheet> {
                       textDirection: TextDirection.rtl,
                       style: const TextStyle(color: Color(0xFFFFE8A3)),
                       decoration: InputDecoration(
-                        labelText: 'اقتراحاتك تهمنا',
+                        labelText: 'Ø§Ù‚ØªØ±Ø§Ø­Ø§ØªÙƒ ØªÙ‡Ù…Ù†Ø§',
                         hintText:
-                            'اكتب أي ملاحظة أو اقتراح يساعدنا نطوّر الشاشة...',
+                            'Ø§ÙƒØªØ¨ Ø£ÙŠ Ù…Ù„Ø§Ø­Ø¸Ø© Ø£Ùˆ Ø§Ù‚ØªØ±Ø§Ø­ ÙŠØ³Ø§Ø¹Ø¯Ù†Ø§ Ù†Ø·ÙˆÙ‘Ø± Ø§Ù„Ø´Ø§Ø´Ø©...',
                         labelStyle: const TextStyle(color: Color(0xFFE0C174)),
                         hintStyle: TextStyle(
                           color:
@@ -766,7 +834,7 @@ class _DaleelSurveySheetState extends State<_DaleelSurveySheet> {
                     ElevatedButton.icon(
                       onPressed: _submitSurvey,
                       icon: const Icon(Icons.send_rounded),
-                      label: const Text('إرسال الرأي'),
+                      label: const Text('Ø¥Ø±Ø³Ø§Ù„ Ø§Ù„Ø±Ø£ÙŠ'),
                       style: ElevatedButton.styleFrom(
                         backgroundColor: const Color(0xFFE0C174),
                         foregroundColor: Colors.black,
@@ -861,7 +929,11 @@ class _DaleelSurveyQuestion extends StatelessWidget {
     required this.onChanged,
   });
 
-  static const List<String> _options = ['ممتاز', 'جيد', 'يحتاج تطوير'];
+  static const List<String> _options = [
+    'Ù…Ù…ØªØ§Ø²',
+    'Ø¬ÙŠØ¯',
+    'ÙŠØ­ØªØ§Ø¬ ØªØ·ÙˆÙŠØ±'
+  ];
 
   final String question;
   final String? value;
@@ -915,16 +987,18 @@ class _SplashPrimaryAction extends StatelessWidget {
   const _SplashPrimaryAction({
     required this.label,
     required this.icon,
+    required this.onSpeak,
     required this.onTap,
   });
 
   final String label;
   final IconData icon;
+  final VoidCallback onSpeak;
   final VoidCallback onTap;
 
   @override
   Widget build(BuildContext context) {
-    final l10n = AppLocalizations.of(context)!;
+    final l10n = SharedLocalizations.of(context);
 
     return Semantics(
       button: true,
@@ -982,7 +1056,11 @@ class _SplashPrimaryAction extends StatelessWidget {
                 ),
               ),
               const SizedBox(width: 8),
-              const AccessibilityGuideIcon(size: 18, tooltipIconSize: 96),
+              AccessibilityGuideIcon(
+                size: 18,
+                tooltipIconSize: 96,
+                onPressed: onSpeak,
+              ),
             ],
           ),
         ),
@@ -995,18 +1073,20 @@ class _SplashSecondaryAction extends StatelessWidget {
   const _SplashSecondaryAction({
     required this.label,
     required this.icon,
+    required this.onSpeak,
     required this.onPressed,
     this.publicWeb = false,
   });
 
   final String label;
   final IconData icon;
+  final VoidCallback onSpeak;
   final VoidCallback onPressed;
   final bool publicWeb;
 
   @override
   Widget build(BuildContext context) {
-    final l10n = AppLocalizations.of(context)!;
+    final l10n = SharedLocalizations.of(context);
 
     return Semantics(
       button: true,
@@ -1048,7 +1128,11 @@ class _SplashSecondaryAction extends StatelessWidget {
               ),
             ),
             const SizedBox(width: 8),
-            const AccessibilityGuideIcon(size: 17, tooltipIconSize: 96),
+            AccessibilityGuideIcon(
+              size: 17,
+              tooltipIconSize: 96,
+              onPressed: onSpeak,
+            ),
           ],
         ),
       ),
@@ -1059,17 +1143,21 @@ class _SplashSecondaryAction extends StatelessWidget {
 class _SplashMobileShortcut extends StatelessWidget {
   const _SplashMobileShortcut({
     required this.imageSize,
+    required this.label,
+    required this.onSpeak,
     required this.onTap,
   });
 
   final double imageSize;
+  final String label;
+  final VoidCallback onSpeak;
   final VoidCallback onTap;
 
   @override
   Widget build(BuildContext context) {
     return Semantics(
       button: true,
-      label: 'موبيل',
+      label: label,
       child: GestureDetector(
         behavior: HitTestBehavior.opaque,
         onTap: onTap,
@@ -1104,13 +1192,13 @@ class _SplashMobileShortcut extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 3),
-            const Row(
+            Row(
               mainAxisSize: MainAxisSize.min,
               children: [
                 Text(
-                  'موبيل',
+                  label,
                   textAlign: TextAlign.center,
-                  style: TextStyle(
+                  style: const TextStyle(
                     color: Color(0xFFFFE8A3),
                     fontSize: 14,
                     fontWeight: FontWeight.w900,
@@ -1124,8 +1212,12 @@ class _SplashMobileShortcut extends StatelessWidget {
                     ],
                   ),
                 ),
-                SizedBox(width: 5),
-                AccessibilityGuideIcon(size: 16, tooltipIconSize: 96),
+                const SizedBox(width: 5),
+                AccessibilityGuideIcon(
+                  size: 16,
+                  tooltipIconSize: 96,
+                  onPressed: onSpeak,
+                ),
               ],
             ),
           ],

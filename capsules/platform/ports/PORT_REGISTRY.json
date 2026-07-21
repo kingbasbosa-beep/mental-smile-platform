@@ -1,0 +1,20 @@
+{
+  "ports": [
+    {
+      "portId": "MS-PORT-PLATFORM-TEST-01",
+      "sectionId": "PLATFORM",
+      "mode": "TEST",
+      "activationState": "MANUAL_VERIFICATION_PENDING",
+      "public": false,
+      "default": false,
+      "activatesCapsules": false,
+      "productionReads": false,
+      "productionWrites": false,
+      "dynamicCodeLoading": false
+    }
+  ],
+  "counts": {
+    "ports": 1,
+    "activePorts": 0
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "capsuleId": "MS-CAPSULE-LIB-BLUEPRINT",
+  "assets": [
+    {"assetCode":"MS-LIB-ASSET-001","path":"assets/branding/shared/logo/logo_primary_dark.png","owner":"CENTRAL_IMPORTED_BRANDING_ASSET","consumers":["LibraryPage","KnowledgeCardsRollingCarousel"],"responsiveFamily":null,"registered":true,"required":true,"capsuleOwned":false,"centralImported":true,"canonicalLine":"MS-LINE-ASSET-01"},
+    {"assetCode":"MS-LIB-ASSET-002","path":"assets/branding/shared/navigation/back/back_left_gold.png","owner":"CENTRAL_IMPORTED_BRANDING_ASSET","consumers":["LibraryPage"],"responsiveFamily":null,"registered":true,"required":true,"capsuleOwned":false,"centralImported":true,"canonicalLine":"MS-LINE-ASSET-01"},
+    {"assetCode":"MS-LIB-ASSET-003","path":"assets/branding/shared/navigation/back/back_right_gold.png","owner":"CENTRAL_IMPORTED_BRANDING_ASSET","consumers":["LibraryPage"],"responsiveFamily":null,"registered":true,"required":true,"capsuleOwned":false,"centralImported":true,"canonicalLine":"MS-LINE-ASSET-01"},
+    {"assetCode":"MS-LIB-ASSET-004","path":"assets/branding/web/library/backgrounds/desktop/library_desktop_bg.png","owner":"CAPSULE_OWNED","consumers":["LibraryPage","LibraryProviderContentPages"],"responsiveFamily":"library_background_responsive_family","desktopVariant":"assets/branding/web/library/backgrounds/desktop/library_desktop_bg.png","tabletVariant":"assets/branding/web/library/backgrounds/tablet/library_tablet_bg.png","mobileVariant":"assets/branding/web/library/backgrounds/mobile/library_mobile_bg.png","registered":true,"required":true,"capsuleOwned":true,"centralImported":false,"canonicalLine":"MS-LINE-ASSET-01"},
+    {"assetCode":"MS-LIB-ASSET-005","path":"assets/branding/web/library/backgrounds/mobile/library_mobile_bg.png","owner":"CAPSULE_OWNED","consumers":["LibraryPage","LibraryProviderContentPages"],"responsiveFamily":"library_background_responsive_family","registered":true,"required":true,"capsuleOwned":true,"centralImported":false,"canonicalLine":"MS-LINE-ASSET-01"},
+    {"assetCode":"MS-LIB-ASSET-006","path":"assets/branding/web/library/backgrounds/tablet/library_tablet_bg.png","owner":"CAPSULE_OWNED","consumers":["LibraryPage","LibraryProviderContentPages"],"responsiveFamily":"library_background_responsive_family","registered":true,"required":true,"capsuleOwned":true,"centralImported":false,"canonicalLine":"MS-LINE-ASSET-01"},
+    {"assetCode":"MS-LIB-ASSET-007","path":"assets/c6_library/categories/cat_articles.png","owner":"CAPSULE_OWNED","consumers":["LibraryPage category articles"],"registered":true,"required":true,"capsuleOwned":true,"centralImported":false,"canonicalLine":"MS-LINE-ASSET-01"},
+    {"assetCode":"MS-LIB-ASSET-008","path":"assets/c6_library/categories/cat_audio.png","owner":"CAPSULE_OWNED","consumers":["LibraryPage category audio"],"registered":true,"required":true,"capsuleOwned":true,"centralImported":false,"canonicalLine":"MS-LINE-ASSET-01"},
+    {"assetCode":"MS-LIB-ASSET-009","path":"assets/c6_library/categories/cat_exercises.png","owner":"CAPSULE_OWNED","consumers":["LibraryPage category exercises"],"registered":true,"required":true,"capsuleOwned":true,"centralImported":false,"canonicalLine":"MS-LINE-ASSET-01"},
+    {"assetCode":"MS-LIB-ASSET-010","path":"assets/c6_library/categories/cat_saved.png","owner":"CAPSULE_OWNED","consumers":["LibraryPage category saved"],"registered":true,"required":true,"capsuleOwned":true,"centralImported":false,"canonicalLine":"MS-LINE-ASSET-01"},
+    {"assetCode":"MS-LIB-ASSET-011","path":"assets/c6_library/categories/cat_tools.png","owner":"CAPSULE_OWNED","consumers":["LibraryPage category tools"],"registered":true,"required":true,"capsuleOwned":true,"centralImported":false,"canonicalLine":"MS-LINE-ASSET-01"},
+    {"assetCode":"MS-LIB-ASSET-012","path":"assets/c6_library/categories/cat_videos.png","owner":"CAPSULE_OWNED","consumers":["LibraryPage category videos"],"registered":true,"required":true,"capsuleOwned":true,"centralImported":false,"canonicalLine":"MS-LINE-ASSET-01"},
+    {"assetCode":"MS-LIB-ASSET-013","path":"assets/images/library/know_your_right/cards/why_me_addicted_card.webp","owner":"EDITORIAL_RUNTIME_ASSET","consumers":["AssetKnowledgeCardRepository","KnowledgeCardsRollingCarousel"],"registered":true,"required":true,"capsuleOwned":true,"centralImported":false,"canonicalLine":"MS-LINE-ASSET-01"},
+    {"assetCode":"MS-LIB-ASSET-014","path":"assets/library/category_cards/know_your_right_background.png","owner":"CAPSULE_OWNED","consumers":["LibraryPage provider content card"],"registered":true,"required":true,"capsuleOwned":true,"centralImported":false,"canonicalLine":"MS-LINE-ASSET-01"},
+    {"assetCode":"MS-LIB-ASSET-015","path":"assets/library/category_cards/library_provider_centers_background.png","owner":"CAPSULE_OWNED","consumers":["LibraryPage provider centers card"],"registered":true,"required":true,"capsuleOwned":true,"centralImported":false,"canonicalLine":"MS-LINE-ASSET-01"},
+    {"assetCode":"MS-LIB-ASSET-016","path":"assets/library/category_cards/library_provider_specialists_background.png","owner":"CAPSULE_OWNED","consumers":["LibraryPage provider specialists card"],"registered":true,"required":true,"capsuleOwned":true,"centralImported":false,"canonicalLine":"MS-LINE-ASSET-01"},
+    {"assetCode":"MS-LIB-ASSET-017..032","path":"assets/commercial/*_category_cards/*.png","owner":"CENTRAL_IMPORTED_PROVIDER_CATEGORY_ASSET","consumers":["ProviderProfileCategoryRegistry -> LibraryProviderContentPages"],"registered":true,"required":true,"capsuleOwned":false,"centralImported":true,"canonicalLine":"MS-LINE-ASSET-01","expandedCount":16}
+  ],
+  "contentAssetRoots": [
+    "assets/content/library/know_your_right",
+    "assets/images/library/know_your_right/cards"
+  ],
+  "counts": {
+    "assets": 32,
+    "responsiveAssetFamilies": 1,
+    "missingActiveReferences": 0
+  }
+}

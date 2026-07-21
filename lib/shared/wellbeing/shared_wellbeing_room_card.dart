@@ -10,7 +10,7 @@ class SharedWellbeingRoomCard extends StatelessWidget {
   });
 
   static const String _checkinCardIcon =
-      'assets/branding/rooms/accessibility_room/cards/accessibility_checkin_card_icon.png';
+      'assets/platform/wellbeing/accessibility_checkin_card_icon.png';
 
   final bool isCompact;
   final String routeName;

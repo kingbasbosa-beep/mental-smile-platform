@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mental_smile_os/app/router/routes.dart';
+import 'package:mental_smile_os/shared/links/safe_external_link_launcher.dart';
 import 'package:mental_smile_os/shared/ui_kit/app_design_system.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 class AppExitSocialLinksPage extends StatelessWidget {
   const AppExitSocialLinksPage({super.key});
@@ -89,20 +89,7 @@ class AppExitSocialLinksPage extends StatelessWidget {
     BuildContext context,
     _OfficialChannel channel,
   ) async {
-    final isArabic = _isArabic(context);
-    final uri = Uri.parse(channel.url);
-    final opened = await launchUrl(uri, mode: LaunchMode.externalApplication);
-    if (!opened && context.mounted) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          content: Text(
-            isArabic
-                ? 'تعذر فتح الرابط الآن.'
-                : 'Could not open this link right now.',
-          ),
-        ),
-      );
-    }
+    await SafeExternalLinkLauncher.open(context, channel.url);
   }
 
   @override

@@ -4,19 +4,11 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:mental_smile_os/core/auth/account_access_service.dart';
 import 'package:mental_smile_os/core/auth/presentation/pages/account_blocked_page.dart';
 import 'package:mental_smile_os/core/visibility/visibility_readiness.dart';
-import 'package:mental_smile_os/l10n/app_localizations.dart';
+import 'package:mental_smile_os/l10n/app/app_section_localizations.dart';
 
 import 'routes.dart';
-import 'package:mental_smile_os/features/s_capital/presentation/pages/s_capital_operations_office_page.dart';
-import 'package:mental_smile_os/features/s_capital/presentation/pages/s_signal_monitoring_room_page.dart';
-import 'package:mental_smile_os/features/s_owner/presentation/pages/owner_operational_branch_rooms.dart';
-import 'package:mental_smile_os/features/s_web_surfaces/presentation/pages/s_web_surface_pages.dart';
-import 'package:mental_smile_os/features/s_support_room/presentation/pages/s_support_room_page.dart';
-import 'package:mental_smile_os/features/s_registry_room/presentation/pages/s_registry_room_page.dart';
-import 'package:mental_smile_os/features/s_declaration_review_room/presentation/pages/s_declaration_review_room_page.dart';
 
 import 'package:mental_smile_os/features/library/presentation/pages/library_page.dart';
-import 'package:mental_smile_os/features/library/presentation/pages/official_platform_links_page.dart';
 import 'package:mental_smile_os/features/library/presentation/pages/library_provider_content_pages.dart';
 import 'package:mental_smile_os/features/library/knowledge_cards/data/knowledge_card_repository.dart';
 import 'package:mental_smile_os/features/library/knowledge_cards/domain/models/knowledge_card.dart';
@@ -29,8 +21,6 @@ import 'package:mental_smile_os/features/generation2_mobile_entry/presentation/p
 import 'package:mental_smile_os/features/generation2_mobile_entry/presentation/pages/generation2_mobile_login_selection_page.dart';
 import 'package:mental_smile_os/features/generation2_mobile_entry/presentation/pages/generation2_splash_page.dart';
 import 'package:mental_smile_os/features/splash/presentation/pages/splash_page.dart';
-import 'package:mental_smile_os/features/modules/presentation/pages/support_entry_page.dart';
-import 'package:mental_smile_os/features/modules/presentation/pages/support_issue_selector_page.dart';
 import 'package:mental_smile_os/features/app_exit/presentation/pages/app_exit_social_links_page.dart';
 import 'package:mental_smile_os/features/residential/presentation/pages/residential_exit_social_portal_page.dart';
 import 'package:mental_smile_os/features/accessibility/presentation/pages/accessibility_checkin_page.dart';
@@ -40,21 +30,6 @@ import 'package:mental_smile_os/features/accessibility/presentation/pages/access
 import 'package:mental_smile_os/features/accessibility/presentation/pages/accessibility_suggestions_page.dart';
 import 'package:mental_smile_os/features/accessibility/presentation/pages/accessibility_tools_page.dart';
 import 'package:mental_smile_os/features/accessibility/presentation/pages/accessibility_room_page.dart';
-import 'package:mental_smile_os/features/block_1_archive_operations/presentation/pages/block_1_archive_dashboard_page.dart';
-import 'package:mental_smile_os/features/block_1_archive_operations/presentation/pages/block_1_operations_dashboard_page.dart';
-import 'package:mental_smile_os/features/block_2_guides_constitutions/presentation/pages/block_2_constitutions_dashboard_page.dart';
-import 'package:mental_smile_os/features/block_2_guides_constitutions/presentation/pages/block_2_governance_dashboard_page.dart';
-import 'package:mental_smile_os/features/block_2_guides_constitutions/presentation/pages/block_2_guides_dashboard_page.dart';
-import 'package:mental_smile_os/features/block_3_card_kernel/presentation/pages/block_3_card_compliance_dashboard_page.dart';
-import 'package:mental_smile_os/features/block_3_card_kernel/presentation/pages/block_3_card_kernel_dashboard_page.dart';
-import 'package:mental_smile_os/features/block_3_card_kernel/presentation/pages/block_3_card_registries_dashboard_page.dart';
-import 'package:mental_smile_os/features/block_3_card_kernel/presentation/pages/block_3_card_relations_dashboard_page.dart';
-import 'package:mental_smile_os/features/block_4_reports_snapshots/presentation/pages/block_4_reports_snapshots_pages.dart';
-import 'package:mental_smile_os/features/block_5_prompt_ai_memory/presentation/pages/block_5_prompt_ai_memory_pages.dart';
-import 'package:mental_smile_os/features/block_6_dna_capsules/presentation/pages/block_6_dna_capsules_pages.dart';
-import 'package:mental_smile_os/features/block_7_publish_readiness/presentation/pages/block_7_publish_readiness_pages.dart';
-import 'package:mental_smile_os/features/commercial/presentation/pages/admin_login_page.dart';
-import 'package:mental_smile_os/features/commercial/presentation/pages/admin_room_page.dart';
 import 'package:mental_smile_os/features/commercial/presentation/pages/center_login_page.dart';
 import 'package:mental_smile_os/features/commercial/presentation/pages/center_professional_library_page.dart';
 import 'package:mental_smile_os/features/commercial/presentation/pages/center_professional_profile_clean_layout_page.dart';
@@ -68,122 +43,15 @@ import 'package:mental_smile_os/features/commercial/presentation/pages/specialis
 import 'package:mental_smile_os/features/commercial/presentation/pages/specialist_professional_profile_clean_layout_page.dart';
 import 'package:mental_smile_os/features/commercial/presentation/pages/specialist_login_page.dart';
 import 'package:mental_smile_os/features/commercial_v2_web/presentation/pages/commercial_v2_web_showcase_page.dart';
-import 'package:mental_smile_os/features/presentation_gallery/presentation/pages/presentation_gallery_page.dart';
-import 'package:mental_smile_os/features/decision_intelligence_engine/presentation/pages/decision_intelligence_pages.dart';
-import 'package:mental_smile_os/features/governance_operations_ecosystem/presentation/pages/governance_operations_pages.dart';
-import 'package:mental_smile_os/features/intelligence_engine_foundation/presentation/pages/intelligence_engine_foundation_pages.dart';
-import 'package:mental_smile_os/features/intelligence_orchestration_engine/presentation/pages/intelligence_orchestration_pages.dart';
-import 'package:mental_smile_os/features/workshop_foundation/presentation/pages/workshop_foundation_pages.dart';
 import 'package:mental_smile_os/features/client/presentation/pages/client_room_page.dart';
+import 'package:mental_smile_os/shared/capsule_runtime/commercial_test_port.dart';
+import 'package:mental_smile_os/shared/capsule_runtime/library_test_port.dart';
+import 'package:mental_smile_os/shared/capsule_runtime/residential_test_port.dart';
 
-const String _roleOwner = 'owner';
-const String _roleMonitoringOperator = 'monitoring_operator';
-const String _roleRegistrySteward = 'registry_steward';
-const String _roleDeclarationReviewer = 'declaration_reviewer';
-const String _roleSupportObserver = 'support_observer';
 const String _roleClinician = 'clinician';
 const String _roleCenter = 'center';
 
 class AppRouter {
-  static const Set<String> _ownerOnlyRoutes = {
-    Routes.sSovereignIntelligence,
-    Routes.ownerArchiveRoom,
-    Routes.ownerMarketingMediaRoom,
-    Routes.technicalMaintenanceRoom,
-    Routes.accountingRoom,
-    Routes.legalRoom,
-    Routes.commercialAdminRoom,
-    Routes.commercialAdminArchive,
-    Routes.commercialAdminOperations,
-    Routes.commercialAdminGuides,
-    Routes.commercialAdminConstitutions,
-    Routes.commercialAdminGovernance,
-    Routes.commercialAdminCards,
-    Routes.commercialAdminCardRegistries,
-    Routes.commercialAdminCardRelations,
-    Routes.commercialAdminCardCompliance,
-    Routes.commercialAdminReports,
-    Routes.commercialAdminSnapshots,
-    Routes.commercialAdminReportHealth,
-    Routes.commercialAdminTimeline,
-    Routes.commercialAdminPrompts,
-    Routes.commercialAdminPromptPacks,
-    Routes.commercialAdminAiMemory,
-    Routes.commercialAdminPromptHealth,
-    Routes.commercialAdminDna,
-    Routes.commercialAdminCapsules,
-    Routes.commercialAdminEvolution,
-    Routes.commercialAdminRestoreReadiness,
-    Routes.commercialAdminPublishReadiness,
-    Routes.commercialAdminSelfEvolution,
-    Routes.commercialAdminOsHealth,
-    Routes.commercialAdminFinalGates,
-    Routes.commercialAdminWorkshop,
-    Routes.commercialAdminWorkshopAiTeam,
-    Routes.commercialAdminWorkshopTools,
-    Routes.commercialAdminWorkshopPresence,
-    Routes.commercialAdminWorkshopAccounts,
-    Routes.commercialAdminWorkshopPrompts,
-    Routes.commercialAdminWorkshopLibrary,
-    Routes.commercialAdminWorkshopWorkstation,
-    Routes.commercialAdminWorkshopAssets,
-    Routes.commercialAdminWorkshopOwner,
-    Routes.commercialAdminWorkshopGenerationTwo,
-    Routes.commercialAdminWorkshopIntelligence,
-    Routes.commercialAdminWorkshopIntelligenceRuntime,
-    Routes.commercialAdminWorkshopIntelligenceSessions,
-    Routes.commercialAdminWorkshopIntelligenceContext,
-    Routes.commercialAdminWorkshopIntelligenceMemory,
-    Routes.commercialAdminWorkshopIntelligenceKnowledge,
-    Routes.commercialAdminWorkshopIntelligencePrompts,
-    Routes.commercialAdminWorkshopIntelligenceCapabilities,
-    Routes.commercialAdminWorkshopIntelligenceLogs,
-    Routes.commercialAdminWorkshopOrchestration,
-    Routes.commercialAdminWorkshopOrchestrationTasks,
-    Routes.commercialAdminWorkshopOrchestrationWorkflows,
-    Routes.commercialAdminWorkshopOrchestrationMatching,
-    Routes.commercialAdminWorkshopOrchestrationDependencies,
-    Routes.commercialAdminWorkshopOrchestrationQueues,
-    Routes.commercialAdminWorkshopOrchestrationReviews,
-    Routes.commercialAdminWorkshopOrchestrationTimeline,
-    Routes.commercialAdminWorkshopOrchestrationWorkspace,
-    Routes.commercialAdminWorkshopOrchestrationObservability,
-    Routes.commercialAdminWorkshopDecisions,
-    Routes.commercialAdminWorkshopDecisionEngine,
-    Routes.commercialAdminWorkshopDecisionRules,
-    Routes.commercialAdminWorkshopDecisionPolicies,
-    Routes.commercialAdminWorkshopDecisionApprovals,
-    Routes.commercialAdminWorkshopDecisionRisks,
-    Routes.commercialAdminWorkshopDecisionRecommendations,
-    Routes.commercialAdminWorkshopDecisionEscalations,
-    Routes.commercialAdminWorkshopDecisionAnalytics,
-    Routes.commercialAdminWorkshopGovernanceOps,
-    Routes.commercialAdminWorkshopGovernancePlaybooks,
-    Routes.commercialAdminWorkshopDocumentGovernance,
-    Routes.commercialAdminWorkshopCorporateVault,
-  };
-
-  static const Set<String> _monitoringOperatorRoutes = {
-    Routes.sSignalMonitoringRoom,
-    Routes.sCapitalReports,
-  };
-
-  static const Set<String> _supportObserverRoutes = {
-    Routes.sTrustSafety,
-  };
-
-  static const Set<String> _ownerAndSupportObserverRoutes = {
-    Routes.sSupportRoom,
-  };
-
-  static const Set<String> _ownerAndRegistryStewardRoutes = {
-    Routes.sRegistryRoom,
-  };
-
-  static const Set<String> _ownerAndDeclarationReviewerRoutes = {
-    Routes.sDeclarationReviewRoom,
-  };
-
   static const Set<String> _clinicianRoutes = {
     Routes.commercialRoom,
     Routes.commercialSpecialistProfessionalProfile,
@@ -202,21 +70,7 @@ class AppRouter {
     Routes.commercialAssistiveTools,
   };
 
-  static bool _isScopedProtectedRoute(String? routeName) {
-    if (routeName == null) return false;
-    return _ownerOnlyRoutes.contains(routeName) ||
-        _monitoringOperatorRoutes.contains(routeName) ||
-        _supportObserverRoutes.contains(routeName) ||
-        _ownerAndSupportObserverRoutes.contains(routeName) ||
-        _ownerAndRegistryStewardRoutes.contains(routeName) ||
-        _ownerAndDeclarationReviewerRoutes.contains(routeName);
-  }
-
   static bool _requiresSignedInNonAnonymous(RouteSettings settings) {
-    if (_isScopedProtectedRoute(settings.name)) {
-      return true;
-    }
-
     switch (settings.name) {
       case Routes.blockedAccount:
         return true;
@@ -227,22 +81,6 @@ class AppRouter {
 
   static Set<String>? _requiredRoles(String? routeName) {
     if (routeName == null) return null;
-    if (_ownerOnlyRoutes.contains(routeName)) return {_roleOwner};
-    if (_monitoringOperatorRoutes.contains(routeName)) {
-      return {_roleMonitoringOperator};
-    }
-    if (_supportObserverRoutes.contains(routeName)) {
-      return {_roleSupportObserver};
-    }
-    if (_ownerAndSupportObserverRoutes.contains(routeName)) {
-      return {_roleOwner, _roleSupportObserver};
-    }
-    if (_ownerAndRegistryStewardRoutes.contains(routeName)) {
-      return {_roleOwner, _roleRegistrySteward};
-    }
-    if (_ownerAndDeclarationReviewerRoutes.contains(routeName)) {
-      return {_roleOwner, _roleDeclarationReviewer};
-    }
     if (_clinicianRoutes.contains(routeName)) return {_roleClinician};
     if (_centerRoutes.contains(routeName)) return {_roleCenter};
     if (_clinicianAndCenterRoutes.contains(routeName)) {
@@ -306,48 +144,6 @@ class AppRouter {
     );
   }
 
-  static Route<dynamic> _scopedProtectedRoute({
-    required Widget child,
-    required RouteSettings settings,
-  }) {
-    return MaterialPageRoute(
-      builder: (_) => _RouteAccessGate(
-        routeName: settings.name,
-        allowedRoles: _requiredRoles(settings.name) ?? const {_roleOwner},
-        child: child,
-      ),
-      settings: settings,
-    );
-  }
-
-  static Route<dynamic> _sWebSurfaceRoute({
-    required RouteSettings settings,
-    required String surfaceName,
-    required String surfaceType,
-    required String description,
-    required List<String> items,
-  }) {
-    final page = SWebSurfacePage(
-      surfaceName: surfaceName,
-      surfaceType: surfaceType,
-      routeName: settings.name ?? '',
-      description: description,
-      items: items,
-    );
-    return MaterialPageRoute(
-      builder: (_) {
-        final allowedRoles = _requiredRoles(settings.name);
-        if (allowedRoles == null) return page;
-        return _RouteAccessGate(
-          routeName: settings.name,
-          allowedRoles: allowedRoles,
-          child: page,
-        );
-      },
-      settings: settings,
-    );
-  }
-
   static Route<dynamic> onGenerateRoute(RouteSettings settings) {
     final currentUser = FirebaseAuth.instance.currentUser;
 
@@ -364,154 +160,12 @@ class AppRouter {
     }
 
     switch (settings.name) {
-      case Routes.sIndex:
-        return MaterialPageRoute(
-          builder: (_) => const SSurfaceIndexPage(),
-          settings: settings,
-        );
-
-      case Routes.sSupportRoom:
-        return _scopedProtectedRoute(
-          child: const SSupportRoomPage(),
-          settings: settings,
-        );
-
-      case Routes.sRegistryRoom:
-        return _scopedProtectedRoute(
-          child: const SRegistryRoomPage(),
-          settings: settings,
-        );
-
-      case Routes.sDeclarationReviewRoom:
-        return _scopedProtectedRoute(
-          child: const SDeclarationReviewRoomPage(),
-          settings: settings,
-        );
-
-      case Routes.sCapitalHome:
-        return MaterialPageRoute(
-          builder: (_) => const SCapitalOperationsOfficePage(),
-          settings: settings,
-        );
-
-      case Routes.sCapitalOperationsOffice:
-        return MaterialPageRoute(
-          builder: (_) => const SCapitalOperationsOfficePage(
-            focus: SCapitalOfficeFocus.operationsOffice,
-          ),
-          settings: settings,
-        );
-
-      case Routes.sSignalMonitoringRoom:
-        return _protectedRoute(
-          child: const SSignalMonitoringRoomPage(),
-          settings: settings,
-        );
-
-      case Routes.sCapitalDepartments:
-        return _sWebSurfaceRoute(
-          settings: settings,
-          surfaceName: 'Departments',
-          surfaceType: 'Federation Capital Web [S]',
-          description:
-              'Future department operating surface for non-sovereign execution units.',
-          items: const <String>[
-            'Marketing Studio',
-            'Technical Studio',
-            'Education Services',
-            'Provider Operations',
-            'Center Operations',
-            'Partnership Office',
-          ],
-        );
-
-      case Routes.sTrustSafety:
-        return _sWebSurfaceRoute(
-          settings: settings,
-          surfaceName: 'Trust & Safety',
-          surfaceType: 'Federation Capital Web [S]',
-          description:
-              'Future trust, safety, complaints, and escalation signal surface.',
-          items: const <String>[
-            'Safety Signals',
-            'Complaint Patterns',
-            'Escalation Visibility',
-            'Policy References',
-          ],
-        );
-
-      case Routes.sCapitalReports:
-        return _sWebSurfaceRoute(
-          settings: settings,
-          surfaceName: 'Reports',
-          surfaceType: 'Federation Capital Web [S]',
-          description:
-              'Future reporting surface for department, signal, content, and operational reports.',
-          items: const <String>[
-            'Signal Reports',
-            'Department Reports',
-            'Content Reports',
-            'Support Reports',
-          ],
-        );
-
-      case Routes.sSovereignIntelligence:
-        return _sWebSurfaceRoute(
-          settings: settings,
-          surfaceName: 'Strategic Intelligence',
-          surfaceType: 'Owner Operational Intelligence',
-          description:
-              'Strategic intelligence destination for the active visual Owner Operational Room.',
-          items: const <String>[
-            'Strategic summaries',
-            'Risk visibility',
-            'Opportunity visibility',
-            'Owner review material',
-          ],
-        );
-
-      case Routes.ownerArchiveRoom:
-        return _protectedRoute(
-          child: const ArchiveRoomPage(),
-          settings: settings,
-        );
-
-      case Routes.ownerMarketingMediaRoom:
-        return _protectedRoute(
-          child: const MarketingMediaRoomPage(),
-          settings: settings,
-        );
-
-      case Routes.technicalMaintenanceRoom:
-        return _protectedRoute(
-          child: const TechnicalMaintenanceRoomPage(),
-          settings: settings,
-        );
-
-      case Routes.accountingRoom:
-        return _protectedRoute(
-          child: const AccountingRoomPage(),
-          settings: settings,
-        );
-
-      case Routes.legalRoom:
-        return _protectedRoute(
-          child: const LegalRoomPage(),
-          settings: settings,
-        );
-
       case Routes.webLibrary:
         return MaterialPageRoute(
           builder: (_) => LibraryPage(
             initialCategoryKey: _libraryCategoryKey(settings),
             returnRoute: _libraryReturnRoute(settings),
           ),
-          settings: settings,
-        );
-
-      case Routes.officialPlatformLinks:
-        return MaterialPageRoute(
-          builder: (_) => const OfficialPlatformLinksPage(),
           settings: settings,
         );
 
@@ -607,12 +261,6 @@ class AppRouter {
           settings: settings,
         );
 
-      case Routes.commercialAdminLogin:
-        return MaterialPageRoute(
-          builder: (_) => const AdminLoginPage(),
-          settings: settings,
-        );
-
       case Routes.commercialRoom:
         return _protectedRoute(
           child: const CommercialRoomPage(),
@@ -661,420 +309,6 @@ class AppRouter {
           settings: settings,
         );
 
-      case Routes.commercialAdminRoom:
-        return _protectedRoute(
-          child: const AdminRoomPage(),
-          settings: settings,
-        );
-
-      case Routes.commercialAdminArchive:
-        return _protectedRoute(
-          child: const Block1ArchiveDashboardPage(),
-          settings: settings,
-        );
-
-      case Routes.commercialAdminOperations:
-        return _protectedRoute(
-          child: const Block1OperationsDashboardPage(),
-          settings: settings,
-        );
-
-      case Routes.commercialAdminGuides:
-        return _protectedRoute(
-          child: const Block2GuidesDashboardPage(),
-          settings: settings,
-        );
-
-      case Routes.commercialAdminConstitutions:
-        return _protectedRoute(
-          child: const Block2ConstitutionsDashboardPage(),
-          settings: settings,
-        );
-
-      case Routes.commercialAdminGovernance:
-        return _protectedRoute(
-          child: const Block2GovernanceDashboardPage(),
-          settings: settings,
-        );
-
-      case Routes.commercialAdminCards:
-        return _protectedRoute(
-          child: const Block3CardKernelDashboardPage(),
-          settings: settings,
-        );
-
-      case Routes.commercialAdminCardRegistries:
-        return _protectedRoute(
-          child: const Block3CardRegistriesDashboardPage(),
-          settings: settings,
-        );
-
-      case Routes.commercialAdminCardRelations:
-        return _protectedRoute(
-          child: const Block3CardRelationsDashboardPage(),
-          settings: settings,
-        );
-
-      case Routes.commercialAdminCardCompliance:
-        return _protectedRoute(
-          child: const Block3CardComplianceDashboardPage(),
-          settings: settings,
-        );
-
-      case Routes.commercialAdminReports:
-        return _protectedRoute(
-          child: const Block4ReportsDashboardPage(),
-          settings: settings,
-        );
-
-      case Routes.commercialAdminSnapshots:
-        return _protectedRoute(
-          child: const Block4SnapshotsDashboardPage(),
-          settings: settings,
-        );
-
-      case Routes.commercialAdminReportHealth:
-        return _protectedRoute(
-          child: const Block4ReportHealthDashboardPage(),
-          settings: settings,
-        );
-
-      case Routes.commercialAdminTimeline:
-        return _protectedRoute(
-          child: const Block4TimelineDashboardPage(),
-          settings: settings,
-        );
-
-      case Routes.commercialAdminPrompts:
-        return _protectedRoute(
-          child: const Block5PromptsDashboardPage(),
-          settings: settings,
-        );
-
-      case Routes.commercialAdminPromptPacks:
-        return _protectedRoute(
-          child: const Block5PromptPacksDashboardPage(),
-          settings: settings,
-        );
-
-      case Routes.commercialAdminAiMemory:
-        return _protectedRoute(
-          child: const Block5AiMemoryDashboardPage(),
-          settings: settings,
-        );
-
-      case Routes.commercialAdminPromptHealth:
-        return _protectedRoute(
-          child: const Block5PromptHealthDashboardPage(),
-          settings: settings,
-        );
-
-      case Routes.commercialAdminDna:
-        return _protectedRoute(
-          child: const Block6DnaDashboardPage(),
-          settings: settings,
-        );
-
-      case Routes.commercialAdminCapsules:
-        return _protectedRoute(
-          child: const Block6CapsulesDashboardPage(),
-          settings: settings,
-        );
-
-      case Routes.commercialAdminEvolution:
-        return _protectedRoute(
-          child: const Block6EvolutionDashboardPage(),
-          settings: settings,
-        );
-
-      case Routes.commercialAdminRestoreReadiness:
-        return _protectedRoute(
-          child: const Block6RestoreReadinessDashboardPage(),
-          settings: settings,
-        );
-
-      case Routes.commercialAdminPublishReadiness:
-        return _protectedRoute(
-          child: const Block7PublishReadinessDashboardPage(),
-          settings: settings,
-        );
-
-      case Routes.commercialAdminSelfEvolution:
-        return _protectedRoute(
-          child: const Block7SelfEvolutionDashboardPage(),
-          settings: settings,
-        );
-
-      case Routes.commercialAdminOsHealth:
-        return _protectedRoute(
-          child: const Block7OsHealthDashboardPage(),
-          settings: settings,
-        );
-
-      case Routes.commercialAdminFinalGates:
-        return _protectedRoute(
-          child: const Block7FinalGatesDashboardPage(),
-          settings: settings,
-        );
-
-      case Routes.commercialAdminWorkshop:
-        return _protectedRoute(
-          child: const WorkshopOverviewPage(),
-          settings: settings,
-        );
-
-      case Routes.commercialAdminWorkshopAiTeam:
-        return _protectedRoute(
-          child: const WorkshopAiTeamPage(),
-          settings: settings,
-        );
-
-      case Routes.commercialAdminWorkshopTools:
-        return _protectedRoute(
-          child: const WorkshopToolsPage(),
-          settings: settings,
-        );
-
-      case Routes.commercialAdminWorkshopPresence:
-        return _protectedRoute(
-          child: const WorkshopPresencePage(),
-          settings: settings,
-        );
-
-      case Routes.commercialAdminWorkshopAccounts:
-        return _protectedRoute(
-          child: const WorkshopAccountsPage(),
-          settings: settings,
-        );
-
-      case Routes.commercialAdminWorkshopPrompts:
-        return _protectedRoute(
-          child: const WorkshopPromptsPage(),
-          settings: settings,
-        );
-
-      case Routes.commercialAdminWorkshopLibrary:
-        return _protectedRoute(
-          child: const WorkshopLibraryPage(),
-          settings: settings,
-        );
-
-      case Routes.commercialAdminWorkshopWorkstation:
-        return _protectedRoute(
-          child: const WorkshopWorkstationPage(),
-          settings: settings,
-        );
-
-      case Routes.commercialAdminWorkshopAssets:
-        return _protectedRoute(
-          child: const WorkshopAssetsPage(),
-          settings: settings,
-        );
-
-      case Routes.commercialAdminWorkshopOwner:
-        return _protectedRoute(
-          child: const WorkshopOwnerDeskPage(),
-          settings: settings,
-        );
-
-      case Routes.commercialAdminWorkshopGenerationTwo:
-        return _protectedRoute(
-          child: const WorkshopGenerationTwoPage(),
-          settings: settings,
-        );
-
-      case Routes.commercialAdminWorkshopIntelligence:
-        return _protectedRoute(
-          child: const IntelligenceEngineDashboardPage(),
-          settings: settings,
-        );
-
-      case Routes.commercialAdminWorkshopIntelligenceRuntime:
-        return _protectedRoute(
-          child: const IntelligenceRuntimePage(),
-          settings: settings,
-        );
-
-      case Routes.commercialAdminWorkshopIntelligenceSessions:
-        return _protectedRoute(
-          child: const IntelligenceSessionsPage(),
-          settings: settings,
-        );
-
-      case Routes.commercialAdminWorkshopIntelligenceContext:
-        return _protectedRoute(
-          child: const IntelligenceContextPage(),
-          settings: settings,
-        );
-
-      case Routes.commercialAdminWorkshopIntelligenceMemory:
-        return _protectedRoute(
-          child: const IntelligenceMemoryPage(),
-          settings: settings,
-        );
-
-      case Routes.commercialAdminWorkshopIntelligenceKnowledge:
-        return _protectedRoute(
-          child: const IntelligenceKnowledgePage(),
-          settings: settings,
-        );
-
-      case Routes.commercialAdminWorkshopIntelligencePrompts:
-        return _protectedRoute(
-          child: const IntelligencePromptsPage(),
-          settings: settings,
-        );
-
-      case Routes.commercialAdminWorkshopIntelligenceCapabilities:
-        return _protectedRoute(
-          child: const IntelligenceCapabilitiesPage(),
-          settings: settings,
-        );
-
-      case Routes.commercialAdminWorkshopIntelligenceLogs:
-        return _protectedRoute(
-          child: const IntelligenceLogsPage(),
-          settings: settings,
-        );
-
-      case Routes.commercialAdminWorkshopOrchestration:
-        return _protectedRoute(
-          child: const IntelligenceOrchestrationDashboardPage(),
-          settings: settings,
-        );
-
-      case Routes.commercialAdminWorkshopOrchestrationTasks:
-        return _protectedRoute(
-          child: const OrchestrationTaskEnginePage(),
-          settings: settings,
-        );
-
-      case Routes.commercialAdminWorkshopOrchestrationWorkflows:
-        return _protectedRoute(
-          child: const OrchestrationWorkflowEnginePage(),
-          settings: settings,
-        );
-
-      case Routes.commercialAdminWorkshopOrchestrationMatching:
-        return _protectedRoute(
-          child: const OrchestrationCapabilityMatchingPage(),
-          settings: settings,
-        );
-
-      case Routes.commercialAdminWorkshopOrchestrationDependencies:
-        return _protectedRoute(
-          child: const OrchestrationDependencyEnginePage(),
-          settings: settings,
-        );
-
-      case Routes.commercialAdminWorkshopOrchestrationQueues:
-        return _protectedRoute(
-          child: const OrchestrationQueueManagerPage(),
-          settings: settings,
-        );
-
-      case Routes.commercialAdminWorkshopOrchestrationReviews:
-        return _protectedRoute(
-          child: const OrchestrationReviewEnginePage(),
-          settings: settings,
-        );
-
-      case Routes.commercialAdminWorkshopOrchestrationTimeline:
-        return _protectedRoute(
-          child: const OrchestrationTimelinePage(),
-          settings: settings,
-        );
-
-      case Routes.commercialAdminWorkshopOrchestrationWorkspace:
-        return _protectedRoute(
-          child: const OrchestrationWorkspacePage(),
-          settings: settings,
-        );
-
-      case Routes.commercialAdminWorkshopOrchestrationObservability:
-        return _protectedRoute(
-          child: const OrchestrationObservabilityPage(),
-          settings: settings,
-        );
-
-      case Routes.commercialAdminWorkshopDecisions:
-        return _protectedRoute(
-          child: const DecisionIntelligenceDashboardPage(),
-          settings: settings,
-        );
-
-      case Routes.commercialAdminWorkshopDecisionEngine:
-        return _protectedRoute(
-          child: const DecisionEnginePage(),
-          settings: settings,
-        );
-
-      case Routes.commercialAdminWorkshopDecisionRules:
-        return _protectedRoute(
-          child: const ConstitutionalRuleEnginePage(),
-          settings: settings,
-        );
-
-      case Routes.commercialAdminWorkshopDecisionPolicies:
-        return _protectedRoute(
-          child: const PolicyEnginePage(),
-          settings: settings,
-        );
-
-      case Routes.commercialAdminWorkshopDecisionApprovals:
-        return _protectedRoute(
-          child: const ApprovalIntelligencePage(),
-          settings: settings,
-        );
-
-      case Routes.commercialAdminWorkshopDecisionRisks:
-        return _protectedRoute(
-          child: const RiskEvaluationEnginePage(),
-          settings: settings,
-        );
-
-      case Routes.commercialAdminWorkshopDecisionRecommendations:
-        return _protectedRoute(
-          child: const RecommendationEnginePage(),
-          settings: settings,
-        );
-
-      case Routes.commercialAdminWorkshopDecisionEscalations:
-        return _protectedRoute(
-          child: const EscalationEnginePage(),
-          settings: settings,
-        );
-
-      case Routes.commercialAdminWorkshopDecisionAnalytics:
-        return _protectedRoute(
-          child: const DecisionAnalyticsPage(),
-          settings: settings,
-        );
-
-      case Routes.commercialAdminWorkshopGovernanceOps:
-        return _protectedRoute(
-          child: const GovernanceOperationsDashboardPage(),
-          settings: settings,
-        );
-
-      case Routes.commercialAdminWorkshopGovernancePlaybooks:
-        return _protectedRoute(
-          child: const GovernancePlaybooksPage(),
-          settings: settings,
-        );
-
-      case Routes.commercialAdminWorkshopDocumentGovernance:
-        return _protectedRoute(
-          child: const DocumentGovernancePage(),
-          settings: settings,
-        );
-
-      case Routes.commercialAdminWorkshopCorporateVault:
-        return _protectedRoute(
-          child: const CorporateCommunicationVaultPage(),
-          settings: settings,
-        );
-
       case Routes.commercialV2Web:
         return MaterialPageRoute(
           builder: (_) => const CommercialV2WebShowcasePage(),
@@ -1084,12 +318,6 @@ class AppRouter {
       case Routes.landingPreview:
         return MaterialPageRoute(
           builder: (_) => const CommercialV2WebShowcasePage(),
-          settings: settings,
-        );
-
-      case Routes.presentationGallery:
-        return MaterialPageRoute(
-          builder: (_) => const PresentationGalleryPage(),
           settings: settings,
         );
 
@@ -1135,6 +363,24 @@ class AppRouter {
           settings: settings,
         );
 
+      case Routes.residentialCapsuleTest:
+        return MaterialPageRoute(
+          builder: (_) => const ResidentialCapsuleTestRoute(),
+          settings: settings,
+        );
+
+      case Routes.commercialCapsuleTest:
+        return MaterialPageRoute(
+          builder: (_) => const CommercialCapsuleTestRoute(),
+          settings: settings,
+        );
+
+      case Routes.libraryCapsuleTest:
+        return MaterialPageRoute(
+          builder: (_) => const LibraryCapsuleTestRoute(),
+          settings: settings,
+        );
+
       case Routes.splash:
         return MaterialPageRoute(
           builder: (_) => const Generation2SplashPage(),
@@ -1177,46 +423,11 @@ class AppRouter {
           settings: settings,
         );
 
-      case Routes.addiction:
-        return MaterialPageRoute(
-          builder: (_) => const SupportEntryPage.addiction(),
-          settings: settings,
-        );
-
-      case Routes.specialNeeds:
-        return MaterialPageRoute(
-          builder: (_) => const SupportEntryPage.specialNeeds(),
-          settings: settings,
-        );
-
-      case Routes.supportIssueSelector:
-        final args = settings.arguments;
-        final supportType =
-            args is Map ? args['supportType']?.toString() : null;
-        if (supportType != 'recovery_support' &&
-            supportType != 'family_support' &&
-            supportType != 'client_support' &&
-            supportType != 'center_support' &&
-            supportType != 'clinician_support') {
-          return MaterialPageRoute(
-            builder: (ctx) => Scaffold(
-              body: Center(
-                child: Text(AppLocalizations.of(ctx)!.routeNotFound),
-              ),
-            ),
-            settings: settings,
-          );
-        }
-        return MaterialPageRoute(
-          builder: (_) => SupportIssueSelectorPage(supportType: supportType!),
-          settings: settings,
-        );
-
       default:
         return MaterialPageRoute(
           builder: (context) => Scaffold(
             body: Center(
-              child: Text(AppLocalizations.of(context)!.routeNotFound),
+              child: Text(AppSectionLocalizations.of(context).routeNotFound),
             ),
           ),
           settings: settings,
@@ -1235,7 +446,7 @@ class _KnowledgeArticleRouteLoader extends StatelessWidget {
   Widget build(BuildContext context) {
     if (cardId == null || cardId!.trim().isEmpty) {
       return _RouteNotFoundMessage(
-          message: AppLocalizations.of(context)!.routeNotFound);
+          message: AppSectionLocalizations.of(context).routeNotFound);
     }
 
     return FutureBuilder<KnowledgeCard?>(
@@ -1253,7 +464,7 @@ class _KnowledgeArticleRouteLoader extends StatelessWidget {
         final card = snapshot.data;
         if (card == null) {
           return _RouteNotFoundMessage(
-            message: AppLocalizations.of(context)!.routeNotFound,
+            message: AppSectionLocalizations.of(context).routeNotFound,
           );
         }
 

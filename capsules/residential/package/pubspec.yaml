@@ -1,0 +1,45 @@
+name: mental_smile_residential_capsule
+description: Mental Smile Residential Capsule
+version: 0.1.0
+publish_to: none
+
+environment:
+  sdk: ^3.8.0
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+  flutter_riverpod: ^2.6.1
+  image_picker: ^1.1.2
+  intl: any
+  shared_preferences: ^2.5.3
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^5.0.0
+
+flutter:
+  generate: false
+  uses-material-design: true
+  assets:
+    - assets/accessibility/accessibility_checkin/
+    - assets/accessibility/accessibility_community_tools/
+    - assets/accessibility/accessibility_links/
+    - assets/accessibility/accessibility_message_of_day/
+    - assets/accessibility/accessibility_room/
+    - assets/accessibility/accessibility_suggestions/
+    - assets/accessibility/accessibility_tools/
+    - assets/backgrounds/
+    - assets/branding/rooms/accessibility_room/
+    - assets/branding/rooms/accessibility_room/cards/
+    - assets/branding/rooms/client_room/
+    - assets/branding/splash/
+    - assets/client/client_room/
+    - assets/client/client_room/cards/
+    - assets/client/generation2_mobile_client_room/
+    - assets/client/generation2_mobile_client_selection/
+    - assets/images/mobile/client_room/
+    - assets/images/mobile/splash/
